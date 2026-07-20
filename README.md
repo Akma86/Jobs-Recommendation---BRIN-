@@ -42,9 +42,8 @@ Orkestrasi end-to-end dijalankan melalui `full_pipeline.py`.
 
 - **Bahasa:** Python
 - **NLP/Embedding:** Multilingual E5, Cross-Encoder, IndoBERT
-- **XAI:** SHAP, LIME, DiCE, Anchors, Integrated Gradients
+- **XAI:** SHAP, LIME, DiCE
 - **Data Processing:** pandas, openpyxl
-- **Sumber Vocabulary:** ESCO, O*NET
 
 ## ⚠️ Batasan (Limitations)
 
