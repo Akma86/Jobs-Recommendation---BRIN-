@@ -13,19 +13,11 @@ Sistem ini mengintegrasikan data akademik mahasiswa (KHS/transkrip nilai), CV, d
 - **Vocabulary Expansion** — integrasi dengan ESCO dan O*NET untuk memperkaya kosakata skill
 - **Semantic Matching** — menggunakan multilingual E5 embeddings untuk pencocokan makna antara profil mahasiswa dan lowongan kerja
 - **Re-ranking** — cross-encoder untuk meningkatkan presisi hasil pencocokan
-- **Grade-Weighted Fusion Scoring** — skor kecocokan yang mempertimbangkan bobot posisi skill:
-  | Posisi Skill | Bobot |
-  |---|---|
-  | Inti | 1.00 |
-  | Utama | 0.90 |
-  | Pendukung | 0.75 |
-  | Disinggung | 0.60 |
+
 - **Explainable AI (XAI)** — menjelaskan alasan di balik setiap rekomendasi menggunakan:
   - SHAP (Shapley Values)
   - LIME
   - DiCE (Counterfactual Explanations)
-  - Anchors
-  - Integrated Gradients (untuk komponen IndoBERT)
 
 ## 🗂️ Sumber Data
 
@@ -65,4 +57,4 @@ Dikembangkan sebagai bagian dari program magang di BRIN, di bawah bimbingan **Sa
 
 ## 📄 Lisensi
 
-_Tambahkan lisensi sesuai kebutuhan proyek._
+_Akmal Yaasir Fauzaan._
