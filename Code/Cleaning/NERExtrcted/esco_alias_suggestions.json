@@ -1,0 +1,871 @@
+{
+  "AI Application": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/4fb87cb4-6442-4b5d-8bd0-eb1aa743a9ee",
+      "preferredLabel": "application process",
+      "altLabels": []
+    }
+  ],
+  "AIS Design": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/a0d79341-8398-4019-ad1b-27888ec35aaa",
+      "preferredLabel": "use accounting systems",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/b5cb259e-83e7-48f5-950e-245d5b5fd6d0",
+      "preferredLabel": "draft accounting procedures",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/99b163e8-7815-43e2-83f3-a47f3076354c",
+      "preferredLabel": "accounting entries",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/5f1ebff6-98ec-411f-a1d4-0bf04bd03bdf",
+      "preferredLabel": "check accounting records",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/da629999-d226-4ff3-9e1a-01788132664f",
+      "preferredLabel": "ensure compliance with disclosure criteria of accounting information",
+      "altLabels": []
+    }
+  ],
+  "API Design": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/04fe962b-4017-4eb7-9139-7d69b6922bc9",
+      "preferredLabel": "use an application-specific interface",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/b0096dc5-2e2d-4bc1-8172-05bf486c3968",
+      "preferredLabel": "design application interfaces",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/b105ec9b-0857-41d6-8d07-a83e58b73d90",
+      "preferredLabel": "ICT system programming",
+      "altLabels": []
+    }
+  ],
+  "Agile/Scrum": [],
+  "Algorithm Design": [],
+  "Architecture Modeling": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/2857540c-180b-4208-9127-e94a01871966",
+      "preferredLabel": "align software with system architectures",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/2450c3b3-e78e-435b-b84d-e05d984e71dc",
+      "preferredLabel": "software architecture models",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/f7e2eb04-3e50-4561-bce1-7e51a1fec308",
+      "preferredLabel": "define software architecture",
+      "altLabels": []
+    }
+  ],
+  "Association Rule": [],
+  "BPMN": [],
+  "BPR Methodology": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/9e84a506-df06-4be3-874a-fa01293e3dd5",
+      "preferredLabel": "business processes",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/6a7792a9-888a-46ad-afc9-2c0d94c8fde6",
+      "preferredLabel": "create business process models",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/f54cb941-6e9b-43ee-a135-9fda4ad7237b",
+      "preferredLabel": "manage aftersales processes to comply with business standards",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/fcb2b5f4-3a64-42f2-987a-073bea986104",
+      "preferredLabel": "business knowledge",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/56042303-972b-41be-9310-58467599ff7e",
+      "preferredLabel": "analyse business processes",
+      "altLabels": []
+    }
+  ],
+  "Backend Development": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/9ccecb58-e720-4465-b309-46e362ca6f75",
+      "preferredLabel": "adolescent psychological development",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/ad649b0b-ced2-48b6-be0a-0c35e07a445f",
+      "preferredLabel": "human psychological development",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/ebec77ca-6d9d-4d90-9f65-f9d287a13286",
+      "preferredLabel": "development delays",
+      "altLabels": []
+    }
+  ],
+  "CI/CD": [],
+  "COBIT": [],
+  "Change Management": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/06fa9997-1720-45e8-a0cf-ee3060049f8b",
+      "preferredLabel": "alter management",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/3c03ee71-4a23-448f-b79e-81fd75d27dca",
+      "preferredLabel": "apply change management",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/c241f5a5-e23f-47bf-ad24-d83ea0010166",
+      "preferredLabel": "ensure proper document management",
+      "altLabels": []
+    }
+  ],
+  "Class Design": [],
+  "Classification": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/98f14bc9-4eb6-4628-92d2-ed79a649d5c8",
+      "preferredLabel": "develop occupational classification systems",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/32bbd1de-4995-4e47-84ab-fb3a2b0cfdf1",
+      "preferredLabel": "fish identification and classification",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/4262ddf4-4985-4d23-ba82-f82a226b2bde",
+      "preferredLabel": "medication classification",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/49812c2d-3a36-4be8-bd41-8c0be3db7c6d",
+      "preferredLabel": "develop classification systems",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/72f9d741-7696-43d2-bccb-d46f9463eecb",
+      "preferredLabel": "arrange books in classification order",
+      "altLabels": []
+    }
+  ],
+  "Clustering": [],
+  "Cryptography": [],
+  "Cybersecurity": [],
+  "Dashboard & Reporting": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/9bcfccac-8920-4024-9aef-a06f8c035063",
+      "preferredLabel": "follow reporting procedures",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/4a855abe-ac5b-4e95-ac10-3c1adceeee28",
+      "preferredLabel": "international financial reporting standards",
+      "altLabels": []
+    }
+  ],
+  "Data Modeling": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/fbafa41f-cd05-4109-a649-8b44d306d779",
+      "preferredLabel": "create data models",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/fecf8a0d-62c4-4e71-9b03-0f4fc2ad7bf5",
+      "preferredLabel": "data models",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/c5e8abde-d2ba-4e8e-a65e-720b71180666",
+      "preferredLabel": "unstructured data",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/6f993130-082b-4732-b62f-52cdf2096ad9",
+      "preferredLabel": "use methods of logistical data analysis",
+      "altLabels": []
+    }
+  ],
+  "Data Structure": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/cb5cccc9-abe4-4b11-abe6-d27e5cd85fb1",
+      "preferredLabel": "manage standards for data exchange",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/f8e3425c-fe44-4ffb-bafe-0e20d91dadf4",
+      "preferredLabel": "SAP Data Services",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/3af687cb-8c7a-46ea-a730-32dbaed040c6",
+      "preferredLabel": "Oracle Data Integrator",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/e5a6e1e0-1b07-4432-83ba-77d593b2cb47",
+      "preferredLabel": "SAS Data Management",
+      "altLabels": []
+    }
+  ],
+  "Database Design": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/29fb0fb5-dfc4-4098-ac9b-3a712000f48f",
+      "preferredLabel": "manage database",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/84f58e3d-8669-4d83-8c1d-5dd1e73a654f",
+      "preferredLabel": "create database diagrams",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/6c08403c-a5bb-4868-b8c2-b7d039c0e511",
+      "preferredLabel": "design database scheme",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/ab67fbfb-0ca7-4345-8bf6-af8f59480212",
+      "preferredLabel": "design database backup specifications",
+      "altLabels": []
+    }
+  ],
+  "Decision Tree/KNN/SVM": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/8369c2d6-c100-4cf6-bd83-9668d8678433",
+      "preferredLabel": "utilise machine learning",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/731101d9-94bc-4805-bff4-9578d1bf03b5",
+      "preferredLabel": "learning difficulties",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/a44c0ed6-68b1-457a-9c6d-ea8487bdfeb2",
+      "preferredLabel": "use learning strategies",
+      "altLabels": []
+    }
+  ],
+  "Design Pattern": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/2b7a79e5-84d8-4880-be66-3d9bb05bea17",
+      "preferredLabel": "use software design patterns",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/1019423b-3368-4f83-b24f-19e5fa23e816",
+      "preferredLabel": "software UI design patterns",
+      "altLabels": []
+    }
+  ],
+  "Digital Transformation": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/0458f6a0-cb54-4ff5-a543-b2c5354e17c0",
+      "preferredLabel": "keep up with digital transformation of industrial processes",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/106b9659-4b9a-4ce2-8d16-80add5bf81b0",
+      "preferredLabel": "energy transformation",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/2e1888d8-97f7-4c91-8874-e2ef0e47f94f",
+      "preferredLabel": "create digital files",
+      "altLabels": []
+    }
+  ],
+  "EA Framework": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/ee3c1d54-f46a-43c7-a0f9-0ba3648164d0",
+      "preferredLabel": "design enterprise architecture",
+      "altLabels": []
+    }
+  ],
+  "ERP": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/09f4c52b-ac72-4f0e-a8ae-78bb1d7bffba",
+      "preferredLabel": "transportation software related to an ERP system",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/f0393af3-bcd9-41af-a36e-0cfb83b60081",
+      "preferredLabel": "manage standard enterprise resource planning system",
+      "altLabels": []
+    }
+  ],
+  "ETL Process": [],
+  "File System": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/3d427a49-4f85-42cd-8a92-62d4a34f41a1",
+      "preferredLabel": "file documents",
+      "altLabels": []
+    }
+  ],
+  "Financial Reporting": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/4a855abe-ac5b-4e95-ac10-3c1adceeee28",
+      "preferredLabel": "international financial reporting standards",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/dd7c9dfd-6e2c-46fd-aefc-369402d0200c",
+      "preferredLabel": "create a financial report",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/3e9b580d-811b-48df-a5d1-a7bdd26f901f",
+      "preferredLabel": "prepare financial auditing reports",
+      "altLabels": []
+    }
+  ],
+  "IS Governance": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/9a0d0abc-010d-440b-8242-7e31510471ba",
+      "preferredLabel": "information governance compliance",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/f9807523-f807-40e4-83fa-4c2d28cefebe",
+      "preferredLabel": "implement veterinary clinical governance",
+      "altLabels": []
+    }
+  ],
+  "IS Strategy": {
+    "error": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+  },
+  "IT Infrastructure": {
+    "error": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+  },
+  "IT Performance Audit": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/0520d8ba-3c24-4f75-a8b0-f883ddeed82d",
+      "preferredLabel": "audit contractors",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/0ad6d5e8-593f-4191-843c-439b23a468ca",
+      "preferredLabel": "conduct energy audit",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/6a536b36-c5c7-4d10-bf67-a4fb0f8549b2",
+      "preferredLabel": "audit techniques",
+      "altLabels": []
+    }
+  ],
+  "ITIL": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/d12e9d68-84c5-444e-aa98-d36533bf03f6",
+      "preferredLabel": "apply operations for an ITIL-based environment",
+      "altLabels": []
+    }
+  ],
+  "Internal Control": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/0daaf096-1639-461c-bf1a-bbeea77e6b67",
+      "preferredLabel": "internal risk management policy",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/da70d0cf-1b0b-43eb-924f-e2a69d0d5390",
+      "preferredLabel": "implement quality control procedures for biomedical tests",
+      "altLabels": []
+    }
+  ],
+  "Java/Python": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/5b9cde20-f1b9-4adc-bfb3-dbf70b14138d",
+      "preferredLabel": "use object-oriented programming",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/d31fab87-2a7d-485c-b699-2901ca294b15",
+      "preferredLabel": "use functional programming",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/2c4e11ef-da18-4e19-816b-e6bc19e12424",
+      "preferredLabel": "use logic programming",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/5ef0c719-5bcb-49f8-b8eb-824388225333",
+      "preferredLabel": "use scripting programming",
+      "altLabels": []
+    }
+  ],
+  "Linux Administration": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/625b57ee-29d4-425b-bf99-9fd54dd021fe",
+      "preferredLabel": "Kali Linux",
+      "altLabels": []
+    }
+  ],
+  "Machine Learning": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/8369c2d6-c100-4cf6-bd83-9668d8678433",
+      "preferredLabel": "utilise machine learning",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/731101d9-94bc-4805-bff4-9578d1bf03b5",
+      "preferredLabel": "learning difficulties",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/a44c0ed6-68b1-457a-9c6d-ea8487bdfeb2",
+      "preferredLabel": "use learning strategies",
+      "altLabels": []
+    }
+  ],
+  "Memory Management": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/c368f4eb-d6b2-4b8f-8f21-14926ab7fb07",
+      "preferredLabel": "use geographic memory",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/2b24cbb7-f94e-43c1-8377-138f80ad5c19",
+      "preferredLabel": "develop translation memory software",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/ec95d0a4-886e-4eb1-aa4c-2d5f2549df7d",
+      "preferredLabel": "use translation memory software",
+      "altLabels": []
+    }
+  ],
+  "Network Security": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/2ddb1226-1117-4eb4-ae65-3a2f5a5a3c80",
+      "preferredLabel": "ICT network security risks",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/8088750d-8388-4170-a76f-48354c469c44",
+      "preferredLabel": "cyber security",
+      "altLabels": []
+    }
+  ],
+  "Network Topology": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/e36c1f47-3913-4d35-a6ae-fd9a7243483f",
+      "preferredLabel": "design ventilation network",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/f7091334-10da-4ad6-b74a-8528a01a03f4",
+      "preferredLabel": "expand the network of providers",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/da042121-959d-451b-b4d0-3bbf07c1bc67",
+      "preferredLabel": "analyse network bandwidth requirements",
+      "altLabels": []
+    }
+  ],
+  "Neural Network": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/e36c1f47-3913-4d35-a6ae-fd9a7243483f",
+      "preferredLabel": "design ventilation network",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/f7091334-10da-4ad6-b74a-8528a01a03f4",
+      "preferredLabel": "expand the network of providers",
+      "altLabels": []
+    }
+  ],
+  "Normalization": [],
+  "OLAP": [],
+  "OOP Principles": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/5b9cde20-f1b9-4adc-bfb3-dbf70b14138d",
+      "preferredLabel": "use object-oriented programming",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/21d2f96d-35f7-4e3f-9745-c533d2dd6e97",
+      "preferredLabel": "computer programming",
+      "altLabels": []
+    }
+  ],
+  "PMBOK": [],
+  "Performance Measurement": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/5e50a0f1-4089-4df6-a15b-34b39d3aeab4",
+      "preferredLabel": "conduct performance measurement",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/b92758d4-4591-4df1-9ceb-f907aa71ebd9",
+      "preferredLabel": "use measurement instruments",
+      "altLabels": []
+    }
+  ],
+  "Predictive Modeling": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/38d49d88-9069-467b-b29e-3cae739bdd4d",
+      "preferredLabel": "build predictive models",
+      "altLabels": []
+    }
+  ],
+  "Process Analysis": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/75f650d0-9096-4b8f-bbd6-ad05ee3f6121",
+      "preferredLabel": "document analysis results",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/7faee267-fd31-44a0-87ce-7e0382cf516f",
+      "preferredLabel": "identify purpose of analysis",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/2b92a5b2-6758-4ee3-9fb4-b6387a55cc8f",
+      "preferredLabel": "perform data analysis",
+      "altLabels": []
+    }
+  ],
+  "Process Management": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/96550830-539b-4746-96aa-92aa4959945d",
+      "preferredLabel": "apply risk management processes",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/114a79ef-1e62-475b-a862-954f5b4cca20",
+      "preferredLabel": "develop waste management processes",
+      "altLabels": []
+    }
+  ],
+  "Process Mapping": {
+    "error": "HTTPSConnectionPool(host='ec.europa.eu', port=443): Read timed out. (read timeout=30)"
+  },
+  "Process Optimization": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/5077e3ef-6c80-46be-b944-3d8243350ea1",
+      "preferredLabel": "grain-for-beverages milling process",
+      "altLabels": []
+    }
+  ],
+  "Pseudocode": [],
+  "Query Optimization": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/75f839c2-fd9a-4ad3-8921-6e734608568d",
+      "preferredLabel": "use query languages",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/99207709-d076-4cce-ba38-e90d3bb28806",
+      "preferredLabel": "resource description framework query language",
+      "altLabels": []
+    }
+  ],
+  "Requirements Engineering": {
+    "error": "('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))"
+  },
+  "Risk Assessment": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/6eff134b-e34f-4d6e-a6e8-5e47cf2228d0",
+      "preferredLabel": "risk management",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/594bd121-9614-4e87-9ecf-6ccb95507efe",
+      "preferredLabel": "draw up risk assessment",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/497705d7-7a03-4a68-99f3-69d2de9366f4",
+      "preferredLabel": "undertake risk assessment of clients",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/6984c5db-52b1-456b-bb5a-781ff43ee23c",
+      "preferredLabel": "risk assessment for window cleaning",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/b9aa41a9-636f-49a8-ac9f-24fc18de07c2",
+      "preferredLabel": "undertake genetic risk assessment",
+      "altLabels": []
+    }
+  ],
+  "Risk Management": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/6eff134b-e34f-4d6e-a6e8-5e47cf2228d0",
+      "preferredLabel": "risk management",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/96550830-539b-4746-96aa-92aa4959945d",
+      "preferredLabel": "apply risk management processes",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/7edb0956-5aa3-48fc-84fb-9095619612f5",
+      "preferredLabel": "carry out storage risk management",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/d08c420c-d3c6-4485-af6f-f2544e9aa0ac",
+      "preferredLabel": "implement risk management for outdoors",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/a366bfc5-8d17-4792-a9f0-db0951528dda",
+      "preferredLabel": "advise on environmental risk management systems",
+      "altLabels": []
+    }
+  ],
+  "SAP/Oracle": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/f0393af3-bcd9-41af-a36e-0cfb83b60081",
+      "preferredLabel": "manage standard enterprise resource planning system",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/5475343c-5e75-415f-b431-17f3c20a347e",
+      "preferredLabel": "use production planning software",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/435d1751-8667-41ec-8b32-865b7cd3c684",
+      "preferredLabel": "manage production enterprise",
+      "altLabels": []
+    }
+  ],
+  "SDLC": [],
+  "SQL": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+      "preferredLabel": "SQL",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/c062bab3-3ea0-4291-9220-a2d8fef4bead",
+      "preferredLabel": "SQL Server",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/6f7512ab-d46d-402a-8c30-a8878d7c1f88",
+      "preferredLabel": "SQL Server Integration Services",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/76ef6ed3-1658-4a1a-9593-204d799c6d0c",
+      "preferredLabel": "NoSQL",
+      "altLabels": []
+    }
+  ],
+  "Security Audit": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/925cb6fb-9506-48a5-9106-400088a4a436",
+      "preferredLabel": "arrange audit",
+      "altLabels": []
+    }
+  ],
+  "Software Testing": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/78a74fd1-efc6-49dc-adb1-1b0fbe35c22c",
+      "preferredLabel": "provide software testing documentation",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/85f46538-ae70-498a-bfbc-b8ddafe96c7d",
+      "preferredLabel": "levels of software testing",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/5d74614d-32c8-4ca4-9818-6980e52424b1",
+      "preferredLabel": "plan software testing",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/913e7e83-b8f8-4574-b1ca-1b38f3fd974a",
+      "preferredLabel": "execute software tests",
+      "altLabels": []
+    }
+  ],
+  "System Architecture": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/2857540c-180b-4208-9127-e94a01871966",
+      "preferredLabel": "align software with system architectures",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/4d85b881-e490-4b4c-897a-2faa4ef53956",
+      "preferredLabel": "manage ICT data architecture",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/b105ec9b-0857-41d6-8d07-a83e58b73d90",
+      "preferredLabel": "ICT system programming",
+      "altLabels": []
+    }
+  ],
+  "TCP/IP Protocol": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/b9aad733-959a-4178-984f-53e4bd05b420",
+      "preferredLabel": "maintain internet protocol configuration",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/70988d2c-a750-4808-a360-5aaf859cf39a",
+      "preferredLabel": "broadcast using Internet Protocol",
+      "altLabels": []
+    }
+  ],
+  "TOGAF": [],
+  "Transaction Processing": [],
+  "UI Prototyping": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/ed1d8bd4-cd2a-4c64-b665-56d70651026c",
+      "preferredLabel": "Prototyping development",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/0f16809e-a1a4-46a4-ae8e-058f5d0d358a",
+      "preferredLabel": "prototyping in the wearing apparel industry",
+      "altLabels": []
+    }
+  ],
+  "UML Modeling": [],
+  "UX Research": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/cd0f35cd-fc71-4057-a85e-b73dee89e541",
+      "preferredLabel": "research fragrances",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/b10c9a92-d6ff-40bc-ac64-4705949a2ac7",
+      "preferredLabel": "perform field research",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/434fb032-3c05-45bd-aaf2-09468ee34d7f",
+      "preferredLabel": "identify research topics",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/8dee09d8-07da-493a-a171-d2d7737498ff",
+      "preferredLabel": "research equipment needs",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/336f4602-7847-4e58-b0ec-9a4da3d94ecd",
+      "preferredLabel": "document seismic research",
+      "altLabels": []
+    }
+  ],
+  "Usability Testing": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/be0ff6d8-5e61-4021-9c89-e40cf0b75cc6",
+      "preferredLabel": "measure software usability",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/95ee5e38-5c1e-4cd2-a21d-6921390025a9",
+      "preferredLabel": "usability engineering",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/c4b626c1-e71c-44ec-9f88-042766f37fcc",
+      "preferredLabel": "application usability",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/0ced619a-0f59-4802-88ea-e97bf1b57f95",
+      "preferredLabel": "optimise fleet usability",
+      "altLabels": []
+    }
+  ],
+  "Use Case Design": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/2ffc7a73-7e1d-434a-b498-2b0c056ced1d",
+      "preferredLabel": "apply case management",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/fdeabe51-1d92-4770-acfe-eff9769b3d4f",
+      "preferredLabel": "landscape analysis",
+      "altLabels": []
+    }
+  ],
+  "Version Control": [],
+  "WBS & Scheduling": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/8c6feedd-339f-4dba-b28a-dae84c759853",
+      "preferredLabel": "develop project schedule",
+      "altLabels": []
+    }
+  ],
+  "Web Framework": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/8c88d336-c249-4537-b26e-d679a85c4b9b",
+      "preferredLabel": "Ajax Framework",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+      "preferredLabel": "JavaScript Framework",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/baf1fadb-975a-42be-9744-d8ba02304d09",
+      "preferredLabel": "Samurai Web Testing Framework",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/273eb12c-7c34-41d2-afd2-c0222bf853bc",
+      "preferredLabel": "develop an artistic framework",
+      "altLabels": []
+    }
+  ],
+  "Web Services": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/82312096-4df8-49ce-9cdd-a6e08af56b45",
+      "preferredLabel": "evaluate information services using metrics",
+      "altLabels": []
+    }
+  ],
+  "Wireframing": [],
+  "Workflow Design": [
+    {
+      "uri": "http://data.europa.eu/esco/skill/2c28fc20-8a60-4311-8899-5ef8729c05b3",
+      "preferredLabel": "design process",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/8add048c-4d51-41c5-8aa2-f57412c4a637",
+      "preferredLabel": "enhance production workflow",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/7add3681-17b6-4027-8a9d-ee92d2b96a42",
+      "preferredLabel": "manage workflow processes",
+      "altLabels": []
+    },
+    {
+      "uri": "http://data.europa.eu/esco/skill/a35b9b1c-ebfe-41ac-96be-2a7b2ea04670",
+      "preferredLabel": "file-based workflow",
+      "altLabels": []
+    }
+  ]
+}

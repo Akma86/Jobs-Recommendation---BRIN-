@@ -1,0 +1,1561 @@
+24SevenOffice Project
+2AB iLock Security Services
+3D graphic design software
+3D graphics software
+3M Post-it App
+5AM Glassbox Translational Research
+A mathematical programming language AMPL
+A programming language APL
+ABC Compiler
+ABC: the AspectBench Compiler for AspectJ
+ACT! Premium
+ADO.NET
+ADP Workforce Now
+AEC Software FastTrack Schedule
+AJAX
+AMPL
+AMS REALTIME Projects
+ARMON Technologies XLActuary
+ARfit
+ASG Technologies ASG-Zeke
+ASSET JTAG ScanWorks
+AWK
+Ab Initio
+Access management software
+AccessData FTK
+AcmeStudio
+Acresso InstallAnywhere
+Acronis Recovery Expert
+Actano Rplan
+Active directory software
+Actuate Eclipse BIRT
+Ada
+Adaptive Metadata Manager
+Ademero Content Central
+Adeptia ETL Suite
+Adexa eGPS Suite
+Adobe AIR
+Adobe Acrobat
+Adobe ActionScript
+Adobe After Effects
+Adobe ColdFusion
+Adobe Creative Cloud software
+Adobe Director
+Adobe Distiller
+Adobe Dreamweaver
+Adobe Experience Manager (AEM)
+Adobe Flex
+Adobe FrameMaker
+Adobe FreeHand MX
+Adobe Illustrator
+Adobe InDesign
+Adobe Macromedia HomeSite
+Adobe PageMaker
+Adobe Photoshop
+Adobe PostScript
+Adobe XD
+Advanced Processing and Imaging OptiView ECM
+Advanced business application programming ABAP
+Advanced numerical software
+Agronomic modeling software
+AirMagnet Enterprise
+Airtable
+Alfresco Software Alfresco
+Algae
+Algorithmic language ALGOL
+Algorithmic software
+Allaire ColdFusion
+Allscripts Professional EHR
+Allscripts Sunrise
+Allscripts healthcare automation software
+Alpha Four
+Alteryx software
+Altia Design
+Altova MapForce
+Amazon Data Pipeline
+Amazon DynamoDB
+Amazon Elastic Compute Cloud EC2
+Amazon Elastic Container Service ECS
+Amazon Kinesis
+Amazon Redshift
+Amazon Simple Storage Service S3
+Amazon Web Services AWS CloudFormation
+Amazon Web Services AWS SageMaker
+Amazon Web Services AWS software
+American National Standards Institute ANSI C
+Amkai AmkaiCharts
+Analyse-it
+Analysis and Visualization of Time Sequences AVTS
+Angoss KnowledgeSEEKER
+Ansible software
+AnthillPro
+Anti-Trojan software
+Anti-phishing software
+Anti-spyware software
+Aonix Software Through Pictures
+Apache Airflow
+Apache Ant
+Apache Avro
+Apache Cassandra
+Apache Continuum
+Apache Flume
+Apache Groovy
+Apache Gump
+Apache HBase
+Apache HTTP Server
+Apache Hadoop
+Apache Hive
+Apache JMeter
+Apache Kafka
+Apache MXNet
+Apache Mahout
+Apache Maven
+Apache Oozie
+Apache Pig
+Apache Solr
+Apache Spark
+Apache Sqoop
+Apache Struts
+Apache Tomcat
+Apatar
+Apfloat
+Appium
+Apple Cocoa
+Apple Final Cut Pro
+Apple Keynote
+Apple Safari
+Apple Shazam
+Apple iMovie
+Apple iOS
+Apple iWork Keynote
+Apple iWork Numbers
+Apple iWork Pages
+Apple macOS
+Application management software
+Application server software
+Application-specific integrated circuit ASIC logic synthesis software
+Appraisal software
+Aptech Systems GAUSS
+ArcGIS Web AppBuilder
+ArcSight Enterprise Threat and Risk Management
+Architecture description language ADL
+Arping
+Aruba Networks AirWave
+Ascensio Systems TeamLab
+Assembla
+Asset management administration software
+Aster Data nCluster
+AtTask
+Atlassian Bamboo
+Atlassian Confluence
+Atlassian HipChat
+Atlassian JIRA
+Augmint
+Autocoders
+Autodesk 3ds Max
+Autodesk AutoCAD
+Autodesk Land Desktop
+Autodesk MapGuide
+Autodesk Maya
+Autodesk Revit
+Autodesk Scaleform
+Autodesk Topobase
+Automated audit trail analysis software
+Automated document generation software
+Automated installation software
+Automated media tracking software
+Automatic Forecasting Systems Autobox
+Automatic test program generation ATPG
+Automation Centre TrackerSuite.Net
+Autonomy iManage WorkSite
+Avaya Identity Engines
+Axure RP
+Aztec
+B&W Port Scanner
+B-Method
+BEA Tuxedo
+BMC Software Change Manager
+BMC Software Control-M
+BMC Software Recovery Manager RMAN
+BMC Software Remedy IT Service Management Suite
+Backbone.js
+Backup and archival software
+Balsamiq Studios Balsamiq Mockups
+Basecamp
+Basic Local Alignment Search Tool BLAST
+Basis BBx VisualPRO/5
+Beginner's all-purpose symbolic instruction code BASIC
+Bentley MicroStation
+Bentley Systems ProjectWise
+Berkeley Internet Domain Name BIND
+Bidirectional encoder representations from transformers (BERT)
+BigQuery
+Bigloo Scheme
+Billing software
+Bioconductor
+BitWizard B.V. mtr
+Bizmatics PrognoCIS EMR
+BlackBerry Enterprise Server
+Blackbaud The Raiser's Edge
+Blackboard software
+Blink
+Block diagram software
+Bootstrap
+Border Gateway Protocol BGP
+Borland Paradox
+Borland SilkTest
+Borland VisiBroker
+Boundary scan description language BSDL
+Boundary scan insertion software
+Bourne Shell
+Bowtie
+BrightWork pmPoint
+BroadSoft BroadWorks
+BroadVision software
+Bugzilla
+Built-in self-test BIST debugging software
+Burrows-Wheeler Aligner BWA
+Business Forecast Systems Forecast Pro
+Business Objects Data Integrator
+Business intelligence software
+Business intelligence system software
+Business process management BPM software
+Business software applications
+C
+C for Graphics cg
+C shell
+CA Easytrieve Report Generator
+CA IDMS
+CA SiteMinder
+CA Technologies CA Clarity PPM for IT Governance
+CA Technologies ERWin Data Modeler
+CA eTrust
+CAPSYS Capture
+CDA International Manifold System
+CMake
+CS Odessa ConceptDraw Project
+Cabinet NG CNG-SAFE
+Cadence Allegro PCB Designer
+Cadence Concept
+Cadence Dracula
+Cadence Encounter RTL Compiler
+Cadence Opus
+Cadence OrCAD software
+Cadence PSpice
+Cadence Schematic Composer
+Cadence Virtuoso Layout Suite
+Cadence Virtuoso Spectre Circuit Simulator
+Calendar and scheduling software
+Call accounting software
+Call center software
+Call-processing language CPL
+Camfit Data Limited Microfit
+Canonical Launchpad
+Canu
+Capacity planning software
+Cascading style sheets CSS
+Cash flow software
+Catalog navigation software
+Central Desktop
+Cerner Millennium
+Cerner PowerChart
+Charm++
+ChartWare EMR
+Chatbot software
+Check Point Next Generation Secure Web Gateway
+Chef
+Cisco IOS
+Cisco Systems Cisco NetFlow Collection Engine
+Cisco Systems Cisco Traffic Analyzer
+Cisco Systems Cisco Web Cache Communication Protocol WCCP
+Cisco Systems CiscoWorks
+Cisco Systems CiscoWorks LAN Management Solution
+Cisco Systems Gateway Load Balancing Protocol GLBP
+Cisco Systems Hot Standby Router Protocol HSRP
+Cisco Systems WAN Manager
+Cisco Systems Wireless Control System WCS
+Cisco Webex
+Citrix XenApp
+Citrix cloud computing software
+Clarified Networks Clarified Analyzer
+Claritas PRIZM NE
+Clarity Systems IBM Clarity
+Clarizen
+ClearTrial
+Clinical trial management software
+Clinical trials database software
+Clipper
+Cloudera Impala
+CloverETL
+ClustalW
+Cluster server software
+Clustering software
+Clustermatic
+Code generator software
+Code hosting software
+Code munger software
+CodeFutures dbShards
+CoffeeCup The HTML Editor
+Coglin Mill RODIN
+Colasoft Capsa Enterprise
+Colasoft Capsa Free
+Collaborative Application Markup Language CAML
+Collaborative application lifecycle management ALM software
+Collaborative editing software
+Command interpreters
+Common Lisp Object System CLOS
+Common business oriented language COBOL
+Common gateway interface CGI
+Compaq Insight Manager
+Compatibility testing software
+Compilers
+Complementary-symmetry/metal-oxide semiconductor CMOS layout software
+Compliance testing software
+Component object model COM software
+Component-based Scalable Logical Architecture CSLA
+Computational statistics software
+Computer Algebra System for Algebraic Geometry CASA
+Computer Associates ArcServ Backup
+Computer Associates Log Analyzer
+Computer Associates integrated data management system CA-IDMS
+Computer On-line Real-time Applications Language CORAL 66
+Computer aided design CAD software
+Computer aided design and drafting CADD software
+Computer aided design and drafting software CADD
+Computer aided software engineering CASE tools
+Computer based training software
+Computer diagnostic software
+Computer forensic software
+Computer intrusion detection systems
+Computer simulation software
+Computer system diagnostics software
+Computerized physician order entry CPOE software
+Computhink ViewWise
+Compuware ClientVantage Agentless Monitoring
+Conarc iChannel
+Concurrency control software
+Configuration management software
+Conformance and validation testing software
+Congruity Technologies Inspector
+Connectivity software
+Content filter software
+Content management systems CMS
+Continuous integration software
+Coordinate geometry COGO software
+Corel CorelDraw Graphics Suite
+Corel WordPerfect Office Suite
+Cost estimating software
+Couchbase Server
+Countersoft Gemini
+CrossTec NetOp Remote Control
+CruiseControl
+Cryptographic key management software
+Cufflinks
+Customer information control system CICS
+Customer relationship management CRM software
+Cytel StatXact
+DB Tech RAS
+DBTools Software DBManager Professional
+DSP Development DADiSP
+DZS Software Solutions ClinPlus
+Daptiv PPM
+Dartware InterMapper
+Dassault Systemes CATIA
+Dassault Systemes SolidWorks
+Data acquisition systems
+Data analysis software
+Data conversion software
+Data definition language DDL
+Data dictionary software
+Data entry software
+Data manipulation language DML
+Data mapping software
+Data mining software
+Data modeling software
+Data transformation services DTS software
+Data validation software
+Data visualization software
+Data warehouse software
+DataDescription DataDesk
+DataVision
+Database capacity planning software
+Database cloning software
+Database design software
+Database management software
+Database management systems
+Database security software
+Database software
+Database testing software
+Day Software CQ5 Web Content Management
+Debugging software
+Debugview
+Decompilers
+Defect tracking software
+Delphi Technology
+Deployment software
+Design-for-testability DFT insertion software
+Desktop partitioning software
+Diagramming software
+Diameter
+DifEqu
+Dig
+Disarea 5pm
+Disaster recovery software
+Discrete Dynamics Lab DDLab
+Discrete Fourier transform DFT analysis software
+Discrete event simulation software
+Disk operating system DOS
+Distributed component object model DCOM software
+Distributed database management software
+Doc.It DM
+Docker
+DocuSign eSignature
+Document Object Model DOM Scripting
+Document imaging software
+Document indexing software
+Document management system software
+Domain name system DNS
+Doxygen
+Dropbox
+Drug coding software
+Drupal
+Dynamic analysis software
+Dynamic host configuration protocol DHCP
+Dynamic hypertext markup language DHTML
+Dynamic modeling software
+Dynatrace
+E++ pattern language
+EMC Captiva
+EMC Document Sciences xPression
+EMC Documentum
+EMC Ionix Network Configuration Manager
+EMC NetWorker
+EMC Smarts Network Protocol Manager
+EMC Symmetrix DMX
+ESRI ArcEditor
+ESRI ArcExplorer
+ESRI ArcGIS ArcPy
+ESRI ArcGIS Geostatistical Analyst
+ESRI ArcGIS Spatial Analyst
+ESRI ArcGIS Survey 123
+ESRI ArcGIS software
+ESRI ArcIMS
+ESRI ArcInfo
+ESRI ArcPad
+ESRI ArcSDE
+ESRI ArcView
+Eclipse IDE
+Eclipse Jersey
+Econometric Software LIMDEP
+Edgewell Trac
+Edulastic
+Eiffel
+Eko
+Elasticsearch
+EleSoft Research
+ElectricCloud ElectricCommander
+Electronic data capture EDC software
+Electronic design automation EDA software
+Electronic medical administration record eMAR software
+Element Software Copper
+Element management software
+Ellucian Banner ERP
+Email management software
+Email software
+Embarcadero Delphi
+Embarcadero ER/Studio XE
+Embarcadero JBuilder
+Embarcadero Technologies DBArtisan
+Embedded systems development software
+Emerald Software Group Emerald Green Office
+Endeavour Agile ALM
+Enhanced Interior Gateway Routing Protocol EIGRP
+Enterprise application integration EAI software
+Enterprise report management ERM software
+Enterprise resource planning ERP software
+Epic Systems
+EpicCare Ambulatory Electronic Medical Records (EMR) software
+Esri ArcGIS
+Ethereal
+Ettercap NG
+Event log monitor software
+Event-driven State-machines Programming
+Ever Team EverSuite Content Management
+Evernote
+Experience in Software Project KickStart
+Ext JS
+Extensible hypertext markup language XHTML
+Extensible markup language XML
+Extensible stylesheet language XSL
+Extensible stylesheet language transformations XSLT
+Fabasoft Folio
+FaceTime
+Facebook
+Failure analysis software
+Fast Fourier transform FFT analysis software
+Fault testing software
+Feng Office Collaboration Platform
+Field programmable gate array FPGA design software
+Field programmable gate array FPGA logic synthesis software
+Figma
+File compression software
+File server software
+File system software
+File transfer protocol FTP software
+FileHold Systems FileHold
+FileMaker Pro
+FileMon
+FileVision
+FinalBuilder
+FitNesse
+Flat File Checker
+FlexBox
+Flipgrid
+Flow chart software
+Fluke Networks Enterprise LANMeter
+Fog Creek Software FogBugz
+Formula translation/translator FORTRAN
+Forth
+Fortress Medical Clindex
+Forum One Communications ProjectSpaces
+Freescale CodeWarrior Tools
+Functional testing software
+Fund accounting software
+GE Healthcare Centricity EMR
+GENSCAN
+GGY AXIS
+GNU Image Manipulation Program GIMP
+GNU Octave
+Gambit Scheme
+GanttProject
+General algebraic modeling system GAMS
+Genome Analysis Toolkit GATK
+Geographic information system GIS software
+Geographic information system GIS systems
+Geomview
+Ghidra
+Glasscubes
+Global positioning system GPS software
+Go
+Google Ads
+Google Analytics
+Google Android
+Google Classroom
+Google Cloud software
+Google Docs
+Google Drive
+Google Earth Pro
+Google Gmail
+Google Meet
+Google Sheets
+Google Sites
+Google Slides
+Google Workspace software
+Gradle
+Grafana Labs Grafana Cloud
+Grails
+GraphPad Software GraphPad Prism
+GraphQL
+Graphical user interface GUI builder software
+Graphical user interface GUI design software
+Graphics Programming Environment GRAPE
+Graphics pipelines
+Graphics software
+Greatis Object Inspector
+Greenhills Ada compilers
+Greenplum Database
+GroupMe
+Guidance Software EnCase Enterprise
+Guidance Software EnCase Forensic
+HP DataProtector
+HP Fortify
+HP WebInspect
+Hardware description and verification language
+Hardware description language HDL
+HashiCorp Vagrant
+Haskell
+Healthcare common procedure coding system HCPCS
+Healthcare management system
+Help desk software
+Hewlett Packard Exstream Dialogue
+Hewlett Packard HP Project Portfolio Management Solution
+Hewlett Packard HP-UX
+Hewlett Packard LoadRunner
+Hewlett-Packard HP Network Node Manager
+Hewlett-Packard HP QuickTest Professional
+Hewlett-Packard HP TestDirector for Quality Center
+Hewlett-Packard HP WinRunner
+Hex-Rays IDA Pro
+HiT Software Allora
+Hibernate ORM
+Hierarchical simulation program with integrated circuit emphasis HSPICE
+High-performance software libraries
+Honeypot
+HubSpot software
+Hugging Face
+Human resource management software HRMS
+Hydrological modeling software
+Hyland Software OnBase
+HyperOffice Collaboration Suite
+HyperSpace
+Hyperion Solutions Hyperion Intelligence
+Hypertext markup language HTML
+IBM ADSTAR
+IBM AIX
+IBM BPM Blueprint
+IBM Clarity Systems Clarity
+IBM Cognos Impromptu
+IBM Content Manager
+IBM DB2
+IBM Director
+IBM Domino
+IBM FileNet Content Manager
+IBM ILOG
+IBM InfoSphere DataStage
+IBM InfoSphere Warehouse
+IBM Informix
+IBM Infosphere Information Server
+IBM Interactive System Productivity Facility ISPF
+IBM Lotus 1-2-3
+IBM Lotus Notes
+IBM Lotus SameTime
+IBM MVS
+IBM Middleware
+IBM NetView
+IBM Netezza TwinFin
+IBM Notes
+IBM Power Systems software
+IBM QRadar SIEM
+IBM Rational Apex
+IBM Rational Application Developer
+IBM Rational Build Forge
+IBM Rational ClearCase
+IBM Rational ClearQuest
+IBM Rational Data Architect
+IBM Rational PurifyPlus
+IBM Rational Requirements Composer
+IBM Rational RequisitePro
+IBM Rational Robot
+IBM Rational Rose XDE
+IBM Rational System Architect
+IBM Resource Access Control Facility RACF
+IBM SPSS Amos
+IBM SPSS AnswerTree
+IBM SPSS Statistics
+IBM Security Network Intrusion Prevention System
+IBM Software Configuration and Library Manager SCLM
+IBM Terraform
+IBM Tivoli Access Management TAM
+IBM Tivoli Identity Management TIM
+IBM Tivoli NetView Distribution Manager
+IBM Tivoli software
+IBM Unica Enterprise
+IBM WebSphere
+IBM WebSphere MQ
+IBM iSeries Access
+IBM z/OS operating systems
+ICON programming language
+IEA Software Emerald
+ILOG OPL-CPLEX Development System
+IONA Orbix
+ISS RealSecure
+ITT Visual Information Solutions ENVI
+Imagine That Extend OR
+Imperva SecureSphere
+InLoox
+InScribe
+InVision software
+Incremental compiler software
+Index tuning software
+Infoblox NetMRI
+Infoblox security and networking software
+Infobright Community Edition ICE
+Infor ERP Baan
+InforSense InforSense
+Informatica Big Data
+Informatica Corporation PowerCenter
+Informatica Data Explorer
+Informatica PowerCenter
+Informatica software
+Information Builders WebFOCUS
+Information systems integration software
+Inline code expander software
+Insightful S-PLUS
+InstallShield
+Insureware ICRFS-ELRF
+Integrated circuit simulation software
+Integrated development environment IDE software
+Integration testing software
+Integrity verification software
+Intel Data Migration Software
+Intel Integrated Performance Primitives
+Intel Math Kernel Library
+Intellisys Project Desktop
+InterMine
+Interactive Mathematical Proof System IMPS
+Interactive voice response software
+Interface Computers Data Loader
+Interface definition language IDL
+Intermediate System to Intermediate System IS-IS
+Internet Protocol Security IPSEC
+Internet browser software
+Internet search engine software
+Interoperability testing software
+Interpreter software
+Interstate connection ICON
+Intland Software codeBeamer
+Intrusion detection system IDS
+Intrusion prevention system IPS
+Invicti Acunetix
+Invivo Data EPX ePRO Management System
+IpFilter
+IpTables
+Ipswitch WhatsUp Gold
+Issue tracking system software
+J
+JACAL
+JFrog Artifactory
+JUnit
+JamBoard
+JavaScript
+JavaScript Object Notation JSON
+JavaScript framework software
+Jekyll
+Jest
+JetBrains IntelliJ IDEA
+JetBrains PhpStorm
+JetBrains Team City
+Jitterbit
+Job control language JCL
+Joomla
+Julia
+Juniper Networks NetScreen-Security Manager
+Jupyter Notebook
+Jupyter software
+Just-in-time compiler
+K2 Business Process Automation
+KANT
+KIKA Veracity
+KOffice.org Kplato
+KSEG
+Kalido Information Engine
+Kapwing
+Keystroke monitoring software
+Kforge
+Kidasa Milestones Professional
+KommandCore
+KornShell
+Kubeflow
+Kubernetes
+LAMP Stack
+LINDO Systems LINDO API
+LINDO Systems LINGO
+Landmark Graphics GeoGraphix
+Langlais Computer Consultants CalMan
+Laserfiche Rio
+Lavalys Everest
+Learning management system LMS
+Leica Geosystems ERDAS IMAGINE
+Lewis & Ellis LEAPPS
+LexisNexis
+LibreOffice
+License management software
+LinkedIn
+LiquidPlanner
+List processing language LISP
+Load testing software
+Local area network LAN software
+LogMatrix NerveCenter
+LogMeIn GoToMeeting
+LogMeIn GoToWebinar
+LogRhythm
+Logic Software Easy Projects.NET
+Logic synthesis software
+LogicVision icBIST
+Logical partition LPAR software
+Logo design software
+Loom
+Low-level debugger software
+Low-level virtual machine LLVM compilers
+Lua
+Lucent VitalSuite
+Lucid IQ CMP
+LuntBuild
+M-Sim
+MAGIC software
+MEDITECH Healthcare Information System HCIS
+MEDITECH software
+MITRE ATT&CK software
+MPI Micro Planner X-Pert
+MUMPS M
+Mac HelpMate
+MacKichan Software Scientific WorkPlace
+Madrigal Soft Tools Delegator
+Magellan Firmware
+Magma Design Automation Blast Create
+Magma Design Automation Blast FPGA
+Magma Design Automation software
+Management information base MIB software
+Management information systems MIS
+MantisBT
+MapR Converged Data Platform
+MapReduce big data software
+Maplesoft Maple
+MariaDB
+MarkLogic
+Marketo Marketing Automation
+MatchWare MindView
+MathWorks Simulink
+MathWorks Simulink DSP Blockset
+MathWorks Simulink Fixed-Point Blockset
+Mathematical software
+Mathsoft Mathcad
+Maxima Software
+Maximal Software MPL Modeling System
+McKesson ANSOS One-Staff
+Media storage management software
+Medical condition coding software
+Medical procedure coding software
+Medidata Rave Data Management
+Mediware ClosedLoop Clinical Systems
+Mediware Information Systems MediCOE
+Medscribbler Enterprise
+Mentor Graphics BSDArchitect
+Mentor Graphics Calibre
+Mentor Graphics LeonardoSpectrum
+Mentor Graphics Precision RTL
+Mentor Graphics Xpedition xDX Designer
+Merge Healthcare eTrials
+Mesquite Software CSIM
+Metasploit
+MeteorJS
+Micro Focus OpenView
+MicroFour PracticeStudio.NET EMR
+MicroPress VTeX
+MicroStrategy
+Microarchitecture simulation software
+Micromuse NetCool
+Microservices Architecture
+Microsoft .NET Framework
+Microsoft ASP.NET
+Microsoft ASP.NET Core MVC
+Microsoft Access
+Microsoft Active Directory
+Microsoft Active Server Pages ASP
+Microsoft ActiveX
+Microsoft Azure Data Factory
+Microsoft Azure DevOps Services
+Microsoft Azure Sentinel
+Microsoft Azure software
+Microsoft Business Contact Manager
+Microsoft Commerce Server
+Microsoft DNS Server
+Microsoft DirectX
+Microsoft Dynamics
+Microsoft Dynamics AX
+Microsoft Dynamics CRM
+Microsoft Dynamics GP
+Microsoft Dynamics NAV
+Microsoft ESP SDK
+Microsoft Entourage
+Microsoft Excel
+Microsoft Exchange
+Microsoft Extensible Application Markup Language (XAML)
+Microsoft Forefront Identify Manager
+Microsoft Forefront Threat Management Gateway
+Microsoft FrontPage
+Microsoft High Level Shader Language HLSL
+Microsoft Hyper-V Server
+Microsoft Internet Explorer
+Microsoft Internet Information Services (IIS)
+Microsoft Internet Information Services (IIS) Manager
+Microsoft MapPoint
+Microsoft Network Monitor
+Microsoft Office Document Imaging
+Microsoft Office software
+Microsoft OneNote
+Microsoft Outlook
+Microsoft Power Automate
+Microsoft PowerPoint
+Microsoft PowerShell
+Microsoft Proclarity
+Microsoft Project
+Microsoft Publisher
+Microsoft Security Esssentials
+Microsoft SharePoint
+Microsoft SharePoint Server
+Microsoft Silverlight
+Microsoft Systems Management Server
+Microsoft Team Foundation Server
+Microsoft Teams
+Microsoft Virtual Server
+Microsoft Visio
+Microsoft Visual Basic
+Microsoft Visual Basic Scripting Edition VBScript
+Microsoft Visual Basic for Applications VBA
+Microsoft Visual Basic.NET
+Microsoft Visual FoxPro
+Microsoft Visual InterDev
+Microsoft Visual SourceSafe
+Microsoft Visual Studio
+Microsoft Visual Studio.NET
+Microsoft Volume Shadow Copy Service
+Microsoft Windows
+Microsoft Windows PowerShell
+Microsoft Windows Pre-installation Environment
+Microsoft Windows SDK
+Microsoft Windows Server
+Microsoft Windows Sysprep
+Microsoft Windows Terminal Services Access Manager
+Microsoft Windows XP
+Microsoft Word
+Migration software
+Migration testing software
+Milliman Corporate Affinity
+Milliman ReservePro
+Mind mapping software
+MindGenius
+Minitab
+MinuteMan Systems MinuteMan Project Management Software
+Mixed code generator
+Mixed integer optimizer MINTO
+Mlflow
+Mobile wireless network infrastructure software
+ModelKinetix ModelMaker
+Modula
+MongoDB
+Monte Carlo simulation software
+Moodle
+Mozilla Firefox
+MuleSoft software
+Multi-router traffic grapher MRTG software
+Multipath Corporation Fast Matrix Solver FMS
+Multiprotocol Label Switching MPLS
+Multisensory data representation software
+Mutation testing software
+Muthen & Muthen Mplus
+NCR Teradata Warehouse Miner
+NCSS Power Analysis and Sample Size PASS
+NIKSUN NetDetector
+NUnit
+Nagios
+National Instruments LabVIEW
+National Land Cover Database NLCD
+Nearpod
+Neo4j
+NetIQ
+NetScout InfinitiStream Console
+NetScout Sniffer Global Analyzer
+NetScout Sniffer Portable Professional Analyzer
+NetSuite ERP
+Netreo OmniCenter
+Netscape Navigator
+Netsmart Technologies CareNet
+Network Instruments Observer Standard
+Network address management software
+Network addressable storage NAS software
+Network and application load and performance testing software
+Network and component performance analysis software
+Network and system vulnerability assessment software
+Network architecture design software
+Network availability monitoring software
+Network bridge software
+Network design software
+Network directory services software
+Network documentation software
+Network intrusion detection software
+Network intrusion prevention systems NIPS
+Network management software
+Network modeling, mapping, and analysis software
+Network monitoring software
+Network reporting software
+Network security auditing software
+Network shutdown software
+Network storage software
+Network traffic flow monitoring and analysis software
+Network traffic probe software
+Network, hardware, and software auditing software
+Network, server and operating system optimization software
+Newgen Software Technologies OmniDocs
+NextGen Healthcare Information Systems EMR
+Ninian Huddle
+Nmap
+NortonLifeLock cybersecurity software
+NovaMind Merlin Project Manager
+NovaStor NovaBACKUP
+Novell NetWare Management Station
+Novell eDirectory
+Nslookup
+NumPy
+Numeritek NUMERICA
+Nunjucks
+O3spaces Workplace
+OPNET APMXpert
+OPNET SP Sentinel
+Oak Mountain Software AnnuityValue
+Oberon
+Object Management Group Object Request Broker
+Object database management system ODBMS
+Object oriented development environment software
+Objectif Lune PlanetPress Suite
+Objective C
+Objective Caml
+Objective Decision Contactizer Pro
+Objective Electronic Document Management
+Office Gemini Diamond Vision
+OfficeWork Software TurboProject
+Omni Group OmniGraffle
+One pass compiler software
+Online traffic calculator software
+Open Dynamics Collabtive
+Open Graphics Library OpenGL
+Open Shortest Path First OSPF
+Open Text Web Solutions
+Open source routing protocols OSPF
+OpenAI ChatGPT
+OpenClinica
+OpenDocMan
+OpenGL
+OpenMake Software Meister
+OpenMake Software Mojo
+OpenService Open NerveCenter
+OpenText Livelink ECM
+OpenVAS
+Operating system monitoring software
+Operating system process control software
+Operating system shells
+Operating system software
+Operational Data Store ODS software
+Optical character recognition OCR software
+Optical network management software
+Optimization software
+OrCAD Capture
+Oracle Application Server
+Oracle Business Intelligence Discoverer
+Oracle Business Intelligence Enterprise Edition
+Oracle Business Intelligence Suite
+Oracle Clinical
+Oracle Cloud software
+Oracle Data Guard
+Oracle Data Integrator
+Oracle Database
+Oracle Designer
+Oracle E-Business Suite
+Oracle E-Business Suite Financials
+Oracle Eloqua
+Oracle Enterprise Manager
+Oracle Enterprise Manager Cloud Control
+Oracle Essbase
+Oracle Fusion Applications
+Oracle Fusion Middleware
+Oracle Golden Gate
+Oracle Hyperion
+Oracle JD Edwards EnterpriseOne
+Oracle JDBC
+Oracle Jdeveloper
+Oracle Learning Management
+Oracle Master Data Management MDM Suite
+Oracle Migration Workbench
+Oracle Net Manager
+Oracle PeopleSoft
+Oracle PeopleSoft Financials
+Oracle Primavera Enterprise Project Portfolio Management
+Oracle Primavera P6 Professional Project Management
+Oracle Primavera Systems
+Oracle Real Application Cluster RAC
+Oracle Recovery Manager
+Oracle Remote Data Capture
+Oracle Reports
+Oracle Siebel Marketing Resource Management
+Oracle Siebel Server Sync
+Oracle Solaris
+Oracle Taleo
+Oracle Unified Directory
+Oracle Universal Content Management
+Oracle Warehouse Builder
+Oracle WebLogic Server
+Oracle iPlanet Web Server
+PARI/GP
+PARTHENON
+PHP
+PHYLIP
+PPD eLoader
+PTC Creo Parametric
+Packet analysis software
+Packet analyzers
+Packet filter software
+Packet tracing software
+Palbridge Ubidesk
+Palo Alto Networks Next-Generation Security Platform
+Panorama NovaView
+ParAccel Analytic Database
+Parallel systems software
+ParentSquare
+Partial class generator software
+Pascal
+Password cracker software
+Password management software
+Patch and update management software
+Patch management software
+Patient monitoring systems
+Patient tracking software
+Pegasus software
+Pegasystems SmartBPM
+Penetration testing software
+Pentaho Kettle
+Perceptive Software ImageNow
+PercipEnz Technologies OnCore-Clinical Research Management OnCore-CRM
+Perforce Helix software
+Perforce Software Configuration Management System
+Perforce software
+Performance Solutions Technology ManagePro
+Personable Workflow DMS
+Personal computer diagnostic software
+PhantomJS
+Phase Forward Clintrial
+Picis CareSuite
+Pilgrim Quality Solutions SmartSolve
+Ping Identity
+Place-and-route software
+Planbox
+Planisware
+Planview Process Builder
+Platform as a service PaaS
+Plug-in file software
+Polaris parallelizing compilers
+Polhemus Fasttrack System
+Poll Everywhere
+PolySystems Asset Delphi
+Polymath Software POLYMATH
+Port scanners
+Portswigger BurP Suite
+Postman
+PowerSoft PowerBuilder
+Presentation software
+Pricing software
+ProModel
+Program checksumming software
+Programming language one PL/I
+Progress OpenEdge ABL
+Progress OpenEdge Application Server
+Progress OpenEdge Fathom Replication software
+Progress Sonic ESB
+Progress WebSpeed Workshop
+Project Manager Online ProjectManager.com
+Project management software
+Project planning software
+Project portfolio management PPM software
+Project scheduling software
+Project-Open
+Project.net
+ProjectLibre
+Projecturf
+Prolog
+Provalis Research Simstat
+PuTTY
+Puppet
+PySpark
+QGIS
+QNX
+QSM SLIM Suite
+QUALCOMM Eudora
+Qualys Cloud Platform
+Quantitative Micro Software EViews
+Quest BigBrother
+Quest Central
+Quest Erwin Data Modeler
+Quest Foglight
+Quest SharePlex
+QuickBase business management software
+R
+RAT-STATS
+RESTful API
+RabbitMQ
+Rapid-I RapidMiner
+Rapid7 Nexpose
+Rapid7 software
+Rapide
+ReCrystallize Crystal Reports
+Real time operating system RTOS software
+Records management software
+Recovery testing software
+Redis
+Redmine
+RegMon
+Register transfer language RTL
+Regression testing software
+Relational database management software
+Relational database management system RDMS
+Relational database management system software
+Relational database software
+Remote access software
+Remote authentication dial-in user service RADIUS software
+Remote control software
+Remote desktop control software
+Remote install server software
+Remote monitoring software
+Reporting software
+RequireJS
+Requirements analysis software
+Requirements management software
+Resource management software
+Restructured extended executor REXX
+Retargetable compiler
+Revision control software
+Rice Simulator for ILP Multiprocessors RSIM
+Risk assessment software
+Riverbed Technology
+RockWare ArcMap
+Rockwell Automation Arena
+Rogue Wave Software IMSL Numerical Libraries
+Root cause analysis software
+Root kit detection software
+Route
+Router software
+Roxio Retrospect
+Rust programming language
+S-Plus software
+SAND
+SAP Adaptive Server Enterprise
+SAP Business Intelligence
+SAP Business Objects
+SAP BusinessObjects Crystal Reports
+SAP BusinessObjects Data Integrator
+SAP BusinessObjects Desktop Intelligence
+SAP Crystal Reports
+SAP DMS
+SAP ERP
+SAP ERP Financials
+SAP IQ
+SAP Master Data Management MDM
+SAP NetWeaver
+SAP NetWeaver BW
+SAP PowerBuilder
+SAP PowerDesigner
+SAP Replication Server
+SAP software
+SAS
+SAS Data Integration Server
+SAS Data Integration Studio
+SAS Enterprise Miner
+SAS JMP
+SAS/CONNECT
+SAS/STAT
+SKILL FMEA software
+SMSi Twister Data Integrator
+SOAPware EMR
+SS&C PTS
+STAT! Systems QD Clinical
+STATISTICA
+Safe Software FME
+Sage 50 Accounting
+Sage Accounting Software
+Salesforce Marketing Cloud
+Salesforce Visualforce
+Salesforce software
+Samba
+Saperion ECM
+Scala
+Scheduling software
+Schematic editors
+Scheme
+Schoology
+SciPy
+Scientific Software International SSI Hierarchical Linear and Non-Linear Modeling HLM
+Scientific Software International SSI LISREL
+Sciforma
+Screencast-O-Matic
+Screencastify
+Scriptella
+Secure internet filtering software
+Secure shell SSH software
+Security assertion markup language SAML
+Security incident management software
+Security risk assessment software
+Security testing software
+Seesaw
+Segue SilkPerformer
+Seimens Healthineers
+Selenium
+ServiceNow
+Session Initiation Protocol SIP
+SharedPlan Software SharedPlan Pro
+Shiny
+SiSense Prism
+Siemens Teamcenter
+Sierra Scientific Software CRIS
+Silver Peak
+Simple API for XML SAX
+Simple DirectMedia Layer SDL
+Simple mail transfer protocol SMTP
+Simple network management protocol SNMP software
+Simulation program with integrated circuit emphasis SPICE
+Simulation software
+Single sign-on SSO
+SiteMaster SiteSmart
+Sitecore CMS
+Skype
+Slack
+Slido interaction software
+Smalltalk
+Smart card management software
+SmartBear Software Automated Build Studio
+SmartBear Software AutomatedQA TestComplete
+Smartsheet
+SmugMug Flickr
+Sniffer Investigator
+Snort
+Snowflake
+Social media sites
+SoftICE
+Software as a service SaaS
+Software asset management SAM software
+Software development tools
+Software distribution management software
+Software distribution software
+Software libraries
+Soil Survey Geographic SSURGO
+SolarWinds
+Solidity
+SonarQube
+Sonicwall SonicOS Enhanced
+Sony Sound Forge
+Sorenson Media Sorenson Squeeze
+Sound development software
+Source code editor software
+Source code management SCM software
+Source code migration software
+Sparta Systems TrackWise
+SpectraQuest
+Splunk Enterprise
+Spreadsheet software
+Stac Software ReachOut
+Stack smashing protection SSP software
+Standpipe Studios Vertabase
+Stanford Business Software MINOS
+Stanford Business Software SNOPT
+Stat-Ease Design-Ease
+Stat-Ease Design-Expert
+StatCom Patient Flow Logistics Enterprise Suite
+StatPoint STATGRAPHICS Centurion
+StataCorp Stata
+State Soil Geographic STATSGO Database
+State diagram software
+Static analysis software
+Statistical Solutions BMDP
+Statistical software
+Storage area network SAN software
+Storage management software
+Strategic Reporting Systems ReportSmith
+Stress testing software
+String oriented symbolic language SNOBOL
+Structure prediction software
+Structured Query Report SQR
+StudyManager Sponsor Edition
+Stylite eGroupWare
+Sun Microsystems Sun ONE
+SuperANOVA
+Supervisory control and data acquisition SCADA software
+Switch software
+SyMetric Sciences SyMetric
+Symark PowerBroker
+Symbolic debugger software
+Symmetrica
+SynaMed EMR
+Synopsys Design Compiler
+Synopsys HSIM
+Synopsys HSPICE
+Synopsys Hercules
+Synopsys TetraMax ATPG
+Synplicity Synplify
+Syntactically awesome style sheets SASS
+Systat Software SigmaPlot
+Systat Software SigmaStat
+System and data disaster recovery software
+System testing software
+SystemVerilog
+Systems and application deployment and migration software
+Systems and applications migration software
+Systems and data disaster recovery software
+Systems integration software
+Systemware
+TIBCO Spotfire
+TKSoftware RCM software
+TOPAZ Enterprise Software Suite
+Talend Big Data Integration
+Talend Data Fabric
+Talend Open Studio
+TalendForge
+Tanium software
+Tape backup system software
+TaskJuggler
+Tax software
+Tcpdump
+TeamDynamixHE
+Telelogic System Architect
+Telnet programs software
+Tenable Nessus
+Tenrox Project Workforce Management
+Teradata Active Enterprise Data Warehouse
+Teradata BTEQ
+Teradata Database
+Teradata FastExport
+Teradata FastLoad
+Teradata Parallel Transporter
+Teradata Tpump
+Test data generator software
+Test design software
+Test implementation software
+TestNG
+The MathWizards MathViews
+The MathWorks MATLAB
+The MathWorks Real-Time Workshop
+The MathWorks Signal Processing Toolbox
+The MathWorks Symbolic Math Toolbox
+The MathWorks Wavelet Toolbox
+The Mathworks Control System Toolbox
+The Mathworks Data Acquisition Toolbox
+The Mathworks Embedded Coder
+The Omni Group OmniPlan
+Thermo Fisher Scientific Ion Reporter
+Thomson Reuters FileCabinet CS
+Thomson Reuters GoFileRoom
+ThoughtWorks Studio Mingle
+Threaded code compiler
+Tibco S-PLUS
+Ticket information tracking software
+Tier generator software
+Tigris Cabie
+Time reporting software
+Time sharing option TSO software
+Timing analysis software
+ToadSoft Toad
+Tool command language Tcl
+TopHat
+Towers Perrin MoSes
+Traceroute
+Traffic shapers
+Transparent Interconnection of Lots of Links TRILL
+Travis
+Treeno Software Treeno Content Server
+Trend Micro TippingPoint
+Trimble Pathfinder Office
+Trimble SketchUp Pro
+Twiki
+TypeScript
+UNISTAT Statistical Package
+Ubuntu
+Unawave
+Unified modeling language UML
+Unit testing software
+Unity Technologies Unity
+Unreal Technology Unreal Engine
+Usability testing software
+User interface design software
+UserZoom
+VISICU eICU Program
+VME PowerPC VxWorks
+VMWare ESX Server
+VMWare Workstation
+VMware
+VSCOnline VPMi
+Vector 35 Binary Ninja
+Verification software
+Verilog
+Veritas NetBackup
+Version control software
+Vertafore ImageRight
+Very high speed integrated circuit VHSIC hardware description language VHDL simulation software
+Very high-speed integrated circuit VHSIC hardware description language VHDL
+Video editing software
+Videoconferencing software
+Vignette Content Management
+Vignette Portal
+Virage VS Archive
+Virtual Battlespace 2 VBS2
+Virtual Router Redundancy Protocol VRRP
+Virtual local area network management software
+Virtual network computing VNC software
+Virus scanning software
+Visible Razor
+Visual Numerics TS-WAVE
+Visual Paradigm DB Visual ARCHITECT
+Vitria M3O Operational Intelligence
+Voice over internet protocol VoIP system software
+Vulkan Graphics API
+WBS Goplan
+Waikato Environment for Knowledge Analysis Weka
+Watir
+WeVideo
+Web application framework software
+Web application software
+Web browser software
+Web content management system CMS software
+Web design software
+Web framework software
+Web server software
+Web service definition language WDSL
+WebFOCUS
+WebTrends Analytics
+Websense Data Loss Prevention
+Westbrook Fortis
+Wide area network WAN optimization software
+Wide area network WAN software
+WildPackets OmniPeek Network Analyzer
+Win CE
+WinMerge
+Wind River Systems VxWorks
+Wind River VxWorks
+Windows kernel debuggers
+Wireshark
+WisdomForce DatabaseSync System
+Wise Solutions Wise for Windows Installer
+Wolfram Research Mathematica
+Word processing software
+WordPress
+Workday software
+Workflow software
+Wrike
+XGBoost
+XGobi
+XLISP-STAT
+XML Path Language XPATH
+Xcode
+Xerox DocuShare
+Xilinx ISE Foundation
+Xilinx ModelSim
+Xilinx Synthesis Technology XST
+Xplanner
+Xythos Enterprise Document Management Suite
+Yardi software
+YouTube
+Zabbix
+Zend Framework
+Zephyr EXTRA! Terminal Emulation
+Zmanda Amanda
+Zoho Projects
+Zoom
+dBASE
+dBASE Plus
+dotProject
+e-MDs software
+eClinicalWorks EHR software
+eMASS
+ePharmaSolutions eMVR
+easyCIS
+ej-technologies JProfiler
+i-lign
+iGrafx
+iPro
+ifconfig
+ipconfig
+jQuery
+nbtstat
+netstat
+ngrep
+pandas
+pm ase QuickBuild
+spaCy
+web2project
+webpack
+xQuery
