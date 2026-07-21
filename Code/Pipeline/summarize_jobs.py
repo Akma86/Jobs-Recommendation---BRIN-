@@ -1,82 +1,128 @@
-# -*- coding: utf-8 -*-
-"""
-BERT-based summarization preprocessing for job postings.
-
-WHY THIS STEP: job descriptions (especially LinkedIn) are often long and
-padded with boilerplate (benefits, EEO statements, company boilerplate,
-application instructions) that dilutes the actual competency signal when
-embedded. Summarizing first, THEN embedding, should give SBERT/cross-encoder
-a cleaner, more information-dense text to match against.
-
-MODEL: facebook/bart-large-cnn
-  - Standard, well-tested abstractive summarization model (trained on
-    CNN/DailyMail news summarization, generalizes reasonably well to other
-    text). English-only, which is fine since job postings are in English.
-  - ~400M params - moderate GPU memory, runs comfortably on most consumer GPUs.
-
-WHERE THIS FITS IN THE PIPELINE:
-  jobs_unified_with_skills.csv --[this script]--> jobs_unified_summarized.csv
-  Then point full_pipeline_subclo.py at the summarized file instead (see
-  USAGE NOTE at the bottom) - it just needs a column with the text to embed.
-
-REQUIREMENTS (run on your machine - GPU recommended, this is the heaviest
-model in the whole pipeline in terms of per-item cost):
-  pip install transformers torch pandas --break-system-packages
-
-USAGE:
-  python summarize_jobs.py
-  -> produces jobs_unified_summarized.csv (adds a `description_summary` column)
-"""
-
 import pandas as pd
-from transformers import pipeline
+import torch
+from transformers import AutoTokenizer, AutoModelForCausalLM
 
-MODEL_NAME = "facebook/bart-large-cnn"
-MAX_INPUT_CHARS = 3000       # BART has a token limit; truncate very long postings first
-MIN_LENGTH_TO_SUMMARIZE = 400  # skip summarizing already-short postings (not worth it, adds noise)
-SUMMARY_MAX_TOKENS = 130
-SUMMARY_MIN_TOKENS = 30
-BATCH_SIZE = 8
+MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"
+
+MIN_LENGTH_TO_SUMMARIZE = 400
+MAX_INPUT_CHARS = 18000
+MAX_NEW_TOKENS = 200
+
+def summarize_text(text, tokenizer, model):
+    text = str(text)[:MAX_INPUT_CHARS]
+
+    prompt = f"""
+Summarize the following job posting.
+
+Keep:
+- Main responsibilities
+- Required skills
+- Required qualifications
+- Technologies and tools
+
+Remove:
+- Company marketing
+- Benefits
+- Repetitive statements
+- Legal/disclaimer sections
+
+Write a concise summary.
+
+Job Posting:
+{text}
+"""
+
+    messages = [
+        {
+            "role": "system",
+            "content": "You are an expert at summarizing job postings."
+        },
+        {
+            "role": "user",
+            "content": prompt
+        }
+    ]
+
+    formatted_text = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True
+    )
+
+    inputs = tokenizer(
+        formatted_text,
+        return_tensors="pt",
+        truncation=True,
+        max_length=32768
+    ).to(model.device)
+
+    with torch.no_grad():
+        outputs = model.generate(
+            **inputs,
+            max_new_tokens=MAX_NEW_TOKENS,
+            do_sample=False,
+            temperature=None,
+            top_p=None
+        )
+
+    generated = outputs[0][inputs.input_ids.shape[1]:]
+
+    return tokenizer.decode(
+        generated,
+        skip_special_tokens=True
+    ).strip()
 
 
 def main():
-    print(f"Loading summarizer: {MODEL_NAME} ...")
-    # device=0 uses GPU if available; falls back to CPU automatically if not
-    import torch
-    device = 0 if torch.cuda.is_available() else -1
-    print(f"Using {'GPU' if device == 0 else 'CPU'}")
-    summarizer = pipeline("summarization", model=MODEL_NAME, device=device)
+    print(f"Loading {MODEL_NAME} ...")
 
-    jobs = pd.read_csv("jobs_unified_with_skills.csv")
-    print(f"Loaded {len(jobs)} job postings")
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+
+    model = AutoModelForCausalLM.from_pretrained(
+        MODEL_NAME,
+        torch_dtype=torch.float16,
+        device_map="auto"
+    )
+
+    jobs = pd.read_csv(
+        r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\Dataset\Pekerjaan\Processed\jobs_unified.csv"
+    )
+
+    print(f"Loaded {len(jobs)} postings")
 
     descriptions = jobs["description"].fillna("").astype(str)
-    to_summarize_mask = descriptions.str.len() >= MIN_LENGTH_TO_SUMMARIZE
 
-    print(f"{to_summarize_mask.sum()}/{len(jobs)} postings are long enough to summarize "
-          f"(>= {MIN_LENGTH_TO_SUMMARIZE} chars); the rest are used as-is.")
+    summaries = []
 
-    summaries = descriptions.copy()
-    texts_to_summarize = descriptions[to_summarize_mask].str.slice(0, MAX_INPUT_CHARS).tolist()
+    for i, text in enumerate(descriptions):
+        try:
+            if len(text) < MIN_LENGTH_TO_SUMMARIZE:
+                summaries.append(text)
+            else:
+                summary = summarize_text(
+                    text,
+                    tokenizer,
+                    model
+                )
+                summaries.append(summary)
 
-    results = []
-    for i in range(0, len(texts_to_summarize), BATCH_SIZE):
-        batch = texts_to_summarize[i:i + BATCH_SIZE]
-        out = summarizer(batch, max_length=SUMMARY_MAX_TOKENS, min_length=SUMMARY_MIN_TOKENS,
-                          do_sample=False, truncation=True)
-        results.extend([o["summary_text"] for o in out])
-        print(f"  summarized {min(i+BATCH_SIZE, len(texts_to_summarize))}/{len(texts_to_summarize)}")
+            if (i + 1) % 10 == 0:
+                print(f"Processed {i+1}/{len(jobs)}")
 
-    summaries.loc[to_summarize_mask] = results
+        except Exception as e:
+            print(f"Failed on row {i}: {e}")
+            summaries.append(text[:1000])
+
     jobs["description_summary"] = summaries
 
-    jobs.to_csv("jobs_unified_summarized.csv", index=False)
-    print(f"\nSaved: jobs_unified_summarized.csv")
+    output_path = "jobs_unified_summarized.csv"
 
-    print("\n--- Sample: before vs after ---")
-    sample_idx = jobs[to_summarize_mask].index[0]
-    print("BEFORE:", jobs.loc[sample_idx, "description"][:400], "...")
-    print("\nAFTER: ", jobs.loc[sample_idx, "description_summary"])
+    jobs.to_csv(
+        output_path,
+        index=False
+    )
+
+    print(f"Saved: {output_path}")
 
 
 if __name__ == "__main__":

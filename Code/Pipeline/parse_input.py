@@ -1,28 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Parser untuk CV.md dan KHS.md hasil `generate_cv_khs.py`.
-
-Ini adalah versi yang disesuaikan dari parser PDF/vision sebelumnya. Karena
-sumber datanya sekarang markdown yang KITA SENDIRI generate (bukan PDF hasil
-scan pihak ketiga), strukturnya sudah pasti dan bisa di-parse langsung pakai
-regex - tidak perlu lagi:
-    - OCR / rasterisasi PDF (pdftoppm)
-    - Claude vision call untuk baca tabel dari gambar
-    - Claude text call untuk mem-split CV jadi unit-unit (CV.md sudah
-      terstruktur rapi dengan heading "### Title" per unit)
-
-Jadi tidak ada dependency ke `anthropic`, `pypdf`, atau `pdfplumber` sama
-sekali di sini - cuma `re` dan `pandas`.
-
-Granularitas output:
-    - CV  -> 1 baris = 1 unit kompetensi (project/internship/capstone),
-             sama seperti sebelumnya.
-    - KHS -> 1 baris = 1 CLO (bukan 1 mata kuliah), supaya konsisten dengan
-             cara CV di-split per unit. Ini juga yang dari awal jadi alasan
-             KHS di-generate dengan rincian per-CLO, bukan cuma nilai akhir
-             per MK.
-"""
-
 import re
 import pandas as pd
 

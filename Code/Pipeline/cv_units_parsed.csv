@@ -1,5 +1,0 @@
-title,description,cv_unit_id
-Vulnerability Assessment - Campus Web Portal,"Conducted a penetration test on the university's student portal, identifying SQL injection and XSS vulnerabilities using Burp Suite and OWASP ZAP. Delivered a remediation report to IT staff.",cv_unit_0
-Internship - SOC Analyst at Managed Security Provider,"Monitored security alerts using a SIEM platform, investigated potential incidents, and documented response procedures. Assisted in tuning detection rules to reduce false positives by 20%.",cv_unit_1
-Digital Forensics Capstone - Ransomware Case Study,"Simulated a ransomware attack in an isolated lab environment and performed forensic analysis of the infected system, including memory dump analysis and timeline reconstruction using Autopsy.",cv_unit_2
-CTF Team Member - National Cybersecurity Competition,"Competed in a national Capture The Flag competition, solving challenges in web exploitation, cryptography, and reverse engineering; team placed in top 10.",cv_unit_3
