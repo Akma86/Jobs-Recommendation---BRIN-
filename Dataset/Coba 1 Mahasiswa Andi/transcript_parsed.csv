@@ -1,0 +1,23 @@
+kode_mk,nama_mk,sks,nilai_huruf,grade_weight
+BBK1AAB4,Algoritma dan Pemrograman,4,A,0.85
+BBK2AAB3,Analisis dan Perancangan Sistem Informasi,3,B,0.7
+BBK3AAB3,Arsitektur Enterprise,3,A,0.85
+BBK3BAB3,Data Warehouse dan Business Intelligence,3,A,0.85
+BBK2HAB3,Integrasi Aplikasi Enterprise,3,A,0.85
+BBK1GAB3,Jaringan Komputer,3,B,0.7
+BBK2IAB3,Keamanan Sistem Informasi,3,AB,0.8
+BBK2JAB3,Manajemen Proyek Sistem Informasi,3,B,0.7
+-,Pemodelan Proses Bisnis,3,A,0.85
+BBK1JAB3,Pemrograman Berorientasi Objek,3,A,0.85
+BBK2LAB3,Penambangan Data,3,AB,0.8
+BBK1DAB3,Pengantar Sistem Informasi,3,A,0.85
+BBK2DAB3,Pengembangan Aplikasi Website,3,BC,0.6
+BBK4EBB3,Pengembangan Sistem Cerdas,3,A,0.85
+BBK2EAB3,Perancangan Interaksi,3,A,0.85
+BBK3EAB3,Proyek Perangkat Lunak,3,AB,0.8
+BBK2NAB3,Rekayasa Proses Bisnis,3,B,0.7
+BBK1LAB3,Sistem Basis Data,3,B,0.7
+BBK1EAB3,Sistem Enterprise,3,AB,0.8
+BBK3FAB3,Sistem Informasi Akuntansi,3,A,0.85
+BBK2FAB3,Sistem Operasi,3,BC,0.6
+BBK3IAB3,Tata Kelola dan Manajemen Teknologi Informasi,3,A,0.85

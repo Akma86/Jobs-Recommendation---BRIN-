@@ -262,9 +262,135 @@ def parse_khs(khs_path):
     )
 
 # ---------------------------------------------------------------------------
-# Certificate extraction (vision-based, same reasoning as KHS: certificates
-# are visual/design documents, not reliably plain-text-extractable)
+# Certificate extraction
 # ---------------------------------------------------------------------------
+
+# ── (A) Markdown format (output dari generate_dummy_students.py) ─────────────
+
+BULAN_EN = {
+    "Januari": "01", "Februari": "02", "Maret": "03", "April": "04",
+    "Mei": "05", "Juni": "06", "Juli": "07", "Agustus": "08",
+    "September": "09", "Oktober": "10", "November": "11", "Desember": "12",
+}
+
+
+def _parse_tanggal_id(tgl_str):
+    """
+    Ubah tanggal Indonesia (mis. '3 April 2024') ke format YYYY-MM-DD.
+    Kembalikan None jika gagal.
+    """
+    parts = tgl_str.strip().split()
+    if len(parts) == 3:
+        day, month_id, year = parts
+        month = BULAN_EN.get(month_id)
+        if month:
+            return f"{year}-{month}-{int(day):02d}"
+    return None
+
+
+def parse_certificate_markdown(md_path):
+    """
+    Parse satu file Certificate.md yang di-generate oleh generate_dummy_students.py
+    dan kembalikan dict dengan schema yang sama seperti output extract_certificate():
+
+        title, issuer, has_assessment, issue_date, description_text, source_file
+
+    Format yang diharapkan pada tabel '## Detail Sertifikat':
+        | Keterangan          | Nilai   |
+        | Judul Sertifikasi   | ...     |
+        | Penyelenggara ...   | ...     |
+        | Tanggal Terbit      | ...     |
+        | Skor Akhir          | .../100 |
+    """
+    with open(md_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+
+    # Kumpulkan baris dari tabel Detail Sertifikat
+    in_detail = False
+    detail = {}
+    cakupan_lines = []
+    in_cakupan = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        # Masuk ke bagian Cakupan Materi
+        if stripped == "## Cakupan Materi":
+            in_cakupan = True
+            in_detail = False
+            continue
+
+        if in_cakupan:
+            if stripped.startswith("##") or stripped == "---":
+                in_cakupan = False
+            elif stripped.startswith("-"):
+                cakupan_lines.append(stripped.lstrip("- ").strip())
+            continue
+
+        # Masuk ke bagian Detail Sertifikat
+        if stripped == "## Detail Sertifikat":
+            in_detail = True
+            continue
+
+        if not in_detail:
+            continue
+
+        # Keluar dari tabel saat separator --- atau header baru
+        if stripped == "---" or (stripped.startswith("##") and stripped != "## Detail Sertifikat"):
+            in_detail = False
+            continue
+
+        if not stripped.startswith("|"):
+            continue
+
+        # Skip baris separator tabel (---|---)
+        if "|---" in stripped:
+            continue
+
+        cols = [c.strip() for c in stripped.split("|")[1:-1]]
+        if len(cols) < 2:
+            continue
+
+        key, val = cols[0], cols[1]
+        detail[key] = val
+
+    # Petakan ke schema output
+    title = (
+        detail.get("Judul Sertifikasi")
+        or detail.get("Judul")
+        or os.path.basename(md_path)
+    )
+    issuer = (
+        detail.get("Penyelenggara / Issuer")
+        or detail.get("Penyelenggara")
+        or detail.get("Issuer")
+    )
+
+    # Tanggal terbit: konversi dari format Indonesia
+    raw_date = detail.get("Tanggal Terbit", "")
+    issue_date = _parse_tanggal_id(raw_date) or raw_date or None
+
+    # has_assessment: True jika ada kolom Skor Akhir (berarti ada ujian/penilaian)
+    has_assessment = bool(detail.get("Skor Akhir"))
+
+    # description_text: gabungkan title + cakupan materi jika ada
+    if cakupan_lines:
+        description_text = f"{title}. " + " ".join(cakupan_lines)
+    else:
+        description_text = title
+
+    return {
+        "title": title,
+        "issuer": issuer,
+        "has_assessment": has_assessment,
+        "issue_date": issue_date,
+        "description_text": description_text,
+        "source_file": os.path.basename(md_path),
+    }
+
+
+# ── (B) Vision-based (PDF / image) ───────────────────────────────────────────
+
 CERT_EXTRACTION_PROMPT = """This image is a certificate (sertifikat pelatihan/kursus/kompetisi/webinar/sertifikasi).
 Extract the following fields and respond with ONLY a JSON object (no markdown fences, no commentary):
 
@@ -314,15 +440,61 @@ def extract_certificate(cert_path, model="claude-sonnet-4-6"):
     return result
 
 
-def extract_certificates_batch(cert_paths):
-    """Run extract_certificate over a list of files, skipping ones that fail
-    (printing a warning) instead of crashing the whole batch - one badly
-    scanned certificate shouldn't block processing the rest."""
+def parse_certificate(cert_path, model="claude-sonnet-4-6"):
+    """
+    Unified entry point untuk satu file sertifikat.
+    Mendukung:
+      - .md  -> parse_certificate_markdown() (tidak butuh API)
+      - .pdf / .jpg / .jpeg / .png -> extract_certificate() (butuh ANTHROPIC_API_KEY)
+    """
+    ext = os.path.splitext(cert_path)[1].lower()
+    if ext == ".md":
+        print(f"Detected markdown certificate: {cert_path}")
+        return parse_certificate_markdown(cert_path)
+    return extract_certificate(cert_path, model=model)
+
+
+def parse_certificates_for_student(student_cert_dir, model="claude-sonnet-4-6"):
+    """
+    Baca SEMUA file sertifikat dari satu subfolder mahasiswa
+    (sesuai struktur output generate_dummy_students.py):
+
+        generated_markdown_certificates/
+            Budi_Santoso/
+                Budi_Santoso_Certificate_1_aws_cloud_practitioner.md
+                Budi_Santoso_Certificate_2_scrum_fundamentals_certified.md
+            Siti_Rahma/
+                ...
+
+    Cara pakai:
+        certs_df = parse_certificates_for_student(
+            "../Dataset/generated_markdown_certificates/Budi_Santoso"
+        )
+
+    Return: DataFrame dengan kolom title, issuer, has_assessment,
+            issue_date, description_text, source_file, cert_id
+    """
+    import glob as globmod
+    cert_paths = sorted(
+        p for ext in ("*.md", "*.pdf", "*.jpg", "*.jpeg", "*.png")
+        for p in globmod.glob(os.path.join(student_cert_dir, ext))
+    )
+    print(f"Found {len(cert_paths)} certificate file(s) in: {student_cert_dir}")
+    df = extract_certificates_batch(cert_paths, model=model)
+    if len(df) > 0:
+        df["cert_id"] = ["cert_" + str(i) for i in range(len(df))]
+    return df
+
+
+def extract_certificates_batch(cert_paths, model="claude-sonnet-4-6"):
+    """Run parse_certificate() over a list of files (supports .md, .pdf,
+    .jpg, .jpeg, .png). Skips files that fail (printing a warning) instead
+    of crashing the whole batch."""
     records = []
     for path in cert_paths:
         try:
             print(f"Extracting: {path}")
-            records.append(extract_certificate(path))
+            records.append(parse_certificate(path, model=model))
         except Exception as e:
             print(f"  FAILED ({e}) - skipping this certificate")
     return pd.DataFrame(records)
@@ -339,7 +511,13 @@ if __name__ == "__main__":
     )
     parser.add_argument("--cv_pdf", required=False, default=None, help="Optional - not needed for the KHS-only pipeline")
     parser.add_argument("--cert_dir", required=False, default=None,
-                         help="Optional folder containing certificate files (PDF/JPG/PNG), one file per certificate")
+                         help=(
+                             "Subfolder sertifikat untuk SATU mahasiswa. "
+                             "Sesuai struktur output generate_dummy_students.py: "
+                             "generated_markdown_certificates/<NamaMahasiswa>/ "
+                             "(berisi satu atau lebih .md per mahasiswa). "
+                             "Contoh: --cert_dir ../Dataset/generated_markdown_certificates/Budi_Santoso"
+                         ))
     parser.add_argument("--out_khs_csv", default="transcript_parsed.csv")
     parser.add_argument("--out_cv_units_csv", default="cv_units_parsed.csv")
     parser.add_argument("--out_certs_csv", default="certificates_parsed.csv")
@@ -360,14 +538,9 @@ if __name__ == "__main__":
         print("No --cv_pdf given, skipping CV extraction.")
 
     if args.cert_dir:
-        cert_paths = sorted(
-            p for ext in ("*.pdf", "*.jpg", "*.jpeg", "*.png")
-            for p in globmod.glob(os.path.join(args.cert_dir, ext))
-        )
-        print(f"\nFound {len(cert_paths)} certificate files in {args.cert_dir}")
-        certs_df = extract_certificates_batch(cert_paths)
-        if len(certs_df) > 0:
-            certs_df["cert_id"] = ["cert_" + str(i) for i in range(len(certs_df))]
+        # parse_certificates_for_student() otomatis baca semua .md/.pdf/gambar
+        # dari subfolder satu mahasiswa
+        certs_df = parse_certificates_for_student(args.cert_dir)
         certs_df.to_csv(args.out_certs_csv, index=False)
         print(f"Saved {len(certs_df)} certificates -> {args.out_certs_csv}")
     else:

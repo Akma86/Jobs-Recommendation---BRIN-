@@ -1,0 +1,331 @@
+﻿job_id,job_label,final_score,feature,shap_value,shap_abs
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Pemodelan Proses Bisnis,2.1216,2.1216
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Algoritma dan Pemrograman,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Pengantar Sistem Informasi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Sistem Enterprise,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Jaringan Komputer,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Pemrograman Berorientasi Objek,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Sistem Basis Data,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Pengembangan Aplikasi Website,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Perancangan Interaksi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Sistem Operasi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Integrasi Aplikasi Enterprise,2.42786,2.42786
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Keamanan Sistem Informasi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Penambangan Data,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Rekayasa Proses Bisnis,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Arsitektur Enterprise,0.65297,0.65297
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Proyek Perangkat Lunak,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Sistem Informasi Akuntansi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4417234418,"Software Engineer @ Koch Ag & Energy Solutions, LLC",5.202,Pengembangan Sistem Cerdas,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Pemodelan Proses Bisnis,2.29211,2.29211
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Algoritma dan Pemrograman,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Pengantar Sistem Informasi,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Sistem Enterprise,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Jaringan Komputer,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Pemrograman Berorientasi Objek,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Sistem Basis Data,-2.03679,2.03679
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Pengembangan Aplikasi Website,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Perancangan Interaksi,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Sistem Operasi,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Keamanan Sistem Informasi,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Penambangan Data,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Rekayasa Proses Bisnis,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Arsitektur Enterprise,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Proyek Perangkat Lunak,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Sistem Informasi Akuntansi,1.92644,1.92644
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4424741876,Data Analyst @ Yulista Holding LLC,2.182,Pengembangan Sistem Cerdas,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Pemodelan Proses Bisnis,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Algoritma dan Pemrograman,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Pengantar Sistem Informasi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Sistem Enterprise,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Jaringan Komputer,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Pemrograman Berorientasi Objek,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Sistem Basis Data,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Pengembangan Aplikasi Website,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Perancangan Interaksi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Sistem Operasi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Keamanan Sistem Informasi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Penambangan Data,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Rekayasa Proses Bisnis,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Arsitektur Enterprise,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Proyek Perangkat Lunak,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Sistem Informasi Akuntansi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4432248908,Machine Learning Engineer @ KTek Resourcing,2.048,Pengembangan Sistem Cerdas,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Pemodelan Proses Bisnis,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Algoritma dan Pemrograman,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Pengantar Sistem Informasi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Sistem Enterprise,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Jaringan Komputer,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Pemrograman Berorientasi Objek,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Sistem Basis Data,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Pengembangan Aplikasi Website,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Perancangan Interaksi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Sistem Operasi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Integrasi Aplikasi Enterprise,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Keamanan Sistem Informasi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Manajemen Proyek Sistem Informasi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Penambangan Data,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Rekayasa Proses Bisnis,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Arsitektur Enterprise,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Data Warehouse dan Business Intelligence,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Proyek Perangkat Lunak,-1.21376,1.21376
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Sistem Informasi Akuntansi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+gd_1010139624650,Research Assistant 1- Word Learning Lab @ Boys Town National Research Hospital,2.009,Pengembangan Sistem Cerdas,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Pemodelan Proses Bisnis,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Algoritma dan Pemrograman,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Pengantar Sistem Informasi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Sistem Enterprise,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Jaringan Komputer,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Pemrograman Berorientasi Objek,1.90068,1.90068
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Sistem Basis Data,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Pengembangan Aplikasi Website,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Perancangan Interaksi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Sistem Operasi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Keamanan Sistem Informasi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Penambangan Data,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Rekayasa Proses Bisnis,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Arsitektur Enterprise,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Proyek Perangkat Lunak,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Sistem Informasi Akuntansi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4430717045,Software Engineer @ Winaxis LLC,1.901,Pengembangan Sistem Cerdas,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Pemodelan Proses Bisnis,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Algoritma dan Pemrograman,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Pengantar Sistem Informasi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Sistem Enterprise,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Jaringan Komputer,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Pemrograman Berorientasi Objek,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Sistem Basis Data,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Pengembangan Aplikasi Website,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Perancangan Interaksi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Sistem Operasi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Integrasi Aplikasi Enterprise,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Keamanan Sistem Informasi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Manajemen Proyek Sistem Informasi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Penambangan Data,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Rekayasa Proses Bisnis,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Arsitektur Enterprise,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Data Warehouse dan Business Intelligence,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Proyek Perangkat Lunak,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Sistem Informasi Akuntansi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+gd_1010186853881,"Agriculture, Forestry, Wildlife Expert Contributors for AI @ Snorkel AI, Inc.",1.736,Pengembangan Sistem Cerdas,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Pemodelan Proses Bisnis,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Algoritma dan Pemrograman,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Pengantar Sistem Informasi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Sistem Enterprise,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Jaringan Komputer,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Pemrograman Berorientasi Objek,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Sistem Basis Data,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Pengembangan Aplikasi Website,1.7067,1.7067
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Perancangan Interaksi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Sistem Operasi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Keamanan Sistem Informasi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Penambangan Data,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Rekayasa Proses Bisnis,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Arsitektur Enterprise,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Proyek Perangkat Lunak,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Sistem Informasi Akuntansi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4429586730,"Web Application Software Developer @ DESE Research, Inc.",1.707,Pengembangan Sistem Cerdas,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Pemodelan Proses Bisnis,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Algoritma dan Pemrograman,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Pengantar Sistem Informasi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Sistem Enterprise,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Jaringan Komputer,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Pemrograman Berorientasi Objek,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Sistem Basis Data,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Pengembangan Aplikasi Website,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Perancangan Interaksi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Sistem Operasi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Integrasi Aplikasi Enterprise,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Keamanan Sistem Informasi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Manajemen Proyek Sistem Informasi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Penambangan Data,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Rekayasa Proses Bisnis,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Arsitektur Enterprise,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Data Warehouse dan Business Intelligence,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Proyek Perangkat Lunak,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Sistem Informasi Akuntansi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+gd_1010185917196,Ethics of Technology Course Editor (Contract) @ Study.com,1.386,Pengembangan Sistem Cerdas,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Pemodelan Proses Bisnis,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Algoritma dan Pemrograman,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Pengantar Sistem Informasi,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Sistem Enterprise,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Jaringan Komputer,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Pemrograman Berorientasi Objek,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Sistem Basis Data,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Pengembangan Aplikasi Website,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Perancangan Interaksi,1.26404,1.26404
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Sistem Operasi,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Keamanan Sistem Informasi,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Penambangan Data,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Rekayasa Proses Bisnis,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Arsitektur Enterprise,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Proyek Perangkat Lunak,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Sistem Informasi Akuntansi,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4323760450,"Product Designer, Design, Dev, & AI Tools @ Figma",1.264,Pengembangan Sistem Cerdas,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Pemodelan Proses Bisnis,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Algoritma dan Pemrograman,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Pengantar Sistem Informasi,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Sistem Enterprise,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Jaringan Komputer,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Pemrograman Berorientasi Objek,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Sistem Basis Data,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Pengembangan Aplikasi Website,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Perancangan Interaksi,0.82637,0.82637
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Sistem Operasi,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Keamanan Sistem Informasi,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Penambangan Data,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Rekayasa Proses Bisnis,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Arsitektur Enterprise,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Proyek Perangkat Lunak,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Sistem Informasi Akuntansi,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4402988667,Interaction Designer/Visual Designer @ MillenniumSoft Inc,0.826,Pengembangan Sistem Cerdas,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Pemodelan Proses Bisnis,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Algoritma dan Pemrograman,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Pengantar Sistem Informasi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Sistem Enterprise,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Jaringan Komputer,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Pemrograman Berorientasi Objek,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Sistem Basis Data,0.7315,0.7315
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Pengembangan Aplikasi Website,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Perancangan Interaksi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Sistem Operasi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Keamanan Sistem Informasi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Penambangan Data,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Rekayasa Proses Bisnis,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Arsitektur Enterprise,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Proyek Perangkat Lunak,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Sistem Informasi Akuntansi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4431178572,Data Systems Specialist @ Qnity,0.731,Pengembangan Sistem Cerdas,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Pemodelan Proses Bisnis,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Algoritma dan Pemrograman,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Pengantar Sistem Informasi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Sistem Enterprise,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Jaringan Komputer,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Pemrograman Berorientasi Objek,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Sistem Basis Data,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Pengembangan Aplikasi Website,0.69342,0.69342
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Perancangan Interaksi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Sistem Operasi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Keamanan Sistem Informasi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Penambangan Data,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Rekayasa Proses Bisnis,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Arsitektur Enterprise,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Proyek Perangkat Lunak,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Sistem Informasi Akuntansi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4413040880,"Web Developer, Lion Holdings @ Valuetainment",0.693,Pengembangan Sistem Cerdas,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Pemodelan Proses Bisnis,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Algoritma dan Pemrograman,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Pengantar Sistem Informasi,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Sistem Enterprise,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Jaringan Komputer,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Pemrograman Berorientasi Objek,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Sistem Basis Data,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Pengembangan Aplikasi Website,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Perancangan Interaksi,0.60197,0.60197
+li_4431711270,UX Designer @ MDAEdge,0.602,Sistem Operasi,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Keamanan Sistem Informasi,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Penambangan Data,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Rekayasa Proses Bisnis,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Arsitektur Enterprise,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Proyek Perangkat Lunak,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Sistem Informasi Akuntansi,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4431711270,UX Designer @ MDAEdge,0.602,Pengembangan Sistem Cerdas,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Pemodelan Proses Bisnis,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Algoritma dan Pemrograman,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Pengantar Sistem Informasi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Sistem Enterprise,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Jaringan Komputer,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Pemrograman Berorientasi Objek,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Sistem Basis Data,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Pengembangan Aplikasi Website,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Perancangan Interaksi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Sistem Operasi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Integrasi Aplikasi Enterprise,0.45024,0.45024
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Keamanan Sistem Informasi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Penambangan Data,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Rekayasa Proses Bisnis,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Arsitektur Enterprise,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Proyek Perangkat Lunak,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Sistem Informasi Akuntansi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4411864449,ES Application Developer II @ University of Houston,0.45,Pengembangan Sistem Cerdas,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Pemodelan Proses Bisnis,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Algoritma dan Pemrograman,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Pengantar Sistem Informasi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Sistem Enterprise,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Jaringan Komputer,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Pemrograman Berorientasi Objek,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Sistem Basis Data,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Analisis dan Perancangan Sistem Informasi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Pengembangan Aplikasi Website,0.4089,0.4089
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Perancangan Interaksi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Sistem Operasi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Integrasi Aplikasi Enterprise,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Keamanan Sistem Informasi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Manajemen Proyek Sistem Informasi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Penambangan Data,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Rekayasa Proses Bisnis,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Arsitektur Enterprise,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Data Warehouse dan Business Intelligence,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Proyek Perangkat Lunak,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Sistem Informasi Akuntansi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Tata Kelola dan Manajemen Teknologi Informasi,0.0,0.0
+li_4395972720,"Software Engineer, Cross Platform @ ByteDance",0.409,Pengembangan Sistem Cerdas,0.0,0.0

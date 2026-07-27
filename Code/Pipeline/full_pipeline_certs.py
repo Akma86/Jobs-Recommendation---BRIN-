@@ -119,7 +119,7 @@ def main():
     print("=== Stage 1-2: KHS parsing + course matching ===")
     khs = load_khs(args.khs)
     khs_courses = khs.groupby(["kode_mk", "nama_mk"], as_index=False).agg({"grade_weight": "mean"})
-    subclo_profiles = pd.read_csv("sub_clo_profiles.csv")
+    subclo_profiles = pd.read_csv("D:\MAIN DATA\Documents\Semester 6\KP BRIN\Dataset\Mata Kuliah\sub_clo_profiles.csv")
     available_courses = subclo_profiles["course_name"].unique().tolist()
     matched = match_courses(khs_courses, available_courses)
     matched.to_csv("pipeline_course_match_log.csv", index=False)

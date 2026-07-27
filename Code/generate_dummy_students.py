@@ -840,8 +840,11 @@ def main():
         print(f"Generated: {khs_filename}")
 
         # 3. Generate Certificate(s) - 1 mahasiswa bisa lebih dari 1 sertifikat
+        #    Output ke subfolder per mahasiswa: OUT_DIR_CERT/{NamaMahasiswa}/
+        student_cert_dir = os.path.join(OUT_DIR_CERT, student["name"])
+        os.makedirs(student_cert_dir, exist_ok=True)
         for cert_filename, cert_text in generate_all_certificates_for_student(student):
-            cert_path = os.path.join(OUT_DIR_CERT, cert_filename)
+            cert_path = os.path.join(student_cert_dir, cert_filename)
             with open(cert_path, "w", encoding="utf-8") as f:
                 f.write(cert_text)
             print(f"Generated: {cert_path}")
