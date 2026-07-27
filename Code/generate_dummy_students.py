@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Generator CV.md dan KHS.md untuk data mahasiswa dummy (Sistem Informasi).
+Generator CV.md, KHS.md, dan Certificate.md untuk data mahasiswa dummy (Sistem Informasi).
 
 Output:
-1. CV.md          -> ringkasan profesional + pengalaman (per mahasiswa)
-2. KHS.md (baru)  -> Kartu Hasil Studi: seluruh mata kuliah pada katalog CLO,
+1. CV.md          -> ringkasan profesional + pengalaman (per mahasiswa) [SAAT INI DI-NONAKTIFKAN]
+2. KHS.md         -> Kartu Hasil Studi: seluruh mata kuliah pada katalog CLO,
                      dengan rincian nilai per CLO (bukan cuma nilai akhir MK)
+3. Certificate.md (baru) -> Sertifikat pelatihan/kursus dummy, 1 mahasiswa bisa
+                     punya lebih dari 1 sertifikat (mengikuti daftar TRACK_CERTS
+                     sesuai spesialisasi/track masing-masing mahasiswa).
 
 Catatan:
 - Daftar mata kuliah di STUDENTS (di bawah) dipakai HANYA untuk bagian CV
@@ -14,15 +17,21 @@ Catatan:
 - KHS di-generate dari COURSE_CLO_CATALOG (seluruh 22 MK + CLO-nya, hasil
   ekstraksi dari Dataset_CLO_OBE_SI_TelUJakarta.xlsx), sesuai permintaan:
   "coba semua mata kuliah dulu" untuk versi pertama ini.
+- Generate CV untuk sementara di-comment di main(); yang aktif sekarang
+  adalah generate KHS dan generate Certificate.
 """
 
 import os
 import random
+import string
+import datetime
 
 OUT_DIR_CV = "./../Dataset/generated_markdown_cvs"
 OUT_DIR_KHS = "./../Dataset/generated_markdown_khs"
+OUT_DIR_CERT = "./../Dataset/generated_markdown_certificates"
 os.makedirs(OUT_DIR_CV, exist_ok=True)
 os.makedirs(OUT_DIR_KHS, exist_ok=True)
+os.makedirs(OUT_DIR_CERT, exist_ok=True)
 
 # =====================================================================
 # STUDENTS DATA (dipakai untuk generate CV)
@@ -332,6 +341,54 @@ TRACK_CERTS = {
     ],
 }
 
+# Issuer resmi per judul sertifikat (dipakai untuk generate Certificate.md)
+CERT_ISSUERS = {
+    "Oracle Java Foundations": "Oracle University",
+    "AWS Cloud Practitioner": "Amazon Web Services (AWS) Training and Certification",
+    "Scrum Fundamentals Certified": "SCRUMstudy",
+    "Google Data Analytics": "Google Career Certificates (Coursera)",
+    "TensorFlow Developer Certificate": "TensorFlow / Google",
+    "Machine Learning Specialization": "DeepLearning.AI & Stanford Online (Coursera)",
+    "Security+": "CompTIA",
+    "Certified Ethical Hacker (Training)": "EC-Council",
+    "Cisco CyberOps Associate": "Cisco Networking Academy",
+    "Google UX Design": "Google Career Certificates (Coursera)",
+    "Design Thinking Professional": "IDEO U",
+    "CCNA": "Cisco Networking Academy",
+    "SAP Fundamentals": "SAP Learning Hub",
+    "Business Analysis Foundation": "International Institute of Business Analysis (IIBA)",
+    "Databricks Fundamentals": "Databricks Academy",
+    "Snowflake Essentials": "Snowflake University",
+    "ITIL Foundation": "AXELOS / PeopleCert",
+    "Docker Associate Training": "Docker, Inc.",
+    "DeepLearning.AI NLP Specialization": "DeepLearning.AI (Coursera)",
+    "Generative AI Fundamentals": "Google Cloud Skills Boost",
+}
+
+# Estimasi durasi kursus/pelatihan per judul sertifikat (jam)
+CERT_HOURS = {
+    "Oracle Java Foundations": 20,
+    "AWS Cloud Practitioner": 25,
+    "Scrum Fundamentals Certified": 12,
+    "Google Data Analytics": 180,
+    "TensorFlow Developer Certificate": 60,
+    "Machine Learning Specialization": 100,
+    "Security+": 40,
+    "Certified Ethical Hacker (Training)": 40,
+    "Cisco CyberOps Associate": 70,
+    "Google UX Design": 180,
+    "Design Thinking Professional": 15,
+    "CCNA": 70,
+    "SAP Fundamentals": 20,
+    "Business Analysis Foundation": 18,
+    "Databricks Fundamentals": 10,
+    "Snowflake Essentials": 10,
+    "ITIL Foundation": 16,
+    "Docker Associate Training": 12,
+    "DeepLearning.AI NLP Specialization": 60,
+    "Generative AI Fundamentals": 10,
+}
+
 # =====================================================================
 # SKALA NILAI (standar konversi huruf -> bobot & skor dasar per-CLO)
 # =====================================================================
@@ -384,7 +441,7 @@ def score_to_grade(score):
 
 
 # =====================================================================
-# GENERATOR CV (tidak diubah dari versi sebelumnya)
+# GENERATOR CV (SAAT INI DI-NONAKTIFKAN DI main(), fungsi tetap disimpan)
 # =====================================================================
 
 def generate_summary(student, gpa):
@@ -542,7 +599,7 @@ Available upon request.
 
 
 # =====================================================================
-# GENERATOR KHS (BARU): nilai per mata kuliah + rincian per CLO
+# GENERATOR KHS: nilai per mata kuliah + rincian per CLO
 # =====================================================================
 
 def generate_student_khs_data(catalog=COURSE_CLO_CATALOG):
@@ -644,16 +701,136 @@ data.*
     return md
 
 
+# =====================================================================
+# GENERATOR CERTIFICATE (BARU): sertifikat pelatihan/kursus dummy.
+# Satu mahasiswa bisa punya lebih dari 1 sertifikat (mengikuti daftar
+# TRACK_CERTS sesuai spesialisasi/track masing-masing).
+# =====================================================================
+
+def generate_credential_id(student_name, cert_name):
+    """Bangkitkan ID kredensial acak yang cukup unik & terlihat realistis."""
+    prefix = "".join(w[0] for w in cert_name.split() if w[0].isalnum()).upper()[:4]
+    rand_part = "".join(random.choices(string.ascii_uppercase + string.digits, k=8))
+    return f"CERT-{prefix}-{rand_part}"
+
+
+def generate_verification_code():
+    return "".join(random.choices(string.ascii_uppercase + string.digits, k=12))
+
+
+def random_issue_date():
+    """Tanggal terbit acak antara Jan 2023 - Des 2025."""
+    start = datetime.date(2023, 1, 1)
+    end = datetime.date(2025, 12, 31)
+    delta_days = (end - start).days
+    return start + datetime.timedelta(days=random.randint(0, delta_days))
+
+
+BULAN_ID = {
+    1: "Januari", 2: "Februari", 3: "Maret", 4: "April", 5: "Mei", 6: "Juni",
+    7: "Juli", 8: "Agustus", 9: "September", 10: "Oktober", 11: "November", 12: "Desember",
+}
+
+
+def format_tanggal_id(d):
+    return f"{d.day} {BULAN_ID[d.month]} {d.year}"
+
+
+def generate_certificate(student, cert_name, cert_index):
+    """Generate satu file sertifikat (markdown) untuk satu mahasiswa +
+    satu judul sertifikasi/pelatihan."""
+
+    issuer = CERT_ISSUERS.get(cert_name, "Professional Certification Body")
+    hours = CERT_HOURS.get(cert_name, random.choice([10, 12, 15, 20, 25, 40]))
+    issue_date = random_issue_date()
+    # Sertifikat berlaku 2-3 tahun sejak terbit (khas sertifikasi vendor/profesional)
+    valid_years = random.choice([2, 3])
+    expiry_date = issue_date.replace(year=issue_date.year + valid_years)
+    credential_id = generate_credential_id(student["name"], cert_name)
+    verification_code = generate_verification_code()
+    score = random.randint(78, 99)
+    full_name = student["name"].replace("_", " ")
+
+    md = f"""# Sertifikat Penyelesaian
+
+---
+
+## {cert_name}
+
+Diberikan kepada:
+
+### **{full_name}**
+
+Program studi Sistem Informasi, spesialisasi {student['track']}, telah berhasil
+menyelesaikan seluruh materi dan penilaian pada program **"{cert_name}"**
+yang diselenggarakan oleh **{issuer}**, dengan total durasi pelatihan
+**{hours} jam**.
+
+---
+
+## Detail Sertifikat
+
+| Keterangan | Nilai |
+|---|---|
+| Nama Penerima | {full_name} |
+| Judul Sertifikasi | {cert_name} |
+| Penyelenggara / Issuer | {issuer} |
+| Tanggal Terbit | {format_tanggal_id(issue_date)} |
+| Berlaku Hingga | {format_tanggal_id(expiry_date)} |
+| Durasi Pelatihan | {hours} jam |
+| Skor Akhir | {score}/100 |
+| ID Kredensial | {credential_id} |
+| Kode Verifikasi | {verification_code} |
+
+---
+
+## Cakupan Materi
+
+- Konsep dan prinsip dasar {cert_name}.
+- Studi kasus dan praktik penerapan pada konteks industri nyata.
+- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
+
+---
+
+*Sertifikat ini adalah dokumen simulasi/dummy yang dibangkitkan secara otomatis
+untuk keperluan pengujian sistem, bukan sertifikat resmi dari {issuer}.
+Verifikasi keaslian dapat dicek menggunakan ID Kredensial di atas pada
+platform penyelenggara terkait.*
+"""
+    return md
+
+
+def generate_all_certificates_for_student(student):
+    """Generate semua sertifikat (>=1) untuk satu mahasiswa sesuai track-nya,
+    kembalikan list of (filename, content)."""
+    cert_names = TRACK_CERTS.get(student["track"], [])
+    results = []
+    for idx, cert_name in enumerate(cert_names, start=1):
+        content = generate_certificate(student, cert_name, idx)
+        # slug nama sertifikat untuk nama file
+        slug = (
+            cert_name.lower()
+            .replace(" / ", "-")
+            .replace(" ", "_")
+            .replace("(", "")
+            .replace(")", "")
+        )
+        filename = f"{student['name']}_Certificate_{idx}_{slug}.md"
+        results.append((filename, content))
+    return results
+
+
 def main():
 
     for student in STUDENTS:
 
-        # 1. Generate CV
-        cv_text = generate_cv(student)
-        cv_filename = os.path.join(OUT_DIR_CV, f"{student['name']}_CV.md")
-        with open(cv_filename, "w", encoding="utf-8") as f:
-            f.write(cv_text)
-        print(f"Generated: {cv_filename}")
+        # 1. Generate CV -> DI-NONAKTIFKAN sementara sesuai permintaan
+        # cv_text = generate_cv(student)
+        # cv_filename = os.path.join(OUT_DIR_CV, f"{student['name']}_CV.md")
+        # with open(cv_filename, "w", encoding="utf-8") as f:
+        #     f.write(cv_text)
+        # print(f"Generated: {cv_filename}")
 
         # 2. Generate KHS
         khs_text = generate_khs(student)
@@ -662,7 +839,15 @@ def main():
             f.write(khs_text)
         print(f"Generated: {khs_filename}")
 
-    print(f"\nDone. Generated {len(STUDENTS)} CV(s) and {len(STUDENTS)} KHS(s).")
+        # 3. Generate Certificate(s) - 1 mahasiswa bisa lebih dari 1 sertifikat
+        for cert_filename, cert_text in generate_all_certificates_for_student(student):
+            cert_path = os.path.join(OUT_DIR_CERT, cert_filename)
+            with open(cert_path, "w", encoding="utf-8") as f:
+                f.write(cert_text)
+            print(f"Generated: {cert_path}")
+
+    total_certs = sum(len(TRACK_CERTS.get(s["track"], [])) for s in STUDENTS)
+    print(f"\nDone. Generated {len(STUDENTS)} KHS(s) and {total_certs} certificate(s).")
 
 
 if __name__ == "__main__":
