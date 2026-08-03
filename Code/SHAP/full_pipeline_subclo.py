@@ -5,6 +5,8 @@ from difflib import SequenceMatcher
 from collections import defaultdict
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
+from explainability import explain_course_match, explain_semantic_match, explain_khs_contribution
+
 # ---------------------------------------------------------------------------
 # CONFIG
 # ---------------------------------------------------------------------------
@@ -77,6 +79,11 @@ def match_courses(khs, available_course_names):
         })
     df = pd.DataFrame(rows)
     df["included"] = df["match_confidence"] >= MATCH_THRESHOLD
+    df["match_explanation"] = df.apply(
+        lambda r: explain_course_match(r["khs_course"], r["matched_course_name"],
+                                        r["match_confidence"], MATCH_THRESHOLD),
+        axis=1,
+    )
     return df
 
 
@@ -86,8 +93,11 @@ def match_courses(khs, available_course_names):
 # and certificate-level queries (cert_id / cert_text) alike.
 # ---------------------------------------------------------------------------
 def rank_jobs_for_queries(query_df, id_col, text_col, jobs, job_emb, sbert_model, cross_encoder,
-                           desc_col="description", extra_cols=()):
-    """query_df needs columns [id_col, text_col] + extra_cols to carry through."""
+                           desc_col="description", extra_cols=(), label_col=None):
+    """query_df needs columns [id_col, text_col] + extra_cols to carry through.
+    label_col: kolom yang dipakai sebagai label manusiawi di kalimat penjelasan
+    (mis. 'title' untuk sertifikat, karena cert_id sendiri tidak enak dibaca).
+    Default None -> pakai id_col sebagai label."""
     rows = []
     for i, (_, q) in enumerate(query_df.iterrows()):
         query_text = "query: " + str(q[text_col])
@@ -105,7 +115,9 @@ def rank_jobs_for_queries(query_df, id_col, text_col, jobs, job_emb, sbert_model
         sub_jobs["cross_encoder_score"] = ce_scores
         sub_jobs = sub_jobs.sort_values("cross_encoder_score", ascending=False).head(TOP_K_PER_UNIT)
 
+        unit_label = q[label_col] if label_col else q[id_col]
         for rank, (_, jr) in enumerate(sub_jobs.iterrows(), start=1):
+            score = round(float(jr["cross_encoder_score"]), 4)
             row = {c: q[c] for c in extra_cols}
             row.update({
                 id_col: q[id_col],
@@ -114,7 +126,10 @@ def rank_jobs_for_queries(query_df, id_col, text_col, jobs, job_emb, sbert_model
                 "job_title": jr["title"],
                 "job_company": jr["company"],
                 "job_source": jr["source"],
-                "cross_encoder_score": round(float(jr["cross_encoder_score"]), 4),
+                "cross_encoder_score": score,
+                "explanation": explain_semantic_match(
+                    unit_label, q[text_col], jr["title"], jr[desc_col], score
+                ),
             })
             rows.append(row)
 
@@ -158,8 +173,10 @@ def aggregate_to_student_level(matched_courses, course_agg):
             contribution = weight * cj["course_job_score_max"]
             job_scores[job_id] += contribution
             job_explanations[job_id].append(
-                f"'{m['khs_course']}' (nilai_bobot={m['grade_weight']:.2f}, match={m['match_confidence']:.2f}) "
-                f"-> skor kecocokan MK={cj['course_job_score_max']:.2f}"
+                explain_khs_contribution(
+                    m["khs_course"], m["grade_weight"], m["match_confidence"],
+                    cj["explanation"], contribution,
+                )
             )
             if job_id not in job_info:
                 job_info[job_id] = {"job_title": cj["job_title"], "job_company": cj["job_company"],

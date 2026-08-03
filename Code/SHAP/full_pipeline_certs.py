@@ -3,14 +3,15 @@ import pandas as pd
 from collections import defaultdict
 
 from full_pipeline_subclo import (
-    SBERT_MODEL, CROSS_ENCODER_MODEL, TOP_N_OUTPUT, JOBS_CSV_PATH,
+    SBERT_MODEL, CROSS_ENCODER_MODEL, TOP_N_OUTPUT, JOBS_CSV_PATH, COURSE_CLO_CSV_PATH,
     load_khs, match_courses, rank_jobs_for_queries, match_courses_to_jobs,
 )
 from issuer_tiers import get_certificate_credibility_weight
 from sentence_transformers import SentenceTransformer, CrossEncoder
+from explainability import explain_khs_contribution, explain_cert_contribution
 
 CERT_WEIGHT_GLOBAL = 1.0  # relative weight of the certificate signal vs the KHS signal
-COURSE_CLO_CSV_PATH = "D:\MAIN DATA\Documents\Semester 6\KP BRIN\Dataset\Mata Kuliah\course_clo_consolidated.csv"
+
 
 # ---------------------------------------------------------------------------
 # Load certificates + compute credibility weight per certificate
@@ -50,7 +51,8 @@ def aggregate_certs(cert_ranking, certs_df):
 
     idx = cert_ranking.groupby("job_id")["weighted_score"].idxmax()
     best = cert_ranking.loc[idx, ["job_id", "job_title", "job_company", "job_source",
-                                   "cert_id", "cert_title", "cross_encoder_score", "weighted_score"]]
+                                   "cert_id", "cert_title", "cross_encoder_score", "weighted_score",
+                                   "explanation"]]
     return best.rename(columns={"weighted_score": "cert_score_max", "cert_id": "best_cert_id",
                                  "cert_title": "best_cert_title"})
 
@@ -73,22 +75,27 @@ def aggregate_to_student_level(matched_courses, course_agg, cert_agg, certs_df):
             contribution = weight * cj["course_job_score_max"]
             job_scores[job_id] += contribution
             job_explanations[job_id].append(
-                f"KHS: '{m['khs_course']}' (nilai={m['grade_weight']:.2f}, match={m['match_confidence']:.2f}) "
-                f"-> skor kecocokan MK={cj['course_job_score_max']:.2f}"
+                explain_khs_contribution(
+                    m["khs_course"], m["grade_weight"], m["match_confidence"],
+                    cj["explanation"], contribution,
+                )
             )
             if job_id not in job_info:
                 job_info[job_id] = {"job_title": cj["job_title"], "job_company": cj["job_company"],
                                      "job_source": cj["job_source"]}
 
     cred_map = certs_df.set_index("cert_id")["credibility_weight"].to_dict()
+    breakdown_map = certs_df.set_index("cert_id")["credibility_breakdown"].to_dict()
     for _, row in cert_agg.iterrows():
         job_id = row["job_id"]
         contribution = CERT_WEIGHT_GLOBAL * row["cert_score_max"]
         job_scores[job_id] += contribution
         cred = cred_map.get(row["best_cert_id"], 0.0)
+        breakdown = breakdown_map.get(row["best_cert_id"], "")
         job_explanations[job_id].append(
-            f"Sertifikat: '{row['best_cert_title']}' (kredibilitas={cred:.2f}, "
-            f"relevansi={row['cross_encoder_score']:.2f}) -> kontribusi={contribution:.2f}"
+            explain_cert_contribution(
+                row["best_cert_title"], cred, breakdown, row["explanation"], contribution,
+            )
         )
         if job_id not in job_info:
             job_info[job_id] = {"job_title": row["job_title"], "job_company": row["job_company"],
@@ -158,7 +165,7 @@ def main():
         cert_ranking = rank_jobs_for_queries(
             certs_df, id_col="cert_id", text_col="cert_text",
             jobs=jobs, job_emb=job_emb, sbert_model=sbert_model, cross_encoder=cross_encoder,
-            desc_col=desc_col, extra_cols=["title"],
+            desc_col=desc_col, extra_cols=["title"], label_col="title",
         )
         cert_ranking = cert_ranking.rename(columns={"title": "cert_title"})
         cert_ranking.to_csv("cert_job_ranking.csv", index=False)
