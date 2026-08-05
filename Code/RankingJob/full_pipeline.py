@@ -5,6 +5,9 @@ from difflib import SequenceMatcher
 from collections import defaultdict
 from sentence_transformers import SentenceTransformer, CrossEncoder
 
+# pyrefly: ignore [missing-import]
+from issuer_tiers import get_certificate_credibility_weight
+
 # ---------------------------------------------------------------------------
 # CONFIG
 # ---------------------------------------------------------------------------
@@ -14,6 +17,7 @@ MATCH_THRESHOLD = 0.55       # course-name fuzzy match confidence cutoff
 TOP_K_RETRIEVAL = 15         # SBERT top-K per query unit (course/cert), before rerank
 TOP_K_PER_UNIT = 5           # jobs kept per query unit after rerank
 TOP_N_OUTPUT = 15            # final recommendations to output
+CERT_WEIGHT_GLOBAL = 1.0     # relative weight of the certificate signal vs the KHS signal
 
 JOBS_CSV_PATH = r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\Dataset\Pekerjaan\Processed\jobs_unified.csv"
 # course_clo_consolidated.csv is produced by consolidate_subclo.py (1 row per
@@ -28,12 +32,6 @@ GRADE_MAP = {"A": 0.85, "AB": 0.80, "B": 0.70, "BC": 0.60, "C": 0.55, "D": 0.50,
 # STAGE 1: parse KHS
 # ---------------------------------------------------------------------------
 def load_khs(path):
-    """
-    Expects the transcript_parsed.csv format produced by parse_input.py:
-    kode_mk, nama_mk, sks, nilai_huruf (grade_weight is computed here if
-    not already present - no need to pre-supply it, and no clo_code/clo_desc
-    columns belong in a transcript file, those live in course_clo_consolidated.csv).
-    """
     df = pd.read_csv(path)
 
     required_cols = ["kode_mk", "nama_mk"]
@@ -50,6 +48,32 @@ def load_khs(path):
             bad = df[df["grade_weight"].isna()]["nilai_huruf"].unique()
             raise ValueError(f"Unrecognized grade values: {bad}")
 
+    return df
+
+# ---------------------------------------------------------------------------
+# Load certificates + compute credibility weight per certificate
+# ---------------------------------------------------------------------------
+def load_certificates(path):
+    if not path:
+        return pd.DataFrame()
+    df = pd.read_csv(path)
+    if len(df) == 0:
+        return df
+
+    weights, breakdowns = [], []
+    for _, row in df.iterrows():
+        w, b = get_certificate_credibility_weight(
+            row.get("issuer"), row.get("has_assessment"), row.get("issue_date")
+        )
+        weights.append(w)
+        breakdowns.append(b)
+
+    df["credibility_weight"] = weights
+    df["credibility_breakdown"] = breakdowns
+    df["cert_text"] = df["title"].fillna("") + ". " + df["description_text"].fillna("")
+
+    print("\nCertificate credibility weights:")
+    print(df[["title", "issuer", "credibility_weight"]].to_string(index=False))
     return df
 
 
@@ -140,11 +164,29 @@ def match_courses_to_jobs(course_clo_df, jobs, job_emb, sbert_model, cross_encod
     )
     return ranking.rename(columns={"cross_encoder_score": "course_job_score_max"})
 
+# ---------------------------------------------------------------------------
+# Aggregate cert-level rankings -> single per-job signal
+# ---------------------------------------------------------------------------
+def aggregate_certs(cert_ranking, certs_df):
+    """MAX over (credibility_weight * cross_encoder_score) per job."""
+    cred_map = certs_df.set_index("cert_id")["credibility_weight"].to_dict()
+    cert_ranking = cert_ranking.copy()
+    cert_ranking["weighted_score"] = cert_ranking.apply(
+        lambda r: r["cross_encoder_score"] * cred_map.get(r["cert_id"], 0.0), axis=1
+    )
+
+    idx = cert_ranking.groupby("job_id")["weighted_score"].idxmax()
+    best = cert_ranking.loc[idx, ["job_id", "job_title", "job_company", "job_source",
+                                   "cert_id", "cert_title", "cross_encoder_score", "weighted_score"]]
+    return best.rename(columns={"weighted_score": "cert_score_max", "cert_id": "best_cert_id",
+                                 "cert_title": "best_cert_title"})
+
 
 # ---------------------------------------------------------------------------
-# STAGE FINAL: aggregate course-level -> student-level (KHS signal only)
+# Final aggregation: KHS signal (per-course, consolidated) + optional certificate signal
+# -> student level
 # ---------------------------------------------------------------------------
-def aggregate_to_student_level(matched_courses, course_agg):
+def aggregate_to_student_level(matched_courses, course_agg, cert_agg, certs_df):
     job_scores = defaultdict(float)
     job_info = {}
     job_explanations = defaultdict(list)
@@ -158,12 +200,31 @@ def aggregate_to_student_level(matched_courses, course_agg):
             contribution = weight * cj["course_job_score_max"]
             job_scores[job_id] += contribution
             job_explanations[job_id].append(
-                f"'{m['khs_course']}' (nilai_bobot={m['grade_weight']:.2f}, match={m['match_confidence']:.2f}) "
+                f"KHS: '{m['khs_course']}' (nilai={m['grade_weight']:.2f}, match={m['match_confidence']:.2f}) "
                 f"-> skor kecocokan MK={cj['course_job_score_max']:.2f}"
             )
             if job_id not in job_info:
                 job_info[job_id] = {"job_title": cj["job_title"], "job_company": cj["job_company"],
                                      "job_source": cj["job_source"]}
+
+    if not certs_df.empty and "cert_id" in certs_df.columns:
+        cred_map = certs_df.set_index("cert_id")["credibility_weight"].to_dict()
+    else:
+        cred_map = {}
+
+    if not cert_agg.empty:
+        for _, row in cert_agg.iterrows():
+            job_id = row["job_id"]
+            contribution = CERT_WEIGHT_GLOBAL * row["cert_score_max"]
+            job_scores[job_id] += contribution
+            cred = cred_map.get(row["best_cert_id"], 0.0)
+            job_explanations[job_id].append(
+                f"Sertifikat: '{row['best_cert_title']}' (kredibilitas={cred:.2f}, "
+                f"relevansi={row['cross_encoder_score']:.2f}) -> kontribusi={contribution:.2f}"
+            )
+            if job_id not in job_info:
+                job_info[job_id] = {"job_title": row["job_title"], "job_company": row["job_company"],
+                                     "job_source": row["job_source"]}
 
     rows = []
     for job_id, score in job_scores.items():
@@ -184,6 +245,7 @@ def aggregate_to_student_level(matched_courses, course_agg):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--khs", required=True, help="transcript_parsed.csv from parse_input.py")
+    parser.add_argument("--certs", required=False, default=None, help="certificates_parsed.csv from parse_input.py (optional)")
     parser.add_argument("--jobs", default=JOBS_CSV_PATH, help="path to jobs_unified_with_skills.csv")
     parser.add_argument("--course-clo", default=COURSE_CLO_CSV_PATH,
                          help="path to course_clo_consolidated.csv from consolidate_subclo.py")
@@ -205,6 +267,15 @@ def main():
         print("No usable matches - stopping.")
         return
 
+    certs_df = pd.DataFrame()
+    if args.certs:
+        print("\n=== Stage 2b: Loading certificates + computing credibility weights ===")
+        certs_df = load_certificates(args.certs)
+        if len(certs_df) == 0:
+            print("No certificates found - nothing to add on top of the KHS signal.")
+    else:
+        print("\n=== Stage 2b: Skipping certificates (no --certs provided) ===")
+
     print("\n=== Stage 3: Embedding job postings ===")
     jobs = pd.read_csv(args.jobs)
     desc_col = "description_summary" if "description_summary" in jobs.columns else "description"
@@ -214,7 +285,7 @@ def main():
     job_texts = ("passage: " + jobs["title"].fillna("") + ". " + jobs[desc_col].fillna("").str.slice(0, 1500))
     job_emb = sbert_model.encode(job_texts.tolist(), normalize_embeddings=True, show_progress_bar=True, batch_size=32)
 
-    print("\n=== Stage 4: Per-course retrieval + rerank ===")
+    print("\n=== Stage 4a: Per-course retrieval + rerank ===")
     included_course_names = matched[matched["included"]]["matched_course_name"].unique()
     relevant_courses = course_clo_profiles[course_clo_profiles["course_name"].isin(included_course_names)]
     course_agg = match_courses_to_jobs(
@@ -224,8 +295,24 @@ def main():
     course_agg.to_csv("course_job_aggregated.csv", index=False)
     print(f"Saved: course_job_aggregated.csv ({len(course_agg)} rows)")
 
-    print("\n=== Stage 5: Aggregating to student level ===")
-    final_ranking = aggregate_to_student_level(matched, course_agg)
+    cert_agg = pd.DataFrame()
+    if not certs_df.empty:
+        print("\n=== Stage 4b: Per-certificate retrieval + rerank ===")
+        cert_ranking = rank_jobs_for_queries(
+            certs_df, id_col="cert_id", text_col="cert_text",
+            jobs=jobs, job_emb=job_emb, sbert_model=sbert_model, cross_encoder=cross_encoder,
+            desc_col=desc_col, extra_cols=["title"],
+        )
+        cert_ranking = cert_ranking.rename(columns={"title": "cert_title"})
+        cert_ranking.to_csv("cert_job_ranking.csv", index=False)
+        print(f"Saved: cert_job_ranking.csv ({len(cert_ranking)} rows)")
+
+        print("\n=== Stage 5: Aggregating certificates -> single signal ===")
+        cert_agg = aggregate_certs(cert_ranking, certs_df)
+        cert_agg.to_csv("cert_job_aggregated.csv", index=False)
+
+    print("\n=== Stage 6: Final aggregation (KHS + certificate signal) ===")
+    final_ranking = aggregate_to_student_level(matched, course_agg, cert_agg, certs_df)
     final_ranking.head(TOP_N_OUTPUT).to_csv("final_recommendations.csv", index=False)
     print(f"Saved: final_recommendations.csv (top {TOP_N_OUTPUT})")
 

@@ -7,45 +7,48 @@ import pandas as pd
 from pypdf import PdfReader
 
 GRADE_MAP = {"A": 0.85, "AB": 0.80, "B": 0.70, "BC": 0.60, "C": 0.55, "D": 0.50, "E": 0.0}
-def parse_khs_markdown(md_path):
-    """
-    Parse generated KHS markdown format and return the same schema as
-    parse_khs_pdf():
-        kode_mk, nama_mk, sks, nilai_huruf, grade_weight
-    """
 
+# ---------------------------------------------------------------------------
+# Helper: parse a GitHub-flavored markdown table into list[dict]
+# ---------------------------------------------------------------------------
+def _parse_markdown_table(table_text):
+    lines = [l.strip() for l in table_text.strip().splitlines() if l.strip()]
+    if len(lines) < 2:
+        return []
+    header = [h.strip() for h in lines[0].strip("|").split("|")]
     rows = []
+    for line in lines[2:]:  # skip header row + separator row
+        if not line.startswith("|"):
+            continue
+        cells = [c.strip() for c in line.strip("|").split("|")]
+        if len(cells) != len(header):
+            continue
+        rows.append(dict(zip(header, cells)))
+    return rows
 
+# ---------------------------------------------------------------------------
+# KHS extraction (Markdown, Course-level)
+# ---------------------------------------------------------------------------
+def parse_khs_markdown(md_path):
+    rows = []
     with open(md_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
-
     in_course_table = False
-
     for line in lines:
-
         if "| No | Kode MK | Nama Mata Kuliah | SKS | Semester | Nilai Akhir |" in line:
             in_course_table = True
             continue
-
         if not in_course_table:
             continue
-
-        # stop when transcript table ends
         if line.strip() == "---":
             break
-
         if not line.startswith("|"):
             continue
-
-        # skip separator row
         if "----" in line:
             continue
-
         parts = [p.strip() for p in line.strip().split("|")[1:-1]]
-
         if len(parts) != 6:
             continue
-
         try:
             rows.append({
                 "kode_mk": parts[1],
@@ -55,95 +58,92 @@ def parse_khs_markdown(md_path):
             })
         except Exception:
             continue
-
     if not rows:
-        raise ValueError(
-            f"Gagal menemukan tabel mata kuliah pada markdown: {md_path}"
-        )
-
+        raise ValueError(f"Gagal menemukan tabel mata kuliah pada markdown: {md_path}")
     df = pd.DataFrame(rows)
-
     df["grade_weight"] = df["nilai_huruf"].map(GRADE_MAP)
-
     if df["grade_weight"].isna().any():
         bad = df[df["grade_weight"].isna()]
         print(f"WARNING: {len(bad)} rows had unrecognized grades:")
         print(bad)
-
         df = df.dropna(subset=["grade_weight"])
-
     return df
 
+# ---------------------------------------------------------------------------
+# KHS extraction (Markdown, CLO-level)
+# ---------------------------------------------------------------------------
+def parse_khs_md_clo(khs_md_path):
+    with open(khs_md_path, encoding="utf-8") as f:
+        text = f.read()
+
+    summary_match = re.search(r"## Ringkasan Nilai per Mata Kuliah\n\n(.*?)\n\n---", text, re.DOTALL)
+    course_meta = {}
+    if summary_match:
+        for row in _parse_markdown_table(summary_match.group(1)):
+            course_meta[row["Kode MK"]] = {
+                "sks": row["SKS"],
+                "semester": row["Semester"],
+            }
+
+    detail_match = re.search(r"## Rincian Nilai per CLO \(Course Learning Outcome\)\n\n(.*)$", text, re.DOTALL)
+    if not detail_match:
+        raise ValueError(f"Could not find CLO detail section in {khs_md_path}")
+    detail_text = detail_match.group(1)
+
+    header_re = re.compile(r"^(?P<nama_mk>.+?) \((?P<kode_mk>[^)]+)\) - (?P<sks>\d+) SKS - Nilai Akhir: (?P<nilai>\S+)")
+
+    rows = []
+    course_blocks = re.split(r"\n### ", "\n### " + detail_text.strip())
+    for block in course_blocks:
+        block = block.strip()
+        if not block:
+            continue
+        lines = block.splitlines()
+        header_line = lines[0].lstrip("#").strip()
+        m = header_re.match(header_line)
+        if not m:
+            continue
+
+        nama_mk = m.group("nama_mk").strip()
+        kode_mk = m.group("kode_mk").strip()
+        sks = int(m.group("sks"))
+        nilai_akhir_mk = m.group("nilai").strip()
+        semester = course_meta.get(kode_mk, {}).get("semester")
+
+        table_text = "\n".join(lines[1:])
+        for clo_row in _parse_markdown_table(table_text):
+            rows.append({
+                "kode_mk": kode_mk,
+                "nama_mk": nama_mk,
+                "sks": sks,
+                "semester": semester,
+                "nilai_akhir_mk": nilai_akhir_mk,
+                "clo_code": clo_row.get("CLO"),
+                "clo_desc": clo_row.get("Deskripsi CLO"),
+                "bloom": clo_row.get("Bloom Taxonomy"),
+                "score": clo_row.get("Skor CLO (0-100)"),
+                "nilai_clo": clo_row.get("Nilai CLO"),
+            })
+
+    df = pd.DataFrame(rows)
+    df["nilai_clo"] = df["nilai_clo"].str.upper().str.strip()
+    df["grade_weight"] = df["nilai_clo"].map(GRADE_MAP)
+    if df["grade_weight"].isna().any():
+        bad = df[df["grade_weight"].isna()]
+        print(f"WARNING: {len(bad)} rows had unrecognized grades and were dropped:")
+        print(bad)
+        df = df.dropna(subset=["grade_weight"])
+    return df
 
 # ---------------------------------------------------------------------------
-# CV extraction (plain text layer - no AI needed)
-# ---------------------------------------------------------------------------
-def extract_cv_text(cv_pdf_path):
-    reader = PdfReader(cv_pdf_path)
-    text = ""
-    for page in reader.pages:
-        text += page.extract_text() + "\n"
-    if len(text.strip()) < 50:
-        raise ValueError(
-            f"CV PDF '{cv_pdf_path}' produced almost no text - it may be scanned/image-based. "
-            "Consider adding a vision-based fallback similar to the KHS parser below."
-        )
-    return text
-
-
-def extract_cv_units(cv_text, model="claude-sonnet-4-6"):
-    """
-    Split a CV's free text into discrete competency units - one per project,
-    work experience entry, or publication. Each unit becomes its own
-    embedding query later on (mirrors how sub-CLOs are individual query
-    units on the academic side), instead of treating the whole CV as one
-    blurred blob.
-
-    WHY AN LLM CALL INSTEAD OF REGEX/HEADING SPLIT: CV formatting varies
-    wildly (bullet styles, section names, date placements). A text-only
-    Claude call (no vision needed - CV already has a real text layer) is
-    far more robust than hardcoding heading patterns per CV template.
-
-    Requires ANTHROPIC_API_KEY in the environment. This is a plain text
-    call (cheap, no images), unlike the KHS vision fallback above.
-
-    Returns a list of dicts: [{"title": ..., "description": ...}, ...]
-    """
-    import anthropic
-
-    client = anthropic.Anthropic()
-    prompt = (
-        "Below is the raw text of a CV/resume. Split it into discrete competency "
-        "units - one per work experience entry, project, or publication (skip "
-        "generic sections like contact info, education, and skills lists - those "
-        "aren't individual units). For each unit, write a short title and a "
-        "description combining what was done and any technologies/methods "
-        "mentioned, in the CV's own words as much as possible.\n\n"
-        "Respond with ONLY a JSON array (no markdown fences, no commentary), "
-        'where each element has keys "title" and "description".\n\n'
-        f"CV TEXT:\n\"\"\"\n{cv_text}\n\"\"\""
-    )
-    response = client.messages.create(
-        model=model,
-        max_tokens=2000,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    raw_text = "".join(block.text for block in response.content if block.type == "text")
-    raw_text = re.sub(r"^```json\s*|\s*```$", "", raw_text.strip())
-    return json.loads(raw_text)
-
-
-# ---------------------------------------------------------------------------
-# KHS extraction: auto-detect text layer vs scanned
+# KHS extraction: auto-detect text layer vs scanned (PDF)
 # ---------------------------------------------------------------------------
 def _has_text_layer(pdf_path):
     reader = PdfReader(pdf_path)
     sample_text = "".join(page.extract_text() or "" for page in reader.pages[:1])
     return len(sample_text.strip()) > 30
 
-
 def _parse_khs_text_based(pdf_path):
-    """For KHS PDFs that DO have a real text layer - use pdfplumber tables."""
     import pdfplumber
     rows = []
     with pdfplumber.open(pdf_path) as pdf:
@@ -151,17 +151,13 @@ def _parse_khs_text_based(pdf_path):
             for table in page.extract_tables():
                 for row in table:
                     rows.append(row)
-    # NOTE: this is generic/best-effort - real transcript layouts vary a lot.
-    # You will likely need to adjust column indices for your specific format.
     raise NotImplementedError(
         "Text-based KHS table found, but column mapping is institution-specific. "
         "Inspect `rows` here and map to kode_mk/nama_mk/sks/nilai_huruf manually, "
         "or route it through the vision fallback (_parse_khs_vision) instead."
     )
 
-
 def _pdf_pages_to_base64_images(pdf_path, dpi=200):
-    """Rasterize each PDF page to a base64-encoded JPEG using pdftoppm (poppler)."""
     import subprocess
     import tempfile
     import glob
@@ -179,15 +175,9 @@ def _pdf_pages_to_base64_images(pdf_path, dpi=200):
                 images_b64.append(base64.standard_b64encode(f.read()).decode("utf-8"))
         return images_b64
 
-
 def _parse_khs_vision(pdf_path, model="claude-sonnet-4-6"):
-    """
-    Scanned/rasterized KHS PDF -> use Claude vision to read the table and
-    return structured JSON. Requires ANTHROPIC_API_KEY in the environment.
-    """
     import anthropic
-
-    client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from env
+    client = anthropic.Anthropic()
     images_b64 = _pdf_pages_to_base64_images(pdf_path)
 
     content = []
@@ -220,10 +210,7 @@ def _parse_khs_vision(pdf_path, model="claude-sonnet-4-6"):
     records = json.loads(raw_text)
     return pd.DataFrame(records)
 
-
 def parse_khs_pdf(pdf_path):
-    """Main entry point: auto-detects strategy and returns a clean DataFrame
-    with columns kode_mk, nama_mk, sks, nilai_huruf, grade_weight."""
     if _has_text_layer(pdf_path):
         print(f"'{pdf_path}' has a real text layer - using pdfplumber (no API needed).")
         df = _parse_khs_text_based(pdf_path)
@@ -241,44 +228,92 @@ def parse_khs_pdf(pdf_path):
     return df
 
 def parse_khs(khs_path):
-    """
-    Unified entry point.
-    Supports:
-      - .pdf
-      - .md
-    """
-
     ext = os.path.splitext(khs_path)[1].lower()
-
     if ext == ".md":
         print(f"Detected markdown KHS: {khs_path}")
-        return parse_khs_markdown(khs_path)
-
+        with open(khs_path, "r", encoding="utf-8") as f:
+            content = f.read()
+        if "## Rincian Nilai per CLO" in content:
+            print("Detected CLO-level details in Markdown. Extracting at CLO granularity.")
+            return parse_khs_md_clo(khs_path)
+        else:
+            print("No CLO-level details found. Extracting at Course granularity.")
+            return parse_khs_markdown(khs_path)
     if ext == ".pdf":
         return parse_khs_pdf(khs_path)
+    raise ValueError(f"Unsupported KHS format '{ext}'. Expected .pdf or .md")
 
-    raise ValueError(
-        f"Unsupported KHS format '{ext}'. Expected .pdf or .md"
+
+# ---------------------------------------------------------------------------
+# CV extraction (plain text layer - no AI needed)
+# ---------------------------------------------------------------------------
+def extract_cv_text(cv_pdf_path):
+    reader = PdfReader(cv_pdf_path)
+    text = ""
+    for page in reader.pages:
+        text += page.extract_text() + "\n"
+    if len(text.strip()) < 50:
+        raise ValueError(
+            f"CV PDF '{cv_pdf_path}' produced almost no text - it may be scanned/image-based. "
+            "Consider adding a vision-based fallback similar to the KHS parser below."
+        )
+    return text
+
+def extract_cv_units_ai(cv_text, model="claude-sonnet-4-6"):
+    import anthropic
+    client = anthropic.Anthropic()
+    prompt = (
+        "Below is the raw text of a CV/resume. Split it into discrete competency "
+        "units - one per work experience entry, project, or publication (skip "
+        "generic sections like contact info, education, and skills lists - those "
+        "aren't individual units). For each unit, write a short title and a "
+        "description combining what was done and any technologies/methods "
+        "mentioned, in the CV's own words as much as possible.\n\n"
+        "Respond with ONLY a JSON array (no markdown fences, no commentary), "
+        'where each element has keys "title" and "description".\n\n'
+        f"CV TEXT:\n\"\"\"\n{cv_text}\n\"\"\""
     )
+    response = client.messages.create(
+        model=model,
+        max_tokens=2000,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    raw_text = "".join(block.text for block in response.content if block.type == "text")
+    raw_text = re.sub(r"^```json\s*|\s*```$", "", raw_text.strip())
+    return json.loads(raw_text)
+
+def extract_cv_units_md(cv_md_path):
+    with open(cv_md_path, encoding="utf-8") as f:
+        text = f.read()
+
+    match = re.search(r"## Professional Projects\n\n(.*?)\n---\n\n## Certifications", text, re.DOTALL)
+    if not match:
+        raise ValueError(f"Could not find 'Professional Projects' section in {cv_md_path}")
+    section = match.group(1)
+
+    units = []
+    blocks = re.split(r"\n### ", "\n### " + section.strip())
+    for block in blocks:
+        block = block.strip()
+        if not block:
+            continue
+        lines = block.splitlines()
+        title = lines[0].lstrip("#").strip()
+        rest = "\n".join(lines[1:]).strip()
+        description = re.split(r"\n#### Key Contributions", rest)[0].strip()
+        units.append({"title": title, "description": description})
+    return units
 
 # ---------------------------------------------------------------------------
 # Certificate extraction
 # ---------------------------------------------------------------------------
-
-# ── (A) Markdown format (output dari generate_dummy_students.py) ─────────────
-
 BULAN_EN = {
     "Januari": "01", "Februari": "02", "Maret": "03", "April": "04",
     "Mei": "05", "Juni": "06", "Juli": "07", "Agustus": "08",
     "September": "09", "Oktober": "10", "November": "11", "Desember": "12",
 }
 
-
 def _parse_tanggal_id(tgl_str):
-    """
-    Ubah tanggal Indonesia (mis. '3 April 2024') ke format YYYY-MM-DD.
-    Kembalikan None jika gagal.
-    """
     parts = tgl_str.strip().split()
     if len(parts) == 3:
         day, month_id, year = parts
@@ -287,25 +322,10 @@ def _parse_tanggal_id(tgl_str):
             return f"{year}-{month}-{int(day):02d}"
     return None
 
-
 def parse_certificate_markdown(md_path):
-    """
-    Parse satu file Certificate.md yang di-generate oleh generate_dummy_students.py
-    dan kembalikan dict dengan schema yang sama seperti output extract_certificate():
-
-        title, issuer, has_assessment, issue_date, description_text, source_file
-
-    Format yang diharapkan pada tabel '## Detail Sertifikat':
-        | Keterangan          | Nilai   |
-        | Judul Sertifikasi   | ...     |
-        | Penyelenggara ...   | ...     |
-        | Tanggal Terbit      | ...     |
-        | Skor Akhir          | .../100 |
-    """
     with open(md_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
-    # Kumpulkan baris dari tabel Detail Sertifikat
     in_detail = False
     detail = {}
     cakupan_lines = []
@@ -313,67 +333,40 @@ def parse_certificate_markdown(md_path):
 
     for line in lines:
         stripped = line.strip()
-
-        # Masuk ke bagian Cakupan Materi
         if stripped == "## Cakupan Materi":
             in_cakupan = True
             in_detail = False
             continue
-
         if in_cakupan:
             if stripped.startswith("##") or stripped == "---":
                 in_cakupan = False
             elif stripped.startswith("-"):
                 cakupan_lines.append(stripped.lstrip("- ").strip())
             continue
-
-        # Masuk ke bagian Detail Sertifikat
         if stripped == "## Detail Sertifikat":
             in_detail = True
             continue
-
         if not in_detail:
             continue
-
-        # Keluar dari tabel saat separator --- atau header baru
         if stripped == "---" or (stripped.startswith("##") and stripped != "## Detail Sertifikat"):
             in_detail = False
             continue
-
         if not stripped.startswith("|"):
             continue
-
-        # Skip baris separator tabel (---|---)
         if "|---" in stripped:
             continue
-
         cols = [c.strip() for c in stripped.split("|")[1:-1]]
         if len(cols) < 2:
             continue
-
         key, val = cols[0], cols[1]
         detail[key] = val
 
-    # Petakan ke schema output
-    title = (
-        detail.get("Judul Sertifikasi")
-        or detail.get("Judul")
-        or os.path.basename(md_path)
-    )
-    issuer = (
-        detail.get("Penyelenggara / Issuer")
-        or detail.get("Penyelenggara")
-        or detail.get("Issuer")
-    )
-
-    # Tanggal terbit: konversi dari format Indonesia
+    title = detail.get("Judul Sertifikasi") or detail.get("Judul") or os.path.basename(md_path)
+    issuer = detail.get("Penyelenggara / Issuer") or detail.get("Penyelenggara") or detail.get("Issuer")
     raw_date = detail.get("Tanggal Terbit", "")
     issue_date = _parse_tanggal_id(raw_date) or raw_date or None
-
-    # has_assessment: True jika ada kolom Skor Akhir (berarti ada ujian/penilaian)
     has_assessment = bool(detail.get("Skor Akhir"))
 
-    # description_text: gabungkan title + cakupan materi jika ada
     if cakupan_lines:
         description_text = f"{title}. " + " ".join(cakupan_lines)
     else:
@@ -389,8 +382,6 @@ def parse_certificate_markdown(md_path):
     }
 
 
-# ── (B) Vision-based (PDF / image) ───────────────────────────────────────────
-
 CERT_EXTRACTION_PROMPT = """This image is a certificate (sertifikat pelatihan/kursus/kompetisi/webinar/sertifikasi).
 Extract the following fields and respond with ONLY a JSON object (no markdown fences, no commentary):
 
@@ -405,17 +396,8 @@ Extract the following fields and respond with ONLY a JSON object (no markdown fe
 Do not fabricate details not visible on the certificate. If a field truly cannot be determined, use null.
 """
 
-
 def extract_certificate(cert_path, model="claude-sonnet-4-6"):
-    """
-    Extract structured fields from a single certificate file (PDF or image).
-    Note: this function only extracts CONTENT fields (title, issuer, dates,
-    description). Issuer CREDIBILITY weighting is handled separately by
-    issuer_tiers.py, kept deliberately decoupled so the credibility judgment
-    table can be edited/argued about without touching extraction logic.
-    """
     import anthropic
-
     client = anthropic.Anthropic()
 
     if cert_path.lower().endswith(".pdf"):
@@ -439,41 +421,24 @@ def extract_certificate(cert_path, model="claude-sonnet-4-6"):
     result["source_file"] = os.path.basename(cert_path)
     return result
 
-
 def parse_certificate(cert_path, model="claude-sonnet-4-6"):
-    """
-    Unified entry point untuk satu file sertifikat.
-    Mendukung:
-      - .md  -> parse_certificate_markdown() (tidak butuh API)
-      - .pdf / .jpg / .jpeg / .png -> extract_certificate() (butuh ANTHROPIC_API_KEY)
-    """
     ext = os.path.splitext(cert_path)[1].lower()
     if ext == ".md":
         print(f"Detected markdown certificate: {cert_path}")
         return parse_certificate_markdown(cert_path)
     return extract_certificate(cert_path, model=model)
 
+def extract_certificates_batch(cert_paths, model="claude-sonnet-4-6"):
+    records = []
+    for path in cert_paths:
+        try:
+            print(f"Extracting: {path}")
+            records.append(parse_certificate(path, model=model))
+        except Exception as e:
+            print(f"  FAILED ({e}) - skipping this certificate")
+    return pd.DataFrame(records)
 
 def parse_certificates_for_student(student_cert_dir, model="claude-sonnet-4-6"):
-    """
-    Baca SEMUA file sertifikat dari satu subfolder mahasiswa
-    (sesuai struktur output generate_dummy_students.py):
-
-        generated_markdown_certificates/
-            Budi_Santoso/
-                Budi_Santoso_Certificate_1_aws_cloud_practitioner.md
-                Budi_Santoso_Certificate_2_scrum_fundamentals_certified.md
-            Siti_Rahma/
-                ...
-
-    Cara pakai:
-        certs_df = parse_certificates_for_student(
-            "../Dataset/generated_markdown_certificates/Budi_Santoso"
-        )
-
-    Return: DataFrame dengan kolom title, issuer, has_assessment,
-            issue_date, description_text, source_file, cert_id
-    """
     import glob as globmod
     cert_paths = sorted(
         p for ext in ("*.md", "*.pdf", "*.jpg", "*.jpeg", "*.png")
@@ -486,38 +451,14 @@ def parse_certificates_for_student(student_cert_dir, model="claude-sonnet-4-6"):
     return df
 
 
-def extract_certificates_batch(cert_paths, model="claude-sonnet-4-6"):
-    """Run parse_certificate() over a list of files (supports .md, .pdf,
-    .jpg, .jpeg, .png). Skips files that fail (printing a warning) instead
-    of crashing the whole batch."""
-    records = []
-    for path in cert_paths:
-        try:
-            print(f"Extracting: {path}")
-            records.append(parse_certificate(path, model=model))
-        except Exception as e:
-            print(f"  FAILED ({e}) - skipping this certificate")
-    return pd.DataFrame(records)
-
-
 if __name__ == "__main__":
     import argparse
     import glob as globmod
     parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--khs",
-        required=True,
-        help="KHS file (.pdf atau .md)"
-    )
-    parser.add_argument("--cv_pdf", required=False, default=None, help="Optional - not needed for the KHS-only pipeline")
-    parser.add_argument("--cert_dir", required=False, default=None,
-                         help=(
-                             "Subfolder sertifikat untuk SATU mahasiswa. "
-                             "Sesuai struktur output generate_dummy_students.py: "
-                             "generated_markdown_certificates/<NamaMahasiswa>/ "
-                             "(berisi satu atau lebih .md per mahasiswa). "
-                             "Contoh: --cert_dir ../Dataset/generated_markdown_certificates/Budi_Santoso"
-                         ))
+    parser.add_argument("--khs", required=True, help="KHS file (.pdf atau .md)")
+    parser.add_argument("--cv_pdf", required=False, default=None, help="CV file in PDF format (Uses AI)")
+    parser.add_argument("--cv_md", required=False, default=None, help="CV file in MD format (Uses Regex)")
+    parser.add_argument("--cert_dir", required=False, default=None, help="Directory containing certificates")
     parser.add_argument("--out_khs_csv", default="transcript_parsed.csv")
     parser.add_argument("--out_cv_units_csv", default="cv_units_parsed.csv")
     parser.add_argument("--out_certs_csv", default="certificates_parsed.csv")
@@ -525,21 +466,28 @@ if __name__ == "__main__":
 
     khs_df = parse_khs(args.khs)
     khs_df.to_csv(args.out_khs_csv, index=False)
-    print(f"Saved {len(khs_df)} courses -> {args.out_khs_csv}")
+    if "clo_code" in khs_df.columns:
+        print(f"Saved {len(khs_df)} CLO rows -> {args.out_khs_csv}")
+    else:
+        print(f"Saved {len(khs_df)} courses -> {args.out_khs_csv}")
 
-    if args.cv_pdf:
-        cv_text = extract_cv_text(args.cv_pdf)
-        cv_units = extract_cv_units(cv_text)
+    cv_units_df = None
+    if args.cv_md:
+        cv_units = extract_cv_units_md(args.cv_md)
         cv_units_df = pd.DataFrame(cv_units)
+    elif args.cv_pdf:
+        cv_text = extract_cv_text(args.cv_pdf)
+        cv_units = extract_cv_units_ai(cv_text)
+        cv_units_df = pd.DataFrame(cv_units)
+    else:
+        print("No --cv_pdf or --cv_md given, skipping CV extraction.")
+
+    if cv_units_df is not None:
         cv_units_df["cv_unit_id"] = ["cv_unit_" + str(i) for i in range(len(cv_units_df))]
         cv_units_df.to_csv(args.out_cv_units_csv, index=False)
         print(f"Saved {len(cv_units_df)} CV units -> {args.out_cv_units_csv}")
-    else:
-        print("No --cv_pdf given, skipping CV extraction.")
 
     if args.cert_dir:
-        # parse_certificates_for_student() otomatis baca semua .md/.pdf/gambar
-        # dari subfolder satu mahasiswa
         certs_df = parse_certificates_for_student(args.cert_dir)
         certs_df.to_csv(args.out_certs_csv, index=False)
         print(f"Saved {len(certs_df)} certificates -> {args.out_certs_csv}")
