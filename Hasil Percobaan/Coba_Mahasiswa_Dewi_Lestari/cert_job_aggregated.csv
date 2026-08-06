@@ -1,0 +1,11 @@
+job_id,job_title,job_company,job_source,best_cert_id,best_cert_title,cross_encoder_score,cert_score_max,explanation
+li_4290752432,UI/UX Designer,"Steampunk, Inc.",linkedin,cert_0,Google UX Design,6.385,4.7823649999999995,Semantic match score: 6.38 for query 'Google UX Design'
+li_4324763342,UX/UI Designer,"Steampunk, Inc.",linkedin,cert_0,Google UX Design,6.7066,5.0232434,Semantic match score: 6.71 for query 'Google UX Design'
+li_4394270475,Product Designer,Remi,linkedin,cert_1,Design Thinking Professional,3.0941,0.69338781,Semantic match score: 3.09 for query 'Design Thinking Professional'
+li_4401451723,Experience Designer,EGO,linkedin,cert_1,Design Thinking Professional,3.5501,0.79557741,Semantic match score: 3.55 for query 'Design Thinking Professional'
+li_4428474361,Product Designer,Quantifind,linkedin,cert_1,Design Thinking Professional,2.7409,0.61423569,Semantic match score: 2.74 for query 'Design Thinking Professional'
+li_4429019731,AI/ML Engineer — Job Posting,Get Hire Technologies Inc.,linkedin,cert_1,Design Thinking Professional,3.5356,0.7923279599999999,Semantic match score: 3.54 for query 'Design Thinking Professional'
+li_4431725005,UX Designer,MDAEdge,linkedin,cert_0,Google UX Design,7.2937,5.4629813,Semantic match score: 7.29 for query 'Google UX Design'
+li_4432248908,Machine Learning Engineer,KTek Resourcing,linkedin,cert_1,Design Thinking Professional,5.266,1.1801106,Semantic match score: 5.27 for query 'Design Thinking Professional'
+li_4433193265,UX Designer,Scale.jobs,linkedin,cert_0,Google UX Design,7.1604,5.3631396,Semantic match score: 7.16 for query 'Google UX Design'
+li_4433431526,Model UX Designer,Google,linkedin,cert_0,Google UX Design,6.0571,4.5367679,Semantic match score: 6.06 for query 'Google UX Design'

@@ -1,0 +1,106 @@
+job_id,job_title,feature,shap_value,base_value
+li_4427730735,UI Frontend Developer,IPK,0.084,0.0
+li_4427730735,UI Frontend Developer,Jumlah Sertifikasi,5.3923,0.0
+li_4427730735,UI Frontend Developer,Data Competency Score,0.0,0.0
+li_4427730735,UI Frontend Developer,Programming Competency Score,1.0532,0.0
+li_4427730735,UI Frontend Developer,Business Competency Score,0.0,0.0
+li_4427730735,UI Frontend Developer,Security Competency Score,0.0,0.0
+li_4427730735,UI Frontend Developer,Infra Competency Score,0.0,0.0
+li_4432811217,Junior Frontend Developer,IPK,0.0,0.0
+li_4432811217,Junior Frontend Developer,Jumlah Sertifikasi,6.3124,0.0
+li_4432811217,Junior Frontend Developer,Data Competency Score,0.0,0.0
+li_4432811217,Junior Frontend Developer,Programming Competency Score,0.0,0.0
+li_4432811217,Junior Frontend Developer,Business Competency Score,0.0,0.0
+li_4432811217,Junior Frontend Developer,Security Competency Score,0.0,0.0
+li_4432811217,Junior Frontend Developer,Infra Competency Score,0.0,0.0
+li_4429667581,Software Engineer,IPK,0.0,0.0
+li_4429667581,Software Engineer,Jumlah Sertifikasi,6.062,0.0
+li_4429667581,Software Engineer,Data Competency Score,0.0,0.0
+li_4429667581,Software Engineer,Programming Competency Score,0.0,0.0
+li_4429667581,Software Engineer,Business Competency Score,0.0,0.0
+li_4429667581,Software Engineer,Security Competency Score,0.0,0.0
+li_4429667581,Software Engineer,Infra Competency Score,0.0,0.0
+li_4425676474,Software Developer,IPK,0.0,0.0
+li_4425676474,Software Developer,Jumlah Sertifikasi,5.9283,0.0
+li_4425676474,Software Developer,Data Competency Score,0.0,0.0
+li_4425676474,Software Developer,Programming Competency Score,0.0,0.0
+li_4425676474,Software Developer,Business Competency Score,0.0,0.0
+li_4425676474,Software Developer,Security Competency Score,0.0,0.0
+li_4425676474,Software Developer,Infra Competency Score,0.0,0.0
+li_4431330775,Software Developer,IPK,0.0323,0.0
+li_4431330775,Software Developer,Jumlah Sertifikasi,5.4051,0.0
+li_4431330775,Software Developer,Data Competency Score,-1.1682,0.0
+li_4431330775,Software Developer,Programming Competency Score,0.0,0.0
+li_4431330775,Software Developer,Business Competency Score,0.3087,0.0
+li_4431330775,Software Developer,Security Competency Score,0.0,0.0
+li_4431330775,Software Developer,Infra Competency Score,1.2649,0.0
+li_4413684880,"Software Development Engineer, AWS",IPK,0.0,0.0
+li_4413684880,"Software Development Engineer, AWS",Jumlah Sertifikasi,5.7426,0.0
+li_4413684880,"Software Development Engineer, AWS",Data Competency Score,0.0,0.0
+li_4413684880,"Software Development Engineer, AWS",Programming Competency Score,0.0,0.0
+li_4413684880,"Software Development Engineer, AWS",Business Competency Score,0.0,0.0
+li_4413684880,"Software Development Engineer, AWS",Security Competency Score,0.0,0.0
+li_4413684880,"Software Development Engineer, AWS",Infra Competency Score,0.0,0.0
+li_3952279081,Java Developer,IPK,0.0,0.0
+li_3952279081,Java Developer,Jumlah Sertifikasi,5.5425,0.0
+li_3952279081,Java Developer,Data Competency Score,0.0,0.0
+li_3952279081,Java Developer,Programming Competency Score,0.0,0.0
+li_3952279081,Java Developer,Business Competency Score,0.0,0.0
+li_3952279081,Java Developer,Security Competency Score,0.0,0.0
+li_3952279081,Java Developer,Infra Competency Score,0.0,0.0
+li_4433627192,Software Developer,IPK,0.0,0.0
+li_4433627192,Software Developer,Jumlah Sertifikasi,4.5831,0.0
+li_4433627192,Software Developer,Data Competency Score,0.0,0.0
+li_4433627192,Software Developer,Programming Competency Score,0.0,0.0
+li_4433627192,Software Developer,Business Competency Score,0.0,0.0
+li_4433627192,Software Developer,Security Competency Score,0.0,0.0
+li_4433627192,Software Developer,Infra Competency Score,0.0,0.0
+li_4411864449,ES Application Developer II,IPK,0.3606,0.0
+li_4411864449,ES Application Developer II,Jumlah Sertifikasi,0.0,0.0
+li_4411864449,ES Application Developer II,Data Competency Score,0.0,0.0
+li_4411864449,ES Application Developer II,Programming Competency Score,0.0,0.0
+li_4411864449,ES Application Developer II,Business Competency Score,0.0,0.0
+li_4411864449,ES Application Developer II,Security Competency Score,0.0,0.0
+li_4411864449,ES Application Developer II,Infra Competency Score,4.522,0.0
+li_4432248908,Machine Learning Engineer,IPK,-0.0823,0.0
+li_4432248908,Machine Learning Engineer,Jumlah Sertifikasi,5.4292,0.0
+li_4432248908,Machine Learning Engineer,Data Competency Score,0.0,0.0
+li_4432248908,Machine Learning Engineer,Programming Competency Score,-1.3851,0.0
+li_4432248908,Machine Learning Engineer,Business Competency Score,0.3531,0.0
+li_4432248908,Machine Learning Engineer,Security Competency Score,0.0,0.0
+li_4432248908,Machine Learning Engineer,Infra Competency Score,0.0,0.0
+li_4427706568,"Web Developer (HTML,CSS) | Remote",IPK,0.293,0.0
+li_4427706568,"Web Developer (HTML,CSS) | Remote",Jumlah Sertifikasi,0.0,0.0
+li_4427706568,"Web Developer (HTML,CSS) | Remote",Data Competency Score,0.0,0.0
+li_4427706568,"Web Developer (HTML,CSS) | Remote",Programming Competency Score,3.6737,0.0
+li_4427706568,"Web Developer (HTML,CSS) | Remote",Business Competency Score,0.0,0.0
+li_4427706568,"Web Developer (HTML,CSS) | Remote",Security Competency Score,0.0,0.0
+li_4427706568,"Web Developer (HTML,CSS) | Remote",Infra Competency Score,0.0,0.0
+li_4405260780,Machine Learning (ML) Engineer,IPK,0.2845,0.0
+li_4405260780,Machine Learning (ML) Engineer,Jumlah Sertifikasi,0.0,0.0
+li_4405260780,Machine Learning (ML) Engineer,Data Competency Score,0.0,0.0
+li_4405260780,Machine Learning (ML) Engineer,Programming Competency Score,0.0,0.0
+li_4405260780,Machine Learning (ML) Engineer,Business Competency Score,1.5773,0.0
+li_4405260780,Machine Learning (ML) Engineer,Security Competency Score,0.0,0.0
+li_4405260780,Machine Learning (ML) Engineer,Infra Competency Score,1.9906,0.0
+li_4431784441,Software Engineer,IPK,0.0,0.0
+li_4431784441,Software Engineer,Jumlah Sertifikasi,3.411,0.0
+li_4431784441,Software Engineer,Data Competency Score,0.0,0.0
+li_4431784441,Software Engineer,Programming Competency Score,0.0,0.0
+li_4431784441,Software Engineer,Business Competency Score,0.0,0.0
+li_4431784441,Software Engineer,Security Competency Score,0.0,0.0
+li_4431784441,Software Engineer,Infra Competency Score,0.0,0.0
+li_4431711270,UX Designer,IPK,0.2258,0.0
+li_4431711270,UX Designer,Jumlah Sertifikasi,0.0,0.0
+li_4431711270,UX Designer,Data Competency Score,0.0,0.0
+li_4431711270,UX Designer,Programming Competency Score,2.831,0.0
+li_4431711270,UX Designer,Business Competency Score,0.0,0.0
+li_4431711270,UX Designer,Security Competency Score,0.0,0.0
+li_4431711270,UX Designer,Infra Competency Score,0.0,0.0
+li_4387561209,AI Engineer,IPK,0.2127,0.0
+li_4387561209,AI Engineer,Jumlah Sertifikasi,0.0,0.0
+li_4387561209,AI Engineer,Data Competency Score,0.0,0.0
+li_4387561209,AI Engineer,Programming Competency Score,2.6669,0.0
+li_4387561209,AI Engineer,Business Competency Score,0.0,0.0
+li_4387561209,AI Engineer,Security Competency Score,0.0,0.0
+li_4387561209,AI Engineer,Infra Competency Score,0.0,0.0

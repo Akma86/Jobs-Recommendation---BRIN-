@@ -745,7 +745,10 @@ def generate_certificate(student, cert_name, cert_index):
     issue_date = random_issue_date()
     # Sertifikat berlaku 2-3 tahun sejak terbit (khas sertifikasi vendor/profesional)
     valid_years = random.choice([2, 3])
-    expiry_date = issue_date.replace(year=issue_date.year + valid_years)
+    try:
+        expiry_date = issue_date.replace(year=issue_date.year + valid_years)
+    except ValueError:
+        expiry_date = issue_date.replace(year=issue_date.year + valid_years, day=28)
     credential_id = generate_credential_id(student["name"], cert_name)
     verification_code = generate_verification_code()
     score = random.randint(78, 99)

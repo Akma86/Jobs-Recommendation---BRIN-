@@ -1,0 +1,16 @@
+job_id,job_title,current_score,threshold_score,cf_id,step_in_cf,intervention_type,feature,detail,score_delta,cf_final_score,cf_reaches_target
+li_4413684880,"Software Development Engineer, AWS",5.743,5.811,1,1,add_certificate,Sertifikat: AWS Certified Solutions Architect,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,7.243,True
+li_4413684880,"Software Development Engineer, AWS",5.743,5.811,2,1,add_certificate,Sertifikat: Google Data Analytics Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,7.243,True
+li_4413684880,"Software Development Engineer, AWS",5.743,5.811,3,1,add_certificate,Sertifikat: TensorFlow Developer Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,7.243,True
+li_3952279081,Java Developer,5.542,5.811,1,1,add_certificate,Sertifikat: AWS Certified Solutions Architect,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,7.042,True
+li_3952279081,Java Developer,5.542,5.811,2,1,add_certificate,Sertifikat: Google Data Analytics Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,7.042,True
+li_3952279081,Java Developer,5.542,5.811,3,1,add_certificate,Sertifikat: TensorFlow Developer Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,7.042,True
+li_4433627192,Software Developer,4.583,5.811,1,1,add_certificate,Sertifikat: AWS Certified Solutions Architect,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,6.083,True
+li_4433627192,Software Developer,4.583,5.811,2,1,add_certificate,Sertifikat: Google Data Analytics Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,6.083,True
+li_4433627192,Software Developer,4.583,5.811,3,1,add_certificate,Sertifikat: TensorFlow Developer Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,6.083,True
+li_4411864449,ES Application Developer II,4.522,5.811,1,1,add_certificate,Sertifikat: AWS Certified Solutions Architect,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,6.022,True
+li_4411864449,ES Application Developer II,4.522,5.811,2,1,add_certificate,Sertifikat: Google Data Analytics Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,6.022,True
+li_4411864449,ES Application Developer II,4.522,5.811,3,1,add_certificate,Sertifikat: TensorFlow Developer Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,6.022,True
+li_4432248908,Machine Learning Engineer,4.397,5.811,1,1,add_certificate,Sertifikat: AWS Certified Solutions Architect,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,5.897,True
+li_4432248908,Machine Learning Engineer,4.397,5.811,2,1,add_certificate,Sertifikat: Google Data Analytics Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,5.897,True
+li_4432248908,Machine Learning Engineer,4.397,5.811,3,1,add_certificate,Sertifikat: TensorFlow Developer Certificate,Tambahkan sertifikasi baru (estimasi kontribusi: 1.50),1.5,5.897,True

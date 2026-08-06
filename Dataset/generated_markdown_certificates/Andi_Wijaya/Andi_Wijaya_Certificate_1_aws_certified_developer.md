@@ -2,15 +2,15 @@
 
 ---
 
-## Security+
+## AWS Certified Developer - Associate
 
 Diberikan kepada:
 
 ### **Andi Wijaya**
 
-Program studi Sistem Informasi, spesialisasi Cybersecurity, telah berhasil
-menyelesaikan seluruh materi dan penilaian pada program **"Security+"**
-yang diselenggarakan oleh **CompTIA**, dengan total durasi pelatihan
+Program studi Sistem Informasi, spesialisasi Software Engineering, telah berhasil
+menyelesaikan seluruh materi dan penilaian pada program **"AWS Certified Developer - Associate"**
+yang diselenggarakan oleh **AWS**, dengan total durasi pelatihan
 **40 jam**.
 
 ---
@@ -20,8 +20,8 @@ yang diselenggarakan oleh **CompTIA**, dengan total durasi pelatihan
 | Keterangan | Nilai |
 |---|---|
 | Nama Penerima | Andi Wijaya |
-| Judul Sertifikasi | Security+ |
-| Penyelenggara / Issuer | CompTIA |
+| Judul Sertifikasi | AWS Certified Developer - Associate |
+| Penyelenggara / Issuer | AWS |
 | Tanggal Terbit | 29 Juli 2024 |
 | Berlaku Hingga | 29 Juli 2027 |
 | Durasi Pelatihan | 40 jam |
@@ -33,7 +33,7 @@ yang diselenggarakan oleh **CompTIA**, dengan total durasi pelatihan
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Security+.
+- Konsep dan prinsip dasar AWS Certified Developer - Associate.
 - Studi kasus dan praktik penerapan pada konteks industri nyata.
 - Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
@@ -41,6 +41,6 @@ yang diselenggarakan oleh **CompTIA**, dengan total durasi pelatihan
 ---
 
 *Sertifikat ini adalah dokumen simulasi/dummy yang dibangkitkan secara otomatis
-untuk keperluan pengujian sistem, bukan sertifikat resmi dari CompTIA.
+untuk keperluan pengujian sistem, bukan sertifikat resmi dari AWS.
 Verifikasi keaslian dapat dicek menggunakan ID Kredensial di atas pada
 platform penyelenggara terkait.*

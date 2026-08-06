@@ -1,0 +1,221 @@
+course_name,rank,job_id,job_title,tfidf_similarity
+Pemodelan Proses Bisnis,1,li_4398066516,AI/ML Engineer,0.049
+Pemodelan Proses Bisnis,2,li_4422654941,"Machine Learning Engineer, Specialist",0.0232
+Pemodelan Proses Bisnis,3,li_4341002791,Machine Learning Engineer,0.0185
+Pemodelan Proses Bisnis,4,li_4432653722,Machine Learning Engineer,0.0179
+Pemodelan Proses Bisnis,5,li_3625987732,Fullstack Engineer,0.017
+Pemodelan Proses Bisnis,6,li_4429123217,AI/ML Engineer,0.0163
+Pemodelan Proses Bisnis,7,li_4418977492,AI Engineer,0.0144
+Pemodelan Proses Bisnis,8,li_4412405389,Data Scientist,0.0144
+Pemodelan Proses Bisnis,9,gd_1010180874339,AI Specialist,0.0143
+Pemodelan Proses Bisnis,10,li_4435721155,Machine Learning Engineer,0.0142
+Algoritma dan Pemrograman,1,li_4435815437,Data Analyst (Data Management),0.0485
+Algoritma dan Pemrograman,2,li_4435432493,Data Warehouse Engineer,0.0473
+Algoritma dan Pemrograman,3,li_4398066516,AI/ML Engineer,0.0469
+Algoritma dan Pemrograman,4,li_4407471578,Data Analyst,0.0432
+Algoritma dan Pemrograman,5,li_4406455555,Software Engineer – BA4,0.039
+Algoritma dan Pemrograman,6,li_4434676109,Software Engineer,0.037
+Algoritma dan Pemrograman,7,li_4427749735,"Analyst, Enterprise Data",0.0365
+Algoritma dan Pemrograman,8,li_4426318677,Software Developer with Security Clearance,0.0359
+Algoritma dan Pemrograman,9,li_4414500095,Business Intelligence Analyst,0.0349
+Algoritma dan Pemrograman,10,li_4428925520,Data Analyst,0.0337
+Pengantar Sistem Informasi,1,li_4398066516,AI/ML Engineer,0.0195
+Pengantar Sistem Informasi,2,li_4432634871,Adv-UI/UX Designer,0.0
+Pengantar Sistem Informasi,3,li_4428062436,Full Stack Engineer (ML),0.0
+Pengantar Sistem Informasi,4,li_4428828247,Machine Learning Engineer,0.0
+Pengantar Sistem Informasi,5,li_4414066946,Software Engineer,0.0
+Pengantar Sistem Informasi,6,li_4381385653,Full-Stack Engineer,0.0
+Pengantar Sistem Informasi,7,li_4433381258,Software Engineer,0.0
+Pengantar Sistem Informasi,8,li_4423511919,Full Stack Engineer,0.0
+Pengantar Sistem Informasi,9,li_4407534601,Software Engineer (Open Level),0.0
+Pengantar Sistem Informasi,10,li_4394477871,Software Application Developer,0.0
+Sistem Enterprise,1,li_4435373470,Product Data Operations Analyst,0.0906
+Sistem Enterprise,2,li_4407175659,Applied AI Engineer,0.0712
+Sistem Enterprise,3,li_4375338574,NetSuite Developer,0.0698
+Sistem Enterprise,4,li_4414935057,Software Developer,0.0637
+Sistem Enterprise,5,li_4434190363,Junior Software Engineer,0.0633
+Sistem Enterprise,6,li_4431882519,Software Developer,0.0522
+Sistem Enterprise,7,li_3686416246,Epicor Software Programmer,0.0491
+Sistem Enterprise,8,li_4398066516,AI/ML Engineer,0.0439
+Sistem Enterprise,9,li_4429997164,Sales Data Analyst,0.043
+Sistem Enterprise,10,li_4420973678,Open-Source Machine Learning Engineer - US Remote,0.0408
+Jaringan Komputer,1,li_4398066516,AI/ML Engineer,0.0243
+Jaringan Komputer,2,li_4432634871,Adv-UI/UX Designer,0.0
+Jaringan Komputer,3,li_4428062436,Full Stack Engineer (ML),0.0
+Jaringan Komputer,4,li_4428828247,Machine Learning Engineer,0.0
+Jaringan Komputer,5,li_4414066946,Software Engineer,0.0
+Jaringan Komputer,6,li_4381385653,Full-Stack Engineer,0.0
+Jaringan Komputer,7,li_4433381258,Software Engineer,0.0
+Jaringan Komputer,8,li_4423511919,Full Stack Engineer,0.0
+Jaringan Komputer,9,li_4407534601,Software Engineer (Open Level),0.0
+Jaringan Komputer,10,li_4394477871,Software Application Developer,0.0
+Pemrograman Berorientasi Objek,1,li_3952279081,Java Developer,0.0997
+Pemrograman Berorientasi Objek,2,li_4430717045,Software Engineer,0.0891
+Pemrograman Berorientasi Objek,3,gd_1010155379786,Java Coding Specialist - Freelance AI Trainer Project,0.067
+Pemrograman Berorientasi Objek,4,li_4432248908,Machine Learning Engineer,0.0524
+Pemrograman Berorientasi Objek,5,li_4373708675,Software Engineer,0.0418
+Pemrograman Berorientasi Objek,6,li_4436110463,Mid-Level Software Engineer,0.0408
+Pemrograman Berorientasi Objek,7,li_4408462012,Software Developer - C++,0.0405
+Pemrograman Berorientasi Objek,8,li_4426390973,Application Developer II,0.0375
+Pemrograman Berorientasi Objek,9,li_4431927269,React Developer - Fully Remote | Upto $75/hr,0.0374
+Pemrograman Berorientasi Objek,10,li_4434271167,React Developer - Fully Remote | Upto $75/hr,0.0374
+Sistem Basis Data,1,li_4430803025,Technical Data Analyst,0.1139
+Sistem Basis Data,2,li_4427749735,"Analyst, Enterprise Data",0.1104
+Sistem Basis Data,3,li_4435815437,Data Analyst (Data Management),0.1006
+Sistem Basis Data,4,li_4435373470,Product Data Operations Analyst,0.0898
+Sistem Basis Data,5,gd_1010183910310,Data Quality Officer,0.0874
+Sistem Basis Data,6,li_4316915976,IT Data Analyst,0.0832
+Sistem Basis Data,7,li_4368833518,Data Analyst,0.0828
+Sistem Basis Data,8,li_4428736410,Manufacturing Data Analyst,0.0818
+Sistem Basis Data,9,li_4412974495,Data Analyst (U.S.),0.0789
+Sistem Basis Data,10,li_4407944975,Analytics Engineer,0.0766
+Analisis dan Perancangan Sistem Informasi,1,li_4435815437,Data Analyst (Data Management),0.0477
+Analisis dan Perancangan Sistem Informasi,2,li_4427749735,"Analyst, Enterprise Data",0.0434
+Analisis dan Perancangan Sistem Informasi,3,li_4427645315,"IT Data Analyst | SQL, Power BI & Business Intelligence",0.0323
+Analisis dan Perancangan Sistem Informasi,4,li_4425985667,Product Designer,0.0317
+Analisis dan Perancangan Sistem Informasi,5,li_4434667511,Data Scientist,0.0295
+Analisis dan Perancangan Sistem Informasi,6,li_4434678173,Data Scientist,0.0295
+Analisis dan Perancangan Sistem Informasi,7,li_4434660737,Data Scientist,0.0295
+Analisis dan Perancangan Sistem Informasi,8,li_4434673373,Data Scientist,0.0295
+Analisis dan Perancangan Sistem Informasi,9,li_4434658960,Data Scientist,0.0295
+Analisis dan Perancangan Sistem Informasi,10,li_4407944975,Analytics Engineer,0.0291
+Pengembangan Aplikasi Website,1,li_4435883562,Software Engineer: Web Developer,0.1329
+Pengembangan Aplikasi Website,2,li_4427706568,"Web Developer (HTML,CSS) | Remote",0.104
+Pengembangan Aplikasi Website,3,li_4413040880,"Web Developer, Lion Holdings",0.0984
+Pengembangan Aplikasi Website,4,li_4432900614,Software Engineer,0.0801
+Pengembangan Aplikasi Website,5,li_4354168153,Software Engineer,0.0785
+Pengembangan Aplikasi Website,6,li_4429586730,Web Application Software Developer,0.0744
+Pengembangan Aplikasi Website,7,li_4424180378,Front End Developer,0.0738
+Pengembangan Aplikasi Website,8,li_4417958974,Cloud Web Developer - Mid,0.0673
+Pengembangan Aplikasi Website,9,li_4383899114,Web Developer,0.0649
+Pengembangan Aplikasi Website,10,li_4422496351,"Software Engineer, Full-Stack",0.0641
+Perancangan Interaksi,1,li_4433350882,Figma Designer,0.0681
+Perancangan Interaksi,2,li_4323760450,"Product Designer, Design, Dev, & AI Tools",0.0655
+Perancangan Interaksi,3,li_4239984019,"Software Engineer, Machine Learning",0.0625
+Perancangan Interaksi,4,li_4418939171,UI/UX Designer,0.0475
+Perancangan Interaksi,5,li_4408112041,"UI/UX Designer, Lion Holdings",0.0474
+Perancangan Interaksi,6,li_4431725005,UX Designer,0.0468
+Perancangan Interaksi,7,li_4200573131,UI/UX Designer,0.0461
+Perancangan Interaksi,8,li_4430018688,User Experience Designer,0.0453
+Perancangan Interaksi,9,li_4432527741,AI UI UX Designer,0.0447
+Perancangan Interaksi,10,li_4410016324,UI/UX Designer,0.0404
+Sistem Operasi,1,li_4398066516,AI/ML Engineer,0.0434
+Sistem Operasi,2,li_4427749735,"Analyst, Enterprise Data",0.0324
+Sistem Operasi,3,li_4430803025,Technical Data Analyst,0.0287
+Sistem Operasi,4,li_4427645315,"IT Data Analyst | SQL, Power BI & Business Intelligence",0.0281
+Sistem Operasi,5,li_4407944975,Analytics Engineer,0.0269
+Sistem Operasi,6,li_4434678173,Data Scientist,0.0268
+Sistem Operasi,7,li_4434667511,Data Scientist,0.0268
+Sistem Operasi,8,li_4434660737,Data Scientist,0.0268
+Sistem Operasi,9,li_4434673373,Data Scientist,0.0268
+Sistem Operasi,10,li_4434658960,Data Scientist,0.0268
+Integrasi Aplikasi Enterprise,1,li_4425985667,Product Designer,0.0832
+Integrasi Aplikasi Enterprise,2,li_4435815437,Data Analyst (Data Management),0.0819
+Integrasi Aplikasi Enterprise,3,li_4409361649,Software Engineer - Back End,0.0625
+Integrasi Aplikasi Enterprise,4,li_4344168688,Full-Stack E-Commerce Developer,0.0614
+Integrasi Aplikasi Enterprise,5,li_4410016324,UI/UX Designer,0.0591
+Integrasi Aplikasi Enterprise,6,li_4383899114,Web Developer,0.0573
+Integrasi Aplikasi Enterprise,7,li_4372153003,Applied ML Engineer,0.0541
+Integrasi Aplikasi Enterprise,8,li_4411864449,ES Application Developer II,0.0538
+Integrasi Aplikasi Enterprise,9,li_4369542154,Product Designer,0.0508
+Integrasi Aplikasi Enterprise,10,li_4339434305,"Software Engineer, All Teams",0.0458
+Keamanan Sistem Informasi,1,li_4435815437,Data Analyst (Data Management),0.0468
+Keamanan Sistem Informasi,2,li_4427749735,"Analyst, Enterprise Data",0.0352
+Keamanan Sistem Informasi,3,li_4425985667,Product Designer,0.031
+Keamanan Sistem Informasi,4,li_4436152639,"Enterprise Data & Analytics Analyst, Platform Engineering",0.0254
+Keamanan Sistem Informasi,5,li_4430803025,Technical Data Analyst,0.025
+Keamanan Sistem Informasi,6,li_4409361649,Software Engineer - Back End,0.0242
+Keamanan Sistem Informasi,7,li_4316915976,IT Data Analyst,0.0233
+Keamanan Sistem Informasi,8,li_4344168688,Full-Stack E-Commerce Developer,0.0229
+Keamanan Sistem Informasi,9,li_4383899114,Web Developer,0.0224
+Keamanan Sistem Informasi,10,li_4410016324,UI/UX Designer,0.0221
+Manajemen Proyek Sistem Informasi,1,li_4398066516,AI/ML Engineer,0.021
+Manajemen Proyek Sistem Informasi,2,li_4432634871,Adv-UI/UX Designer,0.0
+Manajemen Proyek Sistem Informasi,3,li_4428062436,Full Stack Engineer (ML),0.0
+Manajemen Proyek Sistem Informasi,4,li_4428828247,Machine Learning Engineer,0.0
+Manajemen Proyek Sistem Informasi,5,li_4414066946,Software Engineer,0.0
+Manajemen Proyek Sistem Informasi,6,li_4381385653,Full-Stack Engineer,0.0
+Manajemen Proyek Sistem Informasi,7,li_4433381258,Software Engineer,0.0
+Manajemen Proyek Sistem Informasi,8,li_4423511919,Full Stack Engineer,0.0
+Manajemen Proyek Sistem Informasi,9,li_4407534601,Software Engineer (Open Level),0.0
+Manajemen Proyek Sistem Informasi,10,li_4394477871,Software Application Developer,0.0
+Penambangan Data,1,li_4430803025,Technical Data Analyst,0.227
+Penambangan Data,2,li_4427749735,"Analyst, Enterprise Data",0.1868
+Penambangan Data,3,li_4316915976,IT Data Analyst,0.1835
+Penambangan Data,4,li_4250715906,Data Scientist,0.1821
+Penambangan Data,5,gd_1010183910310,Data Quality Officer,0.1667
+Penambangan Data,6,li_4368833518,Data Analyst,0.1589
+Penambangan Data,7,li_4428736410,Manufacturing Data Analyst,0.1505
+Penambangan Data,8,li_4412974495,Data Analyst (U.S.),0.1496
+Penambangan Data,9,li_4435373470,Product Data Operations Analyst,0.1446
+Penambangan Data,10,li_4407944975,Analytics Engineer,0.1415
+Rekayasa Proses Bisnis,1,li_4398066516,AI/ML Engineer,0.0402
+Rekayasa Proses Bisnis,2,li_4425985667,Product Designer,0.0307
+Rekayasa Proses Bisnis,3,li_4435815437,Data Analyst (Data Management),0.0302
+Rekayasa Proses Bisnis,4,li_4409361649,Software Engineer - Back End,0.023
+Rekayasa Proses Bisnis,5,li_4344168688,Full-Stack E-Commerce Developer,0.0226
+Rekayasa Proses Bisnis,6,li_4410016324,UI/UX Designer,0.0218
+Rekayasa Proses Bisnis,7,li_4383899114,Web Developer,0.0211
+Rekayasa Proses Bisnis,8,li_4372153003,Applied ML Engineer,0.0199
+Rekayasa Proses Bisnis,9,li_4411864449,ES Application Developer II,0.0198
+Rekayasa Proses Bisnis,10,li_4369542154,Product Designer,0.0187
+Arsitektur Enterprise,1,li_4425985667,Product Designer,0.0655
+Arsitektur Enterprise,2,li_4435815437,Data Analyst (Data Management),0.0645
+Arsitektur Enterprise,3,li_4409361649,Software Engineer - Back End,0.0492
+Arsitektur Enterprise,4,li_4344168688,Full-Stack E-Commerce Developer,0.0483
+Arsitektur Enterprise,5,li_4410016324,UI/UX Designer,0.0466
+Arsitektur Enterprise,6,li_4383899114,Web Developer,0.0451
+Arsitektur Enterprise,7,li_4372153003,Applied ML Engineer,0.0426
+Arsitektur Enterprise,8,li_4411864449,ES Application Developer II,0.0424
+Arsitektur Enterprise,9,li_4339434305,"Software Engineer, All Teams",0.0409
+Arsitektur Enterprise,10,li_4340104167,"Software Engineer, All Teams",0.0409
+Data Warehouse dan Business Intelligence,1,li_4427749735,"Analyst, Enterprise Data",0.0566
+Data Warehouse dan Business Intelligence,2,li_4435815437,Data Analyst (Data Management),0.0542
+Data Warehouse dan Business Intelligence,3,li_4430803025,Technical Data Analyst,0.0448
+Data Warehouse dan Business Intelligence,4,li_4427645315,"IT Data Analyst | SQL, Power BI & Business Intelligence",0.0412
+Data Warehouse dan Business Intelligence,5,li_4407944975,Analytics Engineer,0.0387
+Data Warehouse dan Business Intelligence,6,li_4368833518,Data Analyst,0.0378
+Data Warehouse dan Business Intelligence,7,gd_1010183910310,Data Quality Officer,0.0373
+Data Warehouse dan Business Intelligence,8,li_4428736410,Manufacturing Data Analyst,0.0363
+Data Warehouse dan Business Intelligence,9,li_4434673373,Data Scientist,0.0362
+Data Warehouse dan Business Intelligence,10,li_4434678173,Data Scientist,0.0362
+Proyek Perangkat Lunak,1,li_4398066516,AI/ML Engineer,0.049
+Proyek Perangkat Lunak,2,li_4433385208,Software Engineer,0.0415
+Proyek Perangkat Lunak,3,li_4433370911,Software Engineer,0.0415
+Proyek Perangkat Lunak,4,li_4433392028,Software Engineer,0.0415
+Proyek Perangkat Lunak,5,li_4433377681,Software Engineer,0.0415
+Proyek Perangkat Lunak,6,li_4433381258,Software Engineer,0.0415
+Proyek Perangkat Lunak,7,li_4433375752,Software Engineer,0.0415
+Proyek Perangkat Lunak,8,li_4433382209,Software Engineer,0.0415
+Proyek Perangkat Lunak,9,li_4425985667,Product Designer,0.0399
+Proyek Perangkat Lunak,10,li_4433114083,Software Engineer,0.0348
+Sistem Informasi Akuntansi,1,li_4435373470,Product Data Operations Analyst,0.054
+Sistem Informasi Akuntansi,2,li_4407175659,Applied AI Engineer,0.0451
+Sistem Informasi Akuntansi,3,li_4375338574,NetSuite Developer,0.0436
+Sistem Informasi Akuntansi,4,li_4434190363,Junior Software Engineer,0.0424
+Sistem Informasi Akuntansi,5,li_4414935057,Software Developer,0.0424
+Sistem Informasi Akuntansi,6,li_4425985667,Product Designer,0.0361
+Sistem Informasi Akuntansi,7,li_4435815437,Data Analyst (Data Management),0.0355
+Sistem Informasi Akuntansi,8,li_3686416246,Epicor Software Programmer,0.0308
+Sistem Informasi Akuntansi,9,li_4431882519,Software Developer,0.0276
+Sistem Informasi Akuntansi,10,li_4409361649,Software Engineer - Back End,0.0271
+Tata Kelola dan Manajemen Teknologi Informasi,1,li_4425985667,Product Designer,0.0346
+Tata Kelola dan Manajemen Teknologi Informasi,2,li_4435815437,Data Analyst (Data Management),0.0341
+Tata Kelola dan Manajemen Teknologi Informasi,3,li_4409361649,Software Engineer - Back End,0.026
+Tata Kelola dan Manajemen Teknologi Informasi,4,li_4344168688,Full-Stack E-Commerce Developer,0.0256
+Tata Kelola dan Manajemen Teknologi Informasi,5,li_4410016324,UI/UX Designer,0.0246
+Tata Kelola dan Manajemen Teknologi Informasi,6,li_4383899114,Web Developer,0.0239
+Tata Kelola dan Manajemen Teknologi Informasi,7,li_4372153003,Applied ML Engineer,0.0225
+Tata Kelola dan Manajemen Teknologi Informasi,8,li_4411864449,ES Application Developer II,0.0224
+Tata Kelola dan Manajemen Teknologi Informasi,9,li_4369542154,Product Designer,0.0211
+Tata Kelola dan Manajemen Teknologi Informasi,10,li_4339434305,"Software Engineer, All Teams",0.0191
+Pengembangan Sistem Cerdas,1,li_4417027015,Data Scientist Level lll,0.0426
+Pengembangan Sistem Cerdas,2,li_4424133161,MHN Data Analyst,0.0405
+Pengembangan Sistem Cerdas,3,li_4435815437,Data Analyst (Data Management),0.0401
+Pengembangan Sistem Cerdas,4,li_4428062436,Full Stack Engineer (ML),0.0388
+Pengembangan Sistem Cerdas,5,li_4250715906,Data Scientist,0.0386
+Pengembangan Sistem Cerdas,6,li_4434658960,Data Scientist,0.0363
+Pengembangan Sistem Cerdas,7,li_4434678173,Data Scientist,0.0363
+Pengembangan Sistem Cerdas,8,li_4434667511,Data Scientist,0.0363
+Pengembangan Sistem Cerdas,9,li_4434660737,Data Scientist,0.0363
+Pengembangan Sistem Cerdas,10,li_4434673373,Data Scientist,0.0363

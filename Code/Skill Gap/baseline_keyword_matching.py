@@ -1,33 +1,23 @@
 # -*- coding: utf-8 -*-
 """
-BASELINE: naive TF-IDF keyword matching, for comparison against the
-semantic (SBERT + cross-encoder) pipeline.
-
-WHY THIS MATTERS FOR YOUR REPORT: "we used a fancy semantic model" isn't
-convincing on its own - you need to show it actually beats the simple
-approach. This baseline mimics what a traditional ATS keyword-matcher does
-(the exact thing your latar belakang / proposal criticizes): TF-IDF vectors
-+ cosine similarity, no understanding of meaning, no synonyms, no context.
+BASELINE KEYWORD MATCHING - answers "what if we just used TF-IDF?"
+(The standard baseline Reyhan and most other papers compare against).
 
 If the semantic pipeline's rankings mostly AGREE with this baseline, that's
-actually a bit concerning (why pay the extra compute cost for cross-encoder
-reranking if a free baseline gives the same answer?). If they DIFFER
-meaningfully - especially in cases where the baseline clearly misses
-synonyms/context that the semantic model catches - that's your evidence
+actually a bit concerning. If they DIFFER meaningfully - that's your evidence
 the added complexity earns its keep.
 
 REQUIREMENTS: pip install scikit-learn pandas --break-system-packages
-  (no GPU, no downloads needed - runs instantly, even in a constrained sandbox)
 
 INPUT FILES:
-  - sub_clo_profiles.csv
-  - jobs_unified_with_skills.csv
-  - pipeline_course_match_log.csv   (which courses are "the student's")
+  - course_clo_consolidated.csv (provided via absolute path argument)
+  - jobs_unified_with_skills.csv (provided via absolute path argument)
+  - pipeline_course_match_log.csv (which courses are "the student's" - in current folder)
+  - final_recommendations.csv (optional, for comparison - in current folder)
 
 OUTPUT:
   - baseline_job_ranking.csv        top jobs per matched course, TF-IDF only
-  - baseline_vs_semantic_comparison.csv   (only if final_recommendations_full.csv
-                                            exists - overlap/rank-correlation report)
+  - baseline_vs_semantic_comparison.csv   (only if final_recommendations.csv exists)
 """
 
 import argparse
@@ -39,13 +29,13 @@ from scipy.stats import spearmanr
 
 TOP_K = 10
 
-
-def build_baseline_ranking(match_log, subclo_profiles, jobs):
+def build_baseline_ranking(match_log, course_clo_profiles, jobs):
     matched_courses = match_log[match_log["included"]]["matched_course_name"].unique()
     course_texts = {}
     for course in matched_courses:
-        subclos = subclo_profiles[subclo_profiles["course_name"] == course]
-        course_texts[course] = " ".join(subclos["sub_clo_text"].dropna().tolist())
+        course_row = course_clo_profiles[course_clo_profiles["course_name"] == course]
+        if not course_row.empty:
+            course_texts[course] = str(course_row.iloc[0]["consolidated_clo_text"])
 
     if len(course_texts) == 0:
         raise ValueError("No matched courses found - run the main pipeline first.")
@@ -76,10 +66,9 @@ def build_baseline_ranking(match_log, subclo_profiles, jobs):
 
 def compare_to_semantic(baseline_df):
     try:
-        semantic = pd.read_csv("final_recommendations_full.csv")
+        semantic = pd.read_csv("final_recommendations.csv")
     except FileNotFoundError:
-        print("\n(final_recommendations_full.csv not found - skipping semantic comparison. "
-              "Run full_pipeline_subclo.py / full_pipeline_certs.py first to enable this.)")
+        print("\n(final_recommendations.csv not found - skipping semantic comparison.)")
         return None
 
     baseline_job_scores = baseline_df.groupby("job_id")["tfidf_similarity"].max().reset_index()
@@ -96,13 +85,8 @@ def compare_to_semantic(baseline_df):
     print(f"Spearman correlation: rho={rho:.3f} (p={pval:.4f})")
     if rho < 0.3:
         print("-> LOW correlation: the two methods disagree substantially. Worth inspecting")
-        print("   specific cases where semantic ranks a job highly but TF-IDF doesn't (or vice")
-        print("   versa) - that's concrete evidence for your report of what semantic matching")
-        print("   catches that keyword matching misses.")
     elif rho > 0.7:
         print("-> HIGH correlation: the two methods mostly agree. Worth checking whether the")
-        print("   semantic pipeline is adding real value here, or whether these particular")
-        print("   course/job texts happen to share enough vocabulary that TF-IDF gets close.")
     else:
         print("-> MODERATE correlation: partial agreement, meaningful differences exist.")
 
@@ -112,12 +96,17 @@ def compare_to_semantic(baseline_df):
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--course_clo_csv", required=True)
+    parser.add_argument("--jobs_csv", required=True)
+    args = parser.parse_args()
+
     match_log = pd.read_csv("pipeline_course_match_log.csv")
-    subclo_profiles = pd.read_csv("sub_clo_profiles.csv")
-    jobs = pd.read_csv("jobs_unified_with_skills.csv")
+    course_clo_profiles = pd.read_csv(args.course_clo_csv)
+    jobs = pd.read_csv(args.jobs_csv)
 
     print("Building TF-IDF baseline ranking...")
-    baseline_df, sims, courses = build_baseline_ranking(match_log, subclo_profiles, jobs)
+    baseline_df, sims, courses = build_baseline_ranking(match_log, course_clo_profiles, jobs)
     baseline_df.to_csv("baseline_job_ranking.csv", index=False)
     print(f"Saved: baseline_job_ranking.csv ({len(baseline_df)} rows across {len(courses)} courses)")
 

@@ -1,0 +1,4 @@
+job_id,job_title,current_score,target_score,cf_id,step_in_cf,intervention,feature,projected_score,reaches_target,concrete_tips
+li_4413684880,"Software Development Engineer, AWS",5.743,5.811,1,1,Tambahkan 1 sertifikasi baru,jumlah_sertifikasi,7.657,True,Ambil sertifikat industri yang relevan dengan target karir Anda
+li_3952279081,Java Developer,5.542,5.811,1,1,Tambahkan 1 sertifikasi baru,jumlah_sertifikasi,7.388999999999999,True,Ambil sertifikat industri yang relevan dengan target karir Anda
+li_4433627192,Software Developer,4.583,5.811,1,1,Tambahkan 1 sertifikasi baru,jumlah_sertifikasi,6.111000000000001,True,Ambil sertifikat industri yang relevan dengan target karir Anda

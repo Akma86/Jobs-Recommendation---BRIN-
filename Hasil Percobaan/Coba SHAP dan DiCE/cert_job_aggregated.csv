@@ -1,0 +1,13 @@
+job_id,job_title,job_company,job_source,best_cert_id,best_cert_title,cross_encoder_score,cert_score_max,explanation
+li_3952279081,Java Developer,Open Systems Technologies,linkedin,cert_1,Oracle Certified Professional Java SE 11 Developer,10.8251,5.5424512,Semantic match score: 10.83 for query 'Oracle Certified Professional Java SE 11 Developer'
+li_4413684880,"Software Development Engineer, AWS",Amazon Web Services (AWS),linkedin,cert_0,AWS Certified Developer - Associate,9.1588,5.742567599999999,Semantic match score: 9.16 for query 'AWS Certified Developer - Associate'
+li_4425676474,Software Developer,Sun Communities & Sun Outdoors,linkedin,cert_0,AWS Certified Developer - Associate,9.455,5.928285,Semantic match score: 9.46 for query 'AWS Certified Developer - Associate'
+li_4427730735,UI Frontend Developer,Unissant,linkedin,cert_1,Oracle Certified Professional Java SE 11 Developer,10.5319,5.3923328,Semantic match score: 10.53 for query 'Oracle Certified Professional Java SE 11 Developer'
+li_4429019731,AI/ML Engineer — Job Posting,Get Hire Technologies Inc.,linkedin,cert_0,AWS Certified Developer - Associate,9.2593,5.8055810999999995,Semantic match score: 9.26 for query 'AWS Certified Developer - Associate'
+li_4429667581,Software Engineer,Harvey Nash,linkedin,cert_0,AWS Certified Developer - Associate,9.6683,6.0620241,Semantic match score: 9.67 for query 'AWS Certified Developer - Associate'
+li_4431330775,Software Developer,Arvin Acme Technologies Inc,linkedin,cert_1,Oracle Certified Professional Java SE 11 Developer,10.5568,5.405081600000001,Semantic match score: 10.56 for query 'Oracle Certified Professional Java SE 11 Developer'
+li_4431784441,Software Engineer,uShip,linkedin,cert_2,Microsoft Certified: Azure Developer Associate,6.2702,3.4109888,Semantic match score: 6.27 for query 'Microsoft Certified: Azure Developer Associate'
+li_4432248908,Machine Learning Engineer,KTek Resourcing,linkedin,cert_1,Oracle Certified Professional Java SE 11 Developer,10.6039,5.4291968,Semantic match score: 10.60 for query 'Oracle Certified Professional Java SE 11 Developer'
+li_4432811217,Junior Frontend Developer,MagicSet,linkedin,cert_0,AWS Certified Developer - Associate,10.0677,6.3124479000000004,Semantic match score: 10.07 for query 'AWS Certified Developer - Associate'
+li_4433627192,Software Developer,"Vitesse Group, Inc.",linkedin,cert_2,Microsoft Certified: Azure Developer Associate,8.4249,4.5831456,Semantic match score: 8.42 for query 'Microsoft Certified: Azure Developer Associate'
+li_4434016802,Back End Developer,Cooler Master USA,linkedin,cert_2,Microsoft Certified: Azure Developer Associate,9.1127,4.957308800000001,Semantic match score: 9.11 for query 'Microsoft Certified: Azure Developer Associate'
