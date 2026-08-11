@@ -18,6 +18,8 @@ from feature_engineering import build_student_features
 # type: ignore
 from shap_explain import generate_shap_report, generate_shap_domain_report
 # type: ignore
+from lime_explain import generate_lime_report
+# type: ignore
 from dice_explain import generate_dice_report, generate_dice_domain_report
 # type: ignore
 from narrate_explanations import generate_narrations
@@ -31,14 +33,15 @@ def main():
     parser.add_argument("--course-clo", default=COURSE_CLO_CSV_PATH)
     parser.add_argument("--skip-xai",  action="store_true", help="Skip all XAI generation")
     parser.add_argument("--xai-mode",  default="shap",
-                        choices=["shap", "shap-domain", "dice", "dice-domain", "all"],
+                        choices=["shap", "shap-domain", "lime", "dice", "dice-domain", "all"],
                         help=(
                             "Pilih metode XAI yang dijalankan:\n"
                             "  shap        : SHAP per mata kuliah / sertifikat (default)\n"
                             "  shap-domain : SHAP berbasis domain kompetensi terstruktur\n"
+                            "  lime        : LIME local explanations per job\n"
                             "  dice        : DICE counterfactual per mata kuliah\n"
                             "  dice-domain : DICE dengan Final Employability Score (persen)\n"
-                            "  all         : jalankan semua metode XAI"
+                            "  all         : jalankan semua metode XAI (SHAP + LIME + DiCE)"
                         ))
     parser.add_argument("--narrate",   action="store_true",
                         help="Generate natural language narrations using LLM (requires ANTHROPIC_API_KEY)")
@@ -88,6 +91,20 @@ def main():
                 job_contributions, job_titles, top_job_ids,
                 csv_path="shap_explanations.csv",
                 plots_dir="shap_plots",
+                n_plots=5,
+            )
+
+        # --- LIME (local explanations) ---
+        if mode in ("lime", "all"):
+            print("\n======================================================")
+            print("=== XAI: LIME (Local Interpretable Explanations) ===")
+            print("======================================================")
+            generate_lime_report(
+                job_contributions=job_contributions,
+                job_titles=job_titles,
+                top_job_ids=top_job_ids,
+                csv_path="lime_explanations.csv",
+                plots_dir="lime_plots",
                 n_plots=5,
             )
 
