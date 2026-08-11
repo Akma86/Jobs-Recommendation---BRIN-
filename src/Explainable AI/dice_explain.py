@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 DICE COUNTERFACTUAL EXPLANATIONS - Diverse Counterfactual Explanations
 
@@ -151,6 +151,8 @@ def generate_interventions(
 
         current_grade = GRADE_NAMES.get(grade_weight, str(grade_weight))
         new_grade = GRADE_NAMES.get(_grade_up(grade_weight), "A")
+        
+        effort = (0.85 - grade_weight) * 10.0  # e.g., C(0.55)->A(0.85) = 3.0 effort
 
         interventions.append(
             {
@@ -158,6 +160,7 @@ def generate_interventions(
                 "feature": label,
                 "detail": f"{current_grade} -> {new_grade}",
                 "score_delta": delta,
+                "effort": round(effort, 2),
                 "new_total_score": round(current_score + delta, 3),
                 "gap_closed_pct": (
                     round(min(delta / gap, 1.0) * 100, 1) if gap > 0 else 100.0
@@ -187,12 +190,15 @@ def generate_interventions(
         if cert_name in has_certs:
             continue  # sudah punya
         delta = cert_weight_global * cert_avg_score
+        effort = 5.0  # Fixed high effort for getting a new certification
+        
         interventions.append(
             {
                 "intervention_type": "add_certificate",
                 "feature": f"Sertifikat: {cert_name}",
                 "detail": f"Tambahkan sertifikasi baru (estimasi kontribusi: {delta:.2f})",
                 "score_delta": round(delta, 4),
+                "effort": effort,
                 "new_total_score": round(current_score + delta, 3),
                 "gap_closed_pct": (
                     round(min(delta / gap, 1.0) * 100, 1) if gap > 0 else 100.0
@@ -213,8 +219,11 @@ def generate_diverse_counterfactuals(
     max_interventions_per_cf: int = 3,
 ) -> list:
     """
-    Dari daftar intervensi yang tersedia, buat set counterfactual yang DIVERSE:
-    setiap counterfactual adalah kombinasi intervensi yang berbeda-beda.
+    Dari daftar intervensi yang tersedia, buat set counterfactual yang DIVERSE.
+    Versi UPGRADED:
+    - Menggunakan atribut "effort" untuk mencari jalur counterfactual dengan "cost" termurah.
+    - Menggunakan Jaccard Distance untuk memastikan counterfactual yang disarankan benar-benar
+      berbeda (diverse), bukan sekadar superset dari counterfactual lain.
 
     Returns
     -------
@@ -222,44 +231,77 @@ def generate_diverse_counterfactuals(
         cf_id          : nomor counterfactual (1, 2, 3, ...)
         steps          : list intervensi yang dilakukan
         total_delta    : total tambahan skor
+        total_effort   : estimasi tingkat kesulitan
         final_score    : skor akhir setelah semua langkah
         reaches_target : apakah skor akhir >= threshold?
     """
-    gap = threshold_score - current_score
     counterfactuals = []
 
-    # Greedy: ambil kombinasi terkecil yang menutup gap
+    # 1. Generate all possible combinations up to max_interventions_per_cf
     for n_steps in range(1, min(max_interventions_per_cf + 1, len(interventions) + 1)):
         for combo in combinations(range(len(interventions)), n_steps):
             steps = [interventions[i] for i in combo]
             total_delta = sum(s["score_delta"] for s in steps)
+            total_effort = sum(s.get("effort", 1.0) for s in steps)
+            
             cf = {
-                "cf_id": len(counterfactuals) + 1,
                 "steps": steps,
                 "total_delta": round(total_delta, 4),
+                "total_effort": round(total_effort, 2),
                 "final_score": round(current_score + total_delta, 3),
                 "reaches_target": (current_score + total_delta) >= threshold_score,
             }
             counterfactuals.append(cf)
-
-            if len(counterfactuals) >= max_counterfactuals * 3:
+            
+            # Limit search space if it gets too large
+            if len(counterfactuals) > 1000:
                 break
-
-        if len(counterfactuals) >= max_counterfactuals * 3:
+        if len(counterfactuals) > 1000:
             break
 
-    # Pilih yang paling diverse: prioritaskan yang mencapai target, lalu yang paling sedikit langkah
+    # 2. Filter yang mencapai target
     reachable = [cf for cf in counterfactuals if cf["reaches_target"]]
-    not_reachable = [cf for cf in counterfactuals if not cf["reaches_target"]]
-
-    if reachable:
-        selected = sorted(reachable, key=lambda cf: len(cf["steps"]))[
-            :max_counterfactuals
-        ]
+    
+    if not reachable:
+        # Jika tidak ada yang capai target, kembalikan yang delta-nya paling besar
+        selected = sorted(counterfactuals, key=lambda cf: -cf["total_delta"])[:max_counterfactuals]
     else:
-        selected = sorted(not_reachable, key=lambda cf: -cf["total_delta"])[
-            :max_counterfactuals
-        ]
+        # Urutkan berdasarkan total effort termurah
+        reachable.sort(key=lambda cf: cf["total_effort"])
+        
+        selected = []
+        for cf in reachable:
+            if not selected:
+                selected.append(cf)
+                continue
+            
+            # Cek seberapa mirip dengan CF yang sudah dipilih (Jaccard Distance)
+            cf_features = set(s["feature"] for s in cf["steps"])
+            is_diverse = True
+            
+            for sel_cf in selected:
+                sel_features = set(s["feature"] for s in sel_cf["steps"])
+                intersection = len(cf_features.intersection(sel_features))
+                union = len(cf_features.union(sel_features))
+                jaccard_similarity = intersection / union if union > 0 else 0
+                
+                # Jika similarity > 0.4, kita anggap terlalu mirip
+                if jaccard_similarity > 0.4:
+                    is_diverse = False
+                    break
+            
+            if is_diverse:
+                selected.append(cf)
+                
+            if len(selected) >= max_counterfactuals:
+                break
+                
+        # Jika algoritma diversity membuang terlalu banyak, fill sisanya dengan yang effort termurah
+        for cf in reachable:
+            if len(selected) >= max_counterfactuals:
+                break
+            if cf not in selected:
+                selected.append(cf)
 
     for i, cf in enumerate(selected, start=1):
         cf["cf_id"] = i

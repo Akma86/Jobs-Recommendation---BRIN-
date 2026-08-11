@@ -20,8 +20,8 @@ TOP_K_PER_UNIT = 5           # jobs kept per query unit after rerank
 TOP_N_OUTPUT = 15            # final recommendations to output
 CERT_WEIGHT_GLOBAL = 1.0     # relative weight of the certificate signal vs the KHS signal
 
-JOBS_CSV_PATH = r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\Dataset\Pekerjaan\Processed\jobs_unified.csv"
-COURSE_CLO_CSV_PATH = r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\Dataset\Mata Kuliah\course_clo_consolidated.csv"
+JOBS_CSV_PATH = r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\data\Pekerjaan\Processed\jobs_unified.csv"
+COURSE_CLO_CSV_PATH = r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\data\Mata Kuliah\course_clo_consolidated.csv"
 
 GRADE_MAP = {"A": 0.85, "AB": 0.80, "B": 0.70, "BC": 0.60, "C": 0.55, "D": 0.50, "E": 0.0}
 
