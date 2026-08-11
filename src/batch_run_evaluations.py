@@ -4,13 +4,13 @@ import subprocess
 
 def main():
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    hasil_dir = os.path.join(root_dir, "Hasil Percobaan")
+    hasil_dir = os.path.join(root_dir, "results")
     
-    ablation_script = os.path.join(root_dir, "Code", "Skill Gap", "ablation_study.py")
-    baseline_script = os.path.join(root_dir, "Code", "Skill Gap", "baseline_keyword_matching.py")
+    ablation_script = os.path.join(root_dir, "src", "Skill Gap", "ablation_study.py")
+    baseline_script = os.path.join(root_dir, "src", "Skill Gap", "baseline_keyword_matching.py")
     
-    course_clo_csv = os.path.join(root_dir, "Dataset", "Mata Kuliah", "course_clo_consolidated.csv")
-    jobs_csv = os.path.join(root_dir, "Dataset", "Pekerjaan", "Processed", "jobs_unified.csv")
+    course_clo_csv = os.path.join(root_dir, "data", "Mata Kuliah", "course_clo_consolidated.csv")
+    jobs_csv = os.path.join(root_dir, "data", "Pekerjaan", "Processed", "jobs_unified.csv")
 
     student_dirs = glob.glob(os.path.join(hasil_dir, "Coba_Mahasiswa_*"))
     

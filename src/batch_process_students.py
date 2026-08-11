@@ -5,15 +5,15 @@ import shutil
 
 def main():
     root_dir = os.path.dirname(os.path.abspath(__file__))
-    khs_dir = os.path.join(root_dir, "Dataset", "generated_markdown_khs")
-    certs_dir = os.path.join(root_dir, "Dataset", "generated_markdown_certificates")
+    khs_dir = os.path.join(root_dir, "data", "generated_markdown_khs")
+    certs_dir = os.path.join(root_dir, "data", "generated_markdown_certificates")
     
-    percobaan_dir = os.path.join(root_dir, "Dataset", "Percobaan")
-    hasil_dir = os.path.join(root_dir, "Hasil Percobaan")
+    percobaan_dir = os.path.join(root_dir, "data", "Percobaan")
+    hasil_dir = os.path.join(root_dir, "results")
     
     # Scripts to run
-    parse_script = os.path.join(root_dir, "Code", "RankingJob", "parse_input.py")
-    app_script = os.path.join(root_dir, "Code", "prototype", "app.py")
+    parse_script = os.path.join(root_dir, "src", "RankingJob", "parse_input.py")
+    app_script = os.path.join(root_dir, "src", "prototype", "app.py")
 
     os.makedirs(percobaan_dir, exist_ok=True)
     os.makedirs(hasil_dir, exist_ok=True)
