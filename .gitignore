@@ -19,3 +19,8 @@ ENV/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Data and Results
+*.csv
+*.xlsx
+*.png
