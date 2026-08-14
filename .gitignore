@@ -4,12 +4,18 @@ __pycache__/
 *$py.class
 
 # Virtual Environments
-KPBRIN/
+/KPBRIN/
 .env
 .venv
 env/
 venv/
 ENV/
+
+# Caches and logs
+.emb_cache/
+*.npy
+*.meta
+*.log
 
 # OS generated files
 .DS_Store
@@ -24,3 +30,6 @@ Thumbs.db
 *.csv
 *.xlsx
 *.png
+
+# Archived experiment results
+results/archive_eksperimen/
