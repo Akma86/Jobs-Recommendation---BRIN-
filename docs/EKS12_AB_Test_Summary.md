@@ -42,14 +42,32 @@ Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di ke
 4. **Machine Learning Specialization** — *DeepLearning.AI & Stanford Online (Coursera)* (Tier A (Kredibilitas 1.0))
 5. **Generative AI Fundamentals** — *Google Cloud Skills Boost* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `48.0%` | 📚 Murni Kurikulum KHS |
+| **#2** | **ES Application Developer II** | University of Houston | `4.52` | `45.2%` | 📚 Murni Kurikulum KHS |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `35.7%` | 📚 Murni Kurikulum KHS |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `29.8%` | 📚 Murni Kurikulum KHS |
+| **#5** | **Full Stack Developer** | Levin Furniture & Mattress | `2.77` | `27.7%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Machine Learning (ML) Engineer** | Vectara | `5.81` | `58.1%` | **`+2.24`** | 🚀 Lonjakan Masif |
+| **#2** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `48.0%` | **`+0.00`** | 📌 Stabil |
+| **#3** | **ES Application Developer II** | University of Houston | `4.52` | `45.2%` | **`+0.00`** | 📌 Stabil |
+| **#4** | **Data Analyst** | STI | `4.34` | `43.5%` | **`+4.34`** | 🚀 Lonjakan Masif |
+| **#5** | **AI/ML Engineer** | Centraprise | `4.14` | `41.4%` | **`+4.14`** | 🚀 Lonjakan Masif |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `5.81` | **`+2.24`** | 🚀 **Lonjakan Masif** |
-| **#2** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#3** | **ES Application Developer II** | University of Houston | `4.52` | `4.52` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#4** | **Data Analyst** | STI | `0.00` | `4.34` | **`+4.34`** | 🚀 **Lonjakan Masif** |
-| **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.14` | **`+4.14`** | 🚀 **Lonjakan Masif** |
+| **#1** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `5.81` | **`+2.24`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#2** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#3** | **ES Application Developer II** | University of Houston | `4.52` | `4.52` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#4** | **Data Analyst** | STI | `0.00` | `4.34` | **`+4.34`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.14` | **`+4.14`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
@@ -95,14 +113,32 @@ Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perole
 4. **Machine Learning Specialization** — *DeepLearning.AI & Stanford Online (Coursera)* (Tier A (Kredibilitas 1.0))
 5. **Generative AI Fundamentals** — *Google Cloud Skills Boost* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `2.83` | `28.3%` | 📚 Murni Kurikulum KHS |
+| **#2** | **ES Application Developer II** | University of Houston | `2.74` | `27.4%` | 📚 Murni Kurikulum KHS |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `2.29` | `22.9%` | 📚 Murni Kurikulum KHS |
+| **#4** | **UX Designer** | MDAEdge | `2.12` | `21.2%` | 📚 Murni Kurikulum KHS |
+| **#5** | **Web Apps Developer** | Halvik | `1.75` | `17.5%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Machine Learning Engineer** | Mastech Digital | `5.34` | `53.4%` | **`+5.34`** | 🚀 Lonjakan Masif |
+| **#2** | **Machine Learning Engineer - Generative AI** | Qualcomm | `5.23` | `52.3%` | **`+5.23`** | 🚀 Lonjakan Masif |
+| **#3** | **Data Analyst** | STI | `4.86` | `48.6%` | **`+4.86`** | 🚀 Lonjakan Masif |
+| **#4** | **AI/ML Engineer** | ReturnPro | `4.56` | `45.6%` | **`+4.56`** | 🚀 Lonjakan Masif |
+| **#5** | **AI/ML Engineer** | Centraprise | `4.45` | `44.5%` | **`+4.45`** | 🚀 Lonjakan Masif |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Machine Learning Engineer** | Mastech Digital | `0.00` | `5.34` | **`+5.34`** | 🚀 **Lonjakan Masif** |
-| **#2** | **Machine Learning Engineer - Generative AI** | Qualcomm | `0.00` | `5.23` | **`+5.23`** | 🚀 **Lonjakan Masif** |
-| **#3** | **Data Analyst** | STI | `0.00` | `4.86` | **`+4.86`** | 🚀 **Lonjakan Masif** |
-| **#4** | **AI/ML Engineer** | ReturnPro | `0.00` | `4.56` | **`+4.56`** | 🚀 **Lonjakan Masif** |
-| **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.45` | **`+4.45`** | 🚀 **Lonjakan Masif** |
+| **#1** | **Machine Learning Engineer** | Mastech Digital | `0.00` | `5.34` | **`+5.34`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#2** | **Machine Learning Engineer - Generative AI** | Qualcomm | `0.00` | `5.23` | **`+5.23`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#3** | **Data Analyst** | STI | `0.00` | `4.86` | **`+4.86`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#4** | **AI/ML Engineer** | ReturnPro | `0.00` | `4.56` | **`+4.56`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.45` | **`+4.45`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `2.83`)
@@ -145,14 +181,32 @@ Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di ke
 3. **Docker Associate Training** — *Docker, Inc.* (Tier A (Kredibilitas 1.0))
 4. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.52` | `45.2%` | 📚 Murni Kurikulum KHS |
+| **#2** | **ES Application Developer II** | University of Houston | `4.52` | `45.2%` | 📚 Murni Kurikulum KHS |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.54` | `35.4%` | 📚 Murni Kurikulum KHS |
+| **#4** | **UX Designer** | MDAEdge | `2.83` | `28.3%` | 📚 Murni Kurikulum KHS |
+| **#5** | **Web Apps Developer** | Halvik | `2.80` | `28.0%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `7.86` | `78.6%` | **`+7.86`** | 🚀 Lonjakan Masif |
+| **#2** | **Software Developer** | Sun Communities & Sun Outdoors | `7.43` | `74.3%` | **`+7.43`** | 🚀 Lonjakan Masif |
+| **#3** | **Software Engineer** | Harvey Nash | `7.17` | `71.7%` | **`+7.17`** | 🚀 Lonjakan Masif |
+| **#4** | **Frontend Developer** | InterEx Group | `6.84` | `68.4%` | **`+6.84`** | 🚀 Lonjakan Masif |
+| **#5** | **Frontend Developer** | Apexon | `6.54` | `65.4%` | **`+6.54`** | 🚀 Lonjakan Masif |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `0.00` | `7.86` | **`+7.86`** | 🚀 **Lonjakan Masif** |
-| **#2** | **Software Developer** | Sun Communities & Sun Outdoors | `0.00` | `7.43` | **`+7.43`** | 🚀 **Lonjakan Masif** |
-| **#3** | **Software Engineer** | Harvey Nash | `0.00` | `7.17` | **`+7.17`** | 🚀 **Lonjakan Masif** |
-| **#4** | **Frontend Developer** | InterEx Group | `0.00` | `6.84` | **`+6.84`** | 🚀 **Lonjakan Masif** |
-| **#5** | **Frontend Developer** | Apexon | `0.00` | `6.54` | **`+6.54`** | 🚀 **Lonjakan Masif** |
+| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `0.00` | `7.86` | **`+7.86`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#2** | **Software Developer** | Sun Communities & Sun Outdoors | `0.00` | `7.43` | **`+7.43`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#3** | **Software Engineer** | Harvey Nash | `0.00` | `7.17` | **`+7.17`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#4** | **Frontend Developer** | InterEx Group | `0.00` | `6.84` | **`+6.84`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#5** | **Frontend Developer** | Apexon | `0.00` | `6.54` | **`+6.54`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.52`)
@@ -195,14 +249,32 @@ Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perole
 3. **Docker Associate Training** — *Docker, Inc.* (Tier A (Kredibilitas 1.0))
 4. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **ES Application Developer II** | University of Houston | `3.15` | `31.5%` | 📚 Murni Kurikulum KHS |
+| **#2** | **UX Designer** | MDAEdge | `1.89` | `18.9%` | 📚 Murni Kurikulum KHS |
+| **#3** | **AI Engineer** | Avid Technology Professionals | `1.58` | `15.8%` | 📚 Murni Kurikulum KHS |
+| **#4** | **Data Scientist - NLP** | Analytica | `1.39` | `13.9%` | 📚 Murni Kurikulum KHS |
+| **#5** | **Machine Learning (ML) Engineer** | Vectara | `1.39` | `13.9%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `6.57` | `65.7%` | **`+6.57`** | 🚀 Lonjakan Masif |
+| **#2** | **Frontend Developer** | InterEx Group | `5.72` | `57.2%` | **`+5.72`** | 🚀 Lonjakan Masif |
+| **#3** | **Frontend Developer** | Apexon | `5.47` | `54.7%` | **`+5.47`** | 🚀 Lonjakan Masif |
+| **#4** | **Frontend Developer** | Charter Global | `5.43` | `54.3%` | **`+5.43`** | 🚀 Lonjakan Masif |
+| **#5** | **Front-End Software Developer** | Luxoft | `5.29` | `52.9%` | **`+5.29`** | 🚀 Lonjakan Masif |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `0.00` | `6.57` | **`+6.57`** | 🚀 **Lonjakan Masif** |
-| **#2** | **Frontend Developer** | InterEx Group | `0.00` | `5.72` | **`+5.72`** | 🚀 **Lonjakan Masif** |
-| **#3** | **Frontend Developer** | Apexon | `0.00` | `5.47` | **`+5.47`** | 🚀 **Lonjakan Masif** |
-| **#4** | **Frontend Developer** | Charter Global | `0.00` | `5.43` | **`+5.43`** | 🚀 **Lonjakan Masif** |
-| **#5** | **Front-End Software Developer** | Luxoft | `0.00` | `5.29` | **`+5.29`** | 🚀 **Lonjakan Masif** |
+| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `0.00` | `6.57` | **`+6.57`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#2** | **Frontend Developer** | InterEx Group | `0.00` | `5.72` | **`+5.72`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#3** | **Frontend Developer** | Apexon | `0.00` | `5.47` | **`+5.47`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#4** | **Frontend Developer** | Charter Global | `0.00` | `5.43` | **`+5.43`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#5** | **Front-End Software Developer** | Luxoft | `0.00` | `5.29` | **`+5.29`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `ES Application Developer II` di *University of Houston* (Skor: `3.15`)
@@ -245,14 +317,32 @@ Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di ke
 3. **Cisco CyberOps Associate** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
 4. **Security+** — *CompTIA* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.66` | `46.6%` | 📚 Murni Kurikulum KHS |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `46.6%` | 📚 Murni Kurikulum KHS |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `35.7%` | 📚 Murni Kurikulum KHS |
+| **#4** | **Web Apps Developer** | Halvik | `2.89` | `28.9%` | 📚 Murni Kurikulum KHS |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `28.0%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.66` | `46.6%` | **`+0.00`** | 📌 Stabil |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `46.6%` | **`+0.00`** | 📌 Stabil |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.42` | `34.2%` | **`-0.15`** | 📌 Stabil |
+| **#4** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `3.18` | `31.8%` | **`+3.18`** | 🚀 Lonjakan Masif |
+| **#5** | **Web Apps Developer** | Halvik | `2.89` | `28.9%` | **`+0.00`** | 📌 Stabil |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `3.42` | **`-0.15`** | 📌 **Stabil (Dominan Matkul)** |
-| **#4** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `0.00` | `3.18` | **`+3.18`** | 🚀 **Lonjakan Masif** |
-| **#5** | **Web Apps Developer** | Halvik | `2.89` | `2.89` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `3.42` | **`-0.15`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#4** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `0.00` | `3.18` | **`+3.18`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#5** | **Web Apps Developer** | Halvik | `2.89` | `2.89` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.66`)
@@ -295,14 +385,32 @@ Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perole
 3. **Cisco CyberOps Associate** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
 4. **Security+** — *CompTIA* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `3.25` | `32.5%` | 📚 Murni Kurikulum KHS |
+| **#2** | **ES Application Developer II** | University of Houston | `3.15` | `31.5%` | 📚 Murni Kurikulum KHS |
+| **#3** | **Web Apps Developer** | Halvik | `2.01` | `20.1%` | 📚 Murni Kurikulum KHS |
+| **#4** | **Full Stack Developer** | Levin Furniture & Mattress | `1.88` | `18.8%` | 📚 Murni Kurikulum KHS |
+| **#5** | **UX Designer** | MDAEdge | `1.69` | `16.9%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `3.25` | `32.5%` | **`+0.00`** | 📌 Stabil |
+| **#2** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `3.15` | `31.5%` | **`+3.15`** | 🚀 Lonjakan Masif |
+| **#3** | **ES Application Developer II** | University of Houston | `3.15` | `31.5%` | **`+0.00`** | 📌 Stabil |
+| **#4** | **Software Engineer** | Harvey Nash | `2.73` | `27.3%` | **`+2.73`** | 🚀 Lonjakan Masif |
+| **#5** | **Junior Frontend Developer** | MagicSet | `2.19` | `21.9%` | **`+2.19`** | 🚀 Lonjakan Masif |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `3.25` | `3.25` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#2** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `0.00` | `3.15` | **`+3.15`** | 🚀 **Lonjakan Masif** |
-| **#3** | **ES Application Developer II** | University of Houston | `3.15` | `3.15` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#4** | **Software Engineer** | Harvey Nash | `0.00` | `2.73` | **`+2.73`** | 🚀 **Lonjakan Masif** |
-| **#5** | **Junior Frontend Developer** | MagicSet | `0.00` | `2.19` | **`+2.19`** | 🚀 **Lonjakan Masif** |
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `3.25` | `3.25` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#2** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `0.00` | `3.15` | **`+3.15`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#3** | **ES Application Developer II** | University of Houston | `3.15` | `3.15` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#4** | **Software Engineer** | Harvey Nash | `0.00` | `2.73` | **`+2.73`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
+| **#5** | **Junior Frontend Developer** | MagicSet | `0.00` | `2.19` | **`+2.19`** | 🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `3.25`)
@@ -345,14 +453,32 @@ Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di ke
 3. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
 4. **Project Management Professional (PMP)** — *PMI* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `48.0%` | 📚 Murni Kurikulum KHS |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `46.6%` | 📚 Murni Kurikulum KHS |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.63` | `36.3%` | 📚 Murni Kurikulum KHS |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `29.8%` | 📚 Murni Kurikulum KHS |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `28.0%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `48.0%` | **`+0.00`** | 📌 Stabil |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `46.6%` | **`+0.00`** | 📌 Stabil |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.63` | `36.3%` | **`+0.00`** | 📌 Stabil |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `29.8%` | **`+0.00`** | 📌 Stabil |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `28.0%` | **`+0.00`** | 📌 Stabil |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.63` | `3.63` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#4** | **Web Apps Developer** | Halvik | `2.98` | `2.98` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.63` | `3.63` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `2.98` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
@@ -395,14 +521,32 @@ Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perole
 3. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
 4. **Project Management Professional (PMP)** — *PMI* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **ES Application Developer II** | University of Houston | `3.02` | `30.1%` | 📚 Murni Kurikulum KHS |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.41` | `24.1%` | 📚 Murni Kurikulum KHS |
+| **#3** | **AI Engineer** | Avid Technology Professionals | `1.90` | `19.0%` | 📚 Murni Kurikulum KHS |
+| **#4** | **UX Designer** | MDAEdge | `1.69` | `16.9%` | 📚 Murni Kurikulum KHS |
+| **#5** | **Machine Learning Engineer** | Oho Group | `1.30` | `13.1%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **ES Application Developer II** | University of Houston | `3.02` | `30.1%` | **`+0.00`** | 📌 Stabil |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.41` | `24.1%` | **`+0.00`** | 📌 Stabil |
+| **#3** | **AI Engineer** | Avid Technology Professionals | `1.90` | `19.0%` | **`+0.00`** | 📌 Stabil |
+| **#4** | **UX Designer** | MDAEdge | `1.69` | `16.9%` | **`+0.00`** | 📌 Stabil |
+| **#5** | **Machine Learning Engineer** | Oho Group | `1.30` | `13.1%` | **`+0.00`** | 📌 Stabil |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **ES Application Developer II** | University of Houston | `3.02` | `3.02` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.41` | `2.41` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#3** | **AI Engineer** | Avid Technology Professionals | `1.90` | `1.90` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#4** | **UX Designer** | MDAEdge | `1.69` | `1.69` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#5** | **Machine Learning Engineer** | Oho Group | `1.30` | `1.30` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#1** | **ES Application Developer II** | University of Houston | `3.02` | `3.02` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.41` | `2.41` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#3** | **AI Engineer** | Avid Technology Professionals | `1.90` | `1.90` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#4** | **UX Designer** | MDAEdge | `1.69` | `1.69` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#5** | **Machine Learning Engineer** | Oho Group | `1.30` | `1.30` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `ES Application Developer II` di *University of Houston* (Skor: `3.02`)
@@ -447,14 +591,32 @@ Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di ke
 5. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
 6. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `48.0%` | 📚 Murni Kurikulum KHS |
+| **#2** | **ES Application Developer II** | University of Houston | `4.52` | `45.2%` | 📚 Murni Kurikulum KHS |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `35.7%` | 📚 Murni Kurikulum KHS |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `29.8%` | 📚 Murni Kurikulum KHS |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `28.0%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `48.0%` | **`+0.00`** | 📌 Stabil |
+| **#2** | **ES Application Developer II** | University of Houston | `4.52` | `45.2%` | **`+0.00`** | 📌 Stabil |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `35.7%` | **`+0.00`** | 📌 Stabil |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `29.8%` | **`+0.00`** | 📌 Stabil |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `28.0%` | **`+0.00`** | 📌 Stabil |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#2** | **ES Application Developer II** | University of Houston | `4.52` | `4.52` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `3.57` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#4** | **Web Apps Developer** | Halvik | `2.98` | `2.98` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#2** | **ES Application Developer II** | University of Houston | `4.52` | `4.52` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `3.57` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `2.98` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
 - **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
@@ -499,13 +661,31 @@ Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perole
 5. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
 6. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
 
-### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
-| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |
+|:---:|---|---|:---:|:---:|:---:|
+| **#1** | **ES Application Developer II** | University of Houston | `2.74` | `27.4%` | 📚 Murni Kurikulum KHS |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.17` | `21.6%` | 📚 Murni Kurikulum KHS |
+| **#3** | **UX Designer** | MDAEdge | `1.69` | `16.9%` | 📚 Murni Kurikulum KHS |
+| **#4** | **Applied ML Engineer** | Kognitos | `1.11` | `11.1%` | 📚 Murni Kurikulum KHS |
+| **#5** | **UX Designer** | MDAEdge | `0.94` | `9.4%` | 📚 Murni Kurikulum KHS |
+
+### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |
+|:---:|---|---|:---:|:---:|:---:|:---:|
+| **#1** | **ES Application Developer II** | University of Houston | `2.74` | `27.4%` | **`+0.00`** | 📌 Stabil |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.17` | `21.6%` | **`+0.00`** | 📌 Stabil |
+| **#3** | **UX Designer** | MDAEdge | `1.69` | `16.9%` | **`+0.00`** | 📌 Stabil |
+| **#4** | **Applied ML Engineer** | Kognitos | `1.11` | `11.1%` | **`+0.00`** | 📌 Stabil |
+| **#5** | **Software Developers, Applications** | AdvanSoft | `1.09` | `10.9%` | **`+1.09`** | 📈 Meningkat |
+
+### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):
+| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |
 |:---:|---|---|:---:|:---:|:---:|---|
-| **#1** | **ES Application Developer II** | University of Houston | `2.74` | `2.74` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.17` | `2.17` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#3** | **UX Designer** | MDAEdge | `1.69` | `1.69` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
-| **#4** | **Applied ML Engineer** | Kognitos | `1.11` | `1.11` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#1** | **ES Application Developer II** | University of Houston | `2.74` | `2.74` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.17` | `2.17` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#3** | **UX Designer** | MDAEdge | `1.69` | `1.69` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
+| **#4** | **Applied ML Engineer** | Kognitos | `1.11` | `1.11` | **`+0.00`** | 📌 **Stabil (Dominan Nilai Matkul)** |
 | **#5** | **Software Developers, Applications** | AdvanSoft | `0.00` | `1.09` | **`+1.09`** | 📈 **Meningkat Signifikan** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**

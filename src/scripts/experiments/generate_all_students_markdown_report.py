@@ -127,9 +127,32 @@ def format_student_section(idx, name, track, profile, folder_name):
         lines.append("- *(Tidak memiliki sertifikat)*")
     lines.append("")
 
-    # 3. Comparison Table Before vs After
-    lines.append("### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):")
-    lines.append("| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |")
+    # 3. Recommendations Table BEFORE (KHS Only)
+    lines.append("### 🔴 Rekomendasi Karir Fase BEFORE (Hanya Nilai KHS Mata Kuliah / Tanpa Sertifikat):")
+    lines.append("| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Status |")
+    lines.append("|:---:|---|---|:---:|:---:|:---:|")
+    for r_b_i, r_b in enumerate(df_b.head(5).itertuples(), 1):
+        pct_b = min(100.0, max(0.0, (r_b.final_score / 10.0) * 100.0))
+        lines.append(f"| **#{r_b_i}** | **{r_b.job_title}** | {r_b.job_company} | `{r_b.final_score:.2f}` | `{pct_b:.1f}%` | 📚 Murni Kurikulum KHS |")
+    lines.append("")
+
+    # 4. Recommendations Table AFTER (KHS + Certs)
+    lines.append("### 🟢 Rekomendasi Karir Fase AFTER (Setelah Penambahan Sertifikasi Industri):")
+    lines.append("| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Kelayakan (0-10) | Keselarasan Profil (%) | Lonjakan Skor (Δ) | Status |")
+    lines.append("|:---:|---|---|:---:|:---:|:---:|:---:|")
+    for r_a_i, r_a in enumerate(df_a.head(5).itertuples(), 1):
+        j_id = r_a.job_id
+        mb = df_b[df_b["job_id"] == j_id]
+        score_b = mb.iloc[0]["final_score"] if not mb.empty else 0.0
+        delta = r_a.final_score - score_b
+        pct_a = min(100.0, max(0.0, (r_a.final_score / 10.0) * 100.0))
+        badge = "🚀 Lonjakan Masif" if delta > 1.5 else ("📈 Meningkat" if delta > 0.3 else "📌 Stabil")
+        lines.append(f"| **#{r_a_i}** | **{r_a.job_title}** | {r_a.job_company} | `{r_a.final_score:.2f}` | `{pct_a:.1f}%` | **`{delta:+.2f}`** | {badge} |")
+    lines.append("")
+
+    # 5. Comparison Table Before vs After
+    lines.append("### 📊 Tabel Komparasi Efek Peringkat Rekomendasi (Before vs After):")
+    lines.append("| Peringkat After | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Dampak Sertifikat |")
     lines.append("|:---:|---|---|:---:|:---:|:---:|---|")
     
     for rank_a, row_a in enumerate(df_a.head(5).itertuples(), 1):
@@ -142,11 +165,11 @@ def format_student_section(idx, name, track, profile, folder_name):
         delta = score_a - score_b
         
         if delta > 1.5:
-            status = "🚀 **Lonjakan Masif**"
+            status = "🚀 **Lonjakan Masif (Didorong Kuat Sertifikat)**"
         elif delta > 0.3:
             status = "📈 **Meningkat Signifikan**"
         else:
-            status = "📌 **Stabil (Dominan Matkul)**"
+            status = "📌 **Stabil (Dominan Nilai Matkul)**"
             
         lines.append(f"| **#{rank_a}** | **{row_a.job_title}** | {row_a.job_company} | `{score_b:.2f}` | `{score_a:.2f}` | **`{delta:+.2f}`** | {status} |")
     lines.append("")
