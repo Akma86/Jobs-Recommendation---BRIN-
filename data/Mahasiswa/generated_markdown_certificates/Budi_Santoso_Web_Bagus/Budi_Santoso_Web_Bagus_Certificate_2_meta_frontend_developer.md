@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Meta (Coursera)**, dengan total durasi pelatihan
 | Nama Penerima | Budi Santoso Web Bagus |
 | Judul Sertifikasi | Meta Front-End Developer |
 | Penyelenggara / Issuer | Meta (Coursera) |
-| Tanggal Terbit | 2 Juli 2025 |
-| Berlaku Hingga | 2 Juli 2027 |
+| Tanggal Terbit | 20 Juli 2024 |
+| Berlaku Hingga | 20 Juli 2027 |
 | Durasi Pelatihan | 80 jam |
-| Skor Akhir | 98/100 |
-| ID Kredensial | CERT-MFD-9ZS5MJ9U |
-| Kode Verifikasi | 3ZKJVX8AETS2 |
+| Skor Akhir | 90/100 |
+| ID Kredensial | CERT-MFD-BGVMXMDK |
+| Kode Verifikasi | DRWD5CPUAWTT |
 
 ---
 

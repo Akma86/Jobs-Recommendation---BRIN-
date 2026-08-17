@@ -22,12 +22,12 @@ yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 | Nama Penerima | Ilham Saputra SAP Jelek |
 | Judul Sertifikasi | ITIL Foundation |
 | Penyelenggara / Issuer | AXELOS / PeopleCert |
-| Tanggal Terbit | 27 Juni 2023 |
-| Berlaku Hingga | 27 Juni 2026 |
+| Tanggal Terbit | 22 Agustus 2023 |
+| Berlaku Hingga | 22 Agustus 2026 |
 | Durasi Pelatihan | 16 jam |
-| Skor Akhir | 79/100 |
-| ID Kredensial | CERT-IF-7T72CZOL |
-| Kode Verifikasi | R8AUIKU0GA8H |
+| Skor Akhir | 78/100 |
+| ID Kredensial | CERT-IF-WD0TRKRJ |
+| Kode Verifikasi | U38VDREU5A5S |
 
 ---
 

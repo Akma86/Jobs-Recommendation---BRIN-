@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Google Career Certificates (Coursera)**, dengan tota
 | Nama Penerima | Rizky Maulana ML Jelek |
 | Judul Sertifikasi | Google Data Analytics |
 | Penyelenggara / Issuer | Google Career Certificates (Coursera) |
-| Tanggal Terbit | 14 November 2025 |
-| Berlaku Hingga | 14 November 2028 |
+| Tanggal Terbit | 7 Agustus 2025 |
+| Berlaku Hingga | 7 Agustus 2027 |
 | Durasi Pelatihan | 180 jam |
-| Skor Akhir | 92/100 |
-| ID Kredensial | CERT-GDA-7ZXKWYY3 |
-| Kode Verifikasi | 79WHQ7S54CJC |
+| Skor Akhir | 81/100 |
+| ID Kredensial | CERT-GDA-EKDTGPPE |
+| Kode Verifikasi | 3E5KXW4A4UME |
 
 ---
 

@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Cisco Networking Academy**, dengan total durasi pela
 | Nama Penerima | Andi Wijaya Net Bagus |
 | Judul Sertifikasi | CCNA |
 | Penyelenggara / Issuer | Cisco Networking Academy |
-| Tanggal Terbit | 11 Juni 2023 |
-| Berlaku Hingga | 11 Juni 2026 |
+| Tanggal Terbit | 16 Maret 2024 |
+| Berlaku Hingga | 16 Maret 2027 |
 | Durasi Pelatihan | 70 jam |
-| Skor Akhir | 83/100 |
-| ID Kredensial | CERT-C-DA1VAZZJ |
-| Kode Verifikasi | SW97JZE40RAC |
+| Skor Akhir | 92/100 |
+| ID Kredensial | CERT-C-D62EIRVZ |
+| Kode Verifikasi | REWYMUH8JEJK |
 
 ---
 

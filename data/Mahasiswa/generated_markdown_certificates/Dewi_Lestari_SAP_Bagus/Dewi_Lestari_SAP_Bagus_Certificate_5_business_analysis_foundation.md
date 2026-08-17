@@ -22,12 +22,12 @@ yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)*
 | Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | Business Analysis Foundation |
 | Penyelenggara / Issuer | International Institute of Business Analysis (IIBA) |
-| Tanggal Terbit | 19 Februari 2023 |
-| Berlaku Hingga | 19 Februari 2025 |
+| Tanggal Terbit | 15 Oktober 2025 |
+| Berlaku Hingga | 15 Oktober 2027 |
 | Durasi Pelatihan | 18 jam |
-| Skor Akhir | 87/100 |
-| ID Kredensial | CERT-BAF-PIOMUFWZ |
-| Kode Verifikasi | 44UR23FCW651 |
+| Skor Akhir | 86/100 |
+| ID Kredensial | CERT-BAF-97XQGQC9 |
+| Kode Verifikasi | LRO4QA223Q9R |
 
 ---
 

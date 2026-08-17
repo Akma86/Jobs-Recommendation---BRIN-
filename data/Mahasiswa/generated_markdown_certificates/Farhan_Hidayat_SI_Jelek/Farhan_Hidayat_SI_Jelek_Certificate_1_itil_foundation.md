@@ -22,12 +22,12 @@ yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 | Nama Penerima | Farhan Hidayat SI Jelek |
 | Judul Sertifikasi | ITIL Foundation |
 | Penyelenggara / Issuer | AXELOS / PeopleCert |
-| Tanggal Terbit | 18 Oktober 2023 |
-| Berlaku Hingga | 18 Oktober 2026 |
+| Tanggal Terbit | 1 Agustus 2024 |
+| Berlaku Hingga | 1 Agustus 2026 |
 | Durasi Pelatihan | 16 jam |
 | Skor Akhir | 81/100 |
-| ID Kredensial | CERT-IF-F456JUYK |
-| Kode Verifikasi | Z5H2EGOKFCR5 |
+| ID Kredensial | CERT-IF-606KDKSX |
+| Kode Verifikasi | ZDBT384YPFUA |
 
 ---
 

@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SAP**, dengan total durasi pelatihan
 | Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | SAP Analytics Cloud |
 | Penyelenggara / Issuer | SAP |
-| Tanggal Terbit | 24 November 2025 |
-| Berlaku Hingga | 24 November 2027 |
+| Tanggal Terbit | 2 Februari 2025 |
+| Berlaku Hingga | 2 Februari 2028 |
 | Durasi Pelatihan | 30 jam |
-| Skor Akhir | 82/100 |
-| ID Kredensial | CERT-SAC-S2J7AWDV |
-| Kode Verifikasi | 57EJRPJ3PSR1 |
+| Skor Akhir | 79/100 |
+| ID Kredensial | CERT-SAC-G5YFVE4N |
+| Kode Verifikasi | WDUTPODOU4HK |
 
 ---
 

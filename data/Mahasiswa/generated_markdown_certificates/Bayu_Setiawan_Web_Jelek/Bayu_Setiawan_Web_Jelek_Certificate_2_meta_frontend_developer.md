@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Meta (Coursera)**, dengan total durasi pelatihan
 | Nama Penerima | Bayu Setiawan Web Jelek |
 | Judul Sertifikasi | Meta Front-End Developer |
 | Penyelenggara / Issuer | Meta (Coursera) |
-| Tanggal Terbit | 24 September 2024 |
-| Berlaku Hingga | 24 September 2027 |
+| Tanggal Terbit | 7 Desember 2025 |
+| Berlaku Hingga | 7 Desember 2028 |
 | Durasi Pelatihan | 80 jam |
-| Skor Akhir | 96/100 |
-| ID Kredensial | CERT-MFD-KDBHNEQ7 |
-| Kode Verifikasi | 2UHN9AG9929C |
+| Skor Akhir | 78/100 |
+| ID Kredensial | CERT-MFD-JPPP7XD6 |
+| Kode Verifikasi | 7SNMUIJZUV3E |
 
 ---
 

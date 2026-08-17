@@ -22,12 +22,12 @@ yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)*
 | Nama Penerima | Ilham Saputra SAP Jelek |
 | Judul Sertifikasi | Business Analysis Foundation |
 | Penyelenggara / Issuer | International Institute of Business Analysis (IIBA) |
-| Tanggal Terbit | 21 Desember 2024 |
-| Berlaku Hingga | 21 Desember 2027 |
+| Tanggal Terbit | 5 Juli 2024 |
+| Berlaku Hingga | 5 Juli 2026 |
 | Durasi Pelatihan | 18 jam |
-| Skor Akhir | 88/100 |
-| ID Kredensial | CERT-BAF-HMDY5YFI |
-| Kode Verifikasi | 54DWESSVWCSK |
+| Skor Akhir | 97/100 |
+| ID Kredensial | CERT-BAF-GCJFBC8Z |
+| Kode Verifikasi | 0HGTLGFRFRJP |
 
 ---
 

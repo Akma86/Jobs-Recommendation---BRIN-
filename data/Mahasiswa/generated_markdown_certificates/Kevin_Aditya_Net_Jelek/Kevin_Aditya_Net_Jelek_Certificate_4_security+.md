@@ -22,12 +22,12 @@ yang diselenggarakan oleh **CompTIA**, dengan total durasi pelatihan
 | Nama Penerima | Kevin Aditya Net Jelek |
 | Judul Sertifikasi | Security+ |
 | Penyelenggara / Issuer | CompTIA |
-| Tanggal Terbit | 10 November 2023 |
-| Berlaku Hingga | 10 November 2026 |
+| Tanggal Terbit | 22 Juni 2025 |
+| Berlaku Hingga | 22 Juni 2027 |
 | Durasi Pelatihan | 40 jam |
-| Skor Akhir | 85/100 |
-| ID Kredensial | CERT-S-GHYKLZ1E |
-| Kode Verifikasi | NM9LK1BZKLYE |
+| Skor Akhir | 99/100 |
+| ID Kredensial | CERT-S-WFUH8IXH |
+| Kode Verifikasi | JLXTZQ4KFNVT |
 
 ---
 

@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SCRUMstudy**, dengan total durasi pelatihan
 | Nama Penerima | Farhan Hidayat SI Jelek |
 | Judul Sertifikasi | Scrum Fundamentals Certified |
 | Penyelenggara / Issuer | SCRUMstudy |
-| Tanggal Terbit | 25 Januari 2025 |
-| Berlaku Hingga | 25 Januari 2027 |
+| Tanggal Terbit | 4 Februari 2024 |
+| Berlaku Hingga | 4 Februari 2026 |
 | Durasi Pelatihan | 12 jam |
-| Skor Akhir | 93/100 |
-| ID Kredensial | CERT-SFC-RDDEZTLQ |
-| Kode Verifikasi | N7ASCWJKN51Y |
+| Skor Akhir | 84/100 |
+| ID Kredensial | CERT-SFC-JABYAWNN |
+| Kode Verifikasi | N3OM16BIMCF5 |
 
 ---
 

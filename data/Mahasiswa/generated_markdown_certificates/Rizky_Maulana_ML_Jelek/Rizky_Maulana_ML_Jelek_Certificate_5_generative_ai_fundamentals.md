@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Google Cloud Skills Boost**, dengan total durasi pel
 | Nama Penerima | Rizky Maulana ML Jelek |
 | Judul Sertifikasi | Generative AI Fundamentals |
 | Penyelenggara / Issuer | Google Cloud Skills Boost |
-| Tanggal Terbit | 28 Desember 2024 |
-| Berlaku Hingga | 28 Desember 2026 |
+| Tanggal Terbit | 25 Januari 2025 |
+| Berlaku Hingga | 25 Januari 2028 |
 | Durasi Pelatihan | 10 jam |
-| Skor Akhir | 85/100 |
-| ID Kredensial | CERT-GAF-I97DJCUX |
-| Kode Verifikasi | FDCU89J3HA5B |
+| Skor Akhir | 87/100 |
+| ID Kredensial | CERT-GAF-65N1FDTD |
+| Kode Verifikasi | LX1FELDFKUJS |
 
 ---
 

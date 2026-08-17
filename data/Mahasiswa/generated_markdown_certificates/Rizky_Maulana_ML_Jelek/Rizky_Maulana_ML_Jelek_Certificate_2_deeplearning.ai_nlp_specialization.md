@@ -22,12 +22,12 @@ yang diselenggarakan oleh **DeepLearning.AI (Coursera)**, dengan total durasi pe
 | Nama Penerima | Rizky Maulana ML Jelek |
 | Judul Sertifikasi | DeepLearning.AI NLP Specialization |
 | Penyelenggara / Issuer | DeepLearning.AI (Coursera) |
-| Tanggal Terbit | 17 Juli 2023 |
-| Berlaku Hingga | 17 Juli 2025 |
+| Tanggal Terbit | 12 Maret 2024 |
+| Berlaku Hingga | 12 Maret 2027 |
 | Durasi Pelatihan | 60 jam |
-| Skor Akhir | 95/100 |
-| ID Kredensial | CERT-DNS-JPM6FCO8 |
-| Kode Verifikasi | QORXNPX0BITP |
+| Skor Akhir | 82/100 |
+| ID Kredensial | CERT-DNS-7LHKCNKO |
+| Kode Verifikasi | ZKVJBPHXKRNS |
 
 ---
 

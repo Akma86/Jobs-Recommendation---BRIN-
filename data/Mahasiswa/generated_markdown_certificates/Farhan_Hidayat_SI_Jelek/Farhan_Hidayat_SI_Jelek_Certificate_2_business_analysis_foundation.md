@@ -22,12 +22,12 @@ yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)*
 | Nama Penerima | Farhan Hidayat SI Jelek |
 | Judul Sertifikasi | Business Analysis Foundation |
 | Penyelenggara / Issuer | International Institute of Business Analysis (IIBA) |
-| Tanggal Terbit | 11 Juli 2023 |
-| Berlaku Hingga | 11 Juli 2025 |
+| Tanggal Terbit | 13 Januari 2025 |
+| Berlaku Hingga | 13 Januari 2027 |
 | Durasi Pelatihan | 18 jam |
-| Skor Akhir | 93/100 |
-| ID Kredensial | CERT-BAF-D62TQQPL |
-| Kode Verifikasi | SALV2YQV6GRX |
+| Skor Akhir | 86/100 |
+| ID Kredensial | CERT-BAF-XF7HLK5O |
+| Kode Verifikasi | UCPD8V9WX6QQ |
 
 ---
 

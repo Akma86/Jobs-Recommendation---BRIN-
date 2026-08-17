@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Amazon Web Services (AWS) Training and Certification
 | Nama Penerima | Kevin Aditya Net Jelek |
 | Judul Sertifikasi | AWS Cloud Practitioner |
 | Penyelenggara / Issuer | Amazon Web Services (AWS) Training and Certification |
-| Tanggal Terbit | 16 Februari 2023 |
-| Berlaku Hingga | 16 Februari 2025 |
+| Tanggal Terbit | 11 Mei 2025 |
+| Berlaku Hingga | 11 Mei 2027 |
 | Durasi Pelatihan | 25 jam |
-| Skor Akhir | 99/100 |
-| ID Kredensial | CERT-ACP-DPX49QNC |
-| Kode Verifikasi | 8FDH4N3LDKXH |
+| Skor Akhir | 82/100 |
+| ID Kredensial | CERT-ACP-2M7I9RAK |
+| Kode Verifikasi | TT6GJE2JCP6U |
 
 ---
 

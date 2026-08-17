@@ -22,12 +22,12 @@ yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 | Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | ITIL Foundation |
 | Penyelenggara / Issuer | AXELOS / PeopleCert |
-| Tanggal Terbit | 27 Maret 2024 |
-| Berlaku Hingga | 27 Maret 2027 |
+| Tanggal Terbit | 16 Oktober 2025 |
+| Berlaku Hingga | 16 Oktober 2027 |
 | Durasi Pelatihan | 16 jam |
-| Skor Akhir | 84/100 |
-| ID Kredensial | CERT-IF-OPYKE676 |
-| Kode Verifikasi | 86HL7BXAQLVQ |
+| Skor Akhir | 92/100 |
+| ID Kredensial | CERT-IF-FKALH7DS |
+| Kode Verifikasi | KJJ9ZAMIQHWO |
 
 ---
 

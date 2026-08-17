@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Docker, Inc.**, dengan total durasi pelatihan
 | Nama Penerima | Bayu Setiawan Web Jelek |
 | Judul Sertifikasi | Docker Associate Training |
 | Penyelenggara / Issuer | Docker, Inc. |
-| Tanggal Terbit | 23 September 2024 |
-| Berlaku Hingga | 23 September 2026 |
+| Tanggal Terbit | 5 April 2024 |
+| Berlaku Hingga | 5 April 2027 |
 | Durasi Pelatihan | 12 jam |
-| Skor Akhir | 84/100 |
-| ID Kredensial | CERT-DAT-8WQZN1CC |
-| Kode Verifikasi | 1UVADO2R6VSH |
+| Skor Akhir | 96/100 |
+| ID Kredensial | CERT-DAT-5GTD19WZ |
+| Kode Verifikasi | CS6IVA24WYFO |
 
 ---
 

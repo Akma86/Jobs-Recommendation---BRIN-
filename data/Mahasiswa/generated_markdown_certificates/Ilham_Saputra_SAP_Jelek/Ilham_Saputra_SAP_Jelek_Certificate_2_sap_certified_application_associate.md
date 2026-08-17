@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SAP**, dengan total durasi pelatihan
 | Nama Penerima | Ilham Saputra SAP Jelek |
 | Judul Sertifikasi | SAP Certified Application Associate |
 | Penyelenggara / Issuer | SAP |
-| Tanggal Terbit | 27 Agustus 2025 |
-| Berlaku Hingga | 27 Agustus 2028 |
+| Tanggal Terbit | 9 April 2025 |
+| Berlaku Hingga | 9 April 2027 |
 | Durasi Pelatihan | 40 jam |
-| Skor Akhir | 95/100 |
-| ID Kredensial | CERT-SCAA-CRZUCE7H |
-| Kode Verifikasi | WDHRS332RC78 |
+| Skor Akhir | 93/100 |
+| ID Kredensial | CERT-SCAA-EY9EZ60N |
+| Kode Verifikasi | LIA0T1RAZZFY |
 
 ---
 

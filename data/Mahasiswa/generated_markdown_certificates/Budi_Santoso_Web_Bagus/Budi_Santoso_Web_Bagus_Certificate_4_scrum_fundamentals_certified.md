@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SCRUMstudy**, dengan total durasi pelatihan
 | Nama Penerima | Budi Santoso Web Bagus |
 | Judul Sertifikasi | Scrum Fundamentals Certified |
 | Penyelenggara / Issuer | SCRUMstudy |
-| Tanggal Terbit | 11 Desember 2025 |
-| Berlaku Hingga | 11 Desember 2027 |
+| Tanggal Terbit | 27 Agustus 2023 |
+| Berlaku Hingga | 27 Agustus 2026 |
 | Durasi Pelatihan | 12 jam |
-| Skor Akhir | 87/100 |
-| ID Kredensial | CERT-SFC-F1LTOTV4 |
-| Kode Verifikasi | 5QR0UWBWHZCV |
+| Skor Akhir | 89/100 |
+| ID Kredensial | CERT-SFC-EHGIJCUU |
+| Kode Verifikasi | BTN90LIAW3NM |
 
 ---
 
