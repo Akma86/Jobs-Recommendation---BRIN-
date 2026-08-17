@@ -22,20 +22,21 @@ yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)*
 | Nama Penerima | Ilham Saputra SAP Jelek |
 | Judul Sertifikasi | Business Analysis Foundation |
 | Penyelenggara / Issuer | International Institute of Business Analysis (IIBA) |
-| Tanggal Terbit | 10 September 2023 |
-| Berlaku Hingga | 10 September 2025 |
+| Tanggal Terbit | 21 Desember 2024 |
+| Berlaku Hingga | 21 Desember 2027 |
 | Durasi Pelatihan | 18 jam |
-| Skor Akhir | 85/100 |
-| ID Kredensial | CERT-BAF-63B8S5PE |
-| Kode Verifikasi | CXVRUO2H7LZ0 |
+| Skor Akhir | 88/100 |
+| ID Kredensial | CERT-BAF-HMDY5YFI |
+| Kode Verifikasi | 54DWESSVWCSK |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Business Analysis Foundation.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Business requirement gathering, elicitation, and stakeholder management.
+- Business Process Model and Notation (BPMN 2.0) workflow modeling.
+- Gap analysis, SWOT, feasibility studies, and business case development.
+- Functional and non-functional requirement specification (BRD, FRD).
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

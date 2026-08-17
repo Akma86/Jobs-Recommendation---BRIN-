@@ -680,15 +680,29 @@ if btn_run or "pipeline_results" in st.session_state:
                 </div>
                 """, unsafe_allow_html=True)
                 
-                # Expandable details for SHAP and DiCE
-                with st.expander(f"🔍 Lihat Rincian Kompetensi & Roadmap DiCE untuk '{job_title}'"):
+                # Expandable details for SHAP, Percentage Narrative, and DiCE
+                with st.expander(f"🔍 Lihat Rincian Kompetensi & Narrative Explanation untuk '{job_title}'"):
+                    # 1. Percentage-based Narrative Explanation
+                    job_contrib = contribs_after.get(job_id, {})
+                    cred_dict = dict(zip(df_certs["title"], df_certs.get("credibility_weight", [0.9]*len(df_certs)))) if not df_certs.empty and "title" in df_certs.columns else {}
+                    narrative_res = generate_percentage_narrative(job_title, score_after, job_contrib, cred_dict)
+                    
+                    st.markdown(f"""
+                    <div style="background: #F8FAFC; border-left: 4px solid #2563EB; padding: 0.9rem 1.1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <div style="font-weight: 700; color: #1E293B; margin-bottom: 0.3rem;">💬 Narrative Explanation (% Keselarasan Profil):</div>
+                        <div style="color: #334155; font-size: 0.93rem; line-height: 1.5;">{narrative_res['narrative_text']}</div>
+                    </div>
+                    """, unsafe_allow_html=True)
+
                     c_exp1, c_exp2 = st.columns([1.2, 1])
                     with c_exp1:
-                        st.markdown("##### 📊 Mengapa kamu cocok untuk posisi ini? (SHAP)")
-                        job_contrib = contribs_after.get(job_id, {})
+                        st.markdown("##### 📊 Persentase Kecocokan per Komponen")
+                        for comp in narrative_res["components"][:4]:
+                            st.markdown(f"• **[{comp['type']}] {comp['name']}**: Cocok **{comp['relevance_match_pct']}%** (Porsi Kontribusi: **{comp['contribution_share_pct']}%**)")
+                            
                         shap_dict, _ = compute_shap_contributions(job_contrib)
                         if shap_dict:
-                            top_feats = sorted(shap_dict.items(), key=lambda x: abs(x[1]), reverse=True)[:6]
+                            top_feats = sorted(shap_dict.items(), key=lambda x: abs(x[1]), reverse=True)[:5]
                             fig_mini = go.Figure(go.Bar(
                                 x=[v for _, v in top_feats][::-1],
                                 y=[k for k, _ in top_feats][::-1],
@@ -697,12 +711,10 @@ if btn_run or "pipeline_results" in st.session_state:
                             ))
                             fig_mini.update_layout(
                                 margin=dict(l=10, r=10, t=10, b=10),
-                                height=200,
+                                height=180,
                                 xaxis_title="Kontribusi Skor (Poin)"
                             )
                             st.plotly_chart(fig_mini, use_container_width=True)
-                        else:
-                            st.info("Informasi kontribusi fitur didukung oleh mata kuliah kurikulum.")
                             
                     with c_exp2:
                         st.markdown("##### 🧭 Saran Kursus Lanjutan (DiCE 1.139 Katalog)")

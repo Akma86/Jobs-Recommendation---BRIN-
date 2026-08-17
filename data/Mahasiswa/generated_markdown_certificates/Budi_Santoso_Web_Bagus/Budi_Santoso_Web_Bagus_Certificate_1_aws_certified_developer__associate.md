@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Amazon Web Services (AWS)**, dengan total durasi pel
 | Nama Penerima | Budi Santoso Web Bagus |
 | Judul Sertifikasi | AWS Certified Developer - Associate |
 | Penyelenggara / Issuer | Amazon Web Services (AWS) |
-| Tanggal Terbit | 29 Desember 2025 |
-| Berlaku Hingga | 29 Desember 2028 |
+| Tanggal Terbit | 1 September 2025 |
+| Berlaku Hingga | 1 September 2027 |
 | Durasi Pelatihan | 40 jam |
-| Skor Akhir | 99/100 |
-| ID Kredensial | CERT-ACDA-9ILD2F5G |
-| Kode Verifikasi | XICE5IYT8ROO |
+| Skor Akhir | 80/100 |
+| ID Kredensial | CERT-ACDA-DJUHT4LF |
+| Kode Verifikasi | WT81JPLMDL6B |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar AWS Certified Developer - Associate.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Developing and deploying serverless applications using AWS Lambda and API Gateway.
+- Database management with Amazon DynamoDB and Amazon Aurora.
+- Containerized application deployment on Amazon ECS and EKS.
+- CI/CD pipelines with AWS CodePipeline, CodeBuild, and CloudWatch monitoring.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

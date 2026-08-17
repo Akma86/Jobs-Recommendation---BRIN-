@@ -22,20 +22,21 @@ yang diselenggarakan oleh **DeepLearning.AI (Coursera)**, dengan total durasi pe
 | Nama Penerima | Rizky Maulana ML Jelek |
 | Judul Sertifikasi | DeepLearning.AI NLP Specialization |
 | Penyelenggara / Issuer | DeepLearning.AI (Coursera) |
-| Tanggal Terbit | 28 Februari 2023 |
-| Berlaku Hingga | 28 Februari 2025 |
+| Tanggal Terbit | 17 Juli 2023 |
+| Berlaku Hingga | 17 Juli 2025 |
 | Durasi Pelatihan | 60 jam |
-| Skor Akhir | 88/100 |
-| ID Kredensial | CERT-DNS-UFY3N1XI |
-| Kode Verifikasi | NBRQSBIJ0IPC |
+| Skor Akhir | 95/100 |
+| ID Kredensial | CERT-DNS-JPM6FCO8 |
+| Kode Verifikasi | QORXNPX0BITP |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar DeepLearning.AI NLP Specialization.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Sentiment analysis and word vector representations (Word2Vec, GloVe).
+- Sequence-to-sequence models, attention mechanisms, and Transformer architectures.
+- HuggingFace transformer models and fine-tuning for question answering and translation.
+- LLMs and modern NLP application pipelines.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

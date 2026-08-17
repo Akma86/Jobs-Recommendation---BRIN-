@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Google Cloud Skills Boost**, dengan total durasi pel
 | Nama Penerima | Siti Rahma ML Bagus |
 | Judul Sertifikasi | Generative AI Fundamentals |
 | Penyelenggara / Issuer | Google Cloud Skills Boost |
-| Tanggal Terbit | 22 November 2025 |
-| Berlaku Hingga | 22 November 2027 |
+| Tanggal Terbit | 4 Agustus 2023 |
+| Berlaku Hingga | 4 Agustus 2025 |
 | Durasi Pelatihan | 10 jam |
-| Skor Akhir | 90/100 |
-| ID Kredensial | CERT-GAF-DWCMW8E2 |
-| Kode Verifikasi | 54OCMXGD0ZIW |
+| Skor Akhir | 95/100 |
+| ID Kredensial | CERT-GAF-HS9BIPX1 |
+| Kode Verifikasi | 4HZSCR3D2CQ9 |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Generative AI Fundamentals.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Foundational principles of Large Language Models (LLMs) and Generative AI.
+- Prompt engineering techniques and context augmentation.
+- Retrieval-Augmented Generation (RAG) architecture and vector search.
+- Responsible AI, bias mitigation, and safety evaluation.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

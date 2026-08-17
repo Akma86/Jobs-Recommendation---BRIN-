@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Cisco Networking Academy**, dengan total durasi pela
 | Nama Penerima | Kevin Aditya Net Jelek |
 | Judul Sertifikasi | CCNA |
 | Penyelenggara / Issuer | Cisco Networking Academy |
-| Tanggal Terbit | 24 September 2023 |
-| Berlaku Hingga | 24 September 2026 |
+| Tanggal Terbit | 15 Maret 2025 |
+| Berlaku Hingga | 15 Maret 2027 |
 | Durasi Pelatihan | 70 jam |
-| Skor Akhir | 92/100 |
-| ID Kredensial | CERT-C-1EBKZQLJ |
-| Kode Verifikasi | SQTSMEBXSY8Y |
+| Skor Akhir | 88/100 |
+| ID Kredensial | CERT-C-ZVMFY0A8 |
+| Kode Verifikasi | B9K3J0LA329W |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar CCNA.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- IP routing and switching protocols (OSPF, EIGRP, BGP, Static Routing).
+- VLAN configuration, inter-VLAN routing, and Spanning Tree Protocol (STP).
+- Network infrastructure security, Access Control Lists (ACL), and NAT/PAT.
+- Cisco IOS CLI administration, network troubleshooting, and IP services (DHCP, DNS).
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

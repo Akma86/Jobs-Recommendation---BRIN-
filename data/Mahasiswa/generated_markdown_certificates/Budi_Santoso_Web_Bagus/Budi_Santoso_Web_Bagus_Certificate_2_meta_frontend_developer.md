@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Meta (Coursera)**, dengan total durasi pelatihan
 | Nama Penerima | Budi Santoso Web Bagus |
 | Judul Sertifikasi | Meta Front-End Developer |
 | Penyelenggara / Issuer | Meta (Coursera) |
-| Tanggal Terbit | 22 Mei 2023 |
-| Berlaku Hingga | 22 Mei 2025 |
+| Tanggal Terbit | 2 Juli 2025 |
+| Berlaku Hingga | 2 Juli 2027 |
 | Durasi Pelatihan | 80 jam |
-| Skor Akhir | 85/100 |
-| ID Kredensial | CERT-MFD-YK12IXJX |
-| Kode Verifikasi | GQMZYSCFL8LN |
+| Skor Akhir | 98/100 |
+| ID Kredensial | CERT-MFD-9ZS5MJ9U |
+| Kode Verifikasi | 3ZKJVX8AETS2 |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Meta Front-End Developer.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Modern frontend development with React.js components, hooks, and state management.
+- Responsive web design with HTML5, CSS3, Flexbox, Grid, and Tailwind.
+- Advanced JavaScript (ES6+), asynchronous programming, and DOM manipulation.
+- RESTful API integration, UI/UX prototyping with Figma, and unit testing with Jest.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

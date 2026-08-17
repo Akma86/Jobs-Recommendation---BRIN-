@@ -22,20 +22,21 @@ yang diselenggarakan oleh **DeepLearning.AI (Coursera)**, dengan total durasi pe
 | Nama Penerima | Siti Rahma ML Bagus |
 | Judul Sertifikasi | DeepLearning.AI NLP Specialization |
 | Penyelenggara / Issuer | DeepLearning.AI (Coursera) |
-| Tanggal Terbit | 6 Februari 2023 |
-| Berlaku Hingga | 6 Februari 2025 |
+| Tanggal Terbit | 24 April 2025 |
+| Berlaku Hingga | 24 April 2028 |
 | Durasi Pelatihan | 60 jam |
-| Skor Akhir | 86/100 |
-| ID Kredensial | CERT-DNS-FJ1JYRFY |
-| Kode Verifikasi | 3U4MXIXLYZTD |
+| Skor Akhir | 91/100 |
+| ID Kredensial | CERT-DNS-A63D8N1Z |
+| Kode Verifikasi | U91G1MIIOXU1 |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar DeepLearning.AI NLP Specialization.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Sentiment analysis and word vector representations (Word2Vec, GloVe).
+- Sequence-to-sequence models, attention mechanisms, and Transformer architectures.
+- HuggingFace transformer models and fine-tuning for question answering and translation.
+- LLMs and modern NLP application pipelines.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

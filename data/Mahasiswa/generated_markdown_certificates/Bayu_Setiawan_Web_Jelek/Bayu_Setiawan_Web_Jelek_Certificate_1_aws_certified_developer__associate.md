@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Amazon Web Services (AWS)**, dengan total durasi pel
 | Nama Penerima | Bayu Setiawan Web Jelek |
 | Judul Sertifikasi | AWS Certified Developer - Associate |
 | Penyelenggara / Issuer | Amazon Web Services (AWS) |
-| Tanggal Terbit | 20 Agustus 2023 |
-| Berlaku Hingga | 20 Agustus 2025 |
+| Tanggal Terbit | 12 September 2023 |
+| Berlaku Hingga | 12 September 2025 |
 | Durasi Pelatihan | 40 jam |
-| Skor Akhir | 90/100 |
-| ID Kredensial | CERT-ACDA-DQT95VLH |
-| Kode Verifikasi | VS9ZMFHYQT9F |
+| Skor Akhir | 89/100 |
+| ID Kredensial | CERT-ACDA-QWXCL7OZ |
+| Kode Verifikasi | GAGGQV2JIQYD |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar AWS Certified Developer - Associate.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Developing and deploying serverless applications using AWS Lambda and API Gateway.
+- Database management with Amazon DynamoDB and Amazon Aurora.
+- Containerized application deployment on Amazon ECS and EKS.
+- CI/CD pipelines with AWS CodePipeline, CodeBuild, and CloudWatch monitoring.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

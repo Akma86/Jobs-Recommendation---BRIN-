@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Docker, Inc.**, dengan total durasi pelatihan
 | Nama Penerima | Budi Santoso Web Bagus |
 | Judul Sertifikasi | Docker Associate Training |
 | Penyelenggara / Issuer | Docker, Inc. |
-| Tanggal Terbit | 8 Juli 2024 |
-| Berlaku Hingga | 8 Juli 2026 |
+| Tanggal Terbit | 22 Februari 2025 |
+| Berlaku Hingga | 22 Februari 2028 |
 | Durasi Pelatihan | 12 jam |
-| Skor Akhir | 98/100 |
-| ID Kredensial | CERT-DAT-40GTA8JD |
-| Kode Verifikasi | EQZHSCKDCYO1 |
+| Skor Akhir | 90/100 |
+| ID Kredensial | CERT-DAT-BKST3ILG |
+| Kode Verifikasi | DITC89NLGZUE |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Docker Associate Training.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Docker containerization fundamentals and multi-stage Dockerfile optimization.
+- Container networking, persistent volume storage, and port mapping.
+- Multi-container application orchestration using Docker Compose.
+- Microservices architecture and container security best practices.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

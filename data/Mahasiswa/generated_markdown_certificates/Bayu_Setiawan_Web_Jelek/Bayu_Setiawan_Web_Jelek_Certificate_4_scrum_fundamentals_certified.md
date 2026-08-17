@@ -22,20 +22,21 @@ yang diselenggarakan oleh **SCRUMstudy**, dengan total durasi pelatihan
 | Nama Penerima | Bayu Setiawan Web Jelek |
 | Judul Sertifikasi | Scrum Fundamentals Certified |
 | Penyelenggara / Issuer | SCRUMstudy |
-| Tanggal Terbit | 23 November 2023 |
-| Berlaku Hingga | 23 November 2026 |
+| Tanggal Terbit | 17 Februari 2023 |
+| Berlaku Hingga | 17 Februari 2025 |
 | Durasi Pelatihan | 12 jam |
-| Skor Akhir | 92/100 |
-| ID Kredensial | CERT-SFC-54A1V0DS |
-| Kode Verifikasi | 171KHX78PEEK |
+| Skor Akhir | 84/100 |
+| ID Kredensial | CERT-SFC-C6M11GR5 |
+| Kode Verifikasi | LV238PTDBDFX |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Scrum Fundamentals Certified.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Agile principles, Scrum framework, artifacts, and ceremony management.
+- Sprint planning, daily standups, sprint review, and retrospective facilitation.
+- User story mapping, backlog grooming, and Fibonacci point estimation.
+- Team collaboration and cross-functional agile leadership.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

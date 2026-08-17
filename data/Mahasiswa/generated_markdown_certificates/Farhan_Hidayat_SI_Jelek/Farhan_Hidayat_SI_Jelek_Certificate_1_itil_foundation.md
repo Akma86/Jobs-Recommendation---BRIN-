@@ -22,20 +22,21 @@ yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 | Nama Penerima | Farhan Hidayat SI Jelek |
 | Judul Sertifikasi | ITIL Foundation |
 | Penyelenggara / Issuer | AXELOS / PeopleCert |
-| Tanggal Terbit | 5 Oktober 2025 |
-| Berlaku Hingga | 5 Oktober 2028 |
+| Tanggal Terbit | 18 Oktober 2023 |
+| Berlaku Hingga | 18 Oktober 2026 |
 | Durasi Pelatihan | 16 jam |
-| Skor Akhir | 86/100 |
-| ID Kredensial | CERT-IF-OTI1YYV0 |
-| Kode Verifikasi | ESBBECDDE1J2 |
+| Skor Akhir | 81/100 |
+| ID Kredensial | CERT-IF-F456JUYK |
+| Kode Verifikasi | Z5H2EGOKFCR5 |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar ITIL Foundation.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- IT Service Management (ITSM) principles and Service Value System (SVS).
+- ITIL 4 guiding principles and 4 dimensions of service management.
+- Key ITSM practices: Incident Management, Problem Management, Change Enablement.
+- Service level management, Continual Improvement, and IT governance.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

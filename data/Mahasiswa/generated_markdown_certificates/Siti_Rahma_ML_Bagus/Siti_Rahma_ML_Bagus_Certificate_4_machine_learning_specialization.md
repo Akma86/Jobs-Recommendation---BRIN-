@@ -22,20 +22,21 @@ yang diselenggarakan oleh **DeepLearning.AI & Stanford Online (Coursera)**, deng
 | Nama Penerima | Siti Rahma ML Bagus |
 | Judul Sertifikasi | Machine Learning Specialization |
 | Penyelenggara / Issuer | DeepLearning.AI & Stanford Online (Coursera) |
-| Tanggal Terbit | 27 November 2025 |
-| Berlaku Hingga | 27 November 2027 |
+| Tanggal Terbit | 5 Mei 2024 |
+| Berlaku Hingga | 5 Mei 2027 |
 | Durasi Pelatihan | 100 jam |
-| Skor Akhir | 99/100 |
-| ID Kredensial | CERT-MLS-YF8KA5YO |
-| Kode Verifikasi | FXVS2GBZ09SS |
+| Skor Akhir | 94/100 |
+| ID Kredensial | CERT-MLS-CBAF32IG |
+| Kode Verifikasi | BX57QXLCBVZO |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Machine Learning Specialization.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Supervised learning algorithms: Linear Regression, Logistic Regression, Decision Trees, SVM.
+- Unsupervised learning: K-Means clustering, PCA, and anomaly detection.
+- Recommender systems, collaborative filtering, and content-based filtering.
+- Deep learning fundamentals and reinforcement learning concepts.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

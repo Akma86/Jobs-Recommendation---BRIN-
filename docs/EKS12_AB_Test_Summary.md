@@ -1,138 +1,432 @@
-# Logbook Rangkuman Eksperimen XAI — EKS12: A/B Testing Pengaruh Nilai KHS (CLO) vs Sertifikasi (Multi-Stage Before/ & After/ + SHAP + Dynamic DiCE)
+# Rangkuman Komprehensif 10 Mahasiswa — Eksperimen XAI EKS12 (A/B Testing Before vs After)
 
-**Tanggal:** 17 Agustus 2026  
-**Proyek:** Sistem Rekomendasi Karir Berbasis OBE & Explainable AI (KP BRIN)  
-**Eksperimen:** EKS12 — A/B Testing Komprehensif (Mahasiswa Bernama Nyata) dengan Struktur Folder Terpadu `Before/` & `After/` serta Multi-Stage Explainable AI (SHAP Waterfall + Dynamic DiCE 1.139 Online Courses)  
-
----
-
-## 1. Desain Eksperimen & Struktur Folder Terpadu
-
-Eksperimen EKS12 menguji respon sistem rekomendasi karir cerdas terhadap 10 profil mahasiswa bernama lengkap (5 pasang peminatan: profil akademik *Bagus* [IPK ~3.8] vs *Jelek* [IPK ~2.0]). Masing-masing mahasiswa dievaluasi dalam **dua fase berurutan** yang tersimpan rapi dalam subfolder terpisah:
-
-```
-results/Eksperimen_XAI/EKS12_AB_Test/<Nama_Mahasiswa>/
-├── Before/                           <-- FASE 1: Murni Mata Kuliah (KHS Saja)
-│   ├── transcript_parsed.csv
-│   ├── recommendations.csv           (Peringkat awal tanpa sertifikat)
-│   ├── shap_explanations.csv & shap_plots/
-│   └── dice_counterfactuals.csv & dice_plots/ (Saran kursus awal DiCE #1)
-│
-└── After/                            <-- FASE 2: Matkul + 4-5 Sertifikat Industri Nyata
-    ├── certificates_parsed.csv
-    ├── recommendations.csv           (Peringkat baru setelah sertifikat masuk)
-    ├── shap_explanations.csv & shap_plots/
-    └── dice_counterfactuals.csv & dice_plots/ (Saran kursus lanjutan DiCE #2)
-```
+**Tanggal Evaluasi:** 17 Agustus 2026  
+**Lokasi Data:** `results/Eksperimen_XAI/EKS12_AB_Test/`  
+**Metode XAI:** SHAP Feature Attribution + Dynamic DiCE 1.139 Kursus Riil + **Percentage-Based Narrative Explanations**  
 
 ---
 
-## 2. Profil 10 Mahasiswa & Kepemilikan 4-5 Sertifikat Industri
+## 🏆 Ringkasan Eksekutif: 10 Profil Mahasiswa
 
-| Track / Peminatan | Mahasiswa Bagus (IPK ~3.8) | Mahasiswa Jelek (IPK ~2.0) | Daftar 4-5 Sertifikasi Industri yang Dimiliki |
-|---|---|---|---|
-| **Machine Learning (ML)** | **Siti Rahma** (`Siti_Rahma_ML_Bagus`) | **Rizky Maulana** (`Rizky_Maulana_ML_Jelek`) | 1. TensorFlow Developer Certificate<br/>2. DeepLearning.AI NLP Specialization<br/>3. Google Data Analytics<br/>4. Machine Learning Specialization<br/>5. Generative AI Fundamentals |
-| **Web Development (Web)** | **Budi Santoso** (`Budi_Santoso_Web_Bagus`) | **Bayu Setiawan** (`Bayu_Setiawan_Web_Jelek`) | 1. AWS Certified Developer - Associate<br/>2. Meta Front-End Developer<br/>3. Docker Associate Training<br/>4. Scrum Fundamentals Certified |
-| **Networking (Net)** | **Andi Wijaya** (`Andi_Wijaya_Net_Bagus`) | **Kevin Aditya** (`Kevin_Aditya_Net_Jelek`) | 1. CCNA<br/>2. AWS Cloud Practitioner<br/>3. Cisco CyberOps Associate<br/>4. Security+ |
-| **Sistem Informasi (SI)** | **Nadia Putri** (`Nadia_Putri_SI_Bagus`) | **Farhan Hidayat** (`Farhan_Hidayat_SI_Jelek`) | 1. ITIL Foundation<br/>2. Business Analysis Foundation<br/>3. Scrum Fundamentals Certified<br/>4. Project Management Professional (PMP) |
-| **Enterprise Systems (SAP)** | **Dewi Lestari** (`Dewi_Lestari_SAP_Bagus`) | **Ilham Saputra** (`Ilham_Saputra_SAP_Jelek`) | 1. SAP Fundamentals<br/>2. SAP Certified Application Associate<br/>3. SAP Analytics Cloud<br/>4. ITIL Foundation<br/>5. Business Analysis Foundation |
-
----
-
-## 3. Executive Summary: Komparasi Global Before vs After
-
-Tabel di bawah ini merangkum lonjakan skor rata-rata pada Top-5 rekomendasi karir serta transformasi pekerjaan Top-1:
-
-| Mahasiswa | Peminatan | Profil | Avg Skor (Before) | Avg Skor (After) | Kenaikan ($\Delta$) | Pekerjaan Top-1 (Before) $\rightarrow$ Pekerjaan Top-1 (After) |
-|---|:---:|:---:|:---:|:---:|:---:|---|
-| **Siti Rahma** | ML | Bagus | 3.78 | **5.95** | **+2.17** 🚀 | Web Developer (4.80) $\rightarrow$ **AI/ML Engineer (8.01)** |
-| **Rizky Maulana** | ML | Jelek | 2.52 | **4.39** | **+1.88** 🚀 | ES App Dev (3.56) $\rightarrow$ **AI/ML Engineer (5.71)** |
-| **Budi Santoso** | Web | Bagus | 3.78 | **7.69** | **+3.91** 🚀 | Web Developer (4.80) $\rightarrow$ **Junior Frontend Dev (8.70)** |
-| **Bayu Setiawan** | Web | Jelek | 2.37 | **6.36** | **+3.99** 🚀 | ES App Dev (3.56) $\rightarrow$ **UI Frontend Dev (7.19)** |
-| **Andi Wijaya** | Net | Bagus | 3.70 | **6.59** | **+2.89** 🚀 | Web Developer (4.66) $\rightarrow$ **AI/ML Engineer (8.09)** |
-| **Kevin Aditya** | Net | Jelek | 2.46 | **4.99** | **+2.53** 🚀 | ES App Dev (3.15) $\rightarrow$ **AI/ML Engineer (6.31)** |
-| **Nadia Putri** | SI | Bagus | 3.79 | **3.79** | +0.00 | Web Developer (4.80) $\rightarrow$ **Web Developer (4.80)** |
-| **Farhan Hidayat** | SI | Jelek | 1.69 | **2.35** | **+0.67** | ES App Dev (3.15) $\rightarrow$ **ES App Dev (3.15)** |
-| **Dewi Lestari** | SAP | Bagus | 3.79 | **3.79** | +0.00 | Web Developer (4.80) $\rightarrow$ **Web Developer (4.80)** |
-| **Ilham Saputra** | SAP | Jelek | 2.41 | **2.58** | **+0.17** | ES App Dev (3.29) $\rightarrow$ **ES App Dev (3.29)** |
+| No | Mahasiswa | Peminatan | Profil IPK | Sertifikat Dimiliki | Top-1 Before (Matkul Saja) | Top-1 After (+ Sertifikat) | Kenaikan Skor (Δ) |
+|:---:|---|:---:|:---:|:---:|---|---|:---:|
+| 1 | **Siti Rahma** | `Machine Learning` | Bagus (IPK ~3.82) | **5 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Machine Learning (ML) Engineer (`5.81`)** | **`+1.01`** 🚀 |
+| 2 | **Rizky Maulana** | `Machine Learning` | Jelek (IPK ~2.03) | **5 Certs** | Web Developer (HTML,CSS) | Remote (`2.83`) | **Machine Learning Engineer (`5.34`)** | **`+2.52`** 🚀 |
+| 3 | **Budi Santoso** | `Web Development` | Bagus (IPK ~3.82) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.52`) | **Front End Developer (`7.86`)** | **`+3.33`** 🚀 |
+| 4 | **Bayu Setiawan** | `Web Development` | Jelek (IPK ~2.03) | **4 Certs** | ES Application Developer II (`3.15`) | **Front End Developer (`6.57`)** | **`+3.42`** 🚀 |
+| 5 | **Andi Wijaya** | `Networking & Cloud` | Bagus (IPK ~3.82) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.66`) | **Web Developer (HTML,CSS) | Remote (`4.66`)** | **`+0.00`** 🚀 |
+| 6 | **Kevin Aditya** | `Networking & Cloud` | Jelek (IPK ~2.03) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`3.25`) | **Web Developer (HTML,CSS) | Remote (`3.25`)** | **`+0.00`** 🚀 |
+| 7 | **Nadia Putri** | `Sistem Informasi & Bisnis` | Bagus (IPK ~3.82) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Web Developer (HTML,CSS) | Remote (`4.80`)** | **`+0.00`** 🚀 |
+| 8 | **Farhan Hidayat** | `Sistem Informasi & Bisnis` | Jelek (IPK ~2.03) | **4 Certs** | ES Application Developer II (`3.02`) | **ES Application Developer II (`3.02`)** | **`+0.00`** 🚀 |
+| 9 | **Dewi Lestari** | `SAP & Enterprise Systems` | Bagus (IPK ~3.82) | **6 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Web Developer (HTML,CSS) | Remote (`4.80`)** | **`+0.00`** 🚀 |
+| 10 | **Ilham Saputra** | `SAP & Enterprise Systems` | Jelek (IPK ~2.03) | **6 Certs** | ES Application Developer II (`2.74`) | **ES Application Developer II (`2.74`)** | **`+0.00`** 🚀 |
 
 ---
 
-## 4. Analisis Komparatif Mendalam per Pasang Mahasiswa & Evolusi DiCE
+## 1. Siti Rahma — Track: `Machine Learning` (Bagus (IPK ~3.82))
 
-```mermaid
-graph LR
-    A["1. BEFORE (Matkul Saja)"] --> B["2. DiCE #1 (Saran Kursus Dasar)"]
-    B --> C["3. AFTER (4-5 Sertifikat Dimasukkan)"]
-    C --> D["4. DiCE #2 (Saran Spesialisasi Lanjutan)"]
-```
+### 📜 Daftar 5 Sertifikasi Industri yang Dimiliki:
+1. **TensorFlow Developer Certificate** — *TensorFlow / Google* (Tier A (Kredibilitas 1.0))
+2. **DeepLearning.AI NLP Specialization** — *DeepLearning.AI (Coursera)* (Tier A (Kredibilitas 1.0))
+3. **Google Data Analytics** — *Google Career Certificates (Coursera)* (Tier A (Kredibilitas 1.0))
+4. **Machine Learning Specialization** — *DeepLearning.AI & Stanford Online (Coursera)* (Tier A (Kredibilitas 1.0))
+5. **Generative AI Fundamentals** — *Google Cloud Skills Boost* (Tier A (Kredibilitas 1.0))
 
----
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `5.81` | **`+2.24`** | 🚀 **Lonjakan Masif** |
+| **#2** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#3** | **ES Application Developer II** | University of Houston | `4.52` | `4.52` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#4** | **Data Analyst** | STI | `0.00` | `4.34` | **`+4.34`** | 🚀 **Lonjakan Masif** |
+| **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.14` | **`+4.14`** | 🚀 **Lonjakan Masif** |
 
-### 4.1. Track: Web Development (`Budi Santoso` vs `Bayu Setiawan`)
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
+- **Setelah Sertifikat (After):** `Machine Learning (ML) Engineer` di *Vectara* (Skor: `5.81`) ➔ *Kenaikan: `+1.01 poin`*
 
-#### A. Bayu Setiawan (Profil Akademik Rendah — IPK ~2.0)
-* **Kondisi Before (Matkul Saja):**
-  - Top 1: *ES Application Developer II* (3.56)
-  - Top 2: *Web Developer (HTML,CSS)* (2.83)
-  - *Diagnosis DiCE #1:* Menyarankan kursus fondasi awal: `'Meta Front-End Developer' [Meta] (+0.90)` & `'Meta Back-End Developer' [Meta] (+0.84)`.
-* **Kondisi After (Setelah Memiliki 4 Sertifikat Web):**
-  - Top 1: **UI Frontend Developer (7.19)** $\rightarrow$ *Lompatan +4.36 poin!*
-  - Top 2: **Front End Developer (6.99)**
-  - Top 3: **Frontend Developer (6.47)**
-  - *Diagnosis DiCE #2:* Menyarankan kursus spesialisasi lanjutan: `'Meta React Native' [Meta] (+0.72)` & `'Programming with JavaScript' [Meta] (+0.69)`.
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **58.1%** terhadap posisi **Machine Learning (ML) Engineer**. Pendorong kelayakan terbesar berasal dari sertifikat **DeepLearning.AI NLP Specialization** dengan tingkat kecocokan materi sebesar **45.0%** (kontribusi 38.6%), yang diperkuat oleh penguasaan materi akademik pada mata kuliah **Integrasi Aplikasi Enterprise** (kecocokan 55.8%).
 
-#### B. Budi Santoso (Profil Akademik Tinggi — IPK ~3.8)
-* **Kondisi Before:** Top 1 *Web Developer (HTML,CSS)* (4.80).
-* **Kondisi After:** Melesat ke skor tertinggi **8.70** pada posisi *Junior Frontend Developer* dan *UI Frontend Developer (8.48)* berkat perpaduan nilai A pada MK Pemrograman Web + Sertifikasi AWS & Meta Front-End.
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Sertifikat Industri] DeepLearning.AI NLP Specialization**: **Kecocokan 45.0%** terhadap posisi ini (Menyumbang **38.6%** dari total skor).
+- **[Mata Kuliah Kurikulum] Integrasi Aplikasi Enterprise**: **Kecocokan 55.8%** terhadap posisi ini (Menyumbang **34.2%** dari total skor).
+- **[Mata Kuliah Kurikulum] Arsitektur Enterprise**: **Kecocokan 48.4%** terhadap posisi ini (Menyumbang **27.1%** dari total skor).
 
----
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
 
-### 4.2. Track: Machine Learning (`Siti Rahma` vs `Rizky Maulana`)
-
-#### A. Rizky Maulana (Profil Akademik Rendah — IPK ~2.0)
-* **Kondisi Before:** Skor akademik rendah, didominasi lowongan umum kurikulum (*ES Application Developer II* 3.56). Posisi AI/ML berada di bawah.
-* **Kondisi After (Setelah Memiliki 5 Sertifikat AI/ML):**
-  - Top 1: **AI/ML Engineer (5.71)** $\rightarrow$ *Lompat menjadi Juara 1!*
-  - Top 2: **Junior Frontend Developer (4.82)**
-  - Top 3: **Machine Learning Engineer (3.58)**
-* **Diagnosis DiCE Lanjutan (After):** DiCE menyarankan sertifikasi spesialisasi data: `'Python for Data Science, AI & Development' [IBM] (+0.69)` & `'Data Engineering & Big Data on GCP' [Google] (+1.02)`.
-
-#### B. Siti Rahma (Profil Akademik Tinggi — IPK ~3.8)
-* **Kondisi Before:** Top 1 *Web Developer* (4.80) & *ES Application Developer* (4.66).
-* **Kondisi After:** Mengunci posisi **AI/ML Engineer (8.01)** dan *Junior Frontend Developer (6.76)*.
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Machine Learning (ML) Engineer`: Ambil kursus/sertifikasi 'Introduction to Large Language Models' [Google Cloud, Beginner] (Relevansi: 0.21, Est. boost: +0.52)
+- Untuk lowongan `Machine Learning (ML) Engineer`: Ambil kursus/sertifikasi 'IBM Applied AI' [IBM, Beginner] (Relevansi: 0.19, Est. boost: +0.46)
+- Untuk lowongan `Machine Learning (ML) Engineer`: Ambil kursus/sertifikasi 'Introduction to Artificial Intelligence (AI)' [IBM, Beginner] (Relevansi: 0.18, Est. boost: +0.45)
 
 ---
 
-### 4.3. Track: Networking (`Andi Wijaya` vs `Kevin Aditya`)
+## 2. Rizky Maulana — Track: `Machine Learning` (Jelek (IPK ~2.03))
 
-#### A. Kevin Aditya (Profil Akademik Rendah — IPK ~2.0)
-* **Kondisi Before:** Skor 2.46 (Top 1: *ES App Dev* 3.15).
-* **Kondisi After (Setelah 4 Sertifikat Jaringan & Cloud: CCNA, AWS, Cisco CyberOps, Security+):**
-  - Top 1: **AI/ML Engineer (Cloud-Infra) (6.31)** $\rightarrow$ *Lompat +3.16 poin!*
-  - Top 2: **WarmPool - AI Practice (5.83)**
-  - Top 3: **Junior Frontend Developer (5.31)**
+### 📜 Daftar 5 Sertifikasi Industri yang Dimiliki:
+1. **TensorFlow Developer Certificate** — *TensorFlow / Google* (Tier A (Kredibilitas 1.0))
+2. **DeepLearning.AI NLP Specialization** — *DeepLearning.AI (Coursera)* (Tier A (Kredibilitas 1.0))
+3. **Google Data Analytics** — *Google Career Certificates (Coursera)* (Tier A (Kredibilitas 1.0))
+4. **Machine Learning Specialization** — *DeepLearning.AI & Stanford Online (Coursera)* (Tier A (Kredibilitas 1.0))
+5. **Generative AI Fundamentals** — *Google Cloud Skills Boost* (Tier A (Kredibilitas 1.0))
 
-#### B. Andi Wijaya (Profil Akademik Tinggi — IPK ~3.8)
-* **Kondisi After:** Meraih skor **8.09** pada posisi *AI/ML Engineer* dan **7.44** pada *WarmPool - AI Practice*.
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Machine Learning Engineer** | Mastech Digital | `0.00` | `5.34` | **`+5.34`** | 🚀 **Lonjakan Masif** |
+| **#2** | **Machine Learning Engineer - Generative AI** | Qualcomm | `0.00` | `5.23` | **`+5.23`** | 🚀 **Lonjakan Masif** |
+| **#3** | **Data Analyst** | STI | `0.00` | `4.86` | **`+4.86`** | 🚀 **Lonjakan Masif** |
+| **#4** | **AI/ML Engineer** | ReturnPro | `0.00` | `4.56` | **`+4.56`** | 🚀 **Lonjakan Masif** |
+| **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.45` | **`+4.45`** | 🚀 **Lonjakan Masif** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `2.83`)
+- **Setelah Sertifikat (After):** `Machine Learning Engineer` di *Mastech Digital* (Skor: `5.34`) ➔ *Kenaikan: `+2.52 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **53.4%** terhadap posisi **Machine Learning Engineer**, didominasi oleh kepemilikan sertifikat **Generative AI Fundamentals** dengan tingkat kecocokan sebesar **68.4%**.
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Sertifikat Industri] Generative AI Fundamentals**: **Kecocokan 68.4%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Machine Learning Engineer`: Ambil kursus/sertifikasi 'Introduction to Generative AI' [Google Cloud, Beginner] (Relevansi: 0.25, Est. boost: +0.60)
+- Untuk lowongan `Machine Learning Engineer`: Ambil kursus/sertifikasi 'Generative AI: Introduction and Applications' [IBM, Beginner] (Relevansi: 0.24, Est. boost: +0.59)
+- Untuk lowongan `Machine Learning Engineer`: Ambil kursus/sertifikasi 'Microsoft Azure AI Fundamentals AI-900 Exam Prep' [Microsoft, Beginner] (Relevansi: 0.23, Est. boost: +0.55)
 
 ---
 
-### 4.4. Track: Sistem Informasi (`Nadia Putri` vs `Farhan Hidayat`) & SAP (`Dewi Lestari` vs `Ilham Saputra`)
-* **Karakteristik Unik Track SI & SAP:**
-  - Posisi pekerjaan pada domain Enterprise Systems (*ES Application Developer II* dan *Web Developer*) sangat terikat pada penguasaan mata kuliah kurikulum inti (*Integrasi Aplikasi Enterprise*, *Arsitektur Enterprise*).
-  - Mahasiswa Bagus (*Nadia Putri* & *Dewi Lestari*) memimpin stabil dengan skor **4.80** dan **4.66** berkat nilai A/AB.
-  - Mahasiswa Jelek (*Farhan Hidayat* & *Ilham Saputra*) mengalami peningkatan skor dari 1.69 menjadi 2.35 setelah sertifikasi ITIL, PMP, dan SAP Analytics Cloud dimasukkan.
+## 3. Budi Santoso — Track: `Web Development` (Bagus (IPK ~3.82))
+
+### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+1. **AWS Certified Developer - Associate** — *Amazon Web Services (AWS)* (Tier A (Kredibilitas 1.0))
+2. **Meta Front-End Developer** — *Meta (Coursera)* (Tier A (Kredibilitas 1.0))
+3. **Docker Associate Training** — *Docker, Inc.* (Tier A (Kredibilitas 1.0))
+4. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `0.00` | `7.86` | **`+7.86`** | 🚀 **Lonjakan Masif** |
+| **#2** | **Software Developer** | Sun Communities & Sun Outdoors | `0.00` | `7.43` | **`+7.43`** | 🚀 **Lonjakan Masif** |
+| **#3** | **Software Engineer** | Harvey Nash | `0.00` | `7.17` | **`+7.17`** | 🚀 **Lonjakan Masif** |
+| **#4** | **Frontend Developer** | InterEx Group | `0.00` | `6.84` | **`+6.84`** | 🚀 **Lonjakan Masif** |
+| **#5** | **Frontend Developer** | Apexon | `0.00` | `6.54` | **`+6.54`** | 🚀 **Lonjakan Masif** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.52`)
+- **Setelah Sertifikat (After):** `Front End Developer` di *Vanda Pharmaceuticals* (Skor: `7.86`) ➔ *Kenaikan: `+3.33 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **78.6%** terhadap posisi **Front End Developer**, didominasi oleh kepemilikan sertifikat **Meta Front-End Developer** dengan tingkat kecocokan sebesar **93.6%**.
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Sertifikat Industri] Meta Front-End Developer**: **Kecocokan 93.6%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: AB -> A
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Front End Developer`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.23, Est. boost: +0.56)
+- Untuk lowongan `Front End Developer`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.22, Est. boost: +0.53)
+- Untuk lowongan `Front End Developer`: Ambil kursus/sertifikasi 'Introduction to Front-End Development' [Meta, Beginner] (Relevansi: 0.22, Est. boost: +0.53)
 
 ---
 
-## 5. Kesimpulan Ilmiah Riset KP BRIN
+## 4. Bayu Setiawan — Track: `Web Development` (Jelek (IPK ~2.03))
 
-1. **Evolusi XAI Terstruktur (Multi-Stage):**
-   Pemisahan subfolder `Before/` dan `After/` berhasil membuktikan proses *career coaching* yang realistis:
-   - **Fase 1 (Before):** Mendiagnosis *gap* awal dan menyarankan sertifikasi fondasi.
-   - **Fase 2 (After):** Memvalidasi lonjakan skor riil dan menyarankan sertifikasi spesialisasi tingkat lanjut.
-2. **Kekuatan Kompensasi Sertifikasi Industri:**
-   Sertifikasi industri kredibel (Tier A dari Google, AWS, Meta, IBM) terbukti mampu menjadi **penyelamat karir (*career booster*)** bagi mahasiswa dengan IPK rendah (+2.5 hingga +4.0 poin), mengangkat mereka masuk ke Top 3 pekerjaan impian.
-3. **Katalog Riil 1.139 Online Courses:**
-   DiCE terbukti sukses memberikan intervensi nyata dari dataset kursus riil dengan bobot kredibilitas platform dan kemiripan semantik otomatis.
+### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+1. **AWS Certified Developer - Associate** — *Amazon Web Services (AWS)* (Tier A (Kredibilitas 1.0))
+2. **Meta Front-End Developer** — *Meta (Coursera)* (Tier A (Kredibilitas 1.0))
+3. **Docker Associate Training** — *Docker, Inc.* (Tier A (Kredibilitas 1.0))
+4. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Front End Developer** | Vanda Pharmaceuticals | `0.00` | `6.57` | **`+6.57`** | 🚀 **Lonjakan Masif** |
+| **#2** | **Frontend Developer** | InterEx Group | `0.00` | `5.72` | **`+5.72`** | 🚀 **Lonjakan Masif** |
+| **#3** | **Frontend Developer** | Apexon | `0.00` | `5.47` | **`+5.47`** | 🚀 **Lonjakan Masif** |
+| **#4** | **Frontend Developer** | Charter Global | `0.00` | `5.43` | **`+5.43`** | 🚀 **Lonjakan Masif** |
+| **#5** | **Front-End Software Developer** | Luxoft | `0.00` | `5.29` | **`+5.29`** | 🚀 **Lonjakan Masif** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `ES Application Developer II` di *University of Houston* (Skor: `3.15`)
+- **Setelah Sertifikat (After):** `Front End Developer` di *Vanda Pharmaceuticals* (Skor: `6.57`) ➔ *Kenaikan: `+3.42 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **65.7%** terhadap posisi **Front End Developer**, didominasi oleh kepemilikan sertifikat **Meta Front-End Developer** dengan tingkat kecocokan sebesar **80.7%**.
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Sertifikat Industri] Meta Front-End Developer**: **Kecocokan 80.7%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Foundations of User Experience (UX) Design' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.48)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'System Administration and IT Infrastructure Services' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.46)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Cybersecurity Roles, Processes & Operating System Security' [IBM, Beginner] (Relevansi: 0.18, Est. boost: +0.45)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Front End Developer`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.23, Est. boost: +0.56)
+- Untuk lowongan `Front End Developer`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.22, Est. boost: +0.53)
+- Untuk lowongan `Front End Developer`: Ambil kursus/sertifikasi 'Introduction to Front-End Development' [Meta, Beginner] (Relevansi: 0.22, Est. boost: +0.53)
+
+---
+
+## 5. Andi Wijaya — Track: `Networking & Cloud` (Bagus (IPK ~3.82))
+
+### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+1. **CCNA** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
+2. **AWS Cloud Practitioner** — *Amazon Web Services (AWS) Training and Certification* (Tier A (Kredibilitas 1.0))
+3. **Cisco CyberOps Associate** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
+4. **Security+** — *CompTIA* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `3.42` | **`-0.15`** | 📌 **Stabil (Dominan Matkul)** |
+| **#4** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `0.00` | `3.18` | **`+3.18`** | 🚀 **Lonjakan Masif** |
+| **#5** | **Web Apps Developer** | Halvik | `2.89` | `2.89` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.66`)
+- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.66`) ➔ *Kenaikan: `+0.00 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **46.6%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 98.0%).
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Mata Kuliah Kurikulum] Pengembangan Aplikasi Website**: **Kecocokan 98.0%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+---
+
+## 6. Kevin Aditya — Track: `Networking & Cloud` (Jelek (IPK ~2.03))
+
+### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+1. **CCNA** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
+2. **AWS Cloud Practitioner** — *Amazon Web Services (AWS) Training and Certification* (Tier A (Kredibilitas 1.0))
+3. **Cisco CyberOps Associate** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
+4. **Security+** — *CompTIA* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `3.25` | `3.25` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#2** | **WarmPool - AI Practice** | Citius IT Solutions Pvt. Ltd | `0.00` | `3.15` | **`+3.15`** | 🚀 **Lonjakan Masif** |
+| **#3** | **ES Application Developer II** | University of Houston | `3.15` | `3.15` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#4** | **Software Engineer** | Harvey Nash | `0.00` | `2.73` | **`+2.73`** | 🚀 **Lonjakan Masif** |
+| **#5** | **Junior Frontend Developer** | MagicSet | `0.00` | `2.19` | **`+2.19`** | 🚀 **Lonjakan Masif** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `3.25`)
+- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `3.25`) ➔ *Kenaikan: `+0.00 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **32.5%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 78.5%).
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Mata Kuliah Kurikulum] Pengembangan Aplikasi Website**: **Kecocokan 78.5%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+---
+
+## 7. Nadia Putri — Track: `Sistem Informasi & Bisnis` (Bagus (IPK ~3.82))
+
+### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+1. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
+2. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
+3. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
+4. **Project Management Professional (PMP)** — *PMI* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#2** | **ES Application Developer II** | University of Houston | `4.66` | `4.66` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.63` | `3.63` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `2.98` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
+- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`) ➔ *Kenaikan: `+0.00 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **48.0%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 98.0%).
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Mata Kuliah Kurikulum] Pengembangan Aplikasi Website**: **Kecocokan 98.0%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+---
+
+## 8. Farhan Hidayat — Track: `Sistem Informasi & Bisnis` (Jelek (IPK ~2.03))
+
+### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+1. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
+2. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
+3. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
+4. **Project Management Professional (PMP)** — *PMI* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **ES Application Developer II** | University of Houston | `3.02` | `3.02` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.41` | `2.41` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#3** | **AI Engineer** | Avid Technology Professionals | `1.90` | `1.90` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#4** | **UX Designer** | MDAEdge | `1.69` | `1.69` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#5** | **Machine Learning Engineer** | Oho Group | `1.30` | `1.30` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `ES Application Developer II` di *University of Houston* (Skor: `3.02`)
+- **Setelah Sertifikat (After):** `ES Application Developer II` di *University of Houston* (Skor: `3.02`) ➔ *Kenaikan: `+0.00 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, posisi **ES Application Developer II** direkomendasikan dengan tingkat kecocokan **30.2%**, yang ditopang kuat oleh capaian akademik mata kuliah **Integrasi Aplikasi Enterprise** (kecocokan 74.3%).
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Mata Kuliah Kurikulum] Integrasi Aplikasi Enterprise**: **Kecocokan 74.3%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Foundations of User Experience (UX) Design' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.48)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'System Administration and IT Infrastructure Services' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.46)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Cybersecurity Roles, Processes & Operating System Security' [IBM, Beginner] (Relevansi: 0.18, Est. boost: +0.45)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Foundations of User Experience (UX) Design' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.48)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'System Administration and IT Infrastructure Services' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.46)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Cybersecurity Roles, Processes & Operating System Security' [IBM, Beginner] (Relevansi: 0.18, Est. boost: +0.45)
+
+---
+
+## 9. Dewi Lestari — Track: `SAP & Enterprise Systems` (Bagus (IPK ~3.82))
+
+### 📜 Daftar 6 Sertifikasi Industri yang Dimiliki:
+1. **SAP Fundamentals** — *SAP Learning Hub* (Tier A (Kredibilitas 1.0))
+2. **SAP Certified Application Associate** — *SAP* (Tier A (Kredibilitas 1.0))
+3. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
+4. **SAP Analytics Cloud** — *SAP* (Tier A (Kredibilitas 1.0))
+5. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
+6. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **Web Developer (HTML,CSS) | Remote** | Crossing Hurdles | `4.80` | `4.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#2** | **ES Application Developer II** | University of Houston | `4.52` | `4.52` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#3** | **Machine Learning (ML) Engineer** | Vectara | `3.57` | `3.57` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#4** | **Web Apps Developer** | Halvik | `2.98` | `2.98` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
+- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`) ➔ *Kenaikan: `+0.00 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **48.0%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 98.0%).
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Mata Kuliah Kurikulum] Pengembangan Aplikasi Website**: **Kecocokan 98.0%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Front-End Developer' [Meta, Beginner] (Relevansi: 0.37, Est. boost: +0.90)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Meta Back-End Developer' [Meta, Beginner] (Relevansi: 0.34, Est. boost: +0.84)
+- Untuk lowongan `Web Developer (HTML,CSS) | Remote`: Ambil kursus/sertifikasi 'Introduction to Back-End Development' [Meta, Beginner] (Relevansi: 0.32, Est. boost: +0.79)
+
+---
+
+## 10. Ilham Saputra — Track: `SAP & Enterprise Systems` (Jelek (IPK ~2.03))
+
+### 📜 Daftar 6 Sertifikasi Industri yang Dimiliki:
+1. **SAP Fundamentals** — *SAP Learning Hub* (Tier A (Kredibilitas 1.0))
+2. **SAP Certified Application Associate** — *SAP* (Tier A (Kredibilitas 1.0))
+3. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
+4. **SAP Analytics Cloud** — *SAP* (Tier A (Kredibilitas 1.0))
+5. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
+6. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
+
+### 📊 Tabel Komparasi Top-5 Rekomendasi Karir (Before vs After):
+| Peringkat | Lowongan Pekerjaan | Perusahaan | Skor Before (Matkul) | Skor After (+ Certs) | Lonjakan (Δ) | Status Dampak |
+|:---:|---|---|:---:|:---:|:---:|---|
+| **#1** | **ES Application Developer II** | University of Houston | `2.74` | `2.74` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#2** | **Machine Learning (ML) Engineer** | Vectara | `2.17` | `2.17` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#3** | **UX Designer** | MDAEdge | `1.69` | `1.69` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#4** | **Applied ML Engineer** | Kognitos | `1.11` | `1.11` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
+| **#5** | **Software Developers, Applications** | AdvanSoft | `0.00` | `1.09` | **`+1.09`** | 📈 **Meningkat Signifikan** |
+
+💡 **Transformasi Karir Rekomendasi Utama (#1):**
+- **Sebelum Sertifikat (Before):** `ES Application Developer II` di *University of Houston* (Skor: `2.74`)
+- **Setelah Sertifikat (After):** `ES Application Developer II` di *University of Houston* (Skor: `2.74`) ➔ *Kenaikan: `+0.00 poin`*
+
+### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
+> Berdasarkan analisis Explainable AI, posisi **ES Application Developer II** direkomendasikan dengan tingkat kecocokan **27.4%**, yang ditopang kuat oleh capaian akademik mata kuliah **Integrasi Aplikasi Enterprise** (kecocokan 69.3%).
+
+#### 📌 Rincian Persentase Kecocokan per Komponen Fitur:
+- **[Mata Kuliah Kurikulum] Integrasi Aplikasi Enterprise**: **Kecocokan 69.3%** terhadap posisi ini (Menyumbang **100.0%** dari total skor).
+
+### 🧭 Bimbingan Karir DiCE 2-Tahap (Multi-Stage 1.139 Kursus Riil):
+#### A. DiCE Tahap 1 — Saran Kursus Fondasi Awal (Kondisi *Before* / Matkul Saja):
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Foundations of User Experience (UX) Design' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.48)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'System Administration and IT Infrastructure Services' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.46)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Cybersecurity Roles, Processes & Operating System Security' [IBM, Beginner] (Relevansi: 0.18, Est. boost: +0.45)
+
+#### B. DiCE Tahap 2 — Saran Spesialisasi Lanjutan (Kondisi *After* / Setelah Punya Sertifikat):
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Foundations of User Experience (UX) Design' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.48)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'System Administration and IT Infrastructure Services' [Google, Beginner] (Relevansi: 0.19, Est. boost: +0.46)
+- Untuk lowongan `ES Application Developer II`: Ambil kursus/sertifikasi 'Cybersecurity Roles, Processes & Operating System Security' [IBM, Beginner] (Relevansi: 0.18, Est. boost: +0.45)
+
+---

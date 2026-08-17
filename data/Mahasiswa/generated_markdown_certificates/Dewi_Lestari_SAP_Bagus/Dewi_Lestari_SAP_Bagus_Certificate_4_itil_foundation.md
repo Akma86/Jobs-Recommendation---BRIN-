@@ -22,20 +22,21 @@ yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 | Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | ITIL Foundation |
 | Penyelenggara / Issuer | AXELOS / PeopleCert |
-| Tanggal Terbit | 18 Mei 2025 |
-| Berlaku Hingga | 18 Mei 2028 |
+| Tanggal Terbit | 27 Maret 2024 |
+| Berlaku Hingga | 27 Maret 2027 |
 | Durasi Pelatihan | 16 jam |
-| Skor Akhir | 82/100 |
-| ID Kredensial | CERT-IF-P34SBFIK |
-| Kode Verifikasi | IBWZ05P1M8OR |
+| Skor Akhir | 84/100 |
+| ID Kredensial | CERT-IF-OPYKE676 |
+| Kode Verifikasi | 86HL7BXAQLVQ |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar ITIL Foundation.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- IT Service Management (ITSM) principles and Service Value System (SVS).
+- ITIL 4 guiding principles and 4 dimensions of service management.
+- Key ITSM practices: Incident Management, Problem Management, Change Enablement.
+- Service level management, Continual Improvement, and IT governance.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

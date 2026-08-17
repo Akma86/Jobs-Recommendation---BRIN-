@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Amazon Web Services (AWS) Training and Certification
 | Nama Penerima | Kevin Aditya Net Jelek |
 | Judul Sertifikasi | AWS Cloud Practitioner |
 | Penyelenggara / Issuer | Amazon Web Services (AWS) Training and Certification |
-| Tanggal Terbit | 2 Oktober 2024 |
-| Berlaku Hingga | 2 Oktober 2026 |
+| Tanggal Terbit | 16 Februari 2023 |
+| Berlaku Hingga | 16 Februari 2025 |
 | Durasi Pelatihan | 25 jam |
-| Skor Akhir | 94/100 |
-| ID Kredensial | CERT-ACP-WF2514AX |
-| Kode Verifikasi | AW7FJH4PRP4U |
+| Skor Akhir | 99/100 |
+| ID Kredensial | CERT-ACP-DPX49QNC |
+| Kode Verifikasi | 8FDH4N3LDKXH |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar AWS Cloud Practitioner.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- AWS Cloud value proposition, global infrastructure regions, and availability zones.
+- Core AWS services: Amazon EC2, Amazon VPC, S3, RDS, and Route 53.
+- Cloud security, AWS Identity and Access Management (IAM), and security groups.
+- Cloud economics, AWS pricing models, billing management, and support tiers.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Meta (Coursera)**, dengan total durasi pelatihan
 | Nama Penerima | Bayu Setiawan Web Jelek |
 | Judul Sertifikasi | Meta Front-End Developer |
 | Penyelenggara / Issuer | Meta (Coursera) |
-| Tanggal Terbit | 25 Juni 2025 |
-| Berlaku Hingga | 25 Juni 2028 |
+| Tanggal Terbit | 24 September 2024 |
+| Berlaku Hingga | 24 September 2027 |
 | Durasi Pelatihan | 80 jam |
-| Skor Akhir | 78/100 |
-| ID Kredensial | CERT-MFD-MNF5DB6N |
-| Kode Verifikasi | D9408NA9LBS6 |
+| Skor Akhir | 96/100 |
+| ID Kredensial | CERT-MFD-KDBHNEQ7 |
+| Kode Verifikasi | 2UHN9AG9929C |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Meta Front-End Developer.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Modern frontend development with React.js components, hooks, and state management.
+- Responsive web design with HTML5, CSS3, Flexbox, Grid, and Tailwind.
+- Advanced JavaScript (ES6+), asynchronous programming, and DOM manipulation.
+- RESTful API integration, UI/UX prototyping with Figma, and unit testing with Jest.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

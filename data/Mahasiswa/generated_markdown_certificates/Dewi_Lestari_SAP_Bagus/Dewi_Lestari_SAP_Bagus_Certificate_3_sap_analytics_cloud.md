@@ -22,20 +22,21 @@ yang diselenggarakan oleh **SAP**, dengan total durasi pelatihan
 | Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | SAP Analytics Cloud |
 | Penyelenggara / Issuer | SAP |
-| Tanggal Terbit | 13 Februari 2025 |
-| Berlaku Hingga | 13 Februari 2027 |
+| Tanggal Terbit | 24 November 2025 |
+| Berlaku Hingga | 24 November 2027 |
 | Durasi Pelatihan | 30 jam |
-| Skor Akhir | 97/100 |
-| ID Kredensial | CERT-SAC-CFRP5689 |
-| Kode Verifikasi | Z0JXT3M3OVV2 |
+| Skor Akhir | 82/100 |
+| ID Kredensial | CERT-SAC-S2J7AWDV |
+| Kode Verifikasi | 57EJRPJ3PSR1 |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar SAP Analytics Cloud.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- SAP Analytics Cloud (SAC) data modeling, dimensions, and live data connections.
+- Building interactive executive stories, BI dashboards, and KPI visualizations.
+- Augmented analytics: Smart Predict, Smart Insights, and search-driven discovery.
+- Enterprise financial planning and forecasting models.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

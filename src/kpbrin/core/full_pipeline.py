@@ -265,10 +265,14 @@ def run_pipeline(khs_path, certs_path=None, jobs_path=JOBS_CSV_PATH, course_clo_
     print("\n=== Stage 4a: Per-course retrieval + rerank (KHS signal) ===")
     included_course_names = matched[matched["included"]]["matched_course_name"].unique()
     relevant_courses = course_clo_profiles[course_clo_profiles["course_name"].isin(included_course_names)]
-    course_agg = match_courses_to_jobs(
-        relevant_courses, jobs=jobs, job_emb=job_emb,
-        sbert_model=sbert_model, cross_encoder=cross_encoder, desc_col=desc_col,
-    )
+    
+    global _COURSE_AGG_CACHE
+    if '_COURSE_AGG_CACHE' not in globals() or _COURSE_AGG_CACHE is None:
+        _COURSE_AGG_CACHE = match_courses_to_jobs(
+            relevant_courses, jobs=jobs, job_emb=job_emb,
+            sbert_model=sbert_model, cross_encoder=cross_encoder, desc_col=desc_col,
+        )
+    course_agg = _COURSE_AGG_CACHE
     course_agg.to_csv("course_job_aggregated.csv", index=False)
     print(f"Saved: course_job_aggregated.csv ({len(course_agg)} rows)")
 

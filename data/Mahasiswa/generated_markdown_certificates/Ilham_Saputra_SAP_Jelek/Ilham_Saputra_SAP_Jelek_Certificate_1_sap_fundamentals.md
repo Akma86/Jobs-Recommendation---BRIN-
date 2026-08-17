@@ -22,20 +22,21 @@ yang diselenggarakan oleh **SAP Learning Hub**, dengan total durasi pelatihan
 | Nama Penerima | Ilham Saputra SAP Jelek |
 | Judul Sertifikasi | SAP Fundamentals |
 | Penyelenggara / Issuer | SAP Learning Hub |
-| Tanggal Terbit | 3 November 2025 |
-| Berlaku Hingga | 3 November 2028 |
+| Tanggal Terbit | 17 Mei 2024 |
+| Berlaku Hingga | 17 Mei 2027 |
 | Durasi Pelatihan | 20 jam |
 | Skor Akhir | 83/100 |
-| ID Kredensial | CERT-SF-2R831E5I |
-| Kode Verifikasi | KPEVW6J8O1Q0 |
+| ID Kredensial | CERT-SF-P3RN7CNK |
+| Kode Verifikasi | ETKOOCPTCBCM |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar SAP Fundamentals.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- SAP ERP architecture, business integration, and SAP GUI navigation.
+- Organizational structures and master data in core enterprise modules.
+- Procure-to-Pay (P2P) and Order-to-Cash (O2C) business process execution.
+- Enterprise resource planning concepts and cross-module transactions.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

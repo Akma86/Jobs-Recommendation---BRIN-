@@ -22,20 +22,21 @@ yang diselenggarakan oleh **Cisco Networking Academy**, dengan total durasi pela
 | Nama Penerima | Andi Wijaya Net Bagus |
 | Judul Sertifikasi | Cisco CyberOps Associate |
 | Penyelenggara / Issuer | Cisco Networking Academy |
-| Tanggal Terbit | 26 Oktober 2024 |
-| Berlaku Hingga | 26 Oktober 2027 |
+| Tanggal Terbit | 28 November 2023 |
+| Berlaku Hingga | 28 November 2026 |
 | Durasi Pelatihan | 70 jam |
-| Skor Akhir | 80/100 |
-| ID Kredensial | CERT-CCA-MFDQ1LPX |
-| Kode Verifikasi | ZXJQ6KEOHDA0 |
+| Skor Akhir | 87/100 |
+| ID Kredensial | CERT-CCA-0I4CO0OG |
+| Kode Verifikasi | UND8NCJ5U97G |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Cisco CyberOps Associate.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Security Operations Center (SOC) workflows, SIEM tools, and event correlation.
+- Network packet inspection, traffic analysis with Wireshark, and intrusion detection (IDS/IPS).
+- Endpoint threat detection, malware analysis, and incident response procedures.
+- Security compliance standards (NIST, MITRE ATT&CK framework).
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

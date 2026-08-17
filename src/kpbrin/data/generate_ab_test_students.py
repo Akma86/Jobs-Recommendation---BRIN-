@@ -116,6 +116,123 @@ data.*
 """
     return md
 
+CERT_TOPICS = {
+    "TensorFlow Developer Certificate": [
+        "Building and training deep neural networks using TensorFlow and Keras",
+        "Image classification and computer vision using Convolutional Neural Networks (CNN)",
+        "Natural Language Processing (NLP), tokenization, embeddings, and sequence models",
+        "Model optimization, transfer learning, and TensorFlow deployment"
+    ],
+    "DeepLearning.AI NLP Specialization": [
+        "Sentiment analysis and word vector representations (Word2Vec, GloVe)",
+        "Sequence-to-sequence models, attention mechanisms, and Transformer architectures",
+        "HuggingFace transformer models and fine-tuning for question answering and translation",
+        "LLMs and modern NLP application pipelines"
+    ],
+    "Google Data Analytics": [
+        "Data preparation, data cleaning, and statistical processing using SQL and R",
+        "Interactive dashboard development using Tableau and Google Data Studio",
+        "Data visualization, hypothesis testing, and business reporting",
+        "Data-driven decision making and presentation for stakeholders"
+    ],
+    "Machine Learning Specialization": [
+        "Supervised learning algorithms: Linear Regression, Logistic Regression, Decision Trees, SVM",
+        "Unsupervised learning: K-Means clustering, PCA, and anomaly detection",
+        "Recommender systems, collaborative filtering, and content-based filtering",
+        "Deep learning fundamentals and reinforcement learning concepts"
+    ],
+    "Generative AI Fundamentals": [
+        "Foundational principles of Large Language Models (LLMs) and Generative AI",
+        "Prompt engineering techniques and context augmentation",
+        "Retrieval-Augmented Generation (RAG) architecture and vector search",
+        "Responsible AI, bias mitigation, and safety evaluation"
+    ],
+    "AWS Certified Developer - Associate": [
+        "Developing and deploying serverless applications using AWS Lambda and API Gateway",
+        "Database management with Amazon DynamoDB and Amazon Aurora",
+        "Containerized application deployment on Amazon ECS and EKS",
+        "CI/CD pipelines with AWS CodePipeline, CodeBuild, and CloudWatch monitoring"
+    ],
+    "Meta Front-End Developer": [
+        "Modern frontend development with React.js components, hooks, and state management",
+        "Responsive web design with HTML5, CSS3, Flexbox, Grid, and Tailwind",
+        "Advanced JavaScript (ES6+), asynchronous programming, and DOM manipulation",
+        "RESTful API integration, UI/UX prototyping with Figma, and unit testing with Jest"
+    ],
+    "Docker Associate Training": [
+        "Docker containerization fundamentals and multi-stage Dockerfile optimization",
+        "Container networking, persistent volume storage, and port mapping",
+        "Multi-container application orchestration using Docker Compose",
+        "Microservices architecture and container security best practices"
+    ],
+    "Scrum Fundamentals Certified": [
+        "Agile principles, Scrum framework, artifacts, and ceremony management",
+        "Sprint planning, daily standups, sprint review, and retrospective facilitation",
+        "User story mapping, backlog grooming, and Fibonacci point estimation",
+        "Team collaboration and cross-functional agile leadership"
+    ],
+    "CCNA": [
+        "IP routing and switching protocols (OSPF, EIGRP, BGP, Static Routing)",
+        "VLAN configuration, inter-VLAN routing, and Spanning Tree Protocol (STP)",
+        "Network infrastructure security, Access Control Lists (ACL), and NAT/PAT",
+        "Cisco IOS CLI administration, network troubleshooting, and IP services (DHCP, DNS)"
+    ],
+    "AWS Cloud Practitioner": [
+        "AWS Cloud value proposition, global infrastructure regions, and availability zones",
+        "Core AWS services: Amazon EC2, Amazon VPC, S3, RDS, and Route 53",
+        "Cloud security, AWS Identity and Access Management (IAM), and security groups",
+        "Cloud economics, AWS pricing models, billing management, and support tiers"
+    ],
+    "Cisco CyberOps Associate": [
+        "Security Operations Center (SOC) workflows, SIEM tools, and event correlation",
+        "Network packet inspection, traffic analysis with Wireshark, and intrusion detection (IDS/IPS)",
+        "Endpoint threat detection, malware analysis, and incident response procedures",
+        "Security compliance standards (NIST, MITRE ATT&CK framework)"
+    ],
+    "Security+": [
+        "Enterprise network security architecture and defense-in-depth strategies",
+        "Threat vectors, vulnerabilities, penetration testing, and vulnerability scanning",
+        "Cryptography, Public Key Infrastructure (PKI), TLS/SSL, and secure protocols",
+        "Identity and access management, zero trust security model, and risk management"
+    ],
+    "ITIL Foundation": [
+        "IT Service Management (ITSM) principles and Service Value System (SVS)",
+        "ITIL 4 guiding principles and 4 dimensions of service management",
+        "Key ITSM practices: Incident Management, Problem Management, Change Enablement",
+        "Service level management, Continual Improvement, and IT governance"
+    ],
+    "Business Analysis Foundation": [
+        "Business requirement gathering, elicitation, and stakeholder management",
+        "Business Process Model and Notation (BPMN 2.0) workflow modeling",
+        "Gap analysis, SWOT, feasibility studies, and business case development",
+        "Functional and non-functional requirement specification (BRD, FRD)"
+    ],
+    "Project Management Professional (PMP)": [
+        "Project lifecycle management across predictive, Agile, and hybrid methodologies",
+        "Work Breakdown Structure (WBS), schedule baseline, and critical path method (CPM)",
+        "Project risk management, Earned Value Management (EVM), and budget control",
+        "Stakeholder engagement, procurement management, and quality assurance"
+    ],
+    "SAP Fundamentals": [
+        "SAP ERP architecture, business integration, and SAP GUI navigation",
+        "Organizational structures and master data in core enterprise modules",
+        "Procure-to-Pay (P2P) and Order-to-Cash (O2C) business process execution",
+        "Enterprise resource planning concepts and cross-module transactions"
+    ],
+    "SAP Certified Application Associate": [
+        "SAP S/4HANA core business processes and financial management (FI/CO)",
+        "Materials Management (MM) and Sales & Distribution (SD) integration",
+        "Business partner concept, document splitting, and general ledger accounting",
+        "Year-end closing procedures and SAP standard reporting"
+    ],
+    "SAP Analytics Cloud": [
+        "SAP Analytics Cloud (SAC) data modeling, dimensions, and live data connections",
+        "Building interactive executive stories, BI dashboards, and KPI visualizations",
+        "Augmented analytics: Smart Predict, Smart Insights, and search-driven discovery",
+        "Enterprise financial planning and forecasting models"
+    ]
+}
+
 def generate_custom_certificate(student_name, track, cert_name, cert_index):
     # Retrieve issuer & hours
     from kpbrin.data.generate_dummy_students import CERT_ISSUERS, CERT_HOURS, random_issue_date
@@ -135,6 +252,13 @@ def generate_custom_certificate(student_name, track, cert_name, cert_index):
     verification_code = generate_verification_code()
     score = random.randint(78, 99)
     full_name = student_name.replace("_", " ")
+
+    topics = CERT_TOPICS.get(cert_name, [
+        f"Konsep dan prinsip dasar {cert_name}",
+        "Studi kasus dan praktik penerapan pada konteks industri nyata",
+        "Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir"
+    ])
+    cakupan_bullets = "\n".join([f"- {t}." for t in topics])
 
     md = f"""# Sertifikat Penyelesaian
 
@@ -171,9 +295,7 @@ yang diselenggarakan oleh **{issuer}**, dengan total durasi pelatihan
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar {cert_name}.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+{cakupan_bullets}
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

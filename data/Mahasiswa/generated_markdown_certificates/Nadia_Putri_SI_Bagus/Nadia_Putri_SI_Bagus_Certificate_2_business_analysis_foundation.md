@@ -22,20 +22,21 @@ yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)*
 | Nama Penerima | Nadia Putri SI Bagus |
 | Judul Sertifikasi | Business Analysis Foundation |
 | Penyelenggara / Issuer | International Institute of Business Analysis (IIBA) |
-| Tanggal Terbit | 27 Maret 2024 |
-| Berlaku Hingga | 27 Maret 2027 |
+| Tanggal Terbit | 10 Juli 2023 |
+| Berlaku Hingga | 10 Juli 2025 |
 | Durasi Pelatihan | 18 jam |
-| Skor Akhir | 82/100 |
-| ID Kredensial | CERT-BAF-N4CTOBIA |
-| Kode Verifikasi | NI2NWEJ2PQV1 |
+| Skor Akhir | 81/100 |
+| ID Kredensial | CERT-BAF-VV6H6CO5 |
+| Kode Verifikasi | 70H27FO02A37 |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar Business Analysis Foundation.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Business requirement gathering, elicitation, and stakeholder management.
+- Business Process Model and Notation (BPMN 2.0) workflow modeling.
+- Gap analysis, SWOT, feasibility studies, and business case development.
+- Functional and non-functional requirement specification (BRD, FRD).
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

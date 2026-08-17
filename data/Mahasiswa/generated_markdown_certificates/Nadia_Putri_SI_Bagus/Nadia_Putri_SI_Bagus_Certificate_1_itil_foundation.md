@@ -22,20 +22,21 @@ yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 | Nama Penerima | Nadia Putri SI Bagus |
 | Judul Sertifikasi | ITIL Foundation |
 | Penyelenggara / Issuer | AXELOS / PeopleCert |
-| Tanggal Terbit | 18 Juni 2025 |
-| Berlaku Hingga | 18 Juni 2027 |
+| Tanggal Terbit | 25 Juli 2024 |
+| Berlaku Hingga | 25 Juli 2027 |
 | Durasi Pelatihan | 16 jam |
-| Skor Akhir | 88/100 |
-| ID Kredensial | CERT-IF-5Z7D2V4V |
-| Kode Verifikasi | 1GTFNIVUV3TC |
+| Skor Akhir | 95/100 |
+| ID Kredensial | CERT-IF-6OYZ6TAA |
+| Kode Verifikasi | 225IL7YZ1NDN |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar ITIL Foundation.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- IT Service Management (ITSM) principles and Service Value System (SVS).
+- ITIL 4 guiding principles and 4 dimensions of service management.
+- Key ITSM practices: Incident Management, Problem Management, Change Enablement.
+- Service level management, Continual Improvement, and IT governance.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---

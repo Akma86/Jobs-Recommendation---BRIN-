@@ -22,20 +22,21 @@ yang diselenggarakan oleh **SAP**, dengan total durasi pelatihan
 | Nama Penerima | Ilham Saputra SAP Jelek |
 | Judul Sertifikasi | SAP Analytics Cloud |
 | Penyelenggara / Issuer | SAP |
-| Tanggal Terbit | 3 Mei 2025 |
-| Berlaku Hingga | 3 Mei 2027 |
+| Tanggal Terbit | 1 Juni 2025 |
+| Berlaku Hingga | 1 Juni 2027 |
 | Durasi Pelatihan | 30 jam |
-| Skor Akhir | 98/100 |
-| ID Kredensial | CERT-SAC-2A8CJH1L |
-| Kode Verifikasi | HHBFURUPQ7UT |
+| Skor Akhir | 88/100 |
+| ID Kredensial | CERT-SAC-M6IPDCJR |
+| Kode Verifikasi | OBI496OGQ7IO |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar SAP Analytics Cloud.
-- Studi kasus dan praktik penerapan pada konteks industri nyata.
-- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- SAP Analytics Cloud (SAC) data modeling, dimensions, and live data connections.
+- Building interactive executive stories, BI dashboards, and KPI visualizations.
+- Augmented analytics: Smart Predict, Smart Insights, and search-driven discovery.
+- Enterprise financial planning and forecasting models.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
 
 ---
