@@ -242,7 +242,7 @@ def generate_shap_domain_report(
     import pandas as pd
 
     if domain_to_courses is None:
-from kpbrin.data.feature_engineering import _classify_course  # type: ignore
+        from kpbrin.data.feature_engineering import _classify_course  # type: ignore
 
         all_courses = set()
         for contribs in job_contributions.values():
