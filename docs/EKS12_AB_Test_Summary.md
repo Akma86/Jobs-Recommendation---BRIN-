@@ -1,6 +1,6 @@
 # Rangkuman Komprehensif 10 Mahasiswa — Eksperimen XAI EKS12 (A/B Testing Before vs After)
 
-**Tanggal Evaluasi:** 17 Agustus 2026  
+**Tanggal Evaluasi:** 18 Agustus 2026  
 **Lokasi Data:** `results/Eksperimen_XAI/EKS12_AB_Test/`  
 **Metode XAI:** SHAP Feature Attribution + Dynamic DiCE 1.139 Kursus Riil + **Percentage-Based Narrative Explanations**  
 
@@ -8,24 +8,34 @@
 
 ## 🏆 Ringkasan Eksekutif: 10 Profil Mahasiswa
 
-| No | Mahasiswa | Peminatan | Profil IPK | Sertifikat Dimiliki | Top-1 Before (Matkul Saja) | Top-1 After (+ Sertifikat) | Kenaikan Skor (Δ) |
-|:---:|---|:---:|:---:|:---:|---|---|:---:|
-| 1 | **Siti Rahma** | `Machine Learning` | Bagus (IPK ~3.82) | **5 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Machine Learning (ML) Engineer (`5.81`)** | **`+1.01`** 🚀 |
-| 2 | **Rizky Maulana** | `Machine Learning` | Jelek (IPK ~2.03) | **5 Certs** | Web Developer (HTML,CSS) | Remote (`2.83`) | **Machine Learning Engineer (`5.34`)** | **`+2.52`** 🚀 |
-| 3 | **Budi Santoso** | `Web Development` | Bagus (IPK ~3.82) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.52`) | **Front End Developer (`7.86`)** | **`+3.33`** 🚀 |
-| 4 | **Bayu Setiawan** | `Web Development` | Jelek (IPK ~2.03) | **4 Certs** | ES Application Developer II (`3.15`) | **Front End Developer (`6.57`)** | **`+3.42`** 🚀 |
-| 5 | **Andi Wijaya** | `Networking & Cloud` | Bagus (IPK ~3.82) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.66`) | **Web Developer (HTML,CSS) | Remote (`4.66`)** | **`+0.00`** 🚀 |
-| 6 | **Kevin Aditya** | `Networking & Cloud` | Jelek (IPK ~2.03) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`3.25`) | **Web Developer (HTML,CSS) | Remote (`3.25`)** | **`+0.00`** 🚀 |
-| 7 | **Nadia Putri** | `Sistem Informasi & Bisnis` | Bagus (IPK ~3.82) | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Web Developer (HTML,CSS) | Remote (`4.80`)** | **`+0.00`** 🚀 |
-| 8 | **Farhan Hidayat** | `Sistem Informasi & Bisnis` | Jelek (IPK ~2.03) | **4 Certs** | ES Application Developer II (`3.02`) | **ES Application Developer II (`3.02`)** | **`+0.00`** 🚀 |
-| 9 | **Dewi Lestari** | `SAP & Enterprise Systems` | Bagus (IPK ~3.82) | **6 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Web Developer (HTML,CSS) | Remote (`4.80`)** | **`+0.00`** 🚀 |
-| 10 | **Ilham Saputra** | `SAP & Enterprise Systems` | Jelek (IPK ~2.03) | **6 Certs** | ES Application Developer II (`2.74`) | **ES Application Developer II (`2.74`)** | **`+0.00`** 🚀 |
+| No | Mahasiswa | Peminatan | Status Akademik | IPK | Sertifikat | Top-1 Before (Matkul Saja) | Top-1 After (+ Sertifikat) | Kenaikan Skor (Δ) |
+|:---:|---|:---:|:---:|:---:|:---:|---|---|:---:|
+| 1 | **Siti Rahma** | `Machine Learning` | 🟢 Unggul | `3.69 / 4.00` | **5 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Machine Learning (ML) Engineer (`5.81`)** | **`+1.01`** 🚀 |
+| 2 | **Rizky Maulana** | `Machine Learning` | 🔴 Rendah | `0.64 / 4.00` | **5 Certs** | Web Developer (HTML,CSS) | Remote (`2.83`) | **Machine Learning Engineer (`5.34`)** | **`+2.52`** 🚀 |
+| 3 | **Budi Santoso** | `Web Development` | 🟢 Unggul | `3.66 / 4.00` | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.52`) | **Front End Developer (`7.86`)** | **`+3.33`** 🚀 |
+| 4 | **Bayu Setiawan** | `Web Development` | 🔴 Rendah | `1.24 / 4.00` | **4 Certs** | ES Application Developer II (`3.15`) | **Front End Developer (`6.57`)** | **`+3.42`** 🚀 |
+| 5 | **Andi Wijaya** | `Networking & Cloud` | 🟢 Unggul | `3.72 / 4.00` | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.66`) | **Web Developer (HTML,CSS) | Remote (`4.66`)** | **`+0.00`** 🚀 |
+| 6 | **Kevin Aditya** | `Networking & Cloud` | 🔴 Rendah | `0.67 / 4.00` | **4 Certs** | Web Developer (HTML,CSS) | Remote (`3.25`) | **Web Developer (HTML,CSS) | Remote (`3.25`)** | **`+0.00`** 🚀 |
+| 7 | **Nadia Putri** | `Sistem Informasi & Bisnis` | 🟢 Unggul | `3.84 / 4.00` | **4 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Web Developer (HTML,CSS) | Remote (`4.80`)** | **`+0.00`** 🚀 |
+| 8 | **Farhan Hidayat** | `Sistem Informasi & Bisnis` | 🔴 Rendah | `1.37 / 4.00` | **4 Certs** | ES Application Developer II (`3.02`) | **ES Application Developer II (`3.02`)** | **`+0.00`** 🚀 |
+| 9 | **Dewi Lestari** | `SAP & Enterprise Systems` | 🟢 Unggul | `3.79 / 4.00` | **6 Certs** | Web Developer (HTML,CSS) | Remote (`4.80`) | **Web Developer (HTML,CSS) | Remote (`4.80`)** | **`+0.00`** 🚀 |
+| 10 | **Ilham Saputra** | `SAP & Enterprise Systems` | 🔴 Rendah | `0.72 / 4.00` | **6 Certs** | ES Application Developer II (`2.74`) | **ES Application Developer II (`2.74`)** | **`+0.00`** 🚀 |
 
 ---
 
-## 1. Siti Rahma — Track: `Machine Learning` (Bagus (IPK ~3.82))
+## 1. Siti Rahma — Track: `Machine Learning` (Bagus (IPK Tinggi))
 
-### 📜 Daftar 5 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Siti Rahma  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Machine Learning`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`3.69 / 4.00`**  
+> **Status Evaluasi:** 🟢 **Kategori Akademik: Berprestasi Sangat Baik (High Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai A: 8 MK, Nilai AB: 14 MK`  
+
+Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di kelas. Capaian pembelajaran lulusan (CLO) pada mata kuliah inti kurikulum terpenuhi dengan sangat memuaskan, didominasi perolehan nilai **A** dan **AB**. Penguasaan teori dan fundamental teknologi sistem informasi memberikan sinyal akademik yang kokoh pada fase *Before*.
+
+### 📜 Portofolio 5 Sertifikasi Industri yang Dimiliki:
 1. **TensorFlow Developer Certificate** — *TensorFlow / Google* (Tier A (Kredibilitas 1.0))
 2. **DeepLearning.AI NLP Specialization** — *DeepLearning.AI (Coursera)* (Tier A (Kredibilitas 1.0))
 3. **Google Data Analytics** — *Google Career Certificates (Coursera)* (Tier A (Kredibilitas 1.0))
@@ -42,8 +52,8 @@
 | **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.14` | **`+4.14`** | 🚀 **Lonjakan Masif** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
-- **Setelah Sertifikat (After):** `Machine Learning (ML) Engineer` di *Vectara* (Skor: `5.81`) ➔ *Kenaikan: `+1.01 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Machine Learning (ML) Engineer` di *Vectara* (Skor: `5.81`) ➔ *Kenaikan Total: `+1.01 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **58.1%** terhadap posisi **Machine Learning (ML) Engineer**. Pendorong kelayakan terbesar berasal dari sertifikat **DeepLearning.AI NLP Specialization** dengan tingkat kecocokan materi sebesar **45.0%** (kontribusi 38.6%), yang diperkuat oleh penguasaan materi akademik pada mata kuliah **Integrasi Aplikasi Enterprise** (kecocokan 55.8%).
@@ -66,9 +76,19 @@
 
 ---
 
-## 2. Rizky Maulana — Track: `Machine Learning` (Jelek (IPK ~2.03))
+## 2. Rizky Maulana — Track: `Machine Learning` (Jelek (IPK Rendah))
 
-### 📜 Daftar 5 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Rizky Maulana  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Machine Learning`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`0.64 / 4.00`**  
+> **Status Evaluasi:** 🔴 **Kategori Akademik: Perlu Peningkatan / Kinerja Rendah (Low Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai C: 3 MK, Nilai D: 8 MK, Nilai E: 11 MK`  
+
+Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perolehan nilai yang didominasi oleh predikat **D**, **E**, dan sebagian **C**. Pada fase *Before*, sinyal akademik kurikulum bernilai rendah sehingga rekomendasi karir awalnya memiliki skor kelayakan rendah atau mendekati nol. Profil ini menjadi studi kasus utama untuk menguji apakah kepemilikan sertifikasi industri dapat menjadi *compensatory booster*.
+
+### 📜 Portofolio 5 Sertifikasi Industri yang Dimiliki:
 1. **TensorFlow Developer Certificate** — *TensorFlow / Google* (Tier A (Kredibilitas 1.0))
 2. **DeepLearning.AI NLP Specialization** — *DeepLearning.AI (Coursera)* (Tier A (Kredibilitas 1.0))
 3. **Google Data Analytics** — *Google Career Certificates (Coursera)* (Tier A (Kredibilitas 1.0))
@@ -85,8 +105,8 @@
 | **#5** | **AI/ML Engineer** | Centraprise | `0.00` | `4.45` | **`+4.45`** | 🚀 **Lonjakan Masif** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `2.83`)
-- **Setelah Sertifikat (After):** `Machine Learning Engineer` di *Mastech Digital* (Skor: `5.34`) ➔ *Kenaikan: `+2.52 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `2.83`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Machine Learning Engineer` di *Mastech Digital* (Skor: `5.34`) ➔ *Kenaikan Total: `+2.52 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **53.4%** terhadap posisi **Machine Learning Engineer**, didominasi oleh kepemilikan sertifikat **Generative AI Fundamentals** dengan tingkat kecocokan sebesar **68.4%**.
@@ -107,9 +127,19 @@
 
 ---
 
-## 3. Budi Santoso — Track: `Web Development` (Bagus (IPK ~3.82))
+## 3. Budi Santoso — Track: `Web Development` (Bagus (IPK Tinggi))
 
-### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Budi Santoso  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Web Development`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`3.66 / 4.00`**  
+> **Status Evaluasi:** 🟢 **Kategori Akademik: Berprestasi Sangat Baik (High Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai A: 7 MK, Nilai AB: 15 MK`  
+
+Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di kelas. Capaian pembelajaran lulusan (CLO) pada mata kuliah inti kurikulum terpenuhi dengan sangat memuaskan, didominasi perolehan nilai **A** dan **AB**. Penguasaan teori dan fundamental teknologi sistem informasi memberikan sinyal akademik yang kokoh pada fase *Before*.
+
+### 📜 Portofolio 4 Sertifikasi Industri yang Dimiliki:
 1. **AWS Certified Developer - Associate** — *Amazon Web Services (AWS)* (Tier A (Kredibilitas 1.0))
 2. **Meta Front-End Developer** — *Meta (Coursera)* (Tier A (Kredibilitas 1.0))
 3. **Docker Associate Training** — *Docker, Inc.* (Tier A (Kredibilitas 1.0))
@@ -125,8 +155,8 @@
 | **#5** | **Frontend Developer** | Apexon | `0.00` | `6.54` | **`+6.54`** | 🚀 **Lonjakan Masif** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.52`)
-- **Setelah Sertifikat (After):** `Front End Developer` di *Vanda Pharmaceuticals* (Skor: `7.86`) ➔ *Kenaikan: `+3.33 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.52`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Front End Developer` di *Vanda Pharmaceuticals* (Skor: `7.86`) ➔ *Kenaikan Total: `+3.33 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **78.6%** terhadap posisi **Front End Developer**, didominasi oleh kepemilikan sertifikat **Meta Front-End Developer** dengan tingkat kecocokan sebesar **93.6%**.
@@ -147,9 +177,19 @@
 
 ---
 
-## 4. Bayu Setiawan — Track: `Web Development` (Jelek (IPK ~2.03))
+## 4. Bayu Setiawan — Track: `Web Development` (Jelek (IPK Rendah))
 
-### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Bayu Setiawan  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Web Development`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`1.24 / 4.00`**  
+> **Status Evaluasi:** 🔴 **Kategori Akademik: Perlu Peningkatan / Kinerja Rendah (Low Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai C: 9 MK, Nilai D: 9 MK, Nilai E: 4 MK`  
+
+Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perolehan nilai yang didominasi oleh predikat **D**, **E**, dan sebagian **C**. Pada fase *Before*, sinyal akademik kurikulum bernilai rendah sehingga rekomendasi karir awalnya memiliki skor kelayakan rendah atau mendekati nol. Profil ini menjadi studi kasus utama untuk menguji apakah kepemilikan sertifikasi industri dapat menjadi *compensatory booster*.
+
+### 📜 Portofolio 4 Sertifikasi Industri yang Dimiliki:
 1. **AWS Certified Developer - Associate** — *Amazon Web Services (AWS)* (Tier A (Kredibilitas 1.0))
 2. **Meta Front-End Developer** — *Meta (Coursera)* (Tier A (Kredibilitas 1.0))
 3. **Docker Associate Training** — *Docker, Inc.* (Tier A (Kredibilitas 1.0))
@@ -165,8 +205,8 @@
 | **#5** | **Front-End Software Developer** | Luxoft | `0.00` | `5.29` | **`+5.29`** | 🚀 **Lonjakan Masif** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `ES Application Developer II` di *University of Houston* (Skor: `3.15`)
-- **Setelah Sertifikat (After):** `Front End Developer` di *Vanda Pharmaceuticals* (Skor: `6.57`) ➔ *Kenaikan: `+3.42 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `ES Application Developer II` di *University of Houston* (Skor: `3.15`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Front End Developer` di *Vanda Pharmaceuticals* (Skor: `6.57`) ➔ *Kenaikan Total: `+3.42 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, profil Anda memiliki tingkat kecocokan **65.7%** terhadap posisi **Front End Developer**, didominasi oleh kepemilikan sertifikat **Meta Front-End Developer** dengan tingkat kecocokan sebesar **80.7%**.
@@ -187,9 +227,19 @@
 
 ---
 
-## 5. Andi Wijaya — Track: `Networking & Cloud` (Bagus (IPK ~3.82))
+## 5. Andi Wijaya — Track: `Networking & Cloud` (Bagus (IPK Tinggi))
 
-### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Andi Wijaya  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Networking & Cloud`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`3.72 / 4.00`**  
+> **Status Evaluasi:** 🟢 **Kategori Akademik: Berprestasi Sangat Baik (High Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai A: 10 MK, Nilai AB: 12 MK`  
+
+Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di kelas. Capaian pembelajaran lulusan (CLO) pada mata kuliah inti kurikulum terpenuhi dengan sangat memuaskan, didominasi perolehan nilai **A** dan **AB**. Penguasaan teori dan fundamental teknologi sistem informasi memberikan sinyal akademik yang kokoh pada fase *Before*.
+
+### 📜 Portofolio 4 Sertifikasi Industri yang Dimiliki:
 1. **CCNA** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
 2. **AWS Cloud Practitioner** — *Amazon Web Services (AWS) Training and Certification* (Tier A (Kredibilitas 1.0))
 3. **Cisco CyberOps Associate** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
@@ -205,8 +255,8 @@
 | **#5** | **Web Apps Developer** | Halvik | `2.89` | `2.89` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.66`)
-- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.66`) ➔ *Kenaikan: `+0.00 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.66`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.66`) ➔ *Kenaikan Total: `+0.00 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **46.6%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 98.0%).
@@ -227,9 +277,19 @@
 
 ---
 
-## 6. Kevin Aditya — Track: `Networking & Cloud` (Jelek (IPK ~2.03))
+## 6. Kevin Aditya — Track: `Networking & Cloud` (Jelek (IPK Rendah))
 
-### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Kevin Aditya  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Networking & Cloud`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`0.67 / 4.00`**  
+> **Status Evaluasi:** 🔴 **Kategori Akademik: Perlu Peningkatan / Kinerja Rendah (Low Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai C: 4 MK, Nilai D: 7 MK, Nilai E: 11 MK`  
+
+Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perolehan nilai yang didominasi oleh predikat **D**, **E**, dan sebagian **C**. Pada fase *Before*, sinyal akademik kurikulum bernilai rendah sehingga rekomendasi karir awalnya memiliki skor kelayakan rendah atau mendekati nol. Profil ini menjadi studi kasus utama untuk menguji apakah kepemilikan sertifikasi industri dapat menjadi *compensatory booster*.
+
+### 📜 Portofolio 4 Sertifikasi Industri yang Dimiliki:
 1. **CCNA** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
 2. **AWS Cloud Practitioner** — *Amazon Web Services (AWS) Training and Certification* (Tier A (Kredibilitas 1.0))
 3. **Cisco CyberOps Associate** — *Cisco Networking Academy* (Tier A (Kredibilitas 1.0))
@@ -245,8 +305,8 @@
 | **#5** | **Junior Frontend Developer** | MagicSet | `0.00` | `2.19` | **`+2.19`** | 🚀 **Lonjakan Masif** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `3.25`)
-- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `3.25`) ➔ *Kenaikan: `+0.00 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `3.25`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `3.25`) ➔ *Kenaikan Total: `+0.00 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **32.5%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 78.5%).
@@ -267,9 +327,19 @@
 
 ---
 
-## 7. Nadia Putri — Track: `Sistem Informasi & Bisnis` (Bagus (IPK ~3.82))
+## 7. Nadia Putri — Track: `Sistem Informasi & Bisnis` (Bagus (IPK Tinggi))
 
-### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Nadia Putri  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Sistem Informasi & Bisnis`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`3.84 / 4.00`**  
+> **Status Evaluasi:** 🟢 **Kategori Akademik: Berprestasi Sangat Baik (High Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai A: 15 MK, Nilai AB: 7 MK`  
+
+Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di kelas. Capaian pembelajaran lulusan (CLO) pada mata kuliah inti kurikulum terpenuhi dengan sangat memuaskan, didominasi perolehan nilai **A** dan **AB**. Penguasaan teori dan fundamental teknologi sistem informasi memberikan sinyal akademik yang kokoh pada fase *Before*.
+
+### 📜 Portofolio 4 Sertifikasi Industri yang Dimiliki:
 1. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
 2. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
 3. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
@@ -285,8 +355,8 @@
 | **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
-- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`) ➔ *Kenaikan: `+0.00 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`) ➔ *Kenaikan Total: `+0.00 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **48.0%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 98.0%).
@@ -307,9 +377,19 @@
 
 ---
 
-## 8. Farhan Hidayat — Track: `Sistem Informasi & Bisnis` (Jelek (IPK ~2.03))
+## 8. Farhan Hidayat — Track: `Sistem Informasi & Bisnis` (Jelek (IPK Rendah))
 
-### 📜 Daftar 4 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Farhan Hidayat  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `Sistem Informasi & Bisnis`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`1.37 / 4.00`**  
+> **Status Evaluasi:** 🔴 **Kategori Akademik: Perlu Peningkatan / Kinerja Rendah (Low Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai C: 13 MK, Nilai D: 4 MK, Nilai E: 5 MK`  
+
+Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perolehan nilai yang didominasi oleh predikat **D**, **E**, dan sebagian **C**. Pada fase *Before*, sinyal akademik kurikulum bernilai rendah sehingga rekomendasi karir awalnya memiliki skor kelayakan rendah atau mendekati nol. Profil ini menjadi studi kasus utama untuk menguji apakah kepemilikan sertifikasi industri dapat menjadi *compensatory booster*.
+
+### 📜 Portofolio 4 Sertifikasi Industri yang Dimiliki:
 1. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
 2. **Business Analysis Foundation** — *International Institute of Business Analysis (IIBA)* (Tier A (Kredibilitas 1.0))
 3. **Scrum Fundamentals Certified** — *SCRUMstudy* (Tier A (Kredibilitas 1.0))
@@ -325,8 +405,8 @@
 | **#5** | **Machine Learning Engineer** | Oho Group | `1.30` | `1.30` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `ES Application Developer II` di *University of Houston* (Skor: `3.02`)
-- **Setelah Sertifikat (After):** `ES Application Developer II` di *University of Houston* (Skor: `3.02`) ➔ *Kenaikan: `+0.00 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `ES Application Developer II` di *University of Houston* (Skor: `3.02`)
+- **Setelah Sertifikat (After / KHS + Certs):** `ES Application Developer II` di *University of Houston* (Skor: `3.02`) ➔ *Kenaikan Total: `+0.00 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, posisi **ES Application Developer II** direkomendasikan dengan tingkat kecocokan **30.2%**, yang ditopang kuat oleh capaian akademik mata kuliah **Integrasi Aplikasi Enterprise** (kecocokan 74.3%).
@@ -347,9 +427,19 @@
 
 ---
 
-## 9. Dewi Lestari — Track: `SAP & Enterprise Systems` (Bagus (IPK ~3.82))
+## 9. Dewi Lestari — Track: `SAP & Enterprise Systems` (Bagus (IPK Tinggi))
 
-### 📜 Daftar 6 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Dewi Lestari  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `SAP & Enterprise Systems`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`3.79 / 4.00`**  
+> **Status Evaluasi:** 🟢 **Kategori Akademik: Berprestasi Sangat Baik (High Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai A: 13 MK, Nilai AB: 9 MK`  
+
+Mahasiswa memiliki rekam jejak akademik yang **sangat kuat dan konsisten** di kelas. Capaian pembelajaran lulusan (CLO) pada mata kuliah inti kurikulum terpenuhi dengan sangat memuaskan, didominasi perolehan nilai **A** dan **AB**. Penguasaan teori dan fundamental teknologi sistem informasi memberikan sinyal akademik yang kokoh pada fase *Before*.
+
+### 📜 Portofolio 6 Sertifikasi Industri yang Dimiliki:
 1. **SAP Fundamentals** — *SAP Learning Hub* (Tier A (Kredibilitas 1.0))
 2. **SAP Certified Application Associate** — *SAP* (Tier A (Kredibilitas 1.0))
 3. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
@@ -367,8 +457,8 @@
 | **#5** | **UX Designer** | MDAEdge | `2.80` | `2.80` | **`+0.00`** | 📌 **Stabil (Dominan Matkul)** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
-- **Setelah Sertifikat (After):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`) ➔ *Kenaikan: `+0.00 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`)
+- **Setelah Sertifikat (After / KHS + Certs):** `Web Developer (HTML,CSS) | Remote` di *Crossing Hurdles* (Skor: `4.80`) ➔ *Kenaikan Total: `+0.00 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, posisi **Web Developer (HTML,CSS) | Remote** direkomendasikan dengan tingkat kecocokan **48.0%**, yang ditopang kuat oleh capaian akademik mata kuliah **Pengembangan Aplikasi Website** (kecocokan 98.0%).
@@ -389,9 +479,19 @@
 
 ---
 
-## 10. Ilham Saputra — Track: `SAP & Enterprise Systems` (Jelek (IPK ~2.03))
+## 10. Ilham Saputra — Track: `SAP & Enterprise Systems` (Jelek (IPK Rendah))
 
-### 📜 Daftar 6 Sertifikasi Industri yang Dimiliki:
+### 📋 Ringkasan Profil & Status Akademik Mahasiswa:
+> **Nama Lengkap:** Ilham Saputra  
+> **Program Studi & Spesialisasi:** S1 Sistem Informasi — `SAP & Enterprise Systems`  
+> **Total Beban SKS:** 67 SKS (Katalog Kurikulum OBE Telkom University)  
+> **Indeks Prestasi Kumulatif (IPK):** **`0.72 / 4.00`**  
+> **Status Evaluasi:** 🔴 **Kategori Akademik: Perlu Peningkatan / Kinerja Rendah (Low Academic Standing)**  
+> **Distribusi Nilai KHS:** `Nilai C: 4 MK, Nilai D: 8 MK, Nilai E: 10 MK`  
+
+Mahasiswa mengalami **kendala akademik pada perkuliahan reguler**, dengan perolehan nilai yang didominasi oleh predikat **D**, **E**, dan sebagian **C**. Pada fase *Before*, sinyal akademik kurikulum bernilai rendah sehingga rekomendasi karir awalnya memiliki skor kelayakan rendah atau mendekati nol. Profil ini menjadi studi kasus utama untuk menguji apakah kepemilikan sertifikasi industri dapat menjadi *compensatory booster*.
+
+### 📜 Portofolio 6 Sertifikasi Industri yang Dimiliki:
 1. **SAP Fundamentals** — *SAP Learning Hub* (Tier A (Kredibilitas 1.0))
 2. **SAP Certified Application Associate** — *SAP* (Tier A (Kredibilitas 1.0))
 3. **ITIL Foundation** — *AXELOS / PeopleCert* (Tier A (Kredibilitas 1.0))
@@ -409,8 +509,8 @@
 | **#5** | **Software Developers, Applications** | AdvanSoft | `0.00` | `1.09` | **`+1.09`** | 📈 **Meningkat Signifikan** |
 
 💡 **Transformasi Karir Rekomendasi Utama (#1):**
-- **Sebelum Sertifikat (Before):** `ES Application Developer II` di *University of Houston* (Skor: `2.74`)
-- **Setelah Sertifikat (After):** `ES Application Developer II` di *University of Houston* (Skor: `2.74`) ➔ *Kenaikan: `+0.00 poin`*
+- **Sebelum Sertifikat (Before / KHS Saja):** `ES Application Developer II` di *University of Houston* (Skor: `2.74`)
+- **Setelah Sertifikat (After / KHS + Certs):** `ES Application Developer II` di *University of Houston* (Skor: `2.74`) ➔ *Kenaikan Total: `+0.00 poin`*
 
 ### 💬 Narrative Explanation Berbasis Persentase (% Kecocokan):
 > Berdasarkan analisis Explainable AI, posisi **ES Application Developer II** direkomendasikan dengan tingkat kecocokan **27.4%**, yang ditopang kuat oleh capaian akademik mata kuliah **Integrasi Aplikasi Enterprise** (kecocokan 69.3%).
