@@ -182,23 +182,44 @@ platform penyelenggara terkait.*
 """
     return md
 
+STUDENT_PAIRS = {
+    "Machine Learning": {
+        "good": "Siti_Rahma_ML_Bagus",
+        "bad": "Rizky_Maulana_ML_Jelek",
+        "track_code": "ML",
+    },
+    "Web Development": {
+        "good": "Budi_Santoso_Web_Bagus",
+        "bad": "Bayu_Setiawan_Web_Jelek",
+        "track_code": "Web",
+    },
+    "Networking": {
+        "good": "Andi_Wijaya_Net_Bagus",
+        "bad": "Kevin_Aditya_Net_Jelek",
+        "track_code": "Net",
+    },
+    "Sistem Informasi": {
+        "good": "Nadia_Putri_SI_Bagus",
+        "bad": "Farhan_Hidayat_SI_Jelek",
+        "track_code": "SI",
+    },
+    "SAP": {
+        "good": "Dewi_Lestari_SAP_Bagus",
+        "bad": "Ilham_Saputra_SAP_Jelek",
+        "track_code": "SAP",
+    },
+}
+
 def main():
-    print("Generating A/B Test Students...")
-    
-    # Prefix mapping for tracks
-    track_mapping = {
-        "Machine Learning": "ML",
-        "Web Development": "Web",
-        "Networking": "Net",
-        "Sistem Informasi": "SI",
-        "SAP": "SAP"
-    }
-    
-    for track, certs in TRACKS.items():
-        prefix = track_mapping[track]
+    print("Generating A/B Test Students with Real Names & Tracks...")
+
+    for track, pair_info in STUDENT_PAIRS.items():
+        certs = TRACKS.get(track, [])
+        
+        student_good = pair_info["good"]
+        student_bad = pair_info["bad"]
         
         # Student 1: Good Grades
-        student_good = f"{prefix}_Bagus"
         khs_good = generate_khs(student_good, track, is_good=True)
         with open(os.path.join(OUT_DIR_KHS, f"{student_good}_KHS.md"), "w", encoding="utf-8") as f:
             f.write(khs_good)
@@ -212,7 +233,6 @@ def main():
                 f.write(cert_content)
                 
         # Student 2: Bad Grades
-        student_bad = f"{prefix}_Jelek"
         khs_bad = generate_khs(student_bad, track, is_good=False)
         with open(os.path.join(OUT_DIR_KHS, f"{student_bad}_KHS.md"), "w", encoding="utf-8") as f:
             f.write(khs_bad)
@@ -225,7 +245,7 @@ def main():
             with open(os.path.join(student_bad_cert_dir, f"{student_bad}_Certificate_{i}_{slug}.md"), "w", encoding="utf-8") as f:
                 f.write(cert_content)
                 
-        print(f"Generated A/B pair for {track}: {student_good} vs {student_bad} (with {len(certs)} certs each)")
-        
+        print(f"Generated A/B pair for {track}: {student_good} vs {student_bad} ({len(certs)} certs each)")
+
 if __name__ == "__main__":
     main()

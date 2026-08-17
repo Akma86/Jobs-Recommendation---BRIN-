@@ -1,0 +1,46 @@
+# Sertifikat Penyelesaian
+
+---
+
+## TensorFlow Developer Certificate
+
+Diberikan kepada:
+
+### **Rizky Maulana ML Jelek**
+
+Program studi Sistem Informasi, spesialisasi Machine Learning, telah berhasil
+menyelesaikan seluruh materi dan penilaian pada program **"TensorFlow Developer Certificate"**
+yang diselenggarakan oleh **TensorFlow / Google**, dengan total durasi pelatihan
+**60 jam**.
+
+---
+
+## Detail Sertifikat
+
+| Keterangan | Nilai |
+|---|---|
+| Nama Penerima | Rizky Maulana ML Jelek |
+| Judul Sertifikasi | TensorFlow Developer Certificate |
+| Penyelenggara / Issuer | TensorFlow / Google |
+| Tanggal Terbit | 23 September 2023 |
+| Berlaku Hingga | 23 September 2025 |
+| Durasi Pelatihan | 60 jam |
+| Skor Akhir | 80/100 |
+| ID Kredensial | CERT-TDC-DSZQ9KN3 |
+| Kode Verifikasi | DTDNHK9ZDQVA |
+
+---
+
+## Cakupan Materi
+
+- Konsep dan prinsip dasar TensorFlow Developer Certificate.
+- Studi kasus dan praktik penerapan pada konteks industri nyata.
+- Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
+- Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.
+
+---
+
+*Sertifikat ini adalah dokumen simulasi/dummy yang dibangkitkan secara otomatis
+untuk keperluan pengujian sistem, bukan sertifikat resmi dari TensorFlow / Google.
+Verifikasi keaslian dapat dicek menggunakan ID Kredensial di atas pada
+platform penyelenggara terkait.*

@@ -168,43 +168,71 @@ def generate_interventions(
             }
         )
 
-    # --- Intervensi 2: Tambah Sertifikat ---
-    # Estimasi kontribusi sertifikat baru = cert_weight_global Ã— cert_avg_score
-    # (tidak ada data aktual karena sertifikatnya belum ada)
+    # --- Intervensi 2: Tambah Sertifikat / Online Course (Dynamic Catalog & Similarity) ---
     has_certs = [
-        k.replace("Sertifikat: ", "")
+        k.replace("Sertifikat: ", "").replace("Cert: ", "").lower().strip()
         for k in contributions
-        if k.startswith("Sertifikat: ")
+        if k.startswith("Sertifikat: ") or k.startswith("Cert: ")
     ]
-    suggested_certs = [
-        ("AWS Certified Solutions Architect", "cloud, arsitektur, infrastruktur"),
-        ("Google Data Analytics Certificate", "data, analitik, SQL, Python"),
-        ("TensorFlow Developer Certificate", "machine learning, AI, TensorFlow"),
-        ("Certified Ethical Hacker (CEH)", "cybersecurity, penetration testing"),
-        ("Google UX Design Certificate", "UI/UX, desain, Figma"),
-        ("Microsoft Azure Fundamentals (AZ-900)", "cloud, Azure, infrastruktur"),
-        ("CompTIA Security+", "keamanan jaringan, cybersecurity"),
-        ("PMI Project Management Professional (PMP)", "manajemen proyek, agile"),
-    ]
-    for cert_name, cert_domain in suggested_certs:
-        if cert_name in has_certs:
-            continue  # sudah punya
-        delta = cert_weight_global * cert_avg_score
-        effort = 5.0  # Fixed high effort for getting a new certification
-        
-        interventions.append(
-            {
-                "intervention_type": "add_certificate",
-                "feature": f"Sertifikat: {cert_name}",
-                "detail": f"Tambahkan sertifikasi baru (estimasi kontribusi: {delta:.2f})",
-                "score_delta": round(delta, 4),
-                "effort": effort,
-                "new_total_score": round(current_score + delta, 3),
-                "gap_closed_pct": (
-                    round(min(delta / gap, 1.0) * 100, 1) if gap > 0 else 100.0
-                ),
-            }
-        )
+
+    try:
+        from kpbrin.xai.course_catalog import find_top_candidate_courses_for_job
+    except ImportError:
+        try:
+            from course_catalog import find_top_candidate_courses_for_job
+        except ImportError:
+            find_top_candidate_courses_for_job = None
+
+    if find_top_candidate_courses_for_job is not None:
+        candidate_courses = find_top_candidate_courses_for_job(job_id=job_id, job_title=job_title, top_n=8)
+        for c in candidate_courses:
+            c_name = c["course_name"]
+            if c_name.lower().strip() in has_certs:
+                continue  # sudah punya
+            delta = round(c["score_delta"] * cert_weight_global, 4)
+            effort = c["effort"]
+            platform = c["platform"]
+            level = c["level"]
+            sim = c["similarity"]
+
+            interventions.append(
+                {
+                    "intervention_type": "add_certificate",
+                    "feature": f"Sertifikat: {c_name} ({platform})",
+                    "detail": f"Ambil kursus/sertifikasi '{c_name}' [{platform}, {level}] (Relevansi: {sim:.2f}, Est. boost: +{delta:.2f})",
+                    "score_delta": delta,
+                    "effort": effort,
+                    "new_total_score": round(current_score + delta, 3),
+                    "gap_closed_pct": (
+                        round(min(delta / gap, 1.0) * 100, 1) if gap > 0 else 100.0
+                    ),
+                }
+            )
+    else:
+        # Fallback jika modul catalog tidak ditemukan
+        suggested_certs = [
+            ("AWS Certified Solutions Architect", "AWS", 1.5, 5.0),
+            ("Google Data Analytics Certificate", "Google", 1.5, 4.0),
+            ("TensorFlow Developer Certificate", "Google", 1.8, 5.0),
+            ("Certified Ethical Hacker (CEH)", "EC-Council", 1.5, 6.0),
+        ]
+        for cert_name, platform, base_delta, base_effort in suggested_certs:
+            if cert_name.lower().strip() in has_certs:
+                continue
+            delta = round(base_delta * cert_weight_global, 4)
+            interventions.append(
+                {
+                    "intervention_type": "add_certificate",
+                    "feature": f"Sertifikat: {cert_name} ({platform})",
+                    "detail": f"Tambahkan sertifikasi '{cert_name}' (Est. boost: +{delta:.2f})",
+                    "score_delta": delta,
+                    "effort": base_effort,
+                    "new_total_score": round(current_score + delta, 3),
+                    "gap_closed_pct": (
+                        round(min(delta / gap, 1.0) * 100, 1) if gap > 0 else 100.0
+                    ),
+                }
+            )
 
     # Urutkan dari delta terbesar
     interventions.sort(key=lambda x: x["score_delta"], reverse=True)
@@ -688,7 +716,8 @@ def generate_dice_domain_report(
             "  Semua pekerjaan masuk top-K, tidak ada counterfactual yang perlu digenerate."
         )
         return pd.DataFrame()
-from kpbrin.data.feature_engineering import _classify_course  # type: ignore
+
+    from kpbrin.data.feature_engineering import _classify_course  # type: ignore
 
     all_rows = []
 
