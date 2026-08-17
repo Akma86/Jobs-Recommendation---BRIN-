@@ -105,10 +105,21 @@ def load_and_preprocess_catalog(force_reload=False):
 
 def get_course_vectorizer():
     """
-    Get or fit TF-IDF vectorizer over course catalog texts.
+    Get or fit TF-IDF vectorizer over course catalog texts (uses disk cache if available).
     """
     global _VECTORIZER_CACHE, _MATRIX_CACHE
     if _VECTORIZER_CACHE is not None and _MATRIX_CACHE is not None:
+        return _VECTORIZER_CACHE, _MATRIX_CACHE
+
+    cache_dir = os.path.join(ROOT_DIR, "data", "Sertifikasi", ".emb_cache")
+    mat_path = os.path.join(cache_dir, "course_tfidf_matrix.npz")
+    vec_path = os.path.join(cache_dir, "course_tfidf_vectorizer.pkl")
+
+    if os.path.exists(mat_path) and os.path.exists(vec_path):
+        import scipy.sparse as sp
+        import joblib
+        _MATRIX_CACHE = sp.load_npz(mat_path)
+        _VECTORIZER_CACHE = joblib.load(vec_path)
         return _VECTORIZER_CACHE, _MATRIX_CACHE
 
     catalog = load_and_preprocess_catalog()
