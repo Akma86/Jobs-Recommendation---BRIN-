@@ -22,12 +22,12 @@ yang diselenggarakan oleh **TensorFlow / Google**, dengan total durasi pelatihan
 | Nama Penerima | Siti Rahma ML Bagus |
 | Judul Sertifikasi | TensorFlow Developer Certificate |
 | Penyelenggara / Issuer | TensorFlow / Google |
-| Tanggal Terbit | 16 September 2023 |
-| Berlaku Hingga | 16 September 2025 |
+| Tanggal Terbit | 30 Agustus 2025 |
+| Berlaku Hingga | 30 Agustus 2028 |
 | Durasi Pelatihan | 60 jam |
-| Skor Akhir | 82/100 |
-| ID Kredensial | CERT-TDC-8UM7PWC2 |
-| Kode Verifikasi | HAC1JGGGKMY6 |
+| Skor Akhir | 88/100 |
+| ID Kredensial | CERT-TDC-8629U3QW |
+| Kode Verifikasi | 6X8B480WCWYC |
 
 ---
 

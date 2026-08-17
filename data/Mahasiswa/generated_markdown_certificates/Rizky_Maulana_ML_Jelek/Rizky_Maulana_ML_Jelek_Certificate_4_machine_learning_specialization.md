@@ -22,12 +22,12 @@ yang diselenggarakan oleh **DeepLearning.AI & Stanford Online (Coursera)**, deng
 | Nama Penerima | Rizky Maulana ML Jelek |
 | Judul Sertifikasi | Machine Learning Specialization |
 | Penyelenggara / Issuer | DeepLearning.AI & Stanford Online (Coursera) |
-| Tanggal Terbit | 27 September 2024 |
-| Berlaku Hingga | 27 September 2026 |
+| Tanggal Terbit | 4 September 2024 |
+| Berlaku Hingga | 4 September 2027 |
 | Durasi Pelatihan | 100 jam |
-| Skor Akhir | 99/100 |
-| ID Kredensial | CERT-MLS-K239PI3W |
-| Kode Verifikasi | 6SEWSJJS4IA2 |
+| Skor Akhir | 89/100 |
+| ID Kredensial | CERT-MLS-NX8R61NP |
+| Kode Verifikasi | EJ94H1G9GIMT |
 
 ---
 

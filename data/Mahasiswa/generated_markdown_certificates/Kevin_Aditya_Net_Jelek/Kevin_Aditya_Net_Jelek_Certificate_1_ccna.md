@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Cisco Networking Academy**, dengan total durasi pela
 | Nama Penerima | Kevin Aditya Net Jelek |
 | Judul Sertifikasi | CCNA |
 | Penyelenggara / Issuer | Cisco Networking Academy |
-| Tanggal Terbit | 21 Januari 2023 |
-| Berlaku Hingga | 21 Januari 2026 |
+| Tanggal Terbit | 24 September 2023 |
+| Berlaku Hingga | 24 September 2026 |
 | Durasi Pelatihan | 70 jam |
-| Skor Akhir | 90/100 |
-| ID Kredensial | CERT-C-TUQM51DD |
-| Kode Verifikasi | 0W8BTVEJ5DRU |
+| Skor Akhir | 92/100 |
+| ID Kredensial | CERT-C-1EBKZQLJ |
+| Kode Verifikasi | SQTSMEBXSY8Y |
 
 ---
 

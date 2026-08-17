@@ -6,9 +6,9 @@
 
 Diberikan kepada:
 
-### **Farhan Hidayat SI Jelek**
+### **Ilham Saputra SAP Jelek**
 
-Program studi Sistem Informasi, spesialisasi Sistem Informasi, telah berhasil
+Program studi Sistem Informasi, spesialisasi SAP, telah berhasil
 menyelesaikan seluruh materi dan penilaian pada program **"Business Analysis Foundation"**
 yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)**, dengan total durasi pelatihan
 **18 jam**.
@@ -19,15 +19,15 @@ yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)*
 
 | Keterangan | Nilai |
 |---|---|
-| Nama Penerima | Farhan Hidayat SI Jelek |
+| Nama Penerima | Ilham Saputra SAP Jelek |
 | Judul Sertifikasi | Business Analysis Foundation |
 | Penyelenggara / Issuer | International Institute of Business Analysis (IIBA) |
-| Tanggal Terbit | 6 Oktober 2024 |
-| Berlaku Hingga | 6 Oktober 2027 |
+| Tanggal Terbit | 10 September 2023 |
+| Berlaku Hingga | 10 September 2025 |
 | Durasi Pelatihan | 18 jam |
-| Skor Akhir | 80/100 |
-| ID Kredensial | CERT-BAF-6W7KZRG1 |
-| Kode Verifikasi | 1PJISZYWWVNO |
+| Skor Akhir | 85/100 |
+| ID Kredensial | CERT-BAF-63B8S5PE |
+| Kode Verifikasi | CXVRUO2H7LZ0 |
 
 ---
 

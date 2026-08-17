@@ -22,12 +22,12 @@ yang diselenggarakan oleh **PMI**, dengan total durasi pelatihan
 | Nama Penerima | Farhan Hidayat SI Jelek |
 | Judul Sertifikasi | Project Management Professional (PMP) |
 | Penyelenggara / Issuer | PMI |
-| Tanggal Terbit | 26 Mei 2025 |
-| Berlaku Hingga | 26 Mei 2028 |
+| Tanggal Terbit | 17 Juli 2025 |
+| Berlaku Hingga | 17 Juli 2027 |
 | Durasi Pelatihan | 35 jam |
-| Skor Akhir | 92/100 |
-| ID Kredensial | CERT-PMP-HSLPGMOK |
-| Kode Verifikasi | BB3TJG2JU9LT |
+| Skor Akhir | 97/100 |
+| ID Kredensial | CERT-PMP-OLJ48PHJ |
+| Kode Verifikasi | T5WVMNOUT4BM |
 
 ---
 

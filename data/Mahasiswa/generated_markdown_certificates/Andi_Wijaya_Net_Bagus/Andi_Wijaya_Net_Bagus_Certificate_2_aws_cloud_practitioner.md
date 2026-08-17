@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Amazon Web Services (AWS) Training and Certification
 | Nama Penerima | Andi Wijaya Net Bagus |
 | Judul Sertifikasi | AWS Cloud Practitioner |
 | Penyelenggara / Issuer | Amazon Web Services (AWS) Training and Certification |
-| Tanggal Terbit | 23 Juli 2024 |
-| Berlaku Hingga | 23 Juli 2026 |
+| Tanggal Terbit | 30 Oktober 2025 |
+| Berlaku Hingga | 30 Oktober 2027 |
 | Durasi Pelatihan | 25 jam |
-| Skor Akhir | 92/100 |
-| ID Kredensial | CERT-ACP-HW5PMLJH |
-| Kode Verifikasi | 7SLJCNU2KU1Z |
+| Skor Akhir | 86/100 |
+| ID Kredensial | CERT-ACP-LYP4J4TX |
+| Kode Verifikasi | LZUPTBGVQ2LO |
 
 ---
 

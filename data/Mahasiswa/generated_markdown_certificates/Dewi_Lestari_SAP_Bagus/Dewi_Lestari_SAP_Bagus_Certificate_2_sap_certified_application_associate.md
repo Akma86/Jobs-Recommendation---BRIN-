@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SAP**, dengan total durasi pelatihan
 | Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | SAP Certified Application Associate |
 | Penyelenggara / Issuer | SAP |
-| Tanggal Terbit | 26 Februari 2025 |
-| Berlaku Hingga | 26 Februari 2027 |
+| Tanggal Terbit | 2 Januari 2025 |
+| Berlaku Hingga | 2 Januari 2028 |
 | Durasi Pelatihan | 40 jam |
-| Skor Akhir | 79/100 |
-| ID Kredensial | CERT-SCAA-HD7PIDD3 |
-| Kode Verifikasi | B5R1XBCJK45N |
+| Skor Akhir | 89/100 |
+| ID Kredensial | CERT-SCAA-9OQB3UGA |
+| Kode Verifikasi | LJB4GWAS6Q6Y |
 
 ---
 

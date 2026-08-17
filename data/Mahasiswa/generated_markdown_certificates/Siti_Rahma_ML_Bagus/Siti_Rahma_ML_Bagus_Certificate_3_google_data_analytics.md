@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Google Career Certificates (Coursera)**, dengan tota
 | Nama Penerima | Siti Rahma ML Bagus |
 | Judul Sertifikasi | Google Data Analytics |
 | Penyelenggara / Issuer | Google Career Certificates (Coursera) |
-| Tanggal Terbit | 4 Desember 2023 |
-| Berlaku Hingga | 4 Desember 2026 |
+| Tanggal Terbit | 29 Mei 2025 |
+| Berlaku Hingga | 29 Mei 2027 |
 | Durasi Pelatihan | 180 jam |
-| Skor Akhir | 84/100 |
-| ID Kredensial | CERT-GDA-UFIBVRXD |
-| Kode Verifikasi | 24IWAIWQ30PX |
+| Skor Akhir | 87/100 |
+| ID Kredensial | CERT-GDA-M7MJAZYJ |
+| Kode Verifikasi | ISYUDKJRJJ1P |
 
 ---
 

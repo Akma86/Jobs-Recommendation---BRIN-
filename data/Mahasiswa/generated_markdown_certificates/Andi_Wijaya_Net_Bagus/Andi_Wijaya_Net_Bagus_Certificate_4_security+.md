@@ -22,12 +22,12 @@ yang diselenggarakan oleh **CompTIA**, dengan total durasi pelatihan
 | Nama Penerima | Andi Wijaya Net Bagus |
 | Judul Sertifikasi | Security+ |
 | Penyelenggara / Issuer | CompTIA |
-| Tanggal Terbit | 16 April 2025 |
-| Berlaku Hingga | 16 April 2027 |
+| Tanggal Terbit | 18 September 2024 |
+| Berlaku Hingga | 18 September 2026 |
 | Durasi Pelatihan | 40 jam |
-| Skor Akhir | 92/100 |
-| ID Kredensial | CERT-S-09W166UA |
-| Kode Verifikasi | X9HSPK2L05D8 |
+| Skor Akhir | 98/100 |
+| ID Kredensial | CERT-S-MOB1XNV3 |
+| Kode Verifikasi | YL6AACEF6Q21 |
 
 ---
 

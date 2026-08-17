@@ -2,16 +2,16 @@
 
 ---
 
-## SAP Certified Application Associate
+## SAP Analytics Cloud
 
 Diberikan kepada:
 
 ### **Ilham Saputra SAP Jelek**
 
 Program studi Sistem Informasi, spesialisasi SAP, telah berhasil
-menyelesaikan seluruh materi dan penilaian pada program **"SAP Certified Application Associate"**
+menyelesaikan seluruh materi dan penilaian pada program **"SAP Analytics Cloud"**
 yang diselenggarakan oleh **SAP**, dengan total durasi pelatihan
-**40 jam**.
+**30 jam**.
 
 ---
 
@@ -20,20 +20,20 @@ yang diselenggarakan oleh **SAP**, dengan total durasi pelatihan
 | Keterangan | Nilai |
 |---|---|
 | Nama Penerima | Ilham Saputra SAP Jelek |
-| Judul Sertifikasi | SAP Certified Application Associate |
+| Judul Sertifikasi | SAP Analytics Cloud |
 | Penyelenggara / Issuer | SAP |
-| Tanggal Terbit | 13 Juli 2025 |
-| Berlaku Hingga | 13 Juli 2027 |
-| Durasi Pelatihan | 40 jam |
-| Skor Akhir | 97/100 |
-| ID Kredensial | CERT-SCAA-O4UZ20ND |
-| Kode Verifikasi | 20YFIDE3EAUE |
+| Tanggal Terbit | 3 Mei 2025 |
+| Berlaku Hingga | 3 Mei 2027 |
+| Durasi Pelatihan | 30 jam |
+| Skor Akhir | 98/100 |
+| ID Kredensial | CERT-SAC-2A8CJH1L |
+| Kode Verifikasi | HHBFURUPQ7UT |
 
 ---
 
 ## Cakupan Materi
 
-- Konsep dan prinsip dasar SAP Certified Application Associate.
+- Konsep dan prinsip dasar SAP Analytics Cloud.
 - Studi kasus dan praktik penerapan pada konteks industri nyata.
 - Latihan hands-on / proyek mini sebagai bagian dari penilaian akhir.
 - Evaluasi akhir (ujian/proyek) dengan nilai kelulusan minimum yang telah terpenuhi.

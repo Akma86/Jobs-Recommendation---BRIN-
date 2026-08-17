@@ -22,12 +22,12 @@ yang diselenggarakan oleh **International Institute of Business Analysis (IIBA)*
 | Nama Penerima | Nadia Putri SI Bagus |
 | Judul Sertifikasi | Business Analysis Foundation |
 | Penyelenggara / Issuer | International Institute of Business Analysis (IIBA) |
-| Tanggal Terbit | 5 November 2023 |
-| Berlaku Hingga | 5 November 2026 |
+| Tanggal Terbit | 27 Maret 2024 |
+| Berlaku Hingga | 27 Maret 2027 |
 | Durasi Pelatihan | 18 jam |
-| Skor Akhir | 79/100 |
-| ID Kredensial | CERT-BAF-TF83WQR7 |
-| Kode Verifikasi | GK1ERZZJT3Y3 |
+| Skor Akhir | 82/100 |
+| ID Kredensial | CERT-BAF-N4CTOBIA |
+| Kode Verifikasi | NI2NWEJ2PQV1 |
 
 ---
 

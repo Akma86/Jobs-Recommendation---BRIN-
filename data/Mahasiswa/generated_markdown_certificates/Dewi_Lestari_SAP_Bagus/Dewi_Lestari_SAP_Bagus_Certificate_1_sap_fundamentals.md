@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SAP Learning Hub**, dengan total durasi pelatihan
 | Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | SAP Fundamentals |
 | Penyelenggara / Issuer | SAP Learning Hub |
-| Tanggal Terbit | 3 September 2023 |
-| Berlaku Hingga | 3 September 2025 |
+| Tanggal Terbit | 23 September 2024 |
+| Berlaku Hingga | 23 September 2027 |
 | Durasi Pelatihan | 20 jam |
-| Skor Akhir | 89/100 |
-| ID Kredensial | CERT-SF-WQJPF5TF |
-| Kode Verifikasi | T4N74S7Z6RHY |
+| Skor Akhir | 81/100 |
+| ID Kredensial | CERT-SF-7D1SQIDQ |
+| Kode Verifikasi | ZR9JM8PXBV6N |
 
 ---
 

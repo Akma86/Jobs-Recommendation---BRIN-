@@ -22,12 +22,12 @@ yang diselenggarakan oleh **DeepLearning.AI (Coursera)**, dengan total durasi pe
 | Nama Penerima | Siti Rahma ML Bagus |
 | Judul Sertifikasi | DeepLearning.AI NLP Specialization |
 | Penyelenggara / Issuer | DeepLearning.AI (Coursera) |
-| Tanggal Terbit | 14 Juli 2024 |
-| Berlaku Hingga | 14 Juli 2027 |
+| Tanggal Terbit | 6 Februari 2023 |
+| Berlaku Hingga | 6 Februari 2025 |
 | Durasi Pelatihan | 60 jam |
-| Skor Akhir | 84/100 |
-| ID Kredensial | CERT-DNS-P5N828DR |
-| Kode Verifikasi | OAUU6HSRFOYP |
+| Skor Akhir | 86/100 |
+| ID Kredensial | CERT-DNS-FJ1JYRFY |
+| Kode Verifikasi | 3U4MXIXLYZTD |
 
 ---
 

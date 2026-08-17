@@ -22,12 +22,12 @@ yang diselenggarakan oleh **TensorFlow / Google**, dengan total durasi pelatihan
 | Nama Penerima | Rizky Maulana ML Jelek |
 | Judul Sertifikasi | TensorFlow Developer Certificate |
 | Penyelenggara / Issuer | TensorFlow / Google |
-| Tanggal Terbit | 23 September 2023 |
-| Berlaku Hingga | 23 September 2025 |
+| Tanggal Terbit | 10 Maret 2024 |
+| Berlaku Hingga | 10 Maret 2026 |
 | Durasi Pelatihan | 60 jam |
-| Skor Akhir | 80/100 |
-| ID Kredensial | CERT-TDC-DSZQ9KN3 |
-| Kode Verifikasi | DTDNHK9ZDQVA |
+| Skor Akhir | 86/100 |
+| ID Kredensial | CERT-TDC-J102DSG5 |
+| Kode Verifikasi | OL4S0MQCB2V4 |
 
 ---
 

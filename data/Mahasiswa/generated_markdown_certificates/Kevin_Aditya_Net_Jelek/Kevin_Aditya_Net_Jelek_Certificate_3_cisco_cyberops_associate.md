@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Cisco Networking Academy**, dengan total durasi pela
 | Nama Penerima | Kevin Aditya Net Jelek |
 | Judul Sertifikasi | Cisco CyberOps Associate |
 | Penyelenggara / Issuer | Cisco Networking Academy |
-| Tanggal Terbit | 27 Oktober 2024 |
-| Berlaku Hingga | 27 Oktober 2026 |
+| Tanggal Terbit | 25 September 2023 |
+| Berlaku Hingga | 25 September 2025 |
 | Durasi Pelatihan | 70 jam |
-| Skor Akhir | 80/100 |
-| ID Kredensial | CERT-CCA-2SPNEPTP |
-| Kode Verifikasi | VH5L5R12JFP0 |
+| Skor Akhir | 78/100 |
+| ID Kredensial | CERT-CCA-SZMODXHJ |
+| Kode Verifikasi | 445DU1WV8YCN |
 
 ---
 

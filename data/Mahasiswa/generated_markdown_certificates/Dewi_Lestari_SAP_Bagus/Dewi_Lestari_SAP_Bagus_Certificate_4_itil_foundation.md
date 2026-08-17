@@ -6,9 +6,9 @@
 
 Diberikan kepada:
 
-### **Farhan Hidayat SI Jelek**
+### **Dewi Lestari SAP Bagus**
 
-Program studi Sistem Informasi, spesialisasi Sistem Informasi, telah berhasil
+Program studi Sistem Informasi, spesialisasi SAP, telah berhasil
 menyelesaikan seluruh materi dan penilaian pada program **"ITIL Foundation"**
 yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 **16 jam**.
@@ -19,15 +19,15 @@ yang diselenggarakan oleh **AXELOS / PeopleCert**, dengan total durasi pelatihan
 
 | Keterangan | Nilai |
 |---|---|
-| Nama Penerima | Farhan Hidayat SI Jelek |
+| Nama Penerima | Dewi Lestari SAP Bagus |
 | Judul Sertifikasi | ITIL Foundation |
 | Penyelenggara / Issuer | AXELOS / PeopleCert |
-| Tanggal Terbit | 5 Oktober 2025 |
-| Berlaku Hingga | 5 Oktober 2028 |
+| Tanggal Terbit | 18 Mei 2025 |
+| Berlaku Hingga | 18 Mei 2028 |
 | Durasi Pelatihan | 16 jam |
-| Skor Akhir | 86/100 |
-| ID Kredensial | CERT-IF-OTI1YYV0 |
-| Kode Verifikasi | ESBBECDDE1J2 |
+| Skor Akhir | 82/100 |
+| ID Kredensial | CERT-IF-P34SBFIK |
+| Kode Verifikasi | IBWZ05P1M8OR |
 
 ---
 

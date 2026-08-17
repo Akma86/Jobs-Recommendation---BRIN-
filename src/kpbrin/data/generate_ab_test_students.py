@@ -43,7 +43,9 @@ TRACKS = {
     "SAP": [
         "SAP Fundamentals",
         "SAP Certified Application Associate",
-        "ITIL Foundation"
+        "SAP Analytics Cloud",
+        "ITIL Foundation",
+        "Business Analysis Foundation"
     ]
 }
 
@@ -52,7 +54,8 @@ EXTRA_CERTS = {
     "AWS Certified Developer - Associate": ("Amazon Web Services (AWS)", 40),
     "Meta Front-End Developer": ("Meta (Coursera)", 80),
     "Project Management Professional (PMP)": ("PMI", 35),
-    "SAP Certified Application Associate": ("SAP", 40)
+    "SAP Certified Application Associate": ("SAP", 40),
+    "SAP Analytics Cloud": ("SAP", 30),
 }
 
 def generate_custom_student_khs_data(is_good=True):

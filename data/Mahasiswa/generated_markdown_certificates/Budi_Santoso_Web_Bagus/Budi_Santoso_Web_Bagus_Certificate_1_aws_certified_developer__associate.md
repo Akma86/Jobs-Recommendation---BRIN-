@@ -22,12 +22,12 @@ yang diselenggarakan oleh **Amazon Web Services (AWS)**, dengan total durasi pel
 | Nama Penerima | Budi Santoso Web Bagus |
 | Judul Sertifikasi | AWS Certified Developer - Associate |
 | Penyelenggara / Issuer | Amazon Web Services (AWS) |
-| Tanggal Terbit | 3 Juli 2023 |
-| Berlaku Hingga | 3 Juli 2026 |
+| Tanggal Terbit | 29 Desember 2025 |
+| Berlaku Hingga | 29 Desember 2028 |
 | Durasi Pelatihan | 40 jam |
-| Skor Akhir | 86/100 |
-| ID Kredensial | CERT-ACDA-RBJE65ZH |
-| Kode Verifikasi | 77HN7VY2I092 |
+| Skor Akhir | 99/100 |
+| ID Kredensial | CERT-ACDA-9ILD2F5G |
+| Kode Verifikasi | XICE5IYT8ROO |
 
 ---
 

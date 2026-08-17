@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SCRUMstudy**, dengan total durasi pelatihan
 | Nama Penerima | Bayu Setiawan Web Jelek |
 | Judul Sertifikasi | Scrum Fundamentals Certified |
 | Penyelenggara / Issuer | SCRUMstudy |
-| Tanggal Terbit | 3 Juli 2025 |
-| Berlaku Hingga | 3 Juli 2028 |
+| Tanggal Terbit | 23 November 2023 |
+| Berlaku Hingga | 23 November 2026 |
 | Durasi Pelatihan | 12 jam |
-| Skor Akhir | 84/100 |
-| ID Kredensial | CERT-SFC-X5BXIPF9 |
-| Kode Verifikasi | J5IFAW5SZSPZ |
+| Skor Akhir | 92/100 |
+| ID Kredensial | CERT-SFC-54A1V0DS |
+| Kode Verifikasi | 171KHX78PEEK |
 
 ---
 
