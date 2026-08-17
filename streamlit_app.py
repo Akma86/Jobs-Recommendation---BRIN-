@@ -573,44 +573,138 @@ if btn_run or "pipeline_results" in st.session_state:
             st.info("Tidak ada data kontribusi fitur untuk pekerjaan ini.")
 
     # =========================================================================
-    # TAB 3: Dynamic DiCE (1.139 Online Courses)
+    # TAB 3: Dynamic DiCE (Target Dream Job & Career Roadmap)
     # =========================================================================
     with tab3:
-        st.markdown("### 🧭 DiCE Actionable Roadmap: *Rekomendasi Kursus Online Riil Menuju Karir Impian*")
-        st.markdown("Modul DiCE (*Diverse Counterfactual Explanations*) menelusuri katalog **1.139 Online Courses riil** (Google, IBM, Meta, AWS, DeepLearning.AI, dll.) untuk memberikan saran pelatihan paling efisien dalam menutup kesenjangan kompetensi.")
+        st.markdown("### 🧭 DiCE Career Roadmap: *Pilih Karir Impian & Dapatkan Rekomendasi Kursus Terarah*")
+        st.markdown("Fitur ini memungkinkan mahasiswa menentukan **Karir / Posisi Impian (*Career Goal*)** yang ingin dituju. Modul DiCE (*Diverse Counterfactual Explanations*) akan menganalisis kesenjangan (*skill gap*) dan menelusuri katalog **1.139 Kursus Online Riil** (*Google, AWS, Meta, IBM, DeepLearning.AI, dll.*) untuk memberikan rekomendasi kursus yang tepat sasaran.")
         
-        target_dice_job = st.selectbox(
-            "Pilih Pekerjaan Target yang Ingin Dicapai / Ditingkatkan:",
-            options=df_after.head(top_k_display)["job_title"].tolist(),
-            key="dice_job_sel"
-        )
+        col_m1, col_m2 = st.columns([1, 1])
+        with col_m1:
+            dice_mode = st.radio(
+                "Sumber Pemilihan Karir Target:",
+                ["🎯 Pilih Karir Impian (Bebas dari Seluruh Katalog Pekerjaan)", "🏆 Pilih dari Top Rekomendasi Saat Ini"],
+                horizontal=True
+            )
+            
+        all_unique_titles = sorted(jobs_df["title"].dropna().unique().tolist())
         
-        target_job_row_d = df_after[df_after["job_title"] == target_dice_job].iloc[0]
-        sel_dice_job_id = target_job_row_d["job_id"]
-        current_score = target_job_row_d["final_score"]
+        if dice_mode == "🎯 Pilih Karir Impian (Bebas dari Seluruh Katalog Pekerjaan)":
+            with col_m2:
+                cat_filter = st.selectbox(
+                    "Filter Kategori Bidang Pekerjaan:",
+                    ["🌐 Semua Bidang", "🤖 Artificial Intelligence & Machine Learning", "💻 Software & Web Development", 
+                     "☁️ Cloud, Network & DevOps", "🔒 Cybersecurity", "📊 Data Science & Analytics", "🏢 Enterprise Systems & SAP", "🎨 UI/UX & Design"]
+                )
+                
+            # Filter titles based on category
+            if cat_filter == "🤖 Artificial Intelligence & Machine Learning":
+                filtered_titles = [t for t in all_unique_titles if any(k in t.lower() for k in ["ai", "ml", "machine learning", "artificial", "deep learning", "nlp", "computer vision"])]
+            elif cat_filter == "💻 Software & Web Development":
+                filtered_titles = [t for t in all_unique_titles if any(k in t.lower() for k in ["web", "frontend", "front-end", "backend", "back-end", "fullstack", "software", "developer", "engineer", "java", "python", "react"])]
+            elif cat_filter == "☁️ Cloud, Network & DevOps":
+                filtered_titles = [t for t in all_unique_titles if any(k in t.lower() for k in ["cloud", "network", "devops", "aws", "infrastructure", "system admin", "cisco"])]
+            elif cat_filter == "🔒 Cybersecurity":
+                filtered_titles = [t for t in all_unique_titles if any(k in t.lower() for k in ["security", "cyber", "soc", "infosec", "penetration"])]
+            elif cat_filter == "📊 Data Science & Analytics":
+                filtered_titles = [t for t in all_unique_titles if any(k in t.lower() for k in ["data", "analyst", "analytics", "bi", "scientist"])]
+            elif cat_filter == "🏢 Enterprise Systems & SAP":
+                filtered_titles = [t for t in all_unique_titles if any(k in t.lower() for k in ["sap", "enterprise", "erp", "business analyst", "itil", "consultant"])]
+            elif cat_filter == "🎨 UI/UX & Design":
+                filtered_titles = [t for t in all_unique_titles if any(k in t.lower() for k in ["ux", "ui", "design", "product", "interaction"])]
+            else:
+                filtered_titles = all_unique_titles
+                
+            if not filtered_titles:
+                filtered_titles = all_unique_titles
+                
+            target_dice_job = st.selectbox("Pilih Pekerjaan Impian Target Kamu:", options=filtered_titles, key="dream_job_sel")
+            
+            # Find matching job row or best proxy
+            match_job_rows = jobs_df[jobs_df["title"] == target_dice_job]
+            sel_dice_job_id = match_job_rows.iloc[0]["job_id"] if not match_job_rows.empty else "custom_job_id"
+            
+            # Check current score in after ranking
+            curr_score_match = df_after[df_after["job_title"] == target_dice_job]
+            current_score = curr_score_match.iloc[0]["final_score"] if not curr_score_match.empty else df_after["final_score"].median()
+        else:
+            with col_m2:
+                target_dice_job = st.selectbox(
+                    "Pilih Pekerjaan dari Top Rekomendasi:",
+                    options=df_after.head(top_k_display)["job_title"].tolist(),
+                    key="top_job_sel"
+                )
+            target_job_row_d = df_after[df_after["job_title"] == target_dice_job].iloc[0]
+            sel_dice_job_id = target_job_row_d["job_id"]
+            current_score = target_job_row_d["final_score"]
+
+        # Target threshold
+        target_benchmark_score = max(5.5, current_score + 1.5)
+        score_gap = max(0.0, target_benchmark_score - current_score)
         
-        # Retrieve dynamic candidates from course catalog
-        top_candidates = find_top_candidate_courses_for_job(sel_dice_job_id, target_dice_job, top_n=5)
+        # Skill Gap & Target Status Cards
+        st.markdown("---")
+        sg1, sg2, sg3 = st.columns(3)
+        with sg1:
+            st.metric("📊 Skor Kompetensi Saat Ini", f"{current_score:.2f}")
+        with sg2:
+            st.metric("🎯 Target Skor Rekomendasi Utama", f"{target_benchmark_score:.2f}")
+        with sg3:
+            st.metric("⚡ Kesenjangan Skor (Gap)", f"{score_gap:.2f} Poin", delta=f"-{score_gap:.2f}" if score_gap > 0 else "Sesuai Target", delta_color="inverse")
+            
+        # Retrieve dynamic candidates from 1,139 courses catalog
+        top_candidates = find_top_candidate_courses_for_job(sel_dice_job_id, target_dice_job, top_n=6)
         
-        st.markdown(f"**Skor Saat Ini:** `{current_score:.2f}` | **Target Rekomendasi Utama:** `+1.00 s.d. +2.50 poin`")
+        st.markdown(f"#### 🎓 Rekomendasi Kursus Online DiCE untuk Menjadi **'{target_dice_job}'**:")
+        st.markdown("Centang kursus di bawah ini untuk melihat **Simulasi Proyeksi Kenaikan Skor (*What-If Simulation*)** secara langsung:")
         
-        st.markdown("#### 🎓 Kursus Online yang Disarankan DiCE:")
+        selected_boost = 0.0
+        selected_effort = 0.0
+        selected_courses_list = []
         
         for idx, course in enumerate(top_candidates, 1):
-            tier_badge = f'<span class="badge-tier-a">Tier A ({course["institution"]})</span>' if course["tier"] == "TIER_A" else f'<span class="badge-tier-b">Tier B ({course["institution"]})</span>'
+            tier_badge = f'<span class="badge-tier-a">Tier A ({course["platform"]})</span>' if course["tier_weight"] >= 0.8 else f'<span class="badge-tier-b">Tier B ({course["platform"]})</span>'
             level_text = f"Level: {course['level']}"
             
-            st.markdown(f"""
-            <div class="job-card">
-                <div style="display: flex; justify-content: space-between; align-items: center;">
-                    <div style="font-size: 1.1rem; font-weight: 700; color: #1E3A8A;">{idx}. {course['course_title']}</div>
-                    <div>{tier_badge} <span class="badge-boost">Est. Boost: +{course['score_delta']:.2f}</span></div>
+            c_col1, c_col2 = st.columns([0.08, 0.92])
+            with c_col1:
+                is_selected = st.checkbox(f"Pilih", key=f"chk_course_{idx}", value=idx <= 2)
+            with c_col2:
+                st.markdown(f"""
+                <div class="job-card" style="margin-bottom: 0.6rem; padding: 0.9rem 1.2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-size: 1.05rem; font-weight: 700; color: #1E3A8A;">{idx}. {course['course_name']}</div>
+                        <div>{tier_badge} <span class="badge-boost">Est. Boost: +{course['score_delta']:.2f}</span></div>
+                    </div>
+                    <div style="color: #6B7280; font-size: 0.85rem; margin-top: 0.2rem;">
+                        Platform: <b>{course['platform']}</b> | {level_text} | Kemiripan Semantik: <b>{course['similarity']:.2f}</b> | Biaya Usaha (Effort): <b>{course['effort']:.1f}/10</b>
+                    </div>
                 </div>
-                <div style="color: #6B7280; font-size: 0.9rem; margin-top: 0.3rem;">
-                    Platform / Universitas: <b>{course['institution']}</b> | {level_text} | Kemiripan Semantik: <b>{course['similarity_score']:.2f}</b> | Biaya Usaha (Effort): <b>{course['effort']:.1f}/10</b>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+                """, unsafe_allow_html=True)
+                
+            if is_selected:
+                selected_boost += course["score_delta"]
+                selected_effort += course["effort"]
+                selected_courses_list.append(course["course_name"])
+                
+        # Interactive What-If Simulation Result
+        st.markdown("---")
+        st.markdown("#### 🚀 Proyeksi Hasil Simulasi Intervensi (*What-If Simulation*)")
+        sim_final_score = current_score + selected_boost
+        is_target_reached = sim_final_score >= target_benchmark_score
+        
+        sim1, sim2, sim3 = st.columns([1, 1, 1.2])
+        with sim1:
+            st.metric("📈 Total Estimasi Lonjakan Skor", f"+{selected_boost:.2f} Poin")
+        with sim2:
+            st.metric("⏱️ Estimasi Total Effort Pelatihan", f"{selected_effort:.1f} Poin", help="Tingkat usaha/durasi kumulatif")
+        with sim3:
+            st.metric("🏆 Proyeksi Skor Akhir", f"{sim_final_score:.2f}", delta=f"{sim_final_score - current_score:+.2f}")
+            
+        if is_target_reached:
+            st.success(f"🎉 **Luar biasa!** Dengan mengambil **{len(selected_courses_list)} kursus** di atas, skor kamu diproyeksikan melonjak dari **{current_score:.2f}** menjadi **{sim_final_score:.2f}**, berhasil menembus target kelayakan utama untuk posisi **'{target_dice_job}'**! 🚀")
+        else:
+            st.warning(f"💡 Kamu masih membutuhkan tambahan **+{target_benchmark_score - sim_final_score:.2f} poin**. Pertimbangkan untuk mencentang kursus tambahan di atas.")
 
     # =========================================================================
     # TAB 4: Rincian Transkrip & Kredensial
