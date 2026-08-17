@@ -103,6 +103,9 @@ def load_and_preprocess_catalog(force_reload=False):
     return _CATALOG_CACHE
 
 
+load_online_courses_catalog = load_and_preprocess_catalog
+
+
 def get_course_vectorizer():
     """
     Get or fit TF-IDF vectorizer over course catalog texts (uses disk cache if available).
