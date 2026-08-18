@@ -11,11 +11,20 @@ env/
 venv/
 ENV/
 
-# Caches and logs
+# Frontend dependencies & build artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+node_modules/
+dist/
+
+# Caches, models, and logs
 .emb_cache/
 *.npy
 *.meta
 *.log
+scratch/
+Dataset/
 
 # OS generated files
 .DS_Store
@@ -26,7 +35,7 @@ ENV/
 ehthumbs.db
 Thumbs.db
 
-# Data and Results
+# Large raw data & plot caches
 *.csv
 *.xlsx
 *.png

@@ -1,59 +1,113 @@
-# Career Recommendation System
+# TalentXAI — AI-Powered Job Recommendation & Explainable Career Intelligence
 
-Sistem rekomendasi karier berbasis NLP dan Explainable AI (XAI) yang mencocokkan kompetensi akademik mahasiswa dengan lowongan pekerjaan. Proyek ini dikembangkan sebagai bagian dari program magang di **BRIN (Badan Riset dan Inovasi Nasional)**.
+Sistem rekomendasi karir cerdas berbasis **Outcome-Based Education (OBE)**, **Portofolio Sertifikasi Industri Berbobot Kredibilitas (Tier A/B)**, dan **Explainable AI (SHAP & DiCE Multi-Stage)** yang mengintegrasikan model neural *Sentence-BERT Cross-Encoder* dengan antarmuka web modern layaknya platform pencari kerja profesional (*LinkedIn Jobs / Glints*).
 
-## 📋 Deskripsi
+Proyek ini dikembangkan sebagai bagian dari program magang riset di **Badan Riset dan Inovasi Nasional (BRIN)**.
 
-Sistem ini mengintegrasikan data akademik mahasiswa (KHS/transkrip nilai), CV, dan data lowongan kerja hasil scraping untuk menghasilkan rekomendasi karier yang relevan dan dapat dijelaskan (explainable). Inovasi utama dari sistem ini adalah **pemetaan OBE (Outcome-Based Education) ke skill**, yang menerjemahkan capaian pembelajaran mata kuliah (CLO) menjadi representasi kompetensi/skill mahasiswa.
+---
 
-## ✨ Fitur Utama
-
-- **Ekstraksi Data Akademik** — parsing KHS dan RPS/CLO dari file Excel dengan struktur merged-cell (Telkom University format)
-- **Skill Extraction (NER)** — dictionary-based Named Entity Recognition terhadap kosakata kanonik berisi 78 skill
-- **Vocabulary Expansion** — integrasi dengan ESCO dan O*NET untuk memperkaya kosakata skill
-- **Semantic Matching** — menggunakan multilingual E5 embeddings untuk pencocokan makna antara profil mahasiswa dan lowongan kerja
-- **Re-ranking** — cross-encoder untuk meningkatkan presisi hasil pencocokan
-
-- **Explainable AI (XAI)** — menjelaskan alasan di balik setiap rekomendasi menggunakan:
-  - SHAP (Shapley Values)
-  - LIME
-  - DiCE (Counterfactual Explanations)
-
-## 🗂️ Sumber Data
-
-- **KHS (transkrip nilai)** mahasiswa
-- **CV** mahasiswa
-- **Lowongan kerja** hasil scraping dari LinkedIn, Glassdoor, dan RemoteOK
-- **RPS/CLO** dari kurikulum Sistem Informasi (Tel-U Jakarta, ITS, dan sumber paraphrase lainnya) — dikonsolidasikan menjadi `Merged_CLO_Dataset.xlsx`
-
-## ⚙️ Arsitektur Pipeline
+## 🏗️ Arsitektur & Tech Stack
 
 ```
-KHS/CV Mahasiswa ─┐
-                   ├─► OBE-to-Skill Mapping ─► Student Skill Vector ─┐
-RPS/CLO Dataset ───┘                                                 │
-                                                                      ├─► E5 Embedding ─► Cross-Encoder Re-ranking ─► Fusion Scoring ─► XAI Explanation ─► Rekomendasi
-Lowongan Kerja ──► Skill NER (78-skill vocab + ESCO/O*NET) ─────────┘
+[ Frontend: React + Vite + Lucide Icons ] (Port 3000)
+                  │  HTTP REST API (< 5ms)
+                  ▼
+[ Backend: FastAPI High-Performance Server ] (Port 8000)
+                  │
+   ┌──────────────┴───────────────────────────────┐
+   ▼                                              ▼
+[ In-Memory Caching Engine ]            [ Core AI & XAI Pipelines ]
+- 10 Student Profiles (KHS + Certs)     - Multilingual E5 / SBERT Embeddings
+- 2,102 Unified Job Postings            - Cross-Encoder Neural Re-Ranking
+- 1,139 Online Courses (DiCE)           - SHAP Feature Attribution
+                                        - Dynamic DiCE Counterfactuals
 ```
 
-Orkestrasi end-to-end dijalankan melalui `full_pipeline.py`.
+### Tech Stack:
+- **Frontend:** React 18, Vite, Lucide Icons, Canvas Confetti, Modern CSS Design System.
+- **Backend API:** FastAPI, Uvicorn, Pydantic.
+- **AI & NLP Engine:** PyTorch, Sentence-Transformers, HuggingFace Cross-Encoder.
+- **Explainable AI (XAI):** SHAP (Shapley Additive exPlanations), DiCE (Diverse Counterfactual Explanations), Percentage-Based Narrative Generator.
 
-## 🛠️ Tech Stack
+---
 
-- **Bahasa:** Python
-- **NLP/Embedding:** Multilingual E5, Cross-Encoder, IndoBERT
-- **XAI:** SHAP, LIME, DiCE
-- **Data Processing:** pandas, openpyxl
+## 📂 Struktur Direktori Repositori
 
-## ⚠️ Batasan (Limitations)
+```
+Jobs-Recommendation---BRIN-/
+├── api_server.py                    # High-Performance FastAPI Backend Server
+├── streamlit_app.py                 # Streamlit Prototype Application
+├── requirements.txt                 # Python Dependencies
+├── README.md                        # Dokumentasi Proyek
+│
+├── data/                            # Dataset & Profil Mahasiswa
+│   ├── Mahasiswa/                   # KHS Markdown & Sertifikat Resmi (10 Mahasiswa)
+│   ├── Pekerjaan/                   # Database 2.102 Lowongan Kerja Unified
+│   └── Sertifikasi/                 # Katalog 1.139 Kursus DiCE & Bobot Kredibilitas
+│
+├── docs/                            # Laporan Evaluasi & Literatur Riset
+│   ├── papers/                      # Paper Referensi Riset BRIN
+│   └── EKS12_AB_Test_Summary.md     # Rangkuman Evaluasi Eksperimen XAI
+│
+├── frontend/                        # Modern React + Vite Web Application
+│   ├── src/
+│   │   ├── components/              # Navbar, JobCard, JobDetailDrawer, Modals
+│   │   ├── App.jsx                  # Main Interactive Dashboard
+│   │   ├── index.css                # Professional CSS Design System
+│   │   └── main.jsx                 # React Entry Point
+│   ├── package.json
+│   └── vite.config.js
+│
+├── results/                         # Hasil Eksperimen XAI (EKS01 s/d EKS12)
+│   └── Eksperimen_XAI/
+│       └── EKS12_AB_Test/           # Hasil A/B Testing 10 Mahasiswa (Before & After)
+│
+└── src/                             # Modular Python Core Library (kpbrin)
+    ├── kpbrin/
+    │   ├── core/                    # Pipeline, Embeddings, Caching, Issuer Tiers
+    │   ├── data/                    # Parsers & Synthetic Data Generators
+    │   ├── prototype/               # Streamlit UI Components
+    │   └── xai/                     # SHAP, DiCE Engine, & Narrative Explanations
+    └── scripts/                     # Automation & Fast Runner Scripts
+```
 
-- Dataset RPS/CLO yang tersedia mencakup kurikulum **Sistem Informasi**, sementara data transkrip penulis berasal dari **Sains Data** — hal ini diterima sebagai batasan pada tahap prototipe.
-- Skill extraction bersifat dictionary-based sehingga cakupannya terbatas pada kosakata kanonik yang telah didefinisikan.
+---
 
-## 🎓 Konteks Proyek
+## 🚀 Panduan Menjalankan Sistem
 
-Dikembangkan sebagai bagian dari program magang di BRIN, di bawah bimbingan **Satrio Adi Priyambada**, oleh mahasiswa Program Studi Sains Data, Universitas Telkom.
+### 1. Menjalankan Backend FastAPI
+```bash
+python -m uvicorn api_server:app --host 127.0.0.1 --port 8000
+```
+Backend akan aktif di `http://127.0.0.1:8000` (Waktu respon `< 5ms` dengan in-memory caching).
 
-## 📄 Lisensi
+### 2. Menjalankan Frontend React (Job Seeker Portal)
+```bash
+cd frontend
+npm install
+npm run dev
+```
+Akses web aplikasi di peramban pada **`http://127.0.0.1:3000`**.
 
-_Akmal Yaasir Fauzaan._
+### 3. (Opsional) Menjalankan Streamlit Prototype
+```bash
+streamlit run streamlit_app.py
+```
+
+---
+
+## ✨ Fitur-Fitur Utama
+
+1. **⚡ Lightning-Fast Career Matching (< 5ms):** Pemuatan instan seluruh profil mahasiswa dan ribuan data lowongan pekerjaan.
+2. **🏢 Real Job Seeker Experience:** Split-pane interface dengan feed lowongan, badge persentase kecocokan (`95% Match 🚀`), delta lonjakan sertifikat (`+3.33`), estimasi gaji, lokasi, dan bookmark.
+3. **💬 Percentage-Based Narrative Explanations:** Penjelasan kecocokan berbasis bahasa alami Bahasa Indonesia yang menjabarkan tingkat keselarasan materi per sertifikat dan mata kuliah kurikulum.
+4. **📊 SHAP Feature Attribution:** Grafik batang interaktif kontribusi positif/negatif masing-masing fitur terhadap skor kelayakan.
+5. **🧭 Multi-Stage DiCE Learning Roadmap:** Rekomendasi kursus online riil (Google, AWS, Meta, IBM, Stanford) dari 1.139 katalog untuk menjembatani kesenjangan kompetensi (*skill gap*).
+6. **🎯 Interactive What-If Simulator:** Simulasi interaktif perubahan skor secara langsung (*real-time*) saat mahasiswa mencentang sertifikasi target.
+7. **🧭 Target Dream Career Explorer:** Penjelajah profesi impian untuk memetakan jalur karir dari 2.102 lowongan pekerjaan.
+
+---
+
+## 👥 Tim & Pembimbing
+- **Pengembang:** Akmal Yaasir Fauzaan (Universitas Telkom)
+- **Pembimbing Riset:** Satrio Adi Priyambada (Badan Riset dan Inovasi Nasional - BRIN)
