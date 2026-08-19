@@ -4,6 +4,7 @@ import JobCard from './components/JobCard';
 import JobDetailDrawer from './components/JobDetailDrawer';
 import StudentProfileModal from './components/StudentProfileModal';
 import DreamJobExplorer from './components/DreamJobExplorer';
+import UploadModal from './components/UploadModal';
 import { 
   Sparkles, 
   Search, 
@@ -14,7 +15,8 @@ import {
   Briefcase,
   CheckCircle2,
   Compass,
-  FileText
+  FileText,
+  Upload
 } from 'lucide-react';
 
 const CATEGORIES = [
@@ -46,10 +48,11 @@ export default function App() {
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [showDreamModal, setShowDreamModal] = useState(false);
+  const [showUploadModal, setShowUploadModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   // 1. Fetch Students List
-  useEffect(() => {
+  const fetchStudents = () => {
     fetch('/api/students')
       .then(res => res.json())
       .then(json => {
@@ -58,7 +61,20 @@ export default function App() {
         }
       })
       .catch(err => console.error('Error fetching students:', err));
+  };
+
+  useEffect(() => {
+    fetchStudents();
   }, []);
+
+  const handleProfileAnalyzed = (customStudent) => {
+    setStudentData(customStudent);
+    setSelectedStudentId(customStudent.id);
+    if (customStudent.recommended_jobs && customStudent.recommended_jobs.length > 0) {
+      setActiveJob(customStudent.recommended_jobs[0]);
+    }
+    fetchStudents();
+  };
 
   // 2. Fetch Student Detail on Selection Change
   useEffect(() => {
@@ -126,6 +142,7 @@ export default function App() {
         setActiveTab={setActiveTab}
         onOpenProfileModal={() => setShowProfileModal(true)}
         onOpenDreamModal={() => setShowDreamModal(true)}
+        onOpenUploadModal={() => setShowUploadModal(true)}
         savedCount={savedJobs.length}
       />
 
@@ -197,6 +214,13 @@ export default function App() {
           </div>
 
           <div style={{ display: 'flex', gap: '0.6rem' }}>
+            <button 
+              className="btn-primary"
+              onClick={() => setShowUploadModal(true)}
+              style={{ background: '#059669', border: 'none' }}
+            >
+              <Upload size={16} /> Input / Ganti Profil Saya
+            </button>
             <button 
               className="btn-outline"
               onClick={() => setShowProfileModal(true)}
@@ -278,6 +302,13 @@ export default function App() {
       </main>
 
       {/* Modals */}
+      {showUploadModal && (
+        <UploadModal 
+          onClose={() => setShowUploadModal(false)}
+          onProfileAnalyzed={handleProfileAnalyzed}
+        />
+      )}
+
       {showProfileModal && (
         <StudentProfileModal 
           student={studentData}

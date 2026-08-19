@@ -18,6 +18,7 @@ export default function Navbar({
   setActiveTab,
   onOpenProfileModal,
   onOpenDreamModal,
+  onOpenUploadModal,
   savedCount
 }) {
   const currentStudent = students.find(s => s.id === selectedStudentId);
@@ -68,8 +69,17 @@ export default function Navbar({
         </button>
       </nav>
 
-      {/* 1-Click Demo Student Switcher */}
+      {/* Right Controls: Quick Student Switcher + Upload Button */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <button 
+          className="btn-primary"
+          onClick={onOpenUploadModal}
+          style={{ fontSize: '0.85rem', padding: '0.45rem 0.9rem', borderRadius: '10px' }}
+        >
+          <Sparkles size={16} />
+          Upload KHS / Input Profil
+        </button>
+
         <div className="student-selector-bar">
           <div style={{
             width: '28px', 
