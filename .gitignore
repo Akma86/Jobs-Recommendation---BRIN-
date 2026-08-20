@@ -42,3 +42,7 @@ Thumbs.db
 
 # Archived experiment results
 results/archive_eksperimen/
+
+# Ignore private KHS Akmal
+data/KHS AKMAL/*
+!data/KHS AKMAL/.gitkeep

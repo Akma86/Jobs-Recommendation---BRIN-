@@ -1,0 +1,2569 @@
+{
+  "metadata": {
+    "name": "Nabila Putri Maharani",
+    "nim": "1202210088",
+    "major": "S1 Sistem Informasi",
+    "advisor": "Dr. Ir. Husni Teja Sukmana, S.T., M.Sc.",
+    "role_specialization": "Data / Business Analyst & Enterprise Systems Specialist",
+    "total_sks": 114,
+    "cumulative_gpa": 3.95,
+    "semester_range": "Semester 1 - 6",
+    "total_courses": 39,
+    "total_sub_clos": 279
+  },
+  "semester_summaries": [
+    {
+      "semester": "Semester 1",
+      "sks_semester": 19,
+      "ips_semester": 4.0,
+      "total_sks_kumulatif": 19,
+      "ipk_kumulatif": 4.0,
+      "courses": [
+        {
+          "no": 1,
+          "semester": "Semester 1",
+          "kode_mk": "BBK1DAB3",
+          "nama_mk": "Pengantar Sistem Informasi",
+          "nama_mk_en": "Introduction to Information Systems",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 89.1,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu menjelaskan peran dari sistem dan teknologi informasi dalam konteks individu, bisnis, maupun organisasi.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menganalisis nilai dan risiko dari penggunaan sistem dan teknologi informasi.",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 88.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-04",
+              "sub_clo_text": "Mampu memodelkan penyelenggaraan sistem informasi di konteks organisasi.",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 88.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-12",
+              "sub_clo_text": "Mahasiswa mampu menjelaskan peran profesi sistem informasi dalam upaya pembangunan berkelanjutan.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 89.0,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 2,
+          "semester": "Semester 1",
+          "kode_mk": "BBK1AAB4",
+          "nama_mk": "Algoritma dan Pemrograman",
+          "nama_mk_en": "Algorithms and Programming",
+          "sks": 4,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.6,
+          "jumlah_sub_clo": 17,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-SubCLO02",
+              "sub_clo_text": "Mampu memahami flowchart dan pseudocode",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO03",
+              "sub_clo_text": "Mampu memahami konsep variabel, tipe data, type casting, output dan comment pada pemrograman",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 89.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO04",
+              "sub_clo_text": "Mampu memahami konsep user input dan operator",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO05",
+              "sub_clo_text": "Mampu memahami penggunaan konstruksi percabangan if-then-else",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 94.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO06",
+              "sub_clo_text": "Mampu memahami penggunaan konstruksi percabangan switch case",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 92.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO07",
+              "sub_clo_text": "Mampu memahami penggunaan kontruksi perulangan for dan while",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 97.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO08",
+              "sub_clo_text": "Mampu memahami penggunaan kontruksi perulangan bersarang",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 91.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO09",
+              "sub_clo_text": "Mampu memahami konsep penggunaan variabel,tipe data, type casting, output, comment, user input, operator, percabangan dan perulangan dalam berbagai bahasa pemrograman",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 91.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO10",
+              "sub_clo_text": "Mampu memahami konsep penggunaan function",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO11",
+              "sub_clo_text": "Mampu memahami konsep penggunaan array",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 88.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO12",
+              "sub_clo_text": "Mampu memahami konsep dasar algoritma",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 96.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO13",
+              "sub_clo_text": "Mampu memahami konsep penggunaan debugging dan exception",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-SubCLO01",
+              "sub_clo_text": "Mampu memahami bagaimana merancang algoritma",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-SubCLO01",
+              "sub_clo_text": "Mampu mengimplementasikan algoritma sederhana",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu mengembangkan solusi berbasis sistem informasi menggunakan metodologi pengembangan yang tepat.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-04",
+              "sub_clo_text": "Mampu menganalisis permasalahan dalam bidang infokom dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 93.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-08",
+              "sub_clo_text": "Mampu memahami konsep dasar bidang infokom yang digunakan dalam lingkup disiplin ilmu sistem informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 96.2,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 3,
+          "semester": "Semester 1",
+          "kode_mk": "BBK1BAB3",
+          "nama_mk": "Matematika untuk Sistem Informasi",
+          "nama_mk_en": "Mathematics for Information Systems",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.3,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-SubCLO1",
+              "sub_clo_text": "Mampu menerapkan sifat-sifat pada himpunan bilangan real untuk menyelesaikan persoalan pada pertidaksamaan dan fungsi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO2",
+              "sub_clo_text": "Mampu memahami konsep turunan dan integral dalam masalah optimasi pemodelan sistem informasi.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 97.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 6-SubCLO3",
+              "sub_clo_text": "Mampu menerapkan konsep matriks dan vektor dalam permasalahan bidang sistem informasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.3,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 4,
+          "semester": "Semester 1",
+          "kode_mk": "BBK1CAB3",
+          "nama_mk": "Pengantar Ekonomi dan Bisnis",
+          "nama_mk_en": "Introduction to Economics and Business",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 91.7,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Menjelaskan gagasan besar teori dan praktek ekonomi modern",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Menjabarkan gagasan besar perniagaan, perdagangan, dan manajemen",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Menguraikan strategi bisnis utama pebisnis terkemuka",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01d",
+              "sub_clo_text": "Menggali pola pikir ekonom besar untuk menyederhanakan konsep sulit",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.2,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 5,
+          "semester": "Semester 1",
+          "kode_mk": "UKI1C2",
+          "nama_mk": "Bahasa Indonesia",
+          "nama_mk_en": "Indonesian Language",
+          "sks": 2,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 90.8,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "CLO 1: Mahasiswa mampu menggunakan kata baku, istilah, dan ejaan dengan benar serta mampu menyusun definisi, kalimat, dan paragraf dengan benar pada tulisan ragam ilmiah.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 86.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "CLO 2: Mahasiswa mampu merumuskan topik hingga menyusun kerangka dan draf serta mampu menerapkan konvensi naskah karya tulis ilmiah.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "CLO 3: Mahasiswa mampu menyusun dan merevisi karya ilmiah serta mampu mempresentasikannya dengan bahasa yang baik dan benar.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.9,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 6,
+          "semester": "Semester 1",
+          "kode_mk": "UCKXADB2",
+          "nama_mk": "Bahasa Inggris",
+          "nama_mk_en": "English",
+          "sks": 2,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.5,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "[PLO5] CLO-1 mampu menggunakan kalimat sederhana dan majemuk dalam present tense, present continuous, dan present perfect tense untuk menyajikan fakta-fakta menarik tentang keahlian yang mereka miliki dalam satu paragraf dengan tingkat kefasihan menulis \"intermediate-mid\"",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "[PLO5] CLO-2 mampu menyatakan sudut pandang dengan bukti yang mendukung dan menarik terkait kreasi ciptaan teknologi mereka dalam 3-5 paragraf menggunakan present tense, present continous tense, present perfect tense dan past tense dengan tingkat kefasihan menulis intermediet-mid",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "[PLO5] CLO-3 mampu mengungkapkan secara lisan kalimat sederhana, majemuk, dan kompleks dalam present tense, present continous tense, dan present perfect tense untuk menjelaskan fakta-fakta menarik tentang peran sistem informasi dalam kehidupan saat ini dalam bentuk presentasi.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 96.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4",
+              "sub_clo_text": "[PLO5] CLO-4 mampu mengungkapkan secara lisan kalimat sederhana, majemuk, dan kompleks dalam present tense, past tense, present perfect dan past present perfect tense untuk menjelaskan fakta-fakta menarik tentang keahlian serta pengalaman yang mereka miliki dalam menjawab pertanyaan interview dengan baik.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.3,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 7,
+          "semester": "Semester 1",
+          "kode_mk": "BBK1EAB2",
+          "nama_mk": "Internalisasi Budaya dan Pembentukan Karakter",
+          "nama_mk_en": "Character Building",
+          "sks": 2,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.2,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Memahami nilai-nilai inti karakter mahasiswa yang berlandaskan budaya Telkom University",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 97.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Memahami ketahanan diri mahasiswa dalam penerapan karakter HEI",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "Mengaplikasikan karakter HEI di lingkungan kampus, melalui penguatan kampus hijau",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.6,
+              "sub_clo_grade": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester": "Semester 2",
+      "sks_semester": 19,
+      "ips_semester": 3.92,
+      "total_sks_kumulatif": 38,
+      "ipk_kumulatif": 3.96,
+      "courses": [
+        {
+          "no": 8,
+          "semester": "Semester 2",
+          "kode_mk": "BBK1LAB3",
+          "nama_mk": "Sistem Basis Data",
+          "nama_mk_en": "Database Systems",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 91.8,
+          "jumlah_sub_clo": 15,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-1",
+              "sub_clo_text": "Mampu mengidentifikasi kebutuhan sistem informasi dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 97.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-1",
+              "sub_clo_text": "Mampu mengidentifikasi kebutuhan sistem informasi",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 87.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2",
+              "sub_clo_text": "Mampu merancang dan mengimplementasikan sistem dalam manajemen data",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-3",
+              "sub_clo_text": "Mampu mengembangkan sistem untuk manajemen data",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-4",
+              "sub_clo_text": "Mampu menjelaskan konsep NoSQL database untuk berbagai permasalahan",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 97.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-5",
+              "sub_clo_text": "Mampu menggunakan perkakas untuk solusi data",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "PLO02-CLO01 - Mampu membuat perancangan sistem informasi untuk memenuhi kebutuhan organisasi menuju data-driven organization",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "PLO08-CLO01 - Mampu menggunakan metode dan perangkat lunak terkini untuk menghasilkan solusi di bidang data dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 86.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "PLO01-CLO03 - Mampu mengidentifikasi kebutuhan sistem informasi dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 86.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-08",
+              "sub_clo_text": "PLO01-CLO08 - Mampu memahami konsep dasar bidang infokom yang digunakan dalam lingkup disiplin ilmu sistem informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 91.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Memahami tahapan daur hidup pengembangan sistem basis data dan arsitekturnya",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Mendesain basis data konseptual menggunakan pemodelan data tingkat tinggi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Mendesain basis data logikal menggunakan model data relasional",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01d",
+              "sub_clo_text": "Menspesifikasikan definisi, query, dan manipulasi data relasional",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01e",
+              "sub_clo_text": "Memahami metodologi desain basis data fisik dan implementasinya",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.7,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 9,
+          "semester": "Semester 2",
+          "kode_mk": "BBK1MAB3",
+          "nama_mk": "Pemodelan Proses Bisnis",
+          "nama_mk_en": "Business Process Modeling",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 89.7,
+          "jumlah_sub_clo": 9,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-1.1.",
+              "sub_clo_text": "Mampu mengaplikasikan kemampuan berkomunikasi yang efektif untuk menggali kebutuhan.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 86.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-1.2.",
+              "sub_clo_text": "Mampu mengaplikasikan kemampuan berkomunikasi yang efektif untuk menyampaikan hasil pekerjaannya, menerima saran & masukan terkait hasil pekerjaannya, dan menunjukkan pemahaman melalui diskusi atau pertanyaan lanjutan.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2.1.",
+              "sub_clo_text": "Mampu mamahami penerapan proses bisnis pada tingkat organisasi yang berbeda",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-4.1.",
+              "sub_clo_text": "Mampu membuat model proses bisnis (tingkat dasar dan tingkat lanjut).",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 5-5.1.",
+              "sub_clo_text": "Mampu menggunakan teknik dan kakas Pemodelan proses bisnis",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu menyampaikan ide, informasi, dan argumen secara jelas dan persuasif dalam bentuk lisan di lingkungan profesional.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 86.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menganalisis prinsip dan fungsi manajemen Sistem Informasi untuk mendukung strategi bisnis.",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 88.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-04",
+              "sub_clo_text": "Mampu memodelkan penyelenggaraan sistem informasi di konteks organisasi.",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 89.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-05",
+              "sub_clo_text": "Mampu menggunakan teknik, metode, perangkat lunak terkini untuk menghasilkan solusi di bidang pengelolaan fungsi dan bisnis organisasi dalam konteks kasus nyata.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 10,
+          "semester": "Semester 2",
+          "kode_mk": "BBK1JAB3",
+          "nama_mk": "Pemrograman Berorientasi Objek",
+          "nama_mk_en": "Object-Oriented Programming",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.4,
+          "jumlah_sub_clo": 7,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-1",
+              "sub_clo_text": "Mampu menjelaskan konsep-konsep dasar pemrograman berorientasi obyek (sintak dasar, enkapsulasi, inheritance, polimorfisme, abstraksi, dan penanganan eksepsi) dalam pemrograman Java",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2",
+              "sub_clo_text": "Mampu menerapkan prinsip-prinsip OOP untuk merancang dan mengimplementasikan kelas dan objek Java dengan menggunakan fitur yang sesuai.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu menjelaskan konsep-konsep dasar pemrograman berorientasi obyek (sintak dasar, enkapsulasi, inheritance, polimorfisme, abstraksi, dan penanganan eksepsi) dalam pemrograman Java.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 94.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menerapkan prinsip-prinsip OOP untuk merancang dan mengimplementasikan kelas dan objek Java dengan menggunakan fitur yang sesuai.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "Mampu mengimplementasikan solusi berbasis sistem informasi menggunakan metodologi pengembangan yang tepat",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "Mampu merancang, mengembangkan, dan mendokumentasikan aplikasi Java sederhana secara kolaboratif yang memenuhi kebutuhan pengguna dengan menerapkan prinsip-prinsip OOP secara komprehensif.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-08",
+              "sub_clo_text": "Mampu memahami konsep dasar bidang infokom yang digunakan dalam lingkup disiplin ilmu sistem informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.2,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 11,
+          "semester": "Semester 2",
+          "kode_mk": "BBK1KAB3",
+          "nama_mk": "Organisasi dan Fungsional Bisnis",
+          "nama_mk_en": "Business Organization and Functions",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 90.4,
+          "jumlah_sub_clo": 6,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Memahami Organisasi sebagai  system of flows",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Memahami  Design Parameter  di desain organisasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Memahami  Contingency Factors  di desain organisasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01d",
+              "sub_clo_text": "Memahami  Structural Configurations  di desain organisasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 87.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01e",
+              "sub_clo_text": "Menganalisis Organisasi Bisnis Kontemporer",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 87.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01f",
+              "sub_clo_text": "Merekomendasikan perbaikan pada Organisasi Bisnis Kontemporer",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.1,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 12,
+          "semester": "Semester 2",
+          "kode_mk": "BBK1NAB3",
+          "nama_mk": "Probabilitas dan Statistik",
+          "nama_mk_en": "Probability and Statistics",
+          "sks": 3,
+          "nilai_huruf": "AB",
+          "bobot_ipk": 3.5,
+          "skor_rata_sub_clo": 81.0,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-Sub CLO-01",
+              "sub_clo_text": "Mampu menghitung, menyajikan, dan menginterpretasikan data dalam bidang sistem informasi menggunakan teknik staska deskripf",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 81.0,
+              "sub_clo_grade": "AB"
+            },
+            {
+              "sub_clo_code": "CLO 1-Sub CLO-02",
+              "sub_clo_text": "Mampu memahami dan menerapkan konsep probabilitas dalam analisis dan pengambilan keputusan berbasis data di bidang Sistem Informasi",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 80.8,
+              "sub_clo_grade": "AB"
+            },
+            {
+              "sub_clo_code": "CLO 2-Sub CLO-03",
+              "sub_clo_text": "Mampu memahami dan menerapkan konsep distribusi probabilitas univariate, distribusi probabilitas diskrit dan konnu, serta menganalisis distribusi normal dan implikasi Teorema Limit Pusat dalam pemodelan dan pengambilan keputusan berbasis data di bidang Sistem Informasi",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 81.1,
+              "sub_clo_grade": "AB"
+            }
+          ]
+        },
+        {
+          "no": 13,
+          "semester": "Semester 2",
+          "kode_mk": "UKI1B2",
+          "nama_mk": "Pancasila",
+          "nama_mk_en": "Pancasila Education",
+          "sks": 2,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.0,
+          "jumlah_sub_clo": 7,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "[PLO4] CLO-1 Mampu menjelaskan Urgensi Pancasila dan Pancasila dalam Kajian Sejarah",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 92.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Mampu menjelaskan Urgensi Pancasila",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "[PLO4] CLO-2 Mampu menganalisis Pancasila sebagai dasar negara dan ideologi negara",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 95.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "[PLO4] CL0-3 Mampu menganalisis Pancasila sebagai sistem filsafat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 96.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "[PLO4] CL0-3 Mampu menganalisis Pancasila sebagai sistem etika",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 87.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "[PLO4] CL0-3 Mampu menganalisis Pancasila sebagai Dasar Nilai Pengembangan Ilmu",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 95.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "[PLO4] CL0-3 Mampu menganalisis Pancasila sebagai sistem filsafat/etika/pengembangan ilmu",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 88.2,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 14,
+          "semester": "Semester 2",
+          "kode_mk": "BBK1PAB2",
+          "nama_mk": "Etika Profesi",
+          "nama_mk_en": "Professional Ethics",
+          "sks": 2,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 88.9,
+          "jumlah_sub_clo": 5,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-SubCLO1",
+              "sub_clo_text": "Memahami etika yang harus dipenuhi dalam bidang Teknologi Informasi dan prinsip etika",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 86.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SubCLO2",
+              "sub_clo_text": "Memahami etika sebagai profesional dalam bidang Teknologi Informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 89.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-SubCLO3",
+              "sub_clo_text": "Memahami kode etik terkait dengan penggunaan teknologi informasi dan data",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-SubCLO4",
+              "sub_clo_text": "Mampu menganalisis dampak teknologi digital di masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 86.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-SubCLO5",
+              "sub_clo_text": "Mampu memahami dan menjelaskan etika dalam penggunaan teknologi informasi di konteks organisasi dan masyarakat",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 88.6,
+              "sub_clo_grade": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester": "Semester 3",
+      "sks_semester": 20,
+      "ips_semester": 3.85,
+      "total_sks_kumulatif": 58,
+      "ipk_kumulatif": 3.92,
+      "courses": [
+        {
+          "no": 15,
+          "semester": "Semester 3",
+          "kode_mk": "BBK2AAB3",
+          "nama_mk": "Analisis dan Perancangan Sistem Informasi",
+          "nama_mk_en": "Information Systems Analysis & Design",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.7,
+          "jumlah_sub_clo": 9,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Mampu mengidentifikasi kebutuhan sistem informasi dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-SUBCLO-01",
+              "sub_clo_text": "Mahasiswa mampu membedakan fungsi diagram pemodelan obyek",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-SUBCLO-02",
+              "sub_clo_text": "Mahasiswa mampu mengidentifikasi masalah atau studi kasus dalam perancangan sistem",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-SUBCLO-03",
+              "sub_clo_text": "Mahasiswa mampu menyelesaikan permasalahan dan bekerjasama dalam tim",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-SUBCLO-04",
+              "sub_clo_text": "Mahasiswa mampu mengimplementasikan pemodelan obyek ke permasalahan nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "[PLO02-CLO01] Mampu membuat perancangan sistem informasi untuk memenuhi kebutuhan organisasi menuju data-driven organization",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "[PLO03-CLO02] Mampu menerapkan sikap adaptif dalam berbagai konteks profesional untuk mencapai tujuan bersama",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "[PLO01-CLO03] Mampu mengidentifikasi kebutuhan sistem informasi dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 97.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-04",
+              "sub_clo_text": "[PLO08-CLO04] Mampu menggunakan teknik, keahlian, dan perangkat dalam pengembangan aplikasi dan integrasinya dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.7,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 16,
+          "semester": "Semester 3",
+          "kode_mk": "BBK2NAB3",
+          "nama_mk": "Rekayasa Proses Bisnis",
+          "nama_mk_en": "Business Process Reengineering",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.5,
+          "jumlah_sub_clo": 8,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO-1",
+              "sub_clo_text": "[PLO01-CLO04] Mampu menganalisis permasalahan dalam bidang infokom dalam konteks enterprise atau masyarakat.",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-1",
+              "sub_clo_text": "[PLO-1] [PLO1] Mampu menganalisis permasalahan infokom yang komplek, mendefinisikan, dan memodelkan kebutuhan dalam konteks enterprise atau masyarakat dengan menerapkan ilmu dan pengetahuan dalam bidang komputasi, teknologi informasi dan komunikasi, dan disiplin lain yang relevan",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 91.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-1",
+              "sub_clo_text": "[CLO-1][PLO01-CLO04] Mampu menganalisis permasalahan dalam bidang infokom dalam konteks enterprise atau masyarakat.",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 89.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-2",
+              "sub_clo_text": "[PLO-5] [PLO5] Mampu berkomunikasi secara efekf baik lisan maupun tulisan dalam berbagai konteks profesional",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-3",
+              "sub_clo_text": "[PLO08-CLO05] Mampu menggunakan teknik, metode, perangkat lunak terkini untuk menghasilkan solusi di bidang pengelolaan fungsi dan bisnis organisasi dalam konteks kasus nyata.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-4",
+              "sub_clo_text": "[PLO09-CLO06] Mampu mengusulkan perbaikan arsitektur atau pengelolaan sistem informasi untuk mendukung tujuan organisasi.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-4",
+              "sub_clo_text": "[PLO-9] [LPLO9] Mampu mendukung penyelenggaraan, Epenggunaan, pengelolaan, evaluasi, dan peningkatan Sistem Informasi untuk mencapai tujuan dan sasaran strategi bisnis dari organisasi.",
+              "bloom_taxonomy": "5 - Evaluate",
+              "sub_clo_score": 96.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-4",
+              "sub_clo_text": "K [CLO-4][PLO09-CLO06] Mampu mengusulkan perbaikan arsitektur atau pengelolaan sistem informasi untuk mendukung tujuan organisasi.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.6,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 17,
+          "semester": "Semester 3",
+          "kode_mk": "BBK1EAB3",
+          "nama_mk": "Sistem Enterprise",
+          "nama_mk_en": "Enterprise Systems (ERP)",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.2,
+          "jumlah_sub_clo": 12,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-Sub-CLO02",
+              "sub_clo_text": "Mampu mengutarakan proses bisnis pada fungsi sales dan distribusi, produksi, pada perusahaan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-Sub-CLO04",
+              "sub_clo_text": "Mampu Menggunakan Software ERP pada tahap awal dan sertifikasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-Sub-CLO01",
+              "sub_clo_text": "Mampu membedakan serta menjelaskan berbagai fungsi konsep integrasi sistem dan hubungannya dengan ERP bisnisserta sistem informasi yang mendukung proses bisnis",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 94.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-Sub-CLO01",
+              "sub_clo_text": "Mampu membedakan serta menjelaskan berbagai fungsi konsep integrasi sistem dan hubungannya dengan ERP bisnis serta sistem informasi yang mendukung proses bisnis",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 89.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-Sub-CLO03",
+              "sub_clo_text": "Mampu mengemukakan proses akutansi dan keuangan, serta human resources pada perusahaan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-Sub-CLO05",
+              "sub_clo_text": "Mampu mengidentifikasi fungsi dan proses bisnis yang berjalan pada sebuah perusahaan serta pemanfaatan sistem enterprise dalam membantu aktifitas organisasi",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 95.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-1",
+              "sub_clo_text": "[PLO-9] CLO-1 Mampu memahami prinsip dan fungsi manajemen Sistem Informasi untuk mendukung strategi bisnis",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 87.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-2",
+              "sub_clo_text": "[PLO-8] CLO-2 Mampu menggunakan teknik, metode, perangkat lunak, atau kakas terkini untuk menghasilkan solusi di bidang sistem informasi dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Memahami konsep dan aspek-aspek dasar dalam sistem enterprise",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 97.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Menjabarkan proses bisnis ERP, siklus hidupnya, dan integrasi CRM/SCM",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Merencanakan integrasi proses bisnis dengan open source ERP",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01d",
+              "sub_clo_text": "Mempraktikkan integrasi proses bisnis dengan ERP proprietary",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.9,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 18,
+          "semester": "Semester 3",
+          "kode_mk": "BBK1GAB3",
+          "nama_mk": "Jaringan Komputer",
+          "nama_mk_en": "Computer Networks",
+          "sks": 3,
+          "nilai_huruf": "B",
+          "bobot_ipk": 3.0,
+          "skor_rata_sub_clo": 77.0,
+          "jumlah_sub_clo": 6,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-SubCLO01",
+              "sub_clo_text": "Memahami dasar Komunikasi Jaringan Komputer serta Ketersediaan ,Keterpercayaan dan Keamanan Jaringan Komputer",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 78.4,
+              "sub_clo_grade": "B"
+            },
+            {
+              "sub_clo_code": "CLO 2-SubCLO02",
+              "sub_clo_text": "Mampu menerapkan pengalamatan dan konfigurasi perangkat jaringan komputer",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 77.7,
+              "sub_clo_grade": "B"
+            },
+            {
+              "sub_clo_code": "CLO 3-SubCLO03",
+              "sub_clo_text": "Mampu merancang jaringan komputer dalam sebuah institusi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 75.5,
+              "sub_clo_grade": "B"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menggunakan teknik atau perangkat dalam bidang infrastruktur teknologi informasi untuk organisasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 78.9,
+              "sub_clo_grade": "B"
+            },
+            {
+              "sub_clo_code": "CLO-08",
+              "sub_clo_text": "Mampu memahami konsep dasar bidang infokom yang digunakan dalam lingkup disiplin ilmu sistem informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 73.2,
+              "sub_clo_grade": "B"
+            },
+            {
+              "sub_clo_code": "CLO-09",
+              "sub_clo_text": "Mampu menerapkan perspektif disiplin lain dalam analisis permasalahan infokom",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 78.5,
+              "sub_clo_grade": "B"
+            }
+          ]
+        },
+        {
+          "no": 19,
+          "semester": "Semester 3",
+          "kode_mk": "BBK2DAB3",
+          "nama_mk": "Pengembangan Aplikasi Website",
+          "nama_mk_en": "Web Application Development",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.2,
+          "jumlah_sub_clo": 7,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-01",
+              "sub_clo_text": "Mampu menerapkan HTML, CSS dan Bootstrap berdasarkan rancangan halaman website sederhana.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-02",
+              "sub_clo_text": "Mampu membangun solusi aplikasi berbasis web berdasarkan suatu studi kasus tertentu",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-01",
+              "sub_clo_text": "Mampu menggunakan pemrograman Server-Side berbasis web dan mengintegrasikan halaman website dengan database",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-02",
+              "sub_clo_text": "Mampu menggunakan konsep Model View Controller pada Framework Web",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-03",
+              "sub_clo_text": "Mampu menggunakan alat kolaborasi kode dalam membangun solusi aplikasi berbasis web",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "PLO02-CLO03 - Mampu mengimplementasikan solusi berbasis sistem informasi menggunakan metodologi pengembangan yang tepat.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-04",
+              "sub_clo_text": "PLO08-CLO04 - Mampu menggunakan teknik, keahlian, dan perangkat dalam pengembangan aplikasi dan integrasinya dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.8,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 20,
+          "semester": "Semester 3",
+          "kode_mk": "BBK2EAB3",
+          "nama_mk": "Perancangan Interaksi",
+          "nama_mk_en": "Interaction Design (UI/UX)",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.0,
+          "jumlah_sub_clo": 14,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-1",
+              "sub_clo_text": "Mampu menjelaskan dasar perancangan interaksi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 94.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-2",
+              "sub_clo_text": "Mampu menerapkan proses perancangan interaksi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-1",
+              "sub_clo_text": "Mampu mengindetifikasi permasalahan dan mendefinisikan kebutuhan sistem",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-1",
+              "sub_clo_text": "Mampu menjelaskan prinsip interaksi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 96.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-2",
+              "sub_clo_text": "Mampu menjelaskan style interaksi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-3",
+              "sub_clo_text": "Mampu menerapkan prinsip - prinsip interaksi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-4",
+              "sub_clo_text": "Mampu menerapkan style interaksi menggunakan tools Figma",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-1",
+              "sub_clo_text": "Mampu menguji produk dengan metode pengujian usability",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 5-1",
+              "sub_clo_text": "Mampu mengkomunikasikan hasil perancangan interaksi dalam sebuah forum",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-1",
+              "sub_clo_text": "Mampu menjelaskan dasar perancangan interaksi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 94.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-2",
+              "sub_clo_text": "Mampu mengindetifikasi permasalahan dan mendefinisikan kebutuhan sistem",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-3",
+              "sub_clo_text": "Mampu menerapkan prinsip dan style interaksi dalam setiap proses perancangan interaksi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-4",
+              "sub_clo_text": "Mampu menguji produk dengan metode pengujian usability",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-5",
+              "sub_clo_text": "Mampu mengkomunikasikan hasil perancangan interaksi dalam sebuah forum",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.9,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 21,
+          "semester": "Semester 3",
+          "kode_mk": "BBK2FAB2",
+          "nama_mk": "Kepemimpinan dan Komunikasi Interpersonal",
+          "nama_mk_en": "Leadership & Interpersonal Communication",
+          "sks": 2,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.9,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Mampu beradaptasi dengan lingkungan baru",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu bekerja sama dalam tim baik sebagai pemimpin maupun yang dipimpin",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "Mahasiswa mampu menyusun dan mengkomunikasikan ide dan pemikiran dalam berbagai bentuk media informasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4",
+              "sub_clo_text": "Mahasiswa mampu menyajikan beberapa alternatif solusi rancangan dan membuat keputusan berdasarkan hasil dari berpikir kreatif",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.1,
+              "sub_clo_grade": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester": "Semester 4",
+      "sks_semester": 19,
+      "ips_semester": 3.92,
+      "total_sks_kumulatif": 77,
+      "ipk_kumulatif": 3.92,
+      "courses": [
+        {
+          "no": 22,
+          "semester": "Semester 4",
+          "kode_mk": "BBK3BAB3",
+          "nama_mk": "Data Warehouse dan Business Intelligence",
+          "nama_mk_en": "Data Warehouse & BI",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 89.2,
+          "jumlah_sub_clo": 5,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu membuat perancangan sistem informasi untuk memenuhi kebutuhan organisasi menuju data-driven organization",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu menggunakan metode dan perangkat lunak terkini untuk menghasilkan solusi di bidang data dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu mengembangkan solusi berbasis sistem informasi menggunakan metodologi pengembangan yang tepat.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-05",
+              "sub_clo_text": "Mampu memodelkan kebutuhan infokom dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 86.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-08",
+              "sub_clo_text": "Mampu memahami konsep dasar bidang infokom yang digunakan dalam lingkup disiplin ilmu sistem informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 89.7,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 23,
+          "semester": "Semester 4",
+          "kode_mk": "BBK2JAB3",
+          "nama_mk": "Manajemen Proyek Sistem Informasi",
+          "nama_mk_en": "Information Systems Project Management",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.6,
+          "jumlah_sub_clo": 10,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Mampu berinisiatif dan bertanggungjawab untuk menyelesaikan berbagai tugas dalam tim",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu menulis dokumen profesionalsesuai dengan konteks profesional",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "Mampu menggunakan metode atau perangkat lunak tertentu dalam keilmuan sistem informasi dalam konteks penelitian atau proyek nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4",
+              "sub_clo_text": "Mampu memahami prinsip-prinsip manajemen sistem informasi dalam konteks organisasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 5",
+              "sub_clo_text": "Mampu menyusun perencanaan dalam konteks sistem informasi menggunakan ilmu dan praktek yang relevan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu berinisiatif dan bertanggungjawab untuk menyelesaikan berbagai tugas dalam tim",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu memahami prinsip-prinsip manajemen sistem informasi dalam konteks organisasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menulis dokumen profesional sesuai dengan konteks profesional",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "Mampu menggunakan metode atau perangkat lunak tertentu dalam keilmuan sistem informasi dalam konteks penelitian atau proyek nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "Mampu menyusun perencanaan dalam konteks sistem informasi menggunakan ilmu dan praktek yang relevan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.4,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 24,
+          "semester": "Semester 4",
+          "kode_mk": "BBK3FAB3",
+          "nama_mk": "Sistem Informasi Akuntansi",
+          "nama_mk_en": "Accounting Information Systems",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 94.3,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menganalisis prinsip dan fungsi manajemen Sistem Informasi untuk mendukung strategi bisnis",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 93.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-05",
+              "sub_clo_text": "Mampu memodelkan kebutuhan infokom dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 93.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-06",
+              "sub_clo_text": "Mampu menggunakan kakas dalam pengelolaan sistem informasi perusahaan berbasis ERP",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-08",
+              "sub_clo_text": "Mampu memahami konsep dasar bidang infokom yang digunakan dalam lingkup disiplin ilmu sistem informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.2,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 25,
+          "semester": "Semester 4",
+          "kode_mk": "BBK2IAB3",
+          "nama_mk": "Keamanan Sistem Informasi",
+          "nama_mk_en": "Information Systems Security",
+          "sks": 3,
+          "nilai_huruf": "AB",
+          "bobot_ipk": 3.5,
+          "skor_rata_sub_clo": 82.0,
+          "jumlah_sub_clo": 6,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Mampu menggunakan teknik, metode, perangkat lunak, atau kakasterkini untuk menghasilkan solusi di bidang sistem informasi dalam konteks praktikum.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 81.1,
+              "sub_clo_grade": "AB"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu menggunakan teknik, metode, perangkat lunak, atau kakasterkini untuk menghasilkan solusi di bidang sistem informasi dalam konteks kasus nyata.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 80.1,
+              "sub_clo_grade": "AB"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu menggunakan metode dan perangkat lunak terkini untuk menghasilkan solusi di bidang data dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 80.6,
+              "sub_clo_grade": "AB"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menggunakan teknik atau perangkat dalam bidang infrastruktur teknologi informasi untuk organisasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 81.7,
+              "sub_clo_grade": "AB"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "Mampu mengidentifikasi kebutuhan sistem informasi dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 83.2,
+              "sub_clo_grade": "AB"
+            },
+            {
+              "sub_clo_code": "CLO-08",
+              "sub_clo_text": "Mampu memahami konsep dasar bidang infokom yang digunakan dalam lingkup disiplin ilmu sistem informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 85.3,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 26,
+          "semester": "Semester 4",
+          "kode_mk": "BBK2MAB3",
+          "nama_mk": "Administrasi Basisdata",
+          "nama_mk_en": "Database Administration",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 91.4,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Mendemonstrasikan Administrasi Basis Data",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Membuat Stored Procedure dan Functions",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Mendeteksi problem dan melakukan fine tuning",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.7,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 27,
+          "semester": "Semester 4",
+          "kode_mk": "BBK2HAB4",
+          "nama_mk": "Manajemen Sumber Daya Manusia",
+          "nama_mk_en": "Human Resource Management",
+          "sks": 4,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.6,
+          "jumlah_sub_clo": 14,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-1.1",
+              "sub_clo_text": "Mampu mengidentifikasi peran manajemen sumberdaya manusia",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 97.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-1.2",
+              "sub_clo_text": "Mampu menganalisis elemen-elemen alur kerja, spesifikasi kerja dan struktur organisasi",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 93.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2.1",
+              "sub_clo_text": "Mampu menjelaskan proses perencanaan sumberdaya manusia yang sesuai dengan strategi organisasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 89.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2.2",
+              "sub_clo_text": "Mampu menjelaskan dan menganalisis proses penyeleksian personil dan perekrutan",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 95.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2.3",
+              "sub_clo_text": "Mampu menjelaskan dan menghubungkan program pelatihan dengan kebutuhan organisasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 97.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2.4",
+              "sub_clo_text": "Mampu mengidentifikasi bagaimana pengembangan keahlian meliputi pelatihan dan pengembangan karyawan",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 95.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-3.1",
+              "sub_clo_text": "Mampu mengidentifikasi aktivitas pengukuran kinerja pegawai sesuai tujuan perusahaan",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 90.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-3.2",
+              "sub_clo_text": "Mampu mengidentifikasi dan mendiskusikan jenis-jenis kompensasi karyawan",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 88.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-3.3",
+              "sub_clo_text": "Mampu mengklasifikasi trend dan komposisi sumberdaya manusia sebagai faktor pendukung bisnis dalam cakupan sistem perusahaan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-3.4",
+              "sub_clo_text": "Mampu menjelaskan perbedaan proses pemberhentian, regenerasi, dan retirement pegawai di lingkup profesional",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 87.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-4.1",
+              "sub_clo_text": "Mampu menyusun dan mengelola kualifikasi karyawan dengan mengimplementasi sistem enterprise terintegrasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-4.2",
+              "sub_clo_text": "Mampu mengaplikasikan dan mengelola personnel infotype berbasis sistem enterprise terintegrasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 5-5.1",
+              "sub_clo_text": "Mampu mengaplikasikan dan mengevaluasi manajemen waktu dan penjadwalan karyawan dengan pengimplementasian sistem enterprise terintegrasi",
+              "bloom_taxonomy": "5 - Evaluate",
+              "sub_clo_score": 96.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 5-5.3",
+              "sub_clo_text": "Mampu mengaplikasikan dan mengevaluasi proses rekrutmen dan on-boarding karyawan dengan mengimplementasi sistem enterprise terintegrasi",
+              "bloom_taxonomy": "5 - Evaluate",
+              "sub_clo_score": 94.4,
+              "sub_clo_grade": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester": "Semester 5",
+      "sks_semester": 19,
+      "ips_semester": 4.0,
+      "total_sks_kumulatif": 96,
+      "ipk_kumulatif": 3.94,
+      "courses": [
+        {
+          "no": 28,
+          "semester": "Semester 5",
+          "kode_mk": "BBK3AAB3",
+          "nama_mk": "Arsitektur Enterprise",
+          "nama_mk_en": "Enterprise Architecture",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 91.9,
+          "jumlah_sub_clo": 8,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-SubCLO01",
+              "sub_clo_text": "Mampu menganalisis kebutuhan arsitektur enterprise pada suatu organisasi",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 91.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-SubCLO02",
+              "sub_clo_text": "Mampu menggunakan teknik dan kakas dalam menyusun arsitektur enterprise.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-SubCLO03",
+              "sub_clo_text": "Mampu merancang arsitektur enteprise berdasarkan framework dan bahasa pemodelan yang terstandardisasi pada suatu studi kasus.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-SubCLO03",
+              "sub_clo_text": "Mampu merancang arsitektur enteprise berdasarkan framework dan bahasa pemodelan yang terstandardisasi pada suatu studi kasus",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-SubCLO04",
+              "sub_clo_text": "Mampu merancang arsitektur enterprise usulan yang sesuai dengan hasil identifikasi kebutuhan dan memiliki justifikasi yang tepat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 89.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-05",
+              "sub_clo_text": "Mampu memodelkan kebutuhan infokom dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 92.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-05",
+              "sub_clo_text": "Mampu menggunakan teknik, metode, perangkat lunak terkini untuk menghasilkan solusi di bidang pengelolaan fungsi dan bisnis organisasi dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-06",
+              "sub_clo_text": "Mampu mengusulkan perbaikan arsitektur atau pengelolaan sistem informasi untuk mendukung tujuan organisasi.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.6,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 29,
+          "semester": "Semester 5",
+          "kode_mk": "BBK2HAB3",
+          "nama_mk": "Integrasi Aplikasi Enterprise",
+          "nama_mk_en": "Enterprise Application Integration",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 95.7,
+          "jumlah_sub_clo": 5,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-01",
+              "sub_clo_text": "Mampu mengidentifikasi kebutuhan integrasi aplikasi enterprise",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 95.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-02",
+              "sub_clo_text": "Mampu mengimplementasikan teknologi integrasi yang paling sesuai dengan kebutuhan sistem informasi enterprise.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-03",
+              "sub_clo_text": "Mampu menggunakan kakas atau teknologi terbaru yang berkaitan dengan integrasi aplikasi enterprise untuk menghasilkan solusi efektif.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "[PLO01] CLO03 - Mampu mengidentifikasi kebutuhan sistem informasi dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 96.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "[PLO08] CLO03 - Mampu menggunakan metode atau perangkat lunak tertentu dalam keilmuan sistem informasi dalam konteks penelitian atau proyek nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.7,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 30,
+          "semester": "Semester 5",
+          "kode_mk": "BBK2LAB3",
+          "nama_mk": "Penambangan Data",
+          "nama_mk_en": "Data Mining",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 90.7,
+          "jumlah_sub_clo": 13,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-1",
+              "sub_clo_text": "Mahasiswa mampu melakukan eksplorasi data sesuai dengan jenis data dan kebutuhan informasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-2",
+              "sub_clo_text": "Mahasiswa mampu menerapkan metode statistika dalam pemodelan data mining untuk mendapatkan informasi yang bermanfaat",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-3",
+              "sub_clo_text": "Mahasiswa mampu menginterpretasikan data dalam bentik statistika deskriptiv, baik dalam bentuk statistika data maupun visualisasi data",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 86.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-1",
+              "sub_clo_text": "Mahasiswa mampu menjelaskan konsep dasar data mining, ruang lingkup, dan penerapan data mining dalam kasus nyata",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 88.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-2",
+              "sub_clo_text": "Mahasiswa mampu membuat pemodelan data yang sesuai dengan Jenis data yang digunakan sehingga menghasilkan informasi yang dapat dimanfaatkan dalam pengambilan keputusan/kebijakan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-1",
+              "sub_clo_text": "Mahasiswa mampu menjelaskan jenis-jenis metodologi yang dapat digunakan dalam data mining",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 86.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-2",
+              "sub_clo_text": "Mahasiswa mampu mengaplikasikan tahapan data preprocessing dengan menggunakan data rill",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-3",
+              "sub_clo_text": "Mahasiswa mampu mengembangkan dashboard sederhana untuk memvisualisasikan hasil pemodelan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-1",
+              "sub_clo_text": "Mahasiswa mampu menggunakan metode dalam data mining dan Python/R untuk menghasilkan solusi di bidang data dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-01",
+              "sub_clo_text": "Mampu menggunakan metode dan perangkat lunak terkini untuk menghasilkan solusi di bidang data dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu mengembangkan solusi berbasis sistem informasi menggunakan metodologi pengembangan yang tepat.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-05",
+              "sub_clo_text": "Mampu memodelkan kebutuhan infokom dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 92.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-07",
+              "sub_clo_text": "Mampu menerapkan pengetahuan statistika fundamental dalam lingkup ilmu sistem informasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.6,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 31,
+          "semester": "Semester 5",
+          "kode_mk": "BBK3IAB3",
+          "nama_mk": "Tata Kelola dan Manajemen Teknologi Informasi",
+          "nama_mk_en": "IT Governance and Management",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 90.7,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO-02",
+              "sub_clo_text": "Mampu menggunakan teknik, metode, perangkat lunak, atau kakas terkini untuk menghasilkan solusi di bidang sistem informasi dalam konteks kasus nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-03",
+              "sub_clo_text": "Mampu menganalisis permasalahan yang kompleks dalam bidang infokom dalam konteks enterprise atau masyarakat",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 91.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO-04",
+              "sub_clo_text": "Mampu mengevaluasi kinerja sistem informasi dan mengusulkan perbaikan untuk meningkatkan kontribusi sistem informasi terhadap tujuan bisnis organisasi.",
+              "bloom_taxonomy": "5 - Evaluate",
+              "sub_clo_score": 88.0,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 32,
+          "semester": "Semester 5",
+          "kode_mk": "BBK3CAB3",
+          "nama_mk": "Manajemen Rantai Pasok",
+          "nama_mk_en": "Supply Chain Management",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 90.4,
+          "jumlah_sub_clo": 14,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "[PLO09-CLO01] Mampu menjelaskan mengenai prinsip dasar Operasi dan Manajemen Rantai Pasok untuk mendukung strategi perusahaan.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-sub-CLO01",
+              "sub_clo_text": "Mampu menjelaskan pentingnya strategi dan manajemen rantai pasok dalam strategi perusahaan.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 86.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-sub-CLO02",
+              "sub_clo_text": "Mampu menjelaskan proses rantai pasok dan strategi manajemen rantai pasok di era modern.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 86.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-sub-CLO03",
+              "sub_clo_text": "Mampu menjelaskan tentang procurement, distribution barang/jasa serta tren rantai pasok global.",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-sub-CLO01",
+              "sub_clo_text": "Mampu melakukan demand forecasting dan menganalisanya dengan berbagai metode yang ada.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-sub-CLO02",
+              "sub_clo_text": "Mampu membuat dan menganalisa manajemen inventory sesuai kebutuhan perusahaan.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-sub-CLO03",
+              "sub_clo_text": "Mampu merencanakan sales dan menentukan kapasitas sumber daya perusahaan yang diperlukan.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-sub-CLO04",
+              "sub_clo_text": "Mampu merencanakan dan menganalisa sumber daya perusahaan yang diperlukan untuk produksi.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-sub-CLO01",
+              "sub_clo_text": "Mampu melakukan proses procurement menggunakan perangkat lunak manajemen rantai pasok.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-sub-CLO02",
+              "sub_clo_text": "Mampu menggunakan master data dan fungsi reporting dan analysis pada perangkat lunak manajemen rantai pasok.",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Menjabarkan konsep manajemen rantai pasok dan strateginya",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Menerapkan peramalan dan perencanaan agregat rantai pasok",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Memecahkan masalah proses bisnis umum (persediaan, logistik)",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01d",
+              "sub_clo_text": "Mengusulkan solusi TI untuk supply chain nyata",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 89.3,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 33,
+          "semester": "Semester 5",
+          "kode_mk": "BBK3GAB4",
+          "nama_mk": "Metode Penelitian Dan Penyusunan Karya Ilmiah",
+          "nama_mk_en": "Research Methodology",
+          "sks": 4,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.4,
+          "jumlah_sub_clo": 18,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-PLO01-CLO03.1",
+              "sub_clo_text": "Mahasiswa mampu mengetahui lingkup penelitian dalam bidang Sistem Informasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-PLO01-CLO03.3",
+              "sub_clo_text": "Mahasiswa mampu mengenali dan menentukan lingkup penelitian TA dalam bidang Sistem Informasi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-PLO01-CLO03.5",
+              "sub_clo_text": "Mahasiswa mampu membuat mindmap secara terstruktur mengenai literatur yang berkaitan untuk membangun produk TA secara tepat dan sesuai",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-PLO01-CLO03.6",
+              "sub_clo_text": "Mahasiswa mampu mengidentifikasikan permasalahan TA",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 92.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-PLO01-CLO03.8",
+              "sub_clo_text": "Mahasiswa mampu menentukan batasan solusi permasalahan TA",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1-PLO01-CLO03.8",
+              "sub_clo_text": "Mampu menentukan batasan solusi",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-PLO01-CLO04.1",
+              "sub_clo_text": "Mahassiwa mampu menentukan pentingnya permasalahan dan hasil TA yang akan dihasilkan berdasar data darisumber yang akurat",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-PLO01-CLO04.4",
+              "sub_clo_text": "Mahasiswa mampu membandingkan dan mengklasifikasikan literatur yang mendukung solusi permasalahan TA yang diusulkan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-PLO01-CLO04.4",
+              "sub_clo_text": "Mampu membandingkan literatur",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-PLO05-CLO02.1",
+              "sub_clo_text": "Mahasiswa mampu menulis laporan dan proposal TA sesuai secara terstruktur dan sesuai dengan aturan dan template penulisan dan panduan laporan atau proposal TA",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.7,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-PLO05-CLO02.1",
+              "sub_clo_text": "Mampu menulis laporan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.9,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-PLO05-CLO02.2",
+              "sub_clo_text": "Mahasiswa mampu mencantumkan sumberliteratur pada laporan atau proposal TA sesuai dengan ketentuan aturan (standar) yang ditetapkan dengan benar",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-PLO05-CLO02.2",
+              "sub_clo_text": "Mahasiswa mampu mencantumkan sumberliteratur pada laporan atau proposal TA",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-PLO05-CLO02.3",
+              "sub_clo_text": "Mahasiswa mampu memahami struktur pembuatan makalah dan mekanisme publikasi karya ilmiah",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 95.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-PLO05-CLO02.5",
+              "sub_clo_text": "Mahasiswa mampu menggunakan bahasa Inggris untuk mencari dan memahami referensi TA",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 93.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-PLO08-CLO03.2",
+              "sub_clo_text": "Mahasiswa mampu menentukan satu metode yang sesuai dengan TA dan mampu menjelaskan alasannya",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 88.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-PLO08-CLO03.4",
+              "sub_clo_text": "Mahasiswa mampu menentukan metode untuk membuat produk dari TA dan cara evaluasi dari hasil TA",
+              "bloom_taxonomy": "5 - Evaluate",
+              "sub_clo_score": 96.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-PLO08-CLO03.4",
+              "sub_clo_text": "Mampu menentukan metode produk TA",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.6,
+              "sub_clo_grade": "A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester": "Semester 6",
+      "sks_semester": 18,
+      "ips_semester": 4.0,
+      "total_sks_kumulatif": 114,
+      "ipk_kumulatif": 3.95,
+      "courses": [
+        {
+          "no": 34,
+          "semester": "Semester 6",
+          "kode_mk": "BBK4AAB3",
+          "nama_mk": "Perencanaan Strategis SI/TI",
+          "nama_mk_en": "Strategic IS/IT Planning",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.0,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO01",
+              "sub_clo_text": "Menjelaskan konsep TI sebagai aset strategis",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.4,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO02",
+              "sub_clo_text": "Membangun Perencanaan Strategis organisasi (SWOT, BSC)",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO03",
+              "sub_clo_text": "Menganalisis Strategi TI dengan berbagai metode",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 93.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO04",
+              "sub_clo_text": "Merancang Enterprise Architecture (TOGAF)",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 90.1,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 35,
+          "semester": "Semester 6",
+          "kode_mk": "BBK4BAB3",
+          "nama_mk": "Manajemen Layanan TI",
+          "nama_mk_en": "IT Service Management (ITSM)",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 90.1,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Menjelaskan konsep-konsep penting Manajemen Layanan TI",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 86.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Menjelaskan model-model utama (SVS, SVC, ITIL)",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.1,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Menjelaskan 34 practices Manajemen Layanan TI",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 93.5,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 36,
+          "semester": "Semester 6",
+          "kode_mk": "BBK4CAB3",
+          "nama_mk": "Manajemen Risiko TI",
+          "nama_mk_en": "IT Risk Management",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 87.9,
+          "jumlah_sub_clo": 3,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Memahami ketidakpastian bisnis dan kerentanan data/informasi",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 88.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Mengelola risiko TI untuk keberlangsungan bisnis",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Mengelola sistem informasi yang aman dan akuntabel",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.3,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 37,
+          "semester": "Semester 6",
+          "kode_mk": "BBK4DAB4",
+          "nama_mk": "SI Capstone",
+          "nama_mk_en": "Information Systems Capstone",
+          "sks": 4,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.6,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO01a",
+              "sub_clo_text": "Mempraktikkan manajemen proyek tangkas",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 92.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01b",
+              "sub_clo_text": "Mempraktikkan perencanaan dan pengembangan perangkat lunak",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 97.6,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01c",
+              "sub_clo_text": "Mengimplementasikan pembelajaran berbasis proyek di lingkungan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 94.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO01d",
+              "sub_clo_text": "Mendemonstrasikan hasil implementasi proyek",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 86.2,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 38,
+          "semester": "Semester 6",
+          "kode_mk": "UCKXBDB2",
+          "nama_mk": "Kewirausahaan",
+          "nama_mk_en": "Entrepreneurship",
+          "sks": 3,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 92.4,
+          "jumlah_sub_clo": 8,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Mampu menjelaskan pengertian kewirausahaan",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 90.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 1",
+              "sub_clo_text": "Mampu menjelaskan pengertian inovasi, kreativitas, dan pengembangan ide",
+              "bloom_taxonomy": "2 - Understand",
+              "sub_clo_score": 94.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu merancang business plan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.2,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu merancang Marketing Mix untuk Business Plan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu merencanakan aspek operasinal pada business plan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 88.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu menyusun aspek finansial pada business plan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 91.3,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2",
+              "sub_clo_text": "Mampu melakukan negosiasi untuk mendapatkan pendanaan dari investor",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3",
+              "sub_clo_text": "Mampu menerapkan business plan dan mengembangkan usaha untuk menghasilkan keuntungan",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.5,
+              "sub_clo_grade": "A"
+            }
+          ]
+        },
+        {
+          "no": 39,
+          "semester": "Semester 6",
+          "kode_mk": "BBK4EAB2",
+          "nama_mk": "Kerja Praktek dan Pengabdian Masyarakat",
+          "nama_mk_en": "Internship & Community Service",
+          "sks": 2,
+          "nilai_huruf": "A",
+          "bobot_ipk": 4.0,
+          "skor_rata_sub_clo": 93.8,
+          "jumlah_sub_clo": 4,
+          "sub_clos": [
+            {
+              "sub_clo_code": "CLO 1-1",
+              "sub_clo_text": "Mahasiswa mampu menunjukkan etos kerja yang baik dan bersikap profesional dalam melaksanakan tugas-tugas atau pekerjaan selama KP",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 87.0,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 2-1",
+              "sub_clo_text": "Mahasiswa mampu merencanakan penyelesaian tugas atau pekerjaan, bekerja efektif, mandiri dan bekerja sama di dalam tim organisasi perusahaan selama KP",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 95.8,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 3-1",
+              "sub_clo_text": "Mahasiswa mampu mengkomunikasikan hasil tugas atau pekerjaan selama KP secara lisan dan tulisan dalam bentuk laporan KP yang terstruktur",
+              "bloom_taxonomy": "3 - Apply",
+              "sub_clo_score": 96.5,
+              "sub_clo_grade": "A"
+            },
+            {
+              "sub_clo_code": "CLO 4-1",
+              "sub_clo_text": "Mahasiswa mampu mengidentifikasi dan memformulasikan masalah dengan baik yang didukung oleh data-data sebagai sebuah pengetahuan baru untuk mahasiswa yang diperoleh selama KP",
+              "bloom_taxonomy": "4 - Analyze",
+              "sub_clo_score": 96.1,
+              "sub_clo_grade": "A"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

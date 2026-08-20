@@ -137,6 +137,8 @@ def generate_interventions(
             continue
 
         row = course_lookup.loc[course_name]
+        if isinstance(row, pd.DataFrame):
+            row = row.iloc[0]
         grade_weight = float(row["grade_weight"])
         match_conf = float(row["match_confidence"])
 
