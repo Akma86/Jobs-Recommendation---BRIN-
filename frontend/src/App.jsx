@@ -22,7 +22,14 @@ import {
   Edit3,
   User,
   FlaskConical,
-  Lock
+  Lock,
+  Sliders,
+  Columns,
+  Layout,
+  Maximize2,
+  Minimize2,
+  PanelLeftClose,
+  PanelLeftOpen
 } from 'lucide-react';
 
 const CATEGORIES = [
@@ -47,6 +54,46 @@ export default function App() {
   const [catalogJobs, setCatalogJobs] = useState([]);
   const [catalogTotal, setCatalogTotal] = useState(4570);
   const [isCatalogLoading, setIsCatalogLoading] = useState(false);
+
+  // Resizable Panel & Density States
+  const [panelWidth, setPanelWidth] = useState(460);
+  const [isDragging, setIsDragging] = useState(false);
+  const [cardDensity, setCardDensity] = useState('comfortable'); // 'comfortable' | 'compact'
+  const [isListCollapsed, setIsListCollapsed] = useState(false);
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!isDragging) return;
+      const newWidth = Math.min(750, Math.max(300, e.clientX - 32));
+      setPanelWidth(newWidth);
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'col-resize';
+      document.body.style.userSelect = 'none';
+    } else {
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+    };
+  }, [isDragging]);
 
   // Authentication State
   const [authUser, setAuthUser] = useState(() => {
@@ -518,15 +565,72 @@ export default function App() {
         </div>
       </section>
 
-      {/* Main Split Job Board */}
-      <main className="main-job-board">
+      {/* Main Split Job Board with Interactive Drag Resizing */}
+      <main 
+        className="main-job-board"
+        style={{
+          gridTemplateColumns: isListCollapsed 
+            ? '64px 14px 1fr' 
+            : `${panelWidth}px 14px 1fr`
+        }}
+      >
         {/* Left: Job Feed */}
-        <div className="job-list-panel">
+        <div className="job-list-panel" style={{ display: isListCollapsed ? 'none' : 'flex' }}>
+          {/* Header & Controls Bar */}
+          <div className="board-controls-bar">
+            <div className="board-control-group">
+              <span style={{ fontSize: '0.76rem', fontWeight: 700, color: '#64748B' }}>
+                Lebar Panel:
+              </span>
+              <button 
+                className={`control-pill-btn ${panelWidth === 340 ? 'active' : ''}`}
+                onClick={() => setPanelWidth(340)}
+                title="Mode Fokus Detail (List 340px)"
+              >
+                Fokus (340px)
+              </button>
+              <button 
+                className={`control-pill-btn ${panelWidth === 460 ? 'active' : ''}`}
+                onClick={() => setPanelWidth(460)}
+                title="Mode Standar (460px)"
+              >
+                Standar (460px)
+              </button>
+              <button 
+                className={`control-pill-btn ${panelWidth === 600 ? 'active' : ''}`}
+                onClick={() => setPanelWidth(600)}
+                title="Mode List Lebar (600px)"
+              >
+                Lebar (600px)
+              </button>
+            </div>
+
+            <div className="board-control-group">
+              <span style={{ fontSize: '0.76rem', fontWeight: 700, color: '#64748B' }}>
+                Tampilan:
+              </span>
+              <button 
+                className={`control-pill-btn ${cardDensity === 'comfortable' ? 'active' : ''}`}
+                onClick={() => setCardDensity('comfortable')}
+                title="Tampilan Lengkap (Komprehensif)"
+              >
+                📑 Detail
+              </button>
+              <button 
+                className={`control-pill-btn ${cardDensity === 'compact' ? 'active' : ''}`}
+                onClick={() => setCardDensity('compact')}
+                title="Tampilan Ringkas (Bisa lihat banyak lowongan sekaligus)"
+              >
+                📋 Ringkas
+              </button>
+            </div>
+          </div>
+
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem', padding: '0 0.25rem' }}>
-            <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#475569' }}>
+            <span style={{ fontSize: '0.84rem', fontWeight: 700, color: '#475569' }}>
               {activeTab === 'recommend' 
-                ? `🎯 Menampilkan ${displayedJobs.length} Rekomendasi Teratas Khusus ${studentData?.name || 'Mahasiswa'} (Hasil Algoritma AI)`
-                : `🌐 Menampilkan ${displayedJobs.length} dari ${catalogTotal} Seluruh Katalog Lowongan (dengan Prediksi Match AI)`
+                ? `🎯 ${displayedJobs.length} Rekomendasi Teratas Khusus ${studentData?.name || 'Mahasiswa'}`
+                : `🌐 ${displayedJobs.length} dari ${catalogTotal} Katalog Lowongan`
               }
             </span>
             {isCatalogLoading && (
@@ -545,6 +649,7 @@ export default function App() {
                 onSelect={() => setActiveJob(job)}
                 isSaved={savedJobs.includes(job.job_id)}
                 onToggleSave={handleToggleSave}
+                density={cardDensity}
               />
             ))
           ) : (
@@ -552,6 +657,15 @@ export default function App() {
               {isCatalogLoading ? 'Memuat katalog lowongan...' : 'Tidak ada lowongan yang cocok dengan filter pencarian.'}
             </div>
           )}
+        </div>
+
+        {/* Draggable Resize Divider */}
+        <div 
+          className={`resize-divider ${isDragging ? 'dragging' : ''}`}
+          onMouseDown={handleMouseDown}
+          title="Geser ke kiri/kanan untuk memperbesar atau memperkecil lebar panel rekomendasi"
+        >
+          <div className="resize-handle-pill" />
         </div>
 
         {/* Right: Interactive Job & XAI Detail Hub */}

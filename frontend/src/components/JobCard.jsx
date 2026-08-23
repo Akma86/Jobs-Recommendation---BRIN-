@@ -24,7 +24,8 @@ export default function JobCard({
   isSelected, 
   onSelect, 
   isSaved, 
-  onToggleSave 
+  onToggleSave,
+  density = 'comfortable'
 }) {
   const charCode = job.company ? job.company.charCodeAt(0) : 65;
   const avatarBg = AVATAR_COLORS[charCode % AVATAR_COLORS.length];
@@ -47,9 +48,11 @@ export default function JobCard({
     ? job.narrative.components[0] 
     : null;
 
+  const isCompact = density === 'compact';
+
   return (
     <div 
-      className={`job-card ${isSelected ? 'active' : ''}`}
+      className={`job-card ${isCompact ? 'compact' : ''} ${isSelected ? 'active' : ''}`}
       onClick={onSelect}
       style={{
         borderLeft: isSelected ? '4px solid #2563EB' : '1px solid #E2E8F0',
@@ -65,31 +68,31 @@ export default function JobCard({
         <div className="job-card-title-box" style={{ flex: 1 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
             <div>
-              <h3 className="job-card-title" style={{ fontSize: '1.05rem', fontWeight: 800 }}>
+              <h3 className="job-card-title" style={{ fontSize: isCompact ? '0.96rem' : '1.05rem', fontWeight: 800 }}>
                 {job.title}
               </h3>
-              <div className="job-card-company" style={{ fontSize: '0.86rem', color: '#475569', marginTop: '0.15rem' }}>
+              <div className="job-card-company" style={{ fontSize: isCompact ? '0.78rem' : '0.86rem', color: '#475569', marginTop: '0.1rem' }}>
                 {job.company}
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexShrink: 0 }}>
-              {/* Jobright-style Match Score Badge */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexShrink: 0 }}>
+              {/* Match Score Badge */}
               <div style={{
                 background: matchBadgeBg,
                 color: matchBadgeColor,
                 border: `1px solid ${matchBadgeBorder}`,
-                padding: '0.25rem 0.65rem',
+                padding: isCompact ? '0.15rem 0.5rem' : '0.25rem 0.65rem',
                 borderRadius: '9999px',
-                fontSize: '0.82rem',
+                fontSize: isCompact ? '0.76rem' : '0.82rem',
                 fontWeight: 800,
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.3rem',
+                gap: '0.25rem',
                 boxShadow: isHighMatch ? '0 2px 6px rgba(16,185,129,0.15)' : 'none'
               }}>
-                <Sparkles size={13} />
-                {matchPct}% Match
+                <Sparkles size={isCompact ? 11 : 13} />
+                {matchPct}%
               </div>
 
               <button
@@ -106,29 +109,29 @@ export default function JobCard({
                 }}
                 title={isSaved ? "Hapus dari Simpanan" : "Simpan Lowongan"}
               >
-                <Bookmark size={18} fill={isSaved ? "#2563EB" : "none"} />
+                <Bookmark size={isCompact ? 16 : 18} fill={isSaved ? "#2563EB" : "none"} />
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.8rem', color: '#64748B', margin: '0.5rem 0' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', fontSize: '0.78rem', color: '#64748B', margin: isCompact ? '0.25rem 0' : '0.5rem 0' }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-          <MapPin size={13} /> {job.location || 'Indonesia / Remote'}
+          <MapPin size={12} /> {job.location || 'Indonesia / Remote'}
         </span>
         <span>•</span>
         <span>Peringkat #{job.rank}</span>
-        {job.condition === 'before' && (
+        {job.delta > 0.1 && (
           <>
             <span>•</span>
-            <span style={{ color: '#64748B', fontWeight: 600 }}>KHS Saja</span>
+            <span style={{ color: '#059669', fontWeight: 700 }}>+{job.delta.toFixed(2)} Boost</span>
           </>
         )}
       </div>
 
-      {/* Match Reason Summary Box (Jobright.ai Style) */}
-      {topComponent && (
+      {/* Match Reason Summary Box (Shown only in comfortable mode or short chip in compact) */}
+      {!isCompact && topComponent && (
         <div style={{
           background: '#F8FAFC',
           border: '1px dashed #CBD5E1',
@@ -148,22 +151,21 @@ export default function JobCard({
         </div>
       )}
 
-      {/* Badges */}
-      <div className="job-card-badges">
-        {/* Certificate Delta Boost */}
-        {job.delta > 0.1 && (
-          <span className="badge-boost">
-            <TrendingUp size={12} />
-            +{job.delta.toFixed(2)} Sertifikat Boost
+      {/* Badges (Comfortable mode only) */}
+      {!isCompact && (
+        <div className="job-card-badges">
+          {job.delta > 0.1 && (
+            <span className="badge-boost">
+              <TrendingUp size={12} />
+              +{job.delta.toFixed(2)} Sertifikat Boost
+            </span>
+          )}
+          <span className="badge-tag">
+            <Award size={11} style={{ marginRight: '3px' }} />
+            Tier A/B Validated
           </span>
-        )}
-
-        {/* Credibility / OBE Tag */}
-        <span className="badge-tag">
-          <Award size={11} style={{ marginRight: '3px' }} />
-          Tier A/B Validated
-        </span>
-      </div>
+        </div>
+      )}
     </div>
   );
 }
