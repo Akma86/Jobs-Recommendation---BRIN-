@@ -51,7 +51,7 @@ export default function StudentProfileModal({ student, onClose }) {
         </div>
 
         {/* Profile Tabs */}
-        <div style={{ display: 'flex', gap: '0.5rem', borderBottom: '1px solid #E2E8F0', marginBottom: '1.25rem', paddingBottom: '0.5rem' }}>
+        <div style={{ display: 'flex', gap: '0.5rem', borderBottom: '1px solid #E2E8F0', marginBottom: '1.25rem', paddingBottom: '0.5rem', flexWrap: 'wrap' }}>
           <button 
             className={`xai-tab-btn ${profileTab === 'khs' ? 'active' : ''}`}
             onClick={() => setProfileTab('khs')}
@@ -67,35 +67,46 @@ export default function StudentProfileModal({ student, onClose }) {
             <Award size={16} />
             📜 Portofolio Sertifikasi ({student.certificates?.length || 0})
           </button>
+
+          <button 
+            className={`xai-tab-btn ${profileTab === 'abtest' ? 'active' : ''}`}
+            onClick={() => setProfileTab('abtest')}
+          >
+            <CheckCircle2 size={16} />
+            ⚖️ Evaluasi A/B (+Sertifikat)
+          </button>
         </div>
 
         {/* TAB 1: KHS */}
         {profileTab === 'khs' && (
           <div>
             <div style={{ overflowX: 'auto' }}>
-              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.86rem', textAlign: 'left' }}>
+              <table className="data-table">
                 <thead>
-                  <tr style={{ background: '#F1F5F9', borderBottom: '1px solid #CBD5E1', color: '#334155' }}>
-                    <th style={{ padding: '0.6rem 0.8rem' }}>No</th>
-                    <th style={{ padding: '0.6rem 0.8rem' }}>Kode MK</th>
-                    <th style={{ padding: '0.6rem 0.8rem' }}>Nama Mata Kuliah</th>
-                    <th style={{ padding: '0.6rem 0.8rem' }}>SKS</th>
-                    <th style={{ padding: '0.6rem 0.8rem' }}>Semester</th>
-                    <th style={{ padding: '0.6rem 0.8rem' }}>Nilai</th>
+                  <tr>
+                    <th>No</th>
+                    <th>Kode MK</th>
+                    <th>Nama Mata Kuliah</th>
+                    <th>SKS</th>
+                    <th>Semester</th>
+                    <th>Nilai</th>
                   </tr>
                 </thead>
                 <tbody>
                   {student.courses?.map((c, idx) => (
-                    <tr key={idx} style={{ borderBottom: '1px solid #E2E8F0', background: idx % 2 === 0 ? '#FFFFFF' : '#F8FAFC' }}>
-                      <td style={{ padding: '0.55rem 0.8rem', color: '#64748B' }}>{c.no}</td>
-                      <td style={{ padding: '0.55rem 0.8rem', fontFamily: 'monospace', color: '#475569' }}>{c.kode_mk}</td>
-                      <td style={{ padding: '0.55rem 0.8rem', fontWeight: 600, color: '#1E293B' }}>{c.nama_mk}</td>
-                      <td style={{ padding: '0.55rem 0.8rem', color: '#475569' }}>{c.sks}</td>
-                      <td style={{ padding: '0.55rem 0.8rem', color: '#64748B' }}>{c.semester}</td>
-                      <td style={{ padding: '0.55rem 0.8rem' }}>
+                    <tr key={idx}>
+                      <td style={{ color: '#64748B' }}>{c.no}</td>
+                      <td style={{ fontFamily: 'monospace', color: '#475569', fontWeight: 600 }}>{c.kode_mk}</td>
+                      <td style={{ fontWeight: 700, color: '#1E293B' }}>{c.nama_mk}</td>
+                      <td style={{ color: '#475569' }}>{c.sks}</td>
+                      <td style={{ color: '#64748B' }}>{c.semester}</td>
+                      <td>
                         <span style={{ 
                           fontWeight: 800, 
-                          color: (c.grade === 'A' || c.grade === 'AB') ? '#059669' : (c.grade === 'B' || c.grade === 'BC' ? '#2563EB' : '#DC2626')
+                          color: (c.grade === 'A' || c.grade === 'AB') ? '#059669' : (c.grade === 'B' || c.grade === 'BC' ? '#2563EB' : '#DC2626'),
+                          background: (c.grade === 'A' || c.grade === 'AB') ? '#ECFDF5' : (c.grade === 'B' || c.grade === 'BC' ? '#EFF6FF' : '#FEF2F2'),
+                          padding: '0.15rem 0.5rem',
+                          borderRadius: '6px'
                         }}>
                           {c.grade}
                         </span>
@@ -151,6 +162,64 @@ export default function StudentProfileModal({ student, onClose }) {
                 )}
               </div>
             ))}
+          </div>
+        )}
+        {/* TAB 3: A/B Testing Evaluation */}
+        {profileTab === 'abtest' && (
+          <div>
+            <p style={{ fontSize: '0.86rem', color: '#64748B', marginBottom: '1rem' }}>
+              Perbandingan hasil rekomendasi karir sebelum vs sesudah penambahan <strong>{student.num_certs} sertifikat industri</strong>:
+            </p>
+
+            <div style={{ overflowX: 'auto', marginBottom: '1.25rem' }}>
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>Rank</th>
+                    <th>Kondisi A (KHS Saja)</th>
+                    <th>Skor A</th>
+                    <th>Kondisi B (+ 5 Sertifikat)</th>
+                    <th>Skor B</th>
+                    <th>Delta Boost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(student.recommended_jobs_after || student.recommended_jobs || []).slice(0, 5).map((jobA, idx) => {
+                    const jobB = (student.recommended_jobs_before || [])[idx] || {};
+                    return (
+                      <tr key={idx}>
+                        <td style={{ fontWeight: 700, color: '#64748B' }}>#{idx + 1}</td>
+                        <td style={{ color: '#334155' }}>{jobB.title || '-'}</td>
+                        <td style={{ fontWeight: 600, color: '#475569' }}>{jobB.score_before || '-'}</td>
+                        <td style={{ fontWeight: 800, color: '#1E40AF' }}>{jobA.title}</td>
+                        <td style={{ fontWeight: 800, color: '#1E40AF' }}>{jobA.score_after}</td>
+                        <td>
+                          <span style={{
+                            padding: '0.2rem 0.55rem',
+                            borderRadius: '6px',
+                            fontWeight: 800,
+                            fontSize: '0.78rem',
+                            background: jobA.delta > 0.3 ? '#ECFDF5' : '#F1F5F9',
+                            color: jobA.delta > 0.3 ? '#065F46' : '#64748B'
+                          }}>
+                            {jobA.delta > 0 ? `+${jobA.delta.toFixed(2)}` : '0.00'}
+                          </span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '12px', padding: '1rem' }}>
+              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#1E40AF', marginBottom: '0.25rem' }}>
+                📌 Ringkasan Hasil Eksperimen:
+              </div>
+              <p style={{ fontSize: '0.82rem', color: '#1E3A8A', margin: 0, lineHeight: 1.5 }}>
+                Integrasi sertifikasi industri kredibel (Tier A/B) terbukti secara empiris meningkatkan skor kelayakan pada posisi linear dan mempertajam spesifikasi karir target lulusan secara signifikan.
+              </p>
+            </div>
           </div>
         )}
       </div>

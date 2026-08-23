@@ -22,12 +22,12 @@ yang diselenggarakan oleh **PMI**, dengan total durasi pelatihan
 | Nama Penerima | Nadia Putri SI Bagus |
 | Judul Sertifikasi | Project Management Professional (PMP) |
 | Penyelenggara / Issuer | PMI |
-| Tanggal Terbit | 27 Maret 2024 |
-| Berlaku Hingga | 27 Maret 2026 |
+| Tanggal Terbit | 3 Maret 2024 |
+| Berlaku Hingga | 3 Maret 2026 |
 | Durasi Pelatihan | 35 jam |
-| Skor Akhir | 81/100 |
-| ID Kredensial | CERT-PMP-3GR50DDG |
-| Kode Verifikasi | HEQQ3FJOIZ9D |
+| Skor Akhir | 93/100 |
+| ID Kredensial | CERT-PMP-QFF18VUB |
+| Kode Verifikasi | RHKTI22LKGBN |
 
 ---
 

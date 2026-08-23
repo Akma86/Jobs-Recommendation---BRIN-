@@ -22,12 +22,12 @@ yang diselenggarakan oleh **SCRUMstudy**, dengan total durasi pelatihan
 | Nama Penerima | Nadia Putri SI Bagus |
 | Judul Sertifikasi | Scrum Fundamentals Certified |
 | Penyelenggara / Issuer | SCRUMstudy |
-| Tanggal Terbit | 14 Agustus 2023 |
-| Berlaku Hingga | 14 Agustus 2026 |
+| Tanggal Terbit | 26 Maret 2024 |
+| Berlaku Hingga | 26 Maret 2027 |
 | Durasi Pelatihan | 12 jam |
-| Skor Akhir | 94/100 |
-| ID Kredensial | CERT-SFC-UJAPGA6O |
-| Kode Verifikasi | 43KY34CD1VT2 |
+| Skor Akhir | 98/100 |
+| ID Kredensial | CERT-SFC-EFIGG2M7 |
+| Kode Verifikasi | 7RMJ0PQW0WIY |
 
 ---
 

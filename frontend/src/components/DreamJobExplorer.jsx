@@ -73,7 +73,7 @@ export default function DreamJobExplorer({ student, onClose }) {
               </h2>
             </div>
             <p style={{ color: '#64748B', fontSize: '0.88rem', marginTop: '0.25rem' }}>
-              Pilih profesi impian Anda dari 2.102 lowongan pekerjaan untuk memetakan jalur belajar dan sertifikasi interaktif.
+              Pilih profesi impian Anda dari 4.570 lowongan pekerjaan untuk memetakan jalur belajar dan sertifikasi interaktif.
             </p>
           </div>
 

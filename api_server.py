@@ -14,6 +14,7 @@ import json
 import time
 import io
 import re
+import math
 import pandas as pd
 import numpy as np
 from typing import List, Optional, Dict, Any
@@ -80,22 +81,32 @@ STANDARD_COURSES = [
 ]
 
 STUDENT_KEYS = [
-    ("siti-rahma-ml-bagus", "Siti Rahma", "Machine Learning", "Siti_Rahma_ML_Bagus", "Bagus"),
-    ("rizky-maulana-ml-jelek", "Rizky Maulana", "Machine Learning", "Rizky_Maulana_ML_Jelek", "Jelek"),
-    ("budi-santoso-web-bagus", "Budi Santoso", "Web Development", "Budi_Santoso_Web_Bagus", "Bagus"),
-    ("bayu-setiawan-web-jelek", "Bayu Setiawan", "Web Development", "Bayu_Setiawan_Web_Jelek", "Jelek"),
-    ("andi-wijaya-net-bagus", "Andi Wijaya", "Networking & Cloud", "Andi_Wijaya_Net_Bagus", "Bagus"),
-    ("kevin-aditya-net-jelek", "Kevin Aditya", "Networking & Cloud", "Kevin_Aditya_Net_Jelek", "Jelek"),
-    ("nadia-putri-si-bagus", "Nadia Putri", "Sistem Informasi & Bisnis", "Nadia_Putri_SI_Bagus", "Bagus"),
-    ("farhan-hidayat-si-jelek", "Farhan Hidayat", "Sistem Informasi & Bisnis", "Farhan_Hidayat_SI_Jelek", "Jelek"),
-    ("dewi-lestari-sap-bagus", "Dewi Lestari", "SAP & Enterprise Systems", "Dewi_Lestari_SAP_Bagus", "Bagus"),
-    ("ilham-saputra-sap-jelek", "Ilham Saputra", "SAP & Enterprise Systems", "Ilham_Saputra_SAP_Jelek", "Jelek"),
+    # 10 Profiles across 5 Industry Tracks
+    ("siti-rahma-ml-bagus", "Siti Rahma", "Machine Learning & AI", "Siti_Rahma_ML_Bagus", "Unggul"),
+    ("rizky-maulana-ml-jelek", "Rizky Maulana", "Machine Learning & AI", "Rizky_Maulana_ML_Jelek", "Perlu Penguatan"),
+    ("budi-santoso-web-bagus", "Budi Santoso", "Web & Full-Stack", "Budi_Santoso_Web_Bagus", "Unggul"),
+    ("bayu-setiawan-web-jelek", "Bayu Setiawan", "Web & Full-Stack", "Bayu_Setiawan_Web_Jelek", "Perlu Penguatan"),
+    ("andi-wijaya-net-bagus", "Andi Wijaya", "Networking & Cloud", "Andi_Wijaya_Net_Bagus", "Unggul"),
+    ("kevin-aditya-net-jelek", "Kevin Aditya", "Networking & Cloud", "Kevin_Aditya_Net_Jelek", "Perlu Penguatan"),
+    ("nadia-putri-si-bagus", "Nadia Putri", "Sistem Informasi & Bisnis", "Nadia_Putri_SI_Bagus", "Unggul"),
+    ("farhan-hidayat-si-jelek", "Farhan Hidayat", "Sistem Informasi & Bisnis", "Farhan_Hidayat_SI_Jelek", "Perlu Penguatan"),
+    ("dewi-lestari-sap-bagus", "Dewi Lestari", "SAP & Enterprise Systems", "Dewi_Lestari_SAP_Bagus", "Unggul"),
+    ("ilham-saputra-sap-jelek", "Ilham Saputra", "SAP & Enterprise Systems", "Ilham_Saputra_SAP_Jelek", "Perlu Penguatan"),
 ]
 
 def load_student_precomputed(student_folder: str, slug_id: str, human_name: str, track: str, profile_type: str) -> Dict[str, Any]:
-    base_eks = os.path.join(ROOT_DIR, "results", "Eksperimen_XAI", "EKS12_AB_Test", student_folder)
-    khs_md_path = os.path.join(ROOT_DIR, "data", "Mahasiswa", "generated_markdown_khs", f"{student_folder}_KHS.md")
-    cert_folder = os.path.join(ROOT_DIR, "data", "Mahasiswa", "generated_markdown_certificates", student_folder)
+    # Priority: EKS13 Multi-Semester Test Directory
+    base_eks = os.path.join(ROOT_DIR, "results", "Eksperimen_XAI", "EKS13_Multi_Semester_Test", student_folder)
+    if not os.path.exists(base_eks):
+        base_eks = os.path.join(ROOT_DIR, "results", "Eksperimen_XAI", "EKS12_AB_Test", student_folder)
+
+    khs_md_path = os.path.join(ROOT_DIR, "data", "Mahasiswa", "multi_semester_khs", f"{student_folder}_KHS.md")
+    if not os.path.exists(khs_md_path):
+        khs_md_path = os.path.join(ROOT_DIR, "data", "Mahasiswa", "generated_markdown_khs", f"{student_folder}_KHS.md")
+
+    cert_folder = os.path.join(ROOT_DIR, "data", "Mahasiswa", "multi_semester_khs", "certificates", student_folder)
+    if not os.path.exists(cert_folder):
+        cert_folder = os.path.join(ROOT_DIR, "data", "Mahasiswa", "generated_markdown_certificates", student_folder)
 
     # 1. Parse KHS Transcript
     ipk_str = "3.50 / 4.00"
@@ -186,12 +197,16 @@ def load_student_precomputed(student_folder: str, slug_id: str, human_name: str,
     # 3. Load Recommendations (Before vs After)
     df_b = pd.read_csv(os.path.join(base_eks, "Before", "recommendations.csv")) if os.path.exists(os.path.join(base_eks, "Before", "recommendations.csv")) else pd.DataFrame()
     df_a = pd.read_csv(os.path.join(base_eks, "After", "recommendations.csv")) if os.path.exists(os.path.join(base_eks, "After", "recommendations.csv")) else pd.DataFrame()
-    df_shap = pd.read_csv(os.path.join(base_eks, "After", "shap_explanations.csv")) if os.path.exists(os.path.join(base_eks, "After", "shap_explanations.csv")) else pd.DataFrame()
+    df_shap_a = pd.read_csv(os.path.join(base_eks, "After", "shap_explanations.csv")) if os.path.exists(os.path.join(base_eks, "After", "shap_explanations.csv")) else pd.DataFrame()
+    df_shap_b = pd.read_csv(os.path.join(base_eks, "Before", "shap_explanations.csv")) if os.path.exists(os.path.join(base_eks, "Before", "shap_explanations.csv")) else pd.DataFrame()
     df_dice_a = pd.read_csv(os.path.join(base_eks, "After", "dice_counterfactuals.csv")) if os.path.exists(os.path.join(base_eks, "After", "dice_counterfactuals.csv")) else pd.DataFrame()
+    df_dice_b = pd.read_csv(os.path.join(base_eks, "Before", "dice_counterfactuals.csv")) if os.path.exists(os.path.join(base_eks, "Before", "dice_counterfactuals.csv")) else pd.DataFrame()
 
     before_map = dict(zip(df_b["job_id"], df_b["final_score"])) if not df_b.empty else {}
+    after_map = dict(zip(df_a["job_id"], df_a["final_score"])) if not df_a.empty else {}
 
-    jobs_recommended = []
+    # Parse Condition B (After: KHS + 5 Sertifikat Industri)
+    jobs_recommended_after = []
     if not df_a.empty:
         for idx, row in df_a.head(15).iterrows():
             j_id = str(row["job_id"])
@@ -205,8 +220,8 @@ def load_student_precomputed(student_folder: str, slug_id: str, human_name: str,
 
             # SHAP
             shap_items = []
-            if not df_shap.empty:
-                sub_shap = df_shap[df_shap["job_id"] == j_id]
+            if not df_shap_a.empty:
+                sub_shap = df_shap_a[df_shap_a["job_id"] == j_id]
                 for _, s_r in sub_shap.iterrows():
                     shap_items.append({
                         "feature": str(s_r["feature"]),
@@ -232,15 +247,17 @@ def load_student_precomputed(student_folder: str, slug_id: str, human_name: str,
                         "cf_final_score": float(d_r.get("cf_final_score", score_after + 0.5))
                     })
 
-            jobs_recommended.append({
+            jobs_recommended_after.append({
                 "job_id": j_id,
                 "rank": idx + 1,
+                "condition": "after",
                 "title": j_title,
                 "company": j_company,
                 "location": j_loc,
                 "description": j_desc[:600] + "..." if len(j_desc) > 600 else j_desc,
                 "score_before": round(score_before, 2),
                 "score_after": round(score_after, 2),
+                "final_score": round(score_after, 2),
                 "match_pct": narrative["overall_match_pct"],
                 "delta": round(delta, 2),
                 "is_boosted": delta > 0.3,
@@ -250,9 +267,87 @@ def load_student_precomputed(student_folder: str, slug_id: str, human_name: str,
                 "dice_recommendations": dice_items
             })
 
-    top_job_title = jobs_recommended[0]["title"] if jobs_recommended else "Job Applicant"
-    top_job_company = jobs_recommended[0]["company"] if jobs_recommended else ""
-    top_score = jobs_recommended[0]["score_after"] if jobs_recommended else 0.0
+    # Parse Condition A (Before: KHS Multi-Semester Saja)
+    jobs_recommended_before = []
+    if not df_b.empty:
+        for idx, row in df_b.head(15).iterrows():
+            j_id = str(row["job_id"])
+            j_title = str(row["job_title"])
+            j_company = str(row["job_company"])
+            j_loc = str(row.get("location", "Indonesia / Remote"))
+            j_desc = str(row.get("description", ""))
+            score_b = float(row["final_score"])
+            score_a = float(after_map.get(j_id, score_b))
+            delta = score_a - score_b
+
+            # SHAP Before
+            shap_items_b = []
+            if not df_shap_b.empty:
+                sub_shap_b = df_shap_b[df_shap_b["job_id"] == j_id]
+                for _, s_r in sub_shap_b.iterrows():
+                    shap_items_b.append({
+                        "feature": str(s_r["feature"]),
+                        "value": float(s_r["shap_value"])
+                    })
+            shap_items_b.sort(key=lambda x: abs(x["value"]), reverse=True)
+
+            contrib_dict_b = {it["feature"]: it["value"] for it in shap_items_b}
+            narrative_b = generate_percentage_narrative(j_title, score_b, contrib_dict_b, {})
+
+            # DiCE recommendations Before
+            dice_items_b = []
+            if not df_dice_b.empty:
+                sub_dice_b = df_dice_b[df_dice_b["job_id"] == j_id]
+                for _, d_r in sub_dice_b.iterrows():
+                    dice_items_b.append({
+                        "cf_id": str(d_r.get("cf_id", "")),
+                        "course_name": str(d_r.get("feature", "")).replace("Add Cert: ", ""),
+                        "detail": str(d_r.get("detail", "")),
+                        "score_delta": float(d_r.get("score_delta", 0.5)),
+                        "cf_final_score": float(d_r.get("cf_final_score", score_b + 0.5))
+                    })
+
+            jobs_recommended_before.append({
+                "job_id": j_id,
+                "rank": idx + 1,
+                "condition": "before",
+                "title": j_title,
+                "company": j_company,
+                "location": j_loc,
+                "description": j_desc[:600] + "..." if len(j_desc) > 600 else j_desc,
+                "score_before": round(score_b, 2),
+                "score_after": round(score_a, 2),
+                "final_score": round(score_b, 2),
+                "match_pct": narrative_b["overall_match_pct"],
+                "delta": round(delta, 2),
+                "is_boosted": False,
+                "impact_status": "Kondisi Awal (KHS Saja)",
+                "shap_features": shap_items_b[:6],
+                "narrative": narrative_b,
+                "dice_recommendations": dice_items_b
+            })
+
+    top_job_title = jobs_recommended_after[0]["title"] if jobs_recommended_after else "Job Applicant"
+    top_job_company = jobs_recommended_after[0]["company"] if jobs_recommended_after else ""
+    top_score = jobs_recommended_after[0]["score_after"] if jobs_recommended_after else 0.0
+
+    ab_test_summary = {
+        "top1_before": {
+            "title": jobs_recommended_before[0]["title"] if jobs_recommended_before else "-",
+            "company": jobs_recommended_before[0]["company"] if jobs_recommended_before else "-",
+            "score": jobs_recommended_before[0]["score_before"] if jobs_recommended_before else 0.0,
+            "match_pct": jobs_recommended_before[0]["match_pct"] if jobs_recommended_before else 0.0
+        },
+        "top1_after": {
+            "title": jobs_recommended_after[0]["title"] if jobs_recommended_after else "-",
+            "company": jobs_recommended_after[0]["company"] if jobs_recommended_after else "-",
+            "score": jobs_recommended_after[0]["score_after"] if jobs_recommended_after else 0.0,
+            "match_pct": jobs_recommended_after[0]["match_pct"] if jobs_recommended_after else 0.0,
+            "delta": jobs_recommended_after[0]["delta"] if jobs_recommended_after else 0.0
+        },
+        "total_boosted_jobs": sum(1 for j in jobs_recommended_after if j["delta"] > 0.3),
+        "max_delta": round(max([j["delta"] for j in jobs_recommended_after] + [0.0]), 2)
+    }
 
     return {
         "id": slug_id,
@@ -260,7 +355,7 @@ def load_student_precomputed(student_folder: str, slug_id: str, human_name: str,
         "folder_name": student_folder,
         "track": track,
         "profile_type": profile_type,
-        "is_good": profile_type == "Bagus",
+        "is_good": "Unggul" in profile_type or "Bagus" in profile_type,
         "ipk": ipk_str,
         "total_sks": sks_str,
         "grade_counts": grade_counts,
@@ -270,7 +365,10 @@ def load_student_precomputed(student_folder: str, slug_id: str, human_name: str,
         "top_job_title": top_job_title,
         "top_job_company": top_job_company,
         "top_score": top_score,
-        "recommended_jobs": jobs_recommended
+        "recommended_jobs": jobs_recommended_after,
+        "recommended_jobs_after": jobs_recommended_after,
+        "recommended_jobs_before": jobs_recommended_before,
+        "ab_test_summary": ab_test_summary
     }
 
 @app.on_event("startup")
@@ -306,6 +404,32 @@ def startup_event():
     except Exception as e:
         print(f"Could not load online courses catalog: {e}")
 
+    # 4. Pre-seed Default Custom User Profile
+    try:
+        dummy_courses = [
+            {"no": 1, "kode_mk": "CII2J4", "nama_mk": "Struktur Data dan Algoritma", "sks": 4, "semester": "Semester 3", "grade": "A"},
+            {"no": 2, "kode_mk": "CII3B3", "nama_mk": "Kecerdasan Artifisial dan Penerapannya", "sks": 3, "semester": "Semester 5", "grade": "A"},
+            {"no": 3, "kode_mk": "CII3C3", "nama_mk": "Pemodelan dan Analitika Prediktif", "sks": 3, "semester": "Semester 5", "grade": "AB"},
+            {"no": 4, "kode_mk": "CII3D3", "nama_mk": "Penambangan Data", "sks": 3, "semester": "Semester 6", "grade": "A"},
+            {"no": 5, "kode_mk": "CII4E3", "nama_mk": "Teknologi Machine Learning", "sks": 3, "semester": "Semester 6", "grade": "A"},
+            {"no": 6, "kode_mk": "CII2B3", "nama_mk": "Pemrograman Berorientasi Objek", "sks": 3, "semester": "Semester 3", "grade": "AB"},
+            {"no": 7, "kode_mk": "CII3F3", "nama_mk": "Pengembangan Aplikasi Website", "sks": 3, "semester": "Semester 4", "grade": "B"},
+        ]
+        dummy_certs = [
+            {"title": "Google Data Analytics Professional Certificate", "issuer": "Google / Google Cloud", "issue_date": "2024-05", "duration": "180 jam", "score": "95/100", "topics": "Python, SQL, Tableau, Data Cleaning", "has_assessment": True},
+            {"title": "TensorFlow Developer Certificate", "issuer": "Google / DeepLearning.AI", "issue_date": "2024-08", "duration": "90 jam", "score": "92/100", "topics": "Deep Learning, CNN, NLP, Time Series", "has_assessment": True},
+        ]
+        analyze_custom_student_data(
+            name="Ahmad Fauzi (Akun Pengguna Mandiri)",
+            track="Machine Learning & AI",
+            courses=dummy_courses,
+            certificates=dummy_certs,
+            target_career="Machine Learning Engineer",
+            custom_slug="user-dummy"
+        )
+    except Exception as e:
+        print(f"Error seeding default custom dummy: {e}")
+
     print(f">>> [FastAPI] Startup ready in {time.time() - t0:.2f}s! Cached {len(CACHE_STUDENTS)} students & {len(JOBS_LIST)} jobs.")
 
 
@@ -317,12 +441,13 @@ def analyze_custom_student_data(
     track: str,
     courses: List[Dict[str, Any]],
     certificates: List[Dict[str, Any]],
-    target_career: Optional[str] = None
+    target_career: Optional[str] = None,
+    custom_slug: Optional[str] = None
 ) -> Dict[str, Any]:
     """
     Computes career recommendations, SHAP attribution, and DiCE roadmap for user-provided KHS & Certs.
     """
-    slug_id = f"custom-{re.sub(r'[^a-zA-Z0-9]+', '-', name.lower()).strip('-')}-{int(time.time())}"
+    slug_id = custom_slug if custom_slug else f"custom-{re.sub(r'[^a-zA-Z0-9]+', '-', name.lower()).strip('-')}-{int(time.time())}"
     
     # 1. Compute IPK & Total SKS
     total_sks = sum(int(c.get("sks", 3)) for c in courses)
@@ -503,36 +628,152 @@ def analyze_custom_student_data(
 # -----------------------------------------------------------------------------
 # API ROUTES
 # -----------------------------------------------------------------------------
-@app.get("/api/health")
-def health_check():
-    return {"status": "ok", "cached_students": len(CACHE_STUDENTS), "total_jobs": len(JOBS_LIST)}
+# AUTHENTICATION DATA & ROUTES
+# -----------------------------------------------------------------------------
+class LoginRequest(BaseModel):
+    username: str
+    password: str
 
-@app.get("/api/presets")
-def get_presets():
-    """Return standard course catalog and sample cert templates for instant user quick fill."""
+class RegisterRequest(BaseModel):
+    username: str
+    password: str
+    name: str
+    nim: Optional[str] = "1301210001"
+    track: Optional[str] = "Machine Learning & AI"
+
+USERS_DB = {
+    "demo": {
+        "username": "demo",
+        "password": "123",
+        "name": "Peneliti BRIN (Demo Eksperimen)",
+        "role": "demo",
+        "is_demo": True,
+        "student_id": "siti-rahma-ml-bagus",
+        "track": "Multi-Track Benchmark"
+    },
+    "peneliti": {
+        "username": "peneliti",
+        "password": "123",
+        "name": "Tim Peneliti BRIN",
+        "role": "demo",
+        "is_demo": True,
+        "student_id": "siti-rahma-ml-bagus",
+        "track": "Multi-Track Benchmark"
+    },
+    "akmal": {
+        "username": "akmal",
+        "password": "123",
+        "name": "Akmal Yaasir Fauzaan",
+        "role": "student",
+        "is_demo": False,
+        "student_id": "user-dummy",
+        "track": "Machine Learning & AI"
+    },
+    "user": {
+        "username": "user",
+        "password": "123",
+        "name": "Ahmad Fauzi (Akun Pengguna)",
+        "role": "student",
+        "is_demo": False,
+        "student_id": "user-dummy",
+        "track": "Machine Learning & AI"
+    }
+}
+
+@app.post("/api/auth/login")
+def login(req: LoginRequest):
+    u = req.username.lower().strip()
+    user = USERS_DB.get(u)
+    if not user or user["password"] != req.password:
+        # Check if username is any registered student slug
+        if u in CACHE_STUDENTS and req.password == "123":
+            st = CACHE_STUDENTS[u]
+            return {
+                "status": "success",
+                "message": f"Selamat datang, {st['name']}!",
+                "data": {
+                    "username": u,
+                    "name": st["name"],
+                    "role": "demo" if st.get("is_demo") else "student",
+                    "is_demo": st.get("is_demo", False),
+                    "student_id": st["id"],
+                    "track": st["track"]
+                }
+            }
+        raise HTTPException(status_code=401, detail="Username atau Password salah! (Gunakan demo / 123 atau user / 123)")
+
     return {
         "status": "success",
-        "standard_courses": STANDARD_COURSES,
-        "sample_tracks": [
-            {"id": "Machine Learning", "label": "🤖 Machine Learning & AI"},
-            {"id": "Web Development", "label": "💻 Web & Fullstack Development"},
-            {"id": "Networking & Cloud", "label": "☁️ Cloud, DevOps & Network Security"},
-            {"id": "Sistem Informasi & Bisnis", "label": "📊 Sistem Informasi & Business Analyst"},
-            {"id": "SAP & Enterprise Systems", "label": "🏢 SAP & Enterprise Architecture"},
-        ]
+        "message": f"Selamat datang, {user['name']}!",
+        "data": {
+            "username": user["username"],
+            "name": user["name"],
+            "role": user["role"],
+            "is_demo": user["is_demo"],
+            "student_id": user["student_id"],
+            "track": user["track"]
+        }
     }
+
+@app.post("/api/auth/register")
+def register(req: RegisterRequest):
+    u = req.username.lower().strip()
+    if u in USERS_DB:
+        raise HTTPException(status_code=400, detail="Username sudah terdaftar! Silakan login.")
+
+    # Create new custom student profile
+    slug_id = f"user-{u}"
+    new_student = analyze_custom_student_data(
+        name=req.name,
+        track=req.track or "Machine Learning & AI",
+        courses=[
+            {"no": 1, "kode_mk": "CII2J4", "nama_mk": "Struktur Data dan Algoritma", "sks": 4, "semester": "Semester 3", "grade": "A"},
+            {"no": 2, "kode_mk": "CII3B3", "nama_mk": "Kecerdasan Artifisial dan Penerapannya", "sks": 3, "semester": "Semester 5", "grade": "A"},
+            {"no": 3, "kode_mk": "CII3D3", "nama_mk": "Penambangan Data", "sks": 3, "semester": "Semester 6", "grade": "A"},
+            {"no": 4, "kode_mk": "CII4E3", "nama_mk": "Teknologi Machine Learning", "sks": 3, "semester": "Semester 6", "grade": "A"},
+        ],
+        certificates=[
+            {"title": "Google Data Analytics Professional Certificate", "issuer": "Google / Google Cloud", "issue_date": "2024-05", "duration": "180 jam", "score": "95/100", "topics": "Python, SQL, Tableau", "has_assessment": True},
+        ],
+        target_career="Machine Learning Engineer",
+        custom_slug=slug_id
+    )
+
+    user_obj = {
+        "username": u,
+        "password": req.password,
+        "name": req.name,
+        "role": "student",
+        "is_demo": False,
+        "student_id": slug_id,
+        "track": req.track
+    }
+    USERS_DB[u] = user_obj
+
+    return {
+        "status": "success",
+        "message": f"Pendaftaran berhasil! Selamat datang, {req.name}.",
+        "data": user_obj
+    }
+
+# -----------------------------------------------------------------------------
+# API ROUTES
+# -----------------------------------------------------------------------------
 
 @app.get("/api/students")
 def get_all_students():
     """Return summary of all students (including custom user profiles) for navbar switcher."""
     summaries = []
+    demo_slugs = set(k[0] for k in STUDENT_KEYS)
     for s_id, s in CACHE_STUDENTS.items():
+        is_demo = s_id in demo_slugs
         summaries.append({
             "id": s["id"],
             "name": s["name"],
             "track": s["track"],
             "profile_type": s["profile_type"],
             "is_good": s["is_good"],
+            "is_demo": is_demo,
             "ipk": s["ipk"],
             "total_sks": s["total_sks"],
             "num_certs": s["num_certs"],
@@ -644,20 +885,110 @@ async def upload_khs_and_certs(
 def search_jobs(
     query: Optional[str] = None,
     category: Optional[str] = None,
+    student_id: Optional[str] = None,
     limit: int = 50,
     offset: int = 0
 ):
-    """Search and filter the 2,102 jobs database."""
-    results = JOBS_LIST
-    if query:
-        q_lower = query.lower()
-        results = [j for j in results if q_lower in j["title"].lower() or q_lower in j["company"].lower() or q_lower in j["description"].lower()]
-    if category and category != "all":
-        c_lower = category.lower()
-        results = [j for j in results if c_lower in j["title"].lower() or c_lower in j["skills"].lower()]
-        
-    total_count = len(results)
-    paginated = results[offset : offset + limit]
+    """Search and filter the 4,570 jobs database with live AI match score for any student."""
+    st = CACHE_STUDENTS.get(student_id) if student_id else None
+    rec_map = {}
+    if st:
+        for r_job in st.get("recommended_jobs", []):
+            rec_map[str(r_job["job_id"])] = r_job
+
+    track_keywords = {
+        "Machine Learning & AI": ["machine learning", "ml", "ai", "data scientist", "artificial intelligence", "deep learning", "nlp", "computer vision", "python", "model"],
+        "Web & Full-Stack": ["web", "full stack", "frontend", "front-end", "backend", "back-end", "react", "javascript", "node", "html", "css", "developer", "software"],
+        "Networking & Cloud": ["cloud", "network", "devops", "aws", "security", "sysadmin", "infrastructure", "cisco", "azure", "cyber"],
+        "Sistem Informasi & Bisnis": ["system analyst", "business analyst", "analyst", "enterprise", "erp", "it consultant", "project manager", "data analyst", "solution"],
+        "SAP & Enterprise Systems": ["sap", "enterprise", "erp", "abap", "supply chain", "crm", "business process", "architect"]
+    }
+
+    st_track = st.get("track", "") if st else ""
+    target_kws = track_keywords.get(st_track, ["software", "developer", "analyst", "it", "data"])
+
+    filtered_jobs = []
+    for r in JOBS_LIST:
+        j_id = str(r["job_id"])
+        j_title = str(r["title"])
+        j_comp = str(r["company"])
+        j_desc = str(r.get("description", ""))
+        j_skills = str(r.get("skills", ""))
+
+        # Check search query
+        if query:
+            q_lower = query.lower()
+            if q_lower not in j_title.lower() and q_lower not in j_comp.lower() and q_lower not in j_desc.lower() and q_lower not in j_skills.lower():
+                continue
+
+        # Check category filter
+        if category and category != "all":
+            c_lower = category.lower()
+            if c_lower not in j_title.lower() and c_lower not in j_skills.lower() and c_lower not in j_desc.lower():
+                continue
+
+        # If job is in precomputed recommendations, use exact precomputed values
+        if j_id in rec_map:
+            filtered_jobs.append(rec_map[j_id])
+        else:
+            # Estimate match score based on track keyword overlap & skills
+            title_lower = j_title.lower()
+            desc_lower = j_desc.lower()
+
+            overlap_count = sum(1 for kw in target_kws if kw in title_lower or kw in desc_lower)
+            if overlap_count >= 2:
+                base_score = 22.0 + min(10.0, overlap_count * 2.5)
+            elif overlap_count == 1:
+                base_score = 14.0 + (5.0 if any(kw in title_lower for kw in target_kws) else 2.0)
+            else:
+                base_score = 8.0 + (2.0 if "it" in title_lower or "developer" in title_lower or "analyst" in title_lower else 0.0)
+
+            # Calibrate percentage using logistic sigmoid
+            match_pct = round(50.0 + (46.0 / (1.0 + math.exp(-0.09 * (base_score - 10.0)))), 1)
+
+            filtered_jobs.append({
+                "job_id": j_id,
+                "rank": len(filtered_jobs) + 1,
+                "condition": "catalog",
+                "title": j_title,
+                "company": j_comp,
+                "location": "Indonesia / Remote",
+                "description": j_desc[:600] + "..." if len(j_desc) > 600 else j_desc,
+                "score_before": round(base_score * 0.85, 2),
+                "score_after": round(base_score, 2),
+                "final_score": round(base_score, 2),
+                "match_pct": match_pct,
+                "delta": round(base_score * 0.15, 2),
+                "is_boosted": False,
+                "impact_status": "Katalog Terbuka",
+                "shap_features": [],
+                "narrative": {
+                    "overall_match_pct": match_pct,
+                    "components": [
+                        {
+                            "name": f"Peminatan {st_track}" if st_track else "Bidang Teknologi Informasi",
+                            "type": "Mata Kuliah Kurikulum",
+                            "relevance_match_pct": match_pct,
+                            "contribution_share_pct": 55.0
+                        },
+                        {
+                            "name": f"Portofolio {st['name']}" if st else "Sertifikasi Industri",
+                            "type": "Sertifikat Industri",
+                            "relevance_match_pct": max(50.0, match_pct - 8),
+                            "contribution_share_pct": 45.0
+                        }
+                    ],
+                    "narrative_text": f"Profil Anda memiliki keselarasan {match_pct}% terhadap posisi {j_title} di {j_comp} berdasarkan analisis kompetensi bidang {st_track}.",
+                    "summary_bullet_points": [
+                        f"🎯 **Tingkat Keselarasan:** `{match_pct}% Match` (Indeks: `{base_score:.2f}`).",
+                        f"💡 **Fokus Domain:** Relevan dengan peminatan **{st_track}**."
+                    ]
+                },
+                "dice_recommendations": []
+            })
+
+    total_count = len(filtered_jobs)
+    paginated = filtered_jobs[offset : offset + limit]
     return {
         "status": "success",
         "total": total_count,

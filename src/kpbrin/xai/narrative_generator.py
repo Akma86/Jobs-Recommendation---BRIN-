@@ -42,8 +42,12 @@ def generate_percentage_narrative(job_title, final_score, job_contributions_dict
     if cred_weights is None:
         cred_weights = {}
 
-    # 1. Overall Match Percentage (Normalized to 0 - 100%, clamped at 10.0 scale)
-    overall_match_pct = round(min(100.0, max(0.0, (final_score / 10.0) * 100.0)), 1)
+    # 1. Overall Match Percentage (Calibrated via Sigmoid / Logistic function)
+    if final_score < 0:
+        overall_match_pct = max(15.0, round(50.0 / (1.0 + np.exp(-0.2 * final_score)), 1))
+    else:
+        overall_match_pct = round(50.0 + 46.0 / (1.0 + np.exp(-0.09 * (final_score - 10.0))), 1)
+    overall_match_pct = min(98.5, max(15.0, overall_match_pct))
 
     # 2. Compute individual components
     components = []
@@ -94,7 +98,7 @@ def generate_percentage_narrative(job_title, final_score, job_contributions_dict
     bullets = []
     
     # Header summary
-    bullets.append(f"🎯 **Tingkat Keselarasan Profil:** `{overall_match_pct}% Match` (Skor Kelayakan: `{final_score:.2f}/10.00`).")
+    bullets.append(f"🎯 **Tingkat Keselarasan Profil:** `{overall_match_pct}% Match` (Skor Indeks Kelayakan: `{final_score:.2f}`).")
 
     # Certs narrative
     if cert_items:

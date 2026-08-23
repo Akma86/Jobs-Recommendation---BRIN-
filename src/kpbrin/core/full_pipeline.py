@@ -1,3 +1,4 @@
+import os
 import argparse
 import pandas as pd
 import numpy as np
@@ -18,7 +19,7 @@ MATCH_THRESHOLD = 0.55       # course-name fuzzy match confidence cutoff
 TOP_K_RETRIEVAL = 15         # SBERT top-K per query unit (course/cert), before rerank
 TOP_K_PER_UNIT = 5           # jobs kept per query unit after rerank
 TOP_N_OUTPUT = 15            # final recommendations to output
-CERT_WEIGHT_GLOBAL = 1.0     # relative weight of the certificate signal vs the KHS signal
+CERT_WEIGHT_GLOBAL = 2.5     # relative weight of the certificate signal vs the KHS signal
 
 JOBS_CSV_PATH = r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\data\Pekerjaan\Processed\jobs_unified.csv"
 COURSE_CLO_CSV_PATH = r"D:\MAIN DATA\Documents\Semester 6\KP BRIN\data\Mata Kuliah\course_clo_consolidated.csv"
@@ -43,19 +44,25 @@ def load_khs(path):
         df["grade_weight"] = df["nilai_huruf"].map(GRADE_MAP)
         if df["grade_weight"].isna().any():
             bad = df[df["grade_weight"].isna()]["nilai_huruf"].unique()
-            raise ValueError(f"Unrecognized grade values: {bad}")
+            raise ValueError(f"Unknown grades in {path}: {bad}")
 
+    print(f"Loaded {len(df)} KHS courses from {path}")
     return df
 
 # ---------------------------------------------------------------------------
-# Load certificates + compute credibility weight per certificate
+# Load certificates + calculate credibility weights
 # ---------------------------------------------------------------------------
 def load_certificates(path):
-    if not path:
+    if not path or not os.path.exists(path):
         return pd.DataFrame()
     df = pd.read_csv(path)
     if len(df) == 0:
         return df
+
+    if "has_assessment" not in df.columns:
+        df["has_assessment"] = True
+    if "issue_date" not in df.columns:
+        df["issue_date"] = None
 
     weights, breakdowns = [], []
     for _, row in df.iterrows():
@@ -154,24 +161,18 @@ def match_courses_to_jobs(course_clo_df, jobs, job_emb, sbert_model, cross_encod
     return ranking.rename(columns={"cross_encoder_score": "course_job_score_max"})
 
 # ---------------------------------------------------------------------------
-# Aggregate cert-level rankings -> single per-job signal
+# Aggregate cert-level rankings -> multi-certificate signal
 # ---------------------------------------------------------------------------
 def aggregate_certs(cert_ranking, certs_df):
     cred_map = certs_df.set_index("cert_id")["credibility_weight"].to_dict()
     cert_ranking = cert_ranking.copy()
     cert_ranking["weighted_score"] = cert_ranking.apply(
-        lambda r: r["cross_encoder_score"] * cred_map.get(r["cert_id"], 0.0), axis=1
+        lambda r: max(0.0, float(r["cross_encoder_score"])) * cred_map.get(r["cert_id"], 0.85), axis=1
     )
-
-    idx = cert_ranking.groupby("job_id")["weighted_score"].idxmax()
-    best = cert_ranking.loc[idx, ["job_id", "job_title", "job_company", "job_source",
-                                   "cert_id", "cert_title", "cross_encoder_score", "weighted_score",
-                                   "explanation"]]
-    return best.rename(columns={"weighted_score": "cert_score_max", "cert_id": "best_cert_id",
-                                 "cert_title": "best_cert_title"})
+    return cert_ranking
 
 # ---------------------------------------------------------------------------
-# Final aggregation: KHS signal (per-course, consolidated) + optional certificate signal
+# Final aggregation: KHS signal (per-course, consolidated) + Multi-Certificate Signal
 # ---------------------------------------------------------------------------
 def aggregate_to_student_level(matched_courses, course_agg, cert_agg, certs_df):
     job_scores = defaultdict(float)
@@ -180,38 +181,51 @@ def aggregate_to_student_level(matched_courses, course_agg, cert_agg, certs_df):
     job_contributions = defaultdict(dict)  # {job_id: {"MK: <nama>" / "Sertifikat: <judul>": kontribusi}}
 
     included = matched_courses[matched_courses["included"]]
+    seen_courses = set()
+
     for _, m in included.iterrows():
+        khs_cname = m["khs_course"]
+        if khs_cname in seen_courses:
+            continue
+        seen_courses.add(khs_cname)
+
         weight = m["grade_weight"] * m["match_confidence"]
-        course_jobs = course_agg[course_agg["course_name"] == m["matched_course_name"]]
+        course_jobs = course_agg[course_agg["course_name"] == m["matched_course_name"]].drop_duplicates(subset=["job_id"])
         for _, cj in course_jobs.iterrows():
             job_id = cj["job_id"]
-            contribution = weight * cj["course_job_score_max"]
-            job_scores[job_id] += contribution
-            job_contributions[job_id][f"MK: {m['khs_course']}"] = contribution
-            job_explanations[job_id].append(
-                f"KHS: '{m['khs_course']}' (score={contribution:.2f})"
-            )
-            if job_id not in job_info:
-                job_info[job_id] = {"job_title": cj["job_title"], "job_company": cj["job_company"],
-                                     "job_source": cj["job_source"]}
-
-    if not certs_df.empty and "cert_id" in certs_df.columns:
-        cred_map = certs_df.set_index("cert_id")["credibility_weight"].to_dict()
-    else:
-        cred_map = {}
+            ce_score = max(0.0, float(cj["course_job_score_max"]))
+            contribution = weight * ce_score
+            if contribution > 0:
+                job_scores[job_id] += contribution
+                job_contributions[job_id][f"MK: {khs_cname}"] = contribution
+                job_explanations[job_id].append(
+                    f"KHS: '{khs_cname}' (score={contribution:.2f})"
+                )
+                if job_id not in job_info:
+                    job_info[job_id] = {
+                        "job_title": cj["job_title"],
+                        "job_company": cj["job_company"],
+                        "job_source": cj["job_source"]
+                    }
 
     if not cert_agg.empty:
         for _, row in cert_agg.iterrows():
             job_id = row["job_id"]
-            contribution = CERT_WEIGHT_GLOBAL * row["cert_score_max"]
-            job_scores[job_id] += contribution
-            job_contributions[job_id][f"Sertifikat: {row['best_cert_title']}"] = contribution
-            job_explanations[job_id].append(
-                f"Cert: '{row['best_cert_title']}' (score={contribution:.2f})"
-            )
-            if job_id not in job_info:
-                job_info[job_id] = {"job_title": row["job_title"], "job_company": row["job_company"],
-                                     "job_source": row["job_source"]}
+            ce_score = max(0.0, float(row.get("weighted_score", row.get("cross_encoder_score", 0.0))))
+            contribution = CERT_WEIGHT_GLOBAL * ce_score
+            if contribution > 0:
+                job_scores[job_id] += contribution
+                cert_lbl = row.get("cert_title", row.get("title", "Sertifikat"))
+                job_contributions[job_id][f"Sertifikat: {cert_lbl}"] = contribution
+                job_explanations[job_id].append(
+                    f"Cert: '{cert_lbl}' (score={contribution:.2f})"
+                )
+                if job_id not in job_info:
+                    job_info[job_id] = {
+                        "job_title": row["job_title"],
+                        "job_company": row["job_company"],
+                        "job_source": row.get("job_source", "linkedin")
+                    }
 
     rows = []
     for job_id, score in job_scores.items():

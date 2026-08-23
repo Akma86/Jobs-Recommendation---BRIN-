@@ -5,6 +5,8 @@ import JobDetailDrawer from './components/JobDetailDrawer';
 import StudentProfileModal from './components/StudentProfileModal';
 import DreamJobExplorer from './components/DreamJobExplorer';
 import UploadModal from './components/UploadModal';
+import AuthModal from './components/AuthModal';
+import LandingPortal from './components/LandingPortal';
 import { 
   Sparkles, 
   Search, 
@@ -16,7 +18,11 @@ import {
   CheckCircle2,
   Compass,
   FileText,
-  Upload
+  Upload,
+  Edit3,
+  User,
+  FlaskConical,
+  Lock
 } from 'lucide-react';
 
 const CATEGORIES = [
@@ -31,12 +37,72 @@ const CATEGORIES = [
 
 export default function App() {
   const [students, setStudents] = useState([]);
+  const [accountMode, setAccountMode] = useState('demo'); // 'demo' | 'custom'
   const [selectedStudentId, setSelectedStudentId] = useState('budi-santoso-web-bagus');
   const [studentData, setStudentData] = useState(null);
   const [activeJob, setActiveJob] = useState(null);
-  const [activeTab, setActiveTab] = useState('explore');
+  const [activeTab, setActiveTab] = useState('recommend'); // 'recommend' | 'explore_all'
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [catalogJobs, setCatalogJobs] = useState([]);
+  const [catalogTotal, setCatalogTotal] = useState(4570);
+  const [isCatalogLoading, setIsCatalogLoading] = useState(false);
+
+  // Authentication State
+  const [authUser, setAuthUser] = useState(() => {
+    try {
+      const saved = localStorage.getItem('talentxai_auth_user');
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const handleAuthSuccess = (user) => {
+    setAuthUser(user);
+    if (user.is_demo) {
+      setAccountMode('demo');
+      setSelectedStudentId(user.student_id || 'siti-rahma-ml-bagus');
+    } else {
+      setAccountMode('custom');
+      setSelectedStudentId(user.student_id || 'user-dummy');
+    }
+    fetchStudents();
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('talentxai_auth_user');
+    setAuthUser(null);
+    setShowAuthModal(true);
+  };
+
+  // Fetch from /api/jobs for 'explore_all' catalog mode
+  useEffect(() => {
+    if (activeTab !== 'explore_all') return;
+    setIsCatalogLoading(true);
+    const timeout = setTimeout(() => {
+      const q = encodeURIComponent(searchQuery);
+      const cat = encodeURIComponent(selectedCategory);
+      const stId = encodeURIComponent(selectedStudentId || '');
+      fetch(`/api/jobs?query=${q}&category=${cat}&student_id=${stId}&limit=60`)
+        .then(res => res.json())
+        .then(json => {
+          if (json.status === 'success') {
+            setCatalogJobs(json.data || []);
+            setCatalogTotal(json.total || 0);
+            if (json.data && json.data.length > 0) {
+              setActiveJob(json.data[0]);
+            }
+          }
+        })
+        .catch(err => console.error('Error fetching catalog jobs:', err))
+        .finally(() => setIsCatalogLoading(false));
+    }, 250);
+
+    return () => clearTimeout(timeout);
+  }, [activeTab, searchQuery, selectedCategory, selectedStudentId]);
+
   const [savedJobs, setSavedJobs] = useState(() => {
     try {
       const saved = localStorage.getItem('talentxai_saved_jobs');
@@ -68,6 +134,7 @@ export default function App() {
   }, []);
 
   const handleProfileAnalyzed = (customStudent) => {
+    setAccountMode('custom');
     setStudentData(customStudent);
     setSelectedStudentId(customStudent.id);
     if (customStudent.recommended_jobs && customStudent.recommended_jobs.length > 0) {
@@ -85,7 +152,7 @@ export default function App() {
       .then(json => {
         if (json.status === 'success') {
           setStudentData(json.data);
-          if (json.data.recommended_jobs && json.data.recommended_jobs.length > 0) {
+          if (activeTab === 'recommend' && json.data.recommended_jobs && json.data.recommended_jobs.length > 0) {
             setActiveJob(json.data.recommended_jobs[0]);
           }
         }
@@ -113,8 +180,14 @@ export default function App() {
     }
   };
 
-  // Filter Jobs
-  const filteredJobs = (studentData?.recommended_jobs || []).filter(job => {
+  const [evaluationMode, setEvaluationMode] = useState('after'); // 'after' | 'before' | 'compare'
+
+  // Recommended Jobs from recommendations.csv
+  const currentRecommendedList = evaluationMode === 'before' 
+    ? (studentData?.recommended_jobs_before || studentData?.recommended_jobs || [])
+    : (studentData?.recommended_jobs_after || studentData?.recommended_jobs || []);
+
+  const filteredRecommendedJobs = currentRecommendedList.filter(job => {
     const matchesSearch = searchQuery === '' || 
       job.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       job.company.toLowerCase().includes(searchQuery.toLowerCase());
@@ -131,6 +204,14 @@ export default function App() {
     return matchesSearch && matchesCategory;
   });
 
+  // If not logged in, render the Landing & Authentication Gateway Portal
+  if (!authUser) {
+    return <LandingPortal onLoginSuccess={handleAuthSuccess} />;
+  }
+
+  // Displayed jobs based on active tab
+  const displayedJobs = activeTab === 'recommend' ? filteredRecommendedJobs : catalogJobs;
+
   return (
     <div className="app-container">
       {/* Navbar */}
@@ -140,6 +221,11 @@ export default function App() {
         onSelectStudent={setSelectedStudentId}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
+        accountMode={accountMode}
+        setAccountMode={setAccountMode}
+        authUser={authUser}
+        onOpenAuthModal={() => setShowAuthModal(true)}
+        onLogout={handleLogout}
         onOpenProfileModal={() => setShowProfileModal(true)}
         onOpenDreamModal={() => setShowDreamModal(true)}
         onOpenUploadModal={() => setShowUploadModal(true)}
@@ -163,7 +249,7 @@ export default function App() {
 
         <div className="hero-stats">
           <div className="stat-box">
-            <div className="stat-value">2.102</div>
+            <div className="stat-value">4.570</div>
             <div className="stat-label">Lowongan Riil</div>
           </div>
           <div className="stat-box">
@@ -179,9 +265,14 @@ export default function App() {
 
       {/* Candidate Profile Bar */}
       {studentData && (
-        <div className="candidate-bar">
+        <div className="candidate-bar" style={{
+          border: accountMode === 'custom' ? '2px solid #10B981' : '1px solid #E2E8F0',
+          background: accountMode === 'custom' ? 'linear-gradient(to right, #F0FDF4, #FFFFFF)' : '#FFFFFF'
+        }}>
           <div className="candidate-left">
-            <div className="candidate-avatar">
+            <div className="candidate-avatar" style={{
+              background: accountMode === 'custom' ? 'linear-gradient(135deg, #10B981, #059669)' : '#2563EB'
+            }}>
               {studentData.name.charAt(0)}
             </div>
             <div className="candidate-info">
@@ -189,14 +280,14 @@ export default function App() {
                 {studentData.name}
                 <span style={{
                   fontSize: '0.72rem',
-                  background: studentData.is_good ? '#ECFDF5' : '#FEF2F2',
-                  color: studentData.is_good ? '#065F46' : '#991B1B',
-                  border: `1px solid ${studentData.is_good ? '#A7F3D0' : '#FECACA'}`,
+                  background: accountMode === 'custom' ? '#D1FAE5' : (studentData.is_good ? '#ECFDF5' : '#FEF2F2'),
+                  color: accountMode === 'custom' ? '#065F46' : (studentData.is_good ? '#065F46' : '#991B1B'),
+                  border: `1px solid ${accountMode === 'custom' ? '#6EE7B7' : (studentData.is_good ? '#A7F3D0' : '#FECACA')}`,
                   padding: '0.15rem 0.5rem',
                   borderRadius: '9999px',
                   fontWeight: 700
                 }}>
-                  {studentData.is_good ? '🟢 Akademik Unggul' : '🔴 Perlu Penguatan'}
+                  {accountMode === 'custom' ? '👤 Mode Pengguna Mandiri' : (studentData.is_good ? '🟢 Benchmark Unggul' : '🔴 Perlu Penguatan')}
                 </span>
               </h3>
               <div className="candidate-meta">
@@ -209,29 +300,193 @@ export default function App() {
                 <span className="meta-pill">
                   <Award size={14} /> Portofolio: <strong>{studentData.num_certs} Sertifikat Industri</strong>
                 </span>
+                {studentData.ab_test_summary && (
+                  <span className="meta-pill" style={{ background: '#EFF6FF', color: '#1E40AF', borderColor: '#BFDBFE' }}>
+                    <TrendingUp size={14} /> Lonjakan Portofolio: <strong>+{studentData.ab_test_summary.max_delta} Skor</strong>
+                  </span>
+                )}
               </div>
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '0.6rem' }}>
-            <button 
-              className="btn-primary"
-              onClick={() => setShowUploadModal(true)}
-              style={{ background: '#059669', border: 'none' }}
-            >
-              <Upload size={16} /> Input / Ganti Profil Saya
-            </button>
+          <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+            {accountMode === 'custom' ? (
+              <button 
+                className="btn-primary"
+                onClick={() => setShowUploadModal(true)}
+                style={{ background: '#10B981', border: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
+              >
+                <Edit3 size={16} /> Edit KHS & Sertifikat
+              </button>
+            ) : (
+              <button 
+                className="btn-primary"
+                onClick={() => {
+                  setAccountMode('custom');
+                  setShowUploadModal(true);
+                }}
+                style={{ background: '#059669', border: 'none' }}
+              >
+                <Upload size={16} /> Input Profil Mandiri
+              </button>
+            )}
             <button 
               className="btn-outline"
               onClick={() => setShowProfileModal(true)}
             >
-              <FileText size={16} /> Lihat KHS & Sertifikat
+              <FileText size={16} /> KHS & Sertifikat
             </button>
             <button 
               className="btn-primary"
               onClick={() => setShowDreamModal(true)}
             >
-              <Compass size={16} /> Eksplor Profesi Impian
+              <Compass size={16} /> Profesi Impian
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Primary Section Switcher: Rekomendasi Profil vs Eksplor Semua Lowongan */}
+      <div style={{
+        display: 'flex',
+        gap: '0.75rem',
+        marginBottom: '1rem',
+        borderBottom: '2px solid #E2E8F0',
+        paddingBottom: '0.5rem'
+      }}>
+        <button
+          onClick={() => setActiveTab('recommend')}
+          style={{
+            padding: '0.65rem 1.25rem',
+            borderRadius: '12px',
+            border: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            background: activeTab === 'recommend' ? '#2563EB' : '#F1F5F9',
+            color: activeTab === 'recommend' ? '#FFFFFF' : '#475569',
+            boxShadow: activeTab === 'recommend' ? '0 4px 12px rgba(37,99,235,0.25)' : 'none',
+            transition: 'all 0.2s'
+          }}
+        >
+          <Sparkles size={18} />
+          🎯 Rekomendasi Karir Terpilih ({filteredRecommendedJobs.length} Top Jobs)
+        </button>
+
+        <button
+          onClick={() => setActiveTab('explore_all')}
+          style={{
+            padding: '0.65rem 1.25rem',
+            borderRadius: '12px',
+            border: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            background: activeTab === 'explore_all' ? '#059669' : '#F1F5F9',
+            color: activeTab === 'explore_all' ? '#FFFFFF' : '#475569',
+            boxShadow: activeTab === 'explore_all' ? '0 4px 12px rgba(5,150,105,0.25)' : 'none',
+            transition: 'all 0.2s'
+          }}
+        >
+          <Briefcase size={18} />
+          🌐 Eksplor Seluruh Katalog ({catalogTotal || 4570}+ Lowongan)
+        </button>
+      </div>
+
+      {/* Mode A/B Evaluasi Switcher (Hanya Muncul saat di Tab Rekomendasi) */}
+      {activeTab === 'recommend' && (
+        <div style={{
+          background: '#FFFFFF',
+          borderRadius: '16px',
+          padding: '0.75rem 1.25rem',
+          marginBottom: '1rem',
+          border: '1px solid #E2E8F0',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '0.75rem',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.02)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <span style={{ fontSize: '0.82rem', fontWeight: 800, color: '#334155', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              Mode Evaluasi A/B:
+            </span>
+            <span style={{ fontSize: '0.82rem', color: '#64748B' }}>
+              {evaluationMode === 'after' && '🚀 Kondisi B: Rekomendasi Terintegrasi (KHS + 5 Sertifikat Industri)'}
+              {evaluationMode === 'before' && '🎓 Kondisi A: Rekomendasi Murni Akademik (Hanya KHS Saja)'}
+              {evaluationMode === 'compare' && '⚖️ Komparasi A/B: Perbandingan Lonjakan Skor Sebelum vs Sesudah Sertifikasi'}
+            </span>
+          </div>
+
+          <div style={{ display: 'flex', background: '#F1F5F9', padding: '3px', borderRadius: '12px', gap: '4px' }}>
+            <button
+              onClick={() => setEvaluationMode('after')}
+              style={{
+                padding: '0.4rem 0.9rem',
+                borderRadius: '9px',
+                border: 'none',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                transition: 'all 0.2s',
+                background: evaluationMode === 'after' ? '#2563EB' : 'transparent',
+                color: evaluationMode === 'after' ? '#FFFFFF' : '#64748B',
+                boxShadow: evaluationMode === 'after' ? '0 2px 6px rgba(37,99,235,0.3)' : 'none'
+              }}
+            >
+              <Sparkles size={14} /> After (+ Sertifikat)
+            </button>
+
+            <button
+              onClick={() => setEvaluationMode('before')}
+              style={{
+                padding: '0.4rem 0.9rem',
+                borderRadius: '9px',
+                border: 'none',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                transition: 'all 0.2s',
+                background: evaluationMode === 'before' ? '#475569' : 'transparent',
+                color: evaluationMode === 'before' ? '#FFFFFF' : '#64748B',
+                boxShadow: evaluationMode === 'before' ? '0 2px 6px rgba(71,85,105,0.3)' : 'none'
+              }}
+            >
+              <BookOpen size={14} /> Before (KHS Saja)
+            </button>
+
+            <button
+              onClick={() => setEvaluationMode('compare')}
+              style={{
+                padding: '0.4rem 0.9rem',
+                borderRadius: '9px',
+                border: 'none',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                transition: 'all 0.2s',
+                background: evaluationMode === 'compare' ? '#059669' : 'transparent',
+                color: evaluationMode === 'compare' ? '#FFFFFF' : '#64748B',
+                boxShadow: evaluationMode === 'compare' ? '0 2px 6px rgba(5,150,105,0.3)' : 'none'
+              }}
+            >
+              <TrendingUp size={14} /> Komparasi A/B
             </button>
           </div>
         </div>
@@ -244,7 +499,7 @@ export default function App() {
           <input 
             type="text"
             className="search-input"
-            placeholder="Cari lowongan pekerjaan atau nama perusahaan..."
+            placeholder={activeTab === 'recommend' ? "Cari dalam daftar rekomendasi terpilih..." : "Cari di seluruh database 4.570 lowongan (misal: 'Frontend', 'Data Scientist', 'Network')..."}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -269,12 +524,20 @@ export default function App() {
         <div className="job-list-panel">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem', padding: '0 0.25rem' }}>
             <span style={{ fontSize: '0.86rem', fontWeight: 700, color: '#475569' }}>
-              Menampilkan {filteredJobs.length} Rekomendasi Karir Teratas
+              {activeTab === 'recommend' 
+                ? `🎯 Menampilkan ${displayedJobs.length} Rekomendasi Teratas Khusus ${studentData?.name || 'Mahasiswa'} (Hasil Algoritma AI)`
+                : `🌐 Menampilkan ${displayedJobs.length} dari ${catalogTotal} Seluruh Katalog Lowongan (dengan Prediksi Match AI)`
+              }
             </span>
+            {isCatalogLoading && (
+              <span style={{ fontSize: '0.75rem', color: '#2563EB', fontWeight: 700 }}>
+                Memuat lowongan...
+              </span>
+            )}
           </div>
 
-          {filteredJobs.length > 0 ? (
-            filteredJobs.map((job) => (
+          {displayedJobs.length > 0 ? (
+            displayedJobs.map((job) => (
               <JobCard 
                 key={job.job_id}
                 job={job}
@@ -286,7 +549,7 @@ export default function App() {
             ))
           ) : (
             <div style={{ background: '#FFFFFF', padding: '2rem', borderRadius: '16px', textAlign: 'center', color: '#94A3B8', border: '1px solid #E2E8F0' }}>
-              Tidak ada lowongan yang cocok dengan filter pencarian.
+              {isCatalogLoading ? 'Memuat katalog lowongan...' : 'Tidak ada lowongan yang cocok dengan filter pencarian.'}
             </div>
           )}
         </div>
@@ -320,6 +583,14 @@ export default function App() {
         <DreamJobExplorer 
           student={studentData}
           onClose={() => setShowDreamModal(false)}
+        />
+      )}
+
+      {showAuthModal && (
+        <AuthModal 
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+          onAuthSuccess={handleAuthSuccess}
         />
       )}
     </div>

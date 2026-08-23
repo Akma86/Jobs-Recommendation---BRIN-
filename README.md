@@ -41,15 +41,17 @@ Jobs-Recommendation---BRIN-/
 ├── README.md                        # Dokumentasi Proyek
 │
 ├── data/                            # Dataset & Profil Mahasiswa
-│   ├── Mahasiswa/                   # KHS Markdown & Sertifikat Resmi (10 Mahasiswa)
+│   ├── Mahasiswa/                   # KHS Multi-Semester & Sertifikat Resmi (10 Mahasiswa, 5 Track)
 │   ├── Mata Kuliah/                 # RPS & Konsolidasi CLO (97 Mata Kuliah)
 │   ├── Pekerjaan/                   # Database 4.570 Lowongan Kerja Unified (LinkedIn, Glassdoor)
-│   └── Sertifikasi/                 # Katalog 1.139 Kursus DiCE & Bobot Kredibilitas
+│   ├── Sertifikasi/                 # Katalog 1.139 Kursus DiCE & Bobot Kredibilitas
+│   └── .emb_cache/                  # SBERT & Cross-Encoder Embedding Cache
 │
 ├── docs/                            # Laporan Evaluasi & Literatur Riset
 │   ├── images/                      # Diagram & Dokumentasi Visual
 │   ├── papers/                      # Paper Referensi Riset BRIN
-│   └── EKS12_AB_Test_Summary.md     # Rangkuman Evaluasi Eksperimen XAI
+│   ├── EKS12_AB_Test_Summary.md     # Rangkuman Evaluasi Single-Semester
+│   └── EKS13_Multi_Semester_Summary.md # Rangkuman Evaluasi Multi-Semester (138 SKS)
 │
 ├── frontend/                        # Modern React + Vite Web Application
 │   ├── src/
@@ -60,18 +62,19 @@ Jobs-Recommendation---BRIN-/
 │   ├── package.json
 │   └── vite.config.js
 │
-├── results/                         # Hasil Eksperimen XAI (EKS01 s/d EKS12)
+├── results/                         # Hasil Eksperimen XAI
 │   └── Eksperimen_XAI/
-│       └── EKS12_AB_Test/           # Hasil A/B Testing 10 Mahasiswa (Before & After)
+│       ├── EKS12_AB_Test/           # Hasil A/B Testing Single Semester
+│       └── EKS13_Multi_Semester_Test/ # Hasil A/B Testing Multi-Semester (10 Mahasiswa)
 │
 └── src/                             # Modular Python Core Library (kpbrin)
     ├── kpbrin/
     │   ├── core/                    # Pipeline, Embeddings, Caching, Issuer Tiers
     │   ├── data/                    # Parsers, Scraping, Cleaning & Skill Extractors
-    │   ├── prototype/               # Streamlit UI Components
+    │   ├── prototype/               # Prototype UI Components
     │   ├── skill_gap/               # Skill Gap & Evaluation Modules
     │   └── xai/                     # SHAP, DiCE Engine, & Narrative Explanations
-    └── scripts/                     # Automation & Fast Runner Scripts
+    └── scripts/                     # Automation, Batch Runners & Experiment Scripts
 `
 
 ---

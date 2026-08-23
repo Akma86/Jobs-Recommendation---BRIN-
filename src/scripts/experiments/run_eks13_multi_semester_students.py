@@ -91,30 +91,111 @@ def main():
     os.makedirs(eks13_dir, exist_ok=True)
 
     target_students = [
+        # 1. Machine Learning Track
         {
-            "name": "Arya Pratama Putra",
-            "nim": "1301213012",
+            "name": "Siti Rahma",
+            "nim": "1301201012",
             "major": "S1 Informatika",
-            "role": "Full-Stack Software Engineer & Cloud Architecture",
-            "prefix": "Arya_Pratama_Putra_Informatika",
-            "khs_file": os.path.join(khs_dir, "Arya_Pratama_Putra_Informatika_KHS.md"),
-            "cert_dir": os.path.join(certs_dir, "Arya_Pratama_Putra_Informatika")
+            "role": "AI & Machine Learning Specialist",
+            "prefix": "Siti_Rahma_ML_Bagus",
+            "khs_file": os.path.join(khs_dir, "Siti_Rahma_ML_Bagus_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Siti_Rahma_ML_Bagus")
         },
         {
-            "name": "Nabila Putri Maharani",
-            "nim": "1202210088",
+            "name": "Rizky Maulana",
+            "nim": "1301201045",
+            "major": "S1 Informatika",
+            "role": "AI & Machine Learning Specialist",
+            "prefix": "Rizky_Maulana_ML_Jelek",
+            "khs_file": os.path.join(khs_dir, "Rizky_Maulana_ML_Jelek_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Rizky_Maulana_ML_Jelek")
+        },
+
+        # 2. Web Development Track
+        {
+            "name": "Budi Santoso",
+            "nim": "1301202023",
+            "major": "S1 Informatika",
+            "role": "Full-Stack Software Engineer",
+            "prefix": "Budi_Santoso_Web_Bagus",
+            "khs_file": os.path.join(khs_dir, "Budi_Santoso_Web_Bagus_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Budi_Santoso_Web_Bagus")
+        },
+        {
+            "name": "Bayu Setiawan",
+            "nim": "1301202078",
+            "major": "S1 Informatika",
+            "role": "Full-Stack Software Engineer",
+            "prefix": "Bayu_Setiawan_Web_Jelek",
+            "khs_file": os.path.join(khs_dir, "Bayu_Setiawan_Web_Jelek_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Bayu_Setiawan_Web_Jelek")
+        },
+
+        # 3. Networking & Cloud Track
+        {
+            "name": "Andi Wijaya",
+            "nim": "1301203034",
+            "major": "S1 Informatika",
+            "role": "Network & Cloud Infrastructure Specialist",
+            "prefix": "Andi_Wijaya_Net_Bagus",
+            "khs_file": os.path.join(khs_dir, "Andi_Wijaya_Net_Bagus_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Andi_Wijaya_Net_Bagus")
+        },
+        {
+            "name": "Kevin Aditya",
+            "nim": "1301203099",
+            "major": "S1 Informatika",
+            "role": "Network & Cloud Infrastructure Specialist",
+            "prefix": "Kevin_Aditya_Net_Jelek",
+            "khs_file": os.path.join(khs_dir, "Kevin_Aditya_Net_Jelek_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Kevin_Aditya_Net_Jelek")
+        },
+
+        # 4. Sistem Informasi & Business Analyst Track
+        {
+            "name": "Nadia Putri",
+            "nim": "1202204015",
             "major": "S1 Sistem Informasi",
-            "role": "Data / Business Analyst & Enterprise Systems Specialist",
-            "prefix": "Nabila_Putri_Maharani_SI",
-            "khs_file": os.path.join(khs_dir, "Nabila_Putri_Maharani_SI_KHS.md"),
-            "cert_dir": os.path.join(certs_dir, "Nabila_Putri_Maharani_SI")
+            "role": "Data / Business Analyst & Enterprise Systems",
+            "prefix": "Nadia_Putri_SI_Bagus",
+            "khs_file": os.path.join(khs_dir, "Nadia_Putri_SI_Bagus_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Nadia_Putri_SI_Bagus")
+        },
+        {
+            "name": "Farhan Hidayat",
+            "nim": "1202204067",
+            "major": "S1 Sistem Informasi",
+            "role": "Data / Business Analyst & Enterprise Systems",
+            "prefix": "Farhan_Hidayat_SI_Jelek",
+            "khs_file": os.path.join(khs_dir, "Farhan_Hidayat_SI_Jelek_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Farhan_Hidayat_SI_Jelek")
+        },
+
+        # 5. SAP & Enterprise Systems Track
+        {
+            "name": "Dewi Lestari",
+            "nim": "1202205051",
+            "major": "S1 Sistem Informasi",
+            "role": "SAP & Enterprise Architecture Specialist",
+            "prefix": "Dewi_Lestari_SAP_Bagus",
+            "khs_file": os.path.join(khs_dir, "Dewi_Lestari_SAP_Bagus_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Dewi_Lestari_SAP_Bagus")
+        },
+        {
+            "name": "Ilham Saputra",
+            "nim": "1202205082",
+            "major": "S1 Sistem Informasi",
+            "role": "SAP & Enterprise Architecture Specialist",
+            "prefix": "Ilham_Saputra_SAP_Jelek",
+            "khs_file": os.path.join(khs_dir, "Ilham_Saputra_SAP_Jelek_KHS.md"),
+            "cert_dir": os.path.join(certs_dir, "Ilham_Saputra_SAP_Jelek")
         }
     ]
 
     all_summary_results = []
     all_narratives = {}
 
-    print("\n[Step 3/5] Mengeksekusi Eksperimen A/B Testing untuk 2 Mahasiswa...")
+    print(f"\n[Step 3/5] Mengeksekusi Eksperimen A/B Testing untuk {len(target_students)} Mahasiswa Multi-Semester (Smt 1-8)...")
     for idx, st in enumerate(target_students, 1):
         st_name = st["name"]
         st_prefix = st["prefix"]
@@ -122,7 +203,7 @@ def main():
         st_role = st["role"]
         
         print(f"\n================================================================================")
-        print(f"[{idx}/2] Evaluasi: {st_name} ({st_major})")
+        print(f"[{idx}/{len(target_students)}] Evaluasi: {st_name} ({st_major})")
         print(f"       Role Peminatan: {st_role}")
         print(f"================================================================================")
 
@@ -271,12 +352,12 @@ def main():
     # 4. Generate Comprehensive Markdown Reports
     print("\n[Step 4/5] Menyusun Laporan Komprehensif Eksperimen EKS13...")
     md_lines = []
-    md_lines.append("# Rangkuman Evaluasi Eksperimen XAI EKS13: Mahasiswa Multi-Semester (Informatika vs Sistem Informasi)")
+    md_lines.append("# Rangkuman Evaluasi Eksperimen XAI EKS13: Mahasiswa Multi-Semester (Semester 1 - 8 / Tingkat Akhir Senior) pada 5 Klaster Peminatan")
     md_lines.append("")
-    md_lines.append("**Tanggal Evaluasi:** 20 Agustus 2026  ")
+    md_lines.append("**Tanggal Evaluasi:** 23 Agustus 2026  ")
     md_lines.append("**Direktori Hasil:** `results/Eksperimen_XAI/EKS13_Multi_Semester_Test/`  ")
     md_lines.append("**Dataset Lowongan:** 4.570 Lowongan Terintegrasi (LinkedIn & Glassdoor)  ")
-    md_lines.append("**Metode Evaluasi:** A/B Testing (*Before: KHS Multi-Semester Smt 1-6* vs *After: KHS + 5 Sertifikat Industri*)  ")
+    md_lines.append("**Metode Evaluasi:** A/B Testing (*Before: KHS Multi-Semester Smt 1-8* vs *After: KHS + 5 Sertifikat Industri*)  ")
     md_lines.append("")
     md_lines.append("---")
     md_lines.append("")
@@ -295,7 +376,7 @@ def main():
         md_lines.append(f"## Detail Evaluasi: {st_name} ({s['major']})")
         md_lines.append(f"- **NIM**             : {s['nim']}")
         md_lines.append(f"- **Peminatan Karir** : **{s['role']}**")
-        md_lines.append(f"- **Status Studi**    : Semester 1 s/d Semester 6 (Lulus 114 SKS)")
+        md_lines.append(f"- **Status Studi**    : Semester 1 s/d Semester 8 (Lulus 138 SKS - Tingkat Akhir / Senior)")
         md_lines.append("")
         md_lines.append(f"### Perbandingan Top-5 Rekomendasi Lowongan Kerja")
         md_lines.append("")

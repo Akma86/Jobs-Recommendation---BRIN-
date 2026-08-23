@@ -8,7 +8,9 @@ TIER_WEIGHTS = {
 ISSUER_TIERS = {
     "TIER_A": [
         "google", "aws", "amazon web services", "microsoft", "ibm", "meta",
-        "nvidia", "databricks", "oracle", "cisco", "salesforce",
+        "nvidia", "databricks", "oracle", "cisco", "salesforce", "sap",
+        "tensorflow", "deeplearning.ai", "axelos", "bcs", "comptia",
+        "red hat", "hashicorp", "pmi", "scrum.org",
         "bnsp", "lsp",  # Indonesian national professional certification body
         "kominfo",       # Ministry of Communication and Informatics (govt-issued)
     ],

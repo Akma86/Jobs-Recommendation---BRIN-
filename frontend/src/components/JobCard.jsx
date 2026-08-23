@@ -6,7 +6,8 @@ import {
   TrendingUp, 
   Bookmark, 
   Award,
-  BookOpen
+  BookOpen,
+  CheckCircle2
 } from 'lucide-react';
 
 const AVATAR_COLORS = [
@@ -29,61 +30,131 @@ export default function JobCard({
   const avatarBg = AVATAR_COLORS[charCode % AVATAR_COLORS.length];
   const initial = job.company ? job.company.charAt(0).toUpperCase() : 'J';
 
+  // Match score color styling
+  const matchPct = job.match_pct || 75.0;
+  const isHighMatch = matchPct >= 85.0;
+  const isMedMatch = matchPct >= 75.0;
+
+  const matchBadgeBg = isHighMatch 
+    ? 'linear-gradient(135deg, #ECFDF5, #D1FAE5)' 
+    : (isMedMatch ? 'linear-gradient(135deg, #EFF6FF, #DBEAFE)' : '#F1F5F9');
+  
+  const matchBadgeColor = isHighMatch ? '#065F46' : (isMedMatch ? '#1E40AF' : '#475569');
+  const matchBadgeBorder = isHighMatch ? '#A7F3D0' : (isMedMatch ? '#BFDBFE' : '#CBD5E1');
+
+  // Extract top matching reason preview
+  const topComponent = job.narrative?.components && job.narrative.components.length > 0 
+    ? job.narrative.components[0] 
+    : null;
+
   return (
     <div 
       className={`job-card ${isSelected ? 'active' : ''}`}
       onClick={onSelect}
+      style={{
+        borderLeft: isSelected ? '4px solid #2563EB' : '1px solid #E2E8F0',
+        transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
+        position: 'relative'
+      }}
     >
-      <div className="job-card-header">
-        <div className="company-logo" style={{ background: avatarBg }}>
+      <div className="job-card-header" style={{ alignItems: 'flex-start' }}>
+        <div className="company-logo" style={{ background: avatarBg, flexShrink: 0 }}>
           {initial}
         </div>
 
-        <div className="job-card-title-box">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <h3 className="job-card-title">{job.title}</h3>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onToggleSave(job.job_id);
-              }}
-              style={{
-                background: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                color: isSaved ? '#2563EB' : '#94A3B8',
-                padding: '2px'
-              }}
-              title={isSaved ? "Hapus dari Simpanan" : "Simpan Lowongan"}
-            >
-              <Bookmark size={18} fill={isSaved ? "#2563EB" : "none"} />
-            </button>
+        <div className="job-card-title-box" style={{ flex: 1 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
+            <div>
+              <h3 className="job-card-title" style={{ fontSize: '1.05rem', fontWeight: 800 }}>
+                {job.title}
+              </h3>
+              <div className="job-card-company" style={{ fontSize: '0.86rem', color: '#475569', marginTop: '0.15rem' }}>
+                {job.company}
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexShrink: 0 }}>
+              {/* Jobright-style Match Score Badge */}
+              <div style={{
+                background: matchBadgeBg,
+                color: matchBadgeColor,
+                border: `1px solid ${matchBadgeBorder}`,
+                padding: '0.25rem 0.65rem',
+                borderRadius: '9999px',
+                fontSize: '0.82rem',
+                fontWeight: 800,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                boxShadow: isHighMatch ? '0 2px 6px rgba(16,185,129,0.15)' : 'none'
+              }}>
+                <Sparkles size={13} />
+                {matchPct}% Match
+              </div>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onToggleSave(job.job_id);
+                }}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: isSaved ? '#2563EB' : '#94A3B8',
+                  padding: '2px'
+                }}
+                title={isSaved ? "Hapus dari Simpanan" : "Simpan Lowongan"}
+              >
+                <Bookmark size={18} fill={isSaved ? "#2563EB" : "none"} />
+              </button>
+            </div>
           </div>
-          <div className="job-card-company">{job.company}</div>
         </div>
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.8rem', color: '#64748B', marginBottom: '0.5rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', fontSize: '0.8rem', color: '#64748B', margin: '0.5rem 0' }}>
         <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           <MapPin size={13} /> {job.location || 'Indonesia / Remote'}
         </span>
         <span>•</span>
         <span>Peringkat #{job.rank}</span>
+        {job.condition === 'before' && (
+          <>
+            <span>•</span>
+            <span style={{ color: '#64748B', fontWeight: 600 }}>KHS Saja</span>
+          </>
+        )}
       </div>
+
+      {/* Match Reason Summary Box (Jobright.ai Style) */}
+      {topComponent && (
+        <div style={{
+          background: '#F8FAFC',
+          border: '1px dashed #CBD5E1',
+          borderRadius: '8px',
+          padding: '0.45rem 0.65rem',
+          fontSize: '0.78rem',
+          color: '#334155',
+          marginBottom: '0.6rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.4rem'
+        }}>
+          <CheckCircle2 size={13} color="#059669" style={{ flexShrink: 0 }} />
+          <span>
+            <strong>Alasan Cocok:</strong> Keselarasan tinggi pada <strong>{topComponent.name}</strong> ({topComponent.relevance_match_pct}% match)
+          </span>
+        </div>
+      )}
 
       {/* Badges */}
       <div className="job-card-badges">
-        {/* Match Percentage */}
-        <span className="badge-match">
-          <Sparkles size={12} />
-          {job.match_pct}% Match
-        </span>
-
         {/* Certificate Delta Boost */}
         {job.delta > 0.1 && (
           <span className="badge-boost">
             <TrendingUp size={12} />
-            +{job.delta.toFixed(2)} Sertifikat
+            +{job.delta.toFixed(2)} Sertifikat Boost
           </span>
         )}
 
