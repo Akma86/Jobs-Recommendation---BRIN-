@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
+import FormattedText from './FormattedText';
 import { 
   Building2, 
   MapPin, 
@@ -237,8 +238,10 @@ export default function JobDetailDrawer({
               <Sparkles size={16} />
               Rangkuman Analisis Explainable AI (XAI):
             </div>
-            <p className="narrative-text">
-              {job.narrative?.narrative_text || "Profil Anda memiliki keselarasan tinggi dengan lowongan pekerjaan ini berdasarkan integrasi mata kuliah kurikulum dan sertifikasi industri."}
+            <p className="narrative-text" style={{ fontSize: '0.92rem', lineHeight: 1.6, color: '#334155' }}>
+              <FormattedText 
+                text={job.narrative?.narrative_text || "Profil Anda memiliki keselarasan tinggi dengan lowongan pekerjaan ini berdasarkan integrasi mata kuliah kurikulum dan sertifikasi industri."} 
+              />
             </p>
           </div>
 
@@ -254,7 +257,9 @@ export default function JobDetailDrawer({
                   <div key={cIdx} className="component-item" style={{ borderLeft: '3px solid #2563EB' }}>
                     <div>
                       <div className="component-type" style={{ color: '#2563EB' }}>Sertifikat Industri Resmi</div>
-                      <div className="component-name">{comp.name}</div>
+                      <div className="component-name">
+                        <FormattedText text={comp.name} />
+                      </div>
                     </div>
                     <div style={{ textAlign: 'right' }}>
                       <span className="component-match-pill" style={{ background: '#EFF6FF', color: '#1E40AF', border: '1px solid #BFDBFE' }}>
@@ -282,7 +287,9 @@ export default function JobDetailDrawer({
                   <div key={cIdx} className="component-item" style={{ borderLeft: '3px solid #10B981' }}>
                     <div>
                       <div className="component-type" style={{ color: '#059669' }}>Capaian Kurikulum (CLO)</div>
-                      <div className="component-name">{comp.name}</div>
+                      <div className="component-name">
+                        <FormattedText text={comp.name} />
+                      </div>
                     </div>
                     <div style={{ textAlign: 'right' }}>
                       <span className="component-match-pill">
@@ -386,7 +393,9 @@ export default function JobDetailDrawer({
               return (
                 <div key={fIdx} className="shap-row">
                   <div className="shap-label-box">
-                    <span style={{ color: '#1E293B', fontWeight: 600 }}>{feat.feature}</span>
+                    <span style={{ color: '#1E293B', fontWeight: 600 }}>
+                      <FormattedText text={feat.feature} />
+                    </span>
                     <span style={{ color: isPos ? '#059669' : '#DC2626', fontWeight: 800 }}>
                       {isPos ? `+${val.toFixed(3)}` : val.toFixed(3)}
                     </span>
@@ -433,14 +442,14 @@ export default function JobDetailDrawer({
               <div key={dIdx} className="dice-course-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.35rem' }}>
                   <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#0F172A' }}>
-                    {dice.course_name}
+                    <FormattedText text={dice.course_name} />
                   </div>
                   <span style={{ background: '#EFF6FF', color: '#1E40AF', padding: '0.25rem 0.6rem', borderRadius: '8px', fontSize: '0.78rem', fontWeight: 800, border: '1px solid #BFDBFE' }}>
                     +{dice.score_delta.toFixed(2)} Est. Boost
                   </span>
                 </div>
                 <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.45 }}>
-                  {dice.detail}
+                  <FormattedText text={dice.detail} />
                 </p>
               </div>
             ))

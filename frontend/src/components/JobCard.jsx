@@ -1,12 +1,13 @@
 import React from 'react';
+import FormattedText from './FormattedText';
 import { 
   Building2, 
   MapPin, 
   Sparkles, 
   TrendingUp, 
   Bookmark, 
-  Award,
-  BookOpen,
+  Award, 
+  BookOpen, 
   CheckCircle2
 } from 'lucide-react';
 
@@ -146,7 +147,7 @@ export default function JobCard({
         }}>
           <CheckCircle2 size={13} color="#059669" style={{ flexShrink: 0 }} />
           <span>
-            <strong>Alasan Cocok:</strong> Keselarasan tinggi pada <strong>{topComponent.name}</strong> ({topComponent.relevance_match_pct}% match)
+            <strong>Alasan Cocok:</strong> Keselarasan tinggi pada <strong><FormattedText text={topComponent.name} /></strong> ({topComponent.relevance_match_pct}% match)
           </span>
         </div>
       )}
