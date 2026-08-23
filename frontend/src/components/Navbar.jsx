@@ -25,7 +25,6 @@ export default function Navbar({
   onOpenAuthModal,
   onLogout,
   onOpenProfileModal,
-  onOpenDreamModal,
   onOpenUploadModal,
   savedCount
 }) {
@@ -83,19 +82,11 @@ export default function Navbar({
         </button>
 
         <button 
-          className={`nav-btn ${activeTab === 'dream' ? 'active' : ''}`}
-          onClick={onOpenDreamModal}
-        >
-          <Compass size={16} />
-          Target Profesi Impian
-        </button>
-
-        <button 
           className={`nav-btn ${activeTab === 'profile' ? 'active' : ''}`}
           onClick={onOpenProfileModal}
         >
           <FileText size={16} />
-          KHS & Sertifikat
+          📚 KHS & Sertifikat
         </button>
       </nav>
 

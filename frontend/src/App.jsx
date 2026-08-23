@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import JobCard from './components/JobCard';
 import JobDetailDrawer from './components/JobDetailDrawer';
 import StudentProfileModal from './components/StudentProfileModal';
-import DreamJobExplorer from './components/DreamJobExplorer';
 import UploadModal from './components/UploadModal';
 import AuthModal from './components/AuthModal';
 import LandingPortal from './components/LandingPortal';
@@ -160,7 +159,6 @@ export default function App() {
   });
   const [appliedJobs, setAppliedJobs] = useState([]);
   const [showProfileModal, setShowProfileModal] = useState(false);
-  const [showDreamModal, setShowDreamModal] = useState(false);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -274,7 +272,6 @@ export default function App() {
         onOpenAuthModal={() => setShowAuthModal(true)}
         onLogout={handleLogout}
         onOpenProfileModal={() => setShowProfileModal(true)}
-        onOpenDreamModal={() => setShowDreamModal(true)}
         onOpenUploadModal={() => setShowUploadModal(true)}
         savedCount={savedJobs.length}
       />
@@ -382,12 +379,6 @@ export default function App() {
               onClick={() => setShowProfileModal(true)}
             >
               <FileText size={16} /> KHS & Sertifikat
-            </button>
-            <button 
-              className="btn-primary"
-              onClick={() => setShowDreamModal(true)}
-            >
-              <Compass size={16} /> Profesi Impian
             </button>
           </div>
         </div>
@@ -703,13 +694,6 @@ export default function App() {
         <StudentProfileModal 
           student={studentData}
           onClose={() => setShowProfileModal(false)}
-        />
-      )}
-
-      {showDreamModal && (
-        <DreamJobExplorer 
-          student={studentData}
-          onClose={() => setShowDreamModal(false)}
         />
       )}
 
