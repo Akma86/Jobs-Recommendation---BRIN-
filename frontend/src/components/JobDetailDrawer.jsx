@@ -33,7 +33,8 @@ export default function JobDetailDrawer({
   isSaved, 
   onToggleSave,
   hasApplied,
-  onApply
+  onApply,
+  evaluationMode = 'after'
 }) {
   const [activeTab, setActiveTab] = useState('narrative');
 
@@ -58,10 +59,16 @@ export default function JobDetailDrawer({
     onApply(job.job_id);
   };
 
+  const isBeforeMode = evaluationMode === 'before' || job.condition === 'before';
+
   const beforePct = job.match_pct_before || Math.max(15.0, Number((job.match_pct - (job.delta > 0.1 ? job.delta * 4.5 : 0)).toFixed(1)));
   const deltaPct = job.delta_pct || Math.max(0.0, Number((job.match_pct - beforePct).toFixed(1)));
   const indexAfter = job.index_score_after || Math.min(10.0, Math.max(1.0, Number((job.match_pct / 10.0).toFixed(1))));
   const indexBefore = job.index_score_before || Math.min(10.0, Math.max(1.0, Number((beforePct / 10.0).toFixed(1))));
+
+  // Current active metrics based on mode
+  const currentMatchPct = isBeforeMode ? beforePct : job.match_pct;
+  const currentIndexScore = isBeforeMode ? indexBefore : indexAfter;
 
   // Separate components for Smart Explanation
   const allComponents = job.narrative?.components || [];
@@ -103,25 +110,32 @@ export default function JobDetailDrawer({
             className="btn-primary"
             onClick={handleApplyClick}
             disabled={hasApplied}
-            style={hasApplied ? { background: '#10B981', cursor: 'default' } : {}}
+            style={{
+              background: hasApplied ? '#10B981' : 'var(--primary)',
+              cursor: hasApplied ? 'default' : 'pointer'
+            }}
           >
             {hasApplied ? (
               <>
-                <CheckCircle2 size={16} /> Dilamar
+                <CheckCircle2 size={16} />
+                Lamaran Terkirim
               </>
             ) : (
               <>
-                <Send size={16} /> Quick Apply
+                <Send size={16} />
+                Lamar Lowongan
               </>
             )}
           </button>
         </div>
       </div>
 
-      {/* Jobright-style AI Match Overview Hero */}
+      {/* Dynamic AI Match Overview Hero (Respects Before vs After mode) */}
       <div className="match-overview-card" style={{
-        background: 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
-        border: '1px solid #BFDBFE',
+        background: isBeforeMode 
+          ? 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)' 
+          : 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
+        border: isBeforeMode ? '1px solid #CBD5E1' : '1px solid #BFDBFE',
         borderRadius: '16px',
         padding: '1.25rem',
         marginBottom: '1.25rem'
@@ -132,66 +146,102 @@ export default function JobDetailDrawer({
               width: '56px',
               height: '56px',
               borderRadius: '16px',
-              background: (job.match_pct || 75) >= 85 ? 'linear-gradient(135deg, #10B981, #059669)' : 'linear-gradient(135deg, #2563EB, #1D4ED8)',
+              background: isBeforeMode 
+                ? 'linear-gradient(135deg, #475569, #334155)'
+                : ((job.match_pct || 75) >= 85 ? 'linear-gradient(135deg, #10B981, #059669)' : 'linear-gradient(135deg, #2563EB, #1D4ED8)'),
               color: '#FFFFFF',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
               fontWeight: 800,
-              boxShadow: '0 4px 12px rgba(37,99,235,0.25)'
+              boxShadow: isBeforeMode ? '0 4px 12px rgba(71,85,105,0.25)' : '0 4px 12px rgba(37,99,235,0.25)'
             }}>
-              <span style={{ fontSize: '1.15rem', lineHeight: 1 }}>{job.match_pct}%</span>
-              <span style={{ fontSize: '0.55rem', opacity: 0.9, textTransform: 'uppercase', letterSpacing: '0.04em' }}>MATCH</span>
+              <span style={{ fontSize: '1.15rem', lineHeight: 1 }}>{currentMatchPct}%</span>
+              <span style={{ fontSize: '0.52rem', opacity: 0.9, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                {isBeforeMode ? 'KHS SAJA' : 'MATCH'}
+              </span>
             </div>
 
             <div>
               <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Sparkles size={16} color="#2563EB" />
-                Alasan Keselarasan Profil (Why You Match)
+                {isBeforeMode ? <BookOpen size={16} color="#475569" /> : <Sparkles size={16} color="#2563EB" />}
+                {isBeforeMode ? 'Kondisi A: Keselarasan Murni KHS' : 'Kondisi B: Keselarasan (+Sertifikat)'}
               </div>
               <div style={{ fontSize: '0.82rem', color: '#64748B', marginTop: '0.15rem' }}>
-                Indeks Kelayakan: <strong>{indexAfter} / 10.0</strong> • Peringkat Rekomendasi: <strong>#{job.rank}</strong>
+                Indeks Kelayakan: <strong>{currentIndexScore} / 10.0</strong> • Peringkat Rekomendasi: <strong>#{job.rank}</strong>
               </div>
             </div>
           </div>
 
           <div style={{ textAlign: 'right' }}>
-            {job.delta > 0.1 && (
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#DCFCE7', color: '#166534', padding: '0.35rem 0.75rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', border: '1px solid #BBF7D0' }}>
-                <TrendingUp size={14} />
-                +{deltaPct}% Lonjakan Sertifikat
-              </div>
+            {isBeforeMode ? (
+              <>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#F1F5F9', color: '#475569', padding: '0.35rem 0.75rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', border: '1px solid #CBD5E1' }}>
+                  <BookOpen size={14} />
+                  Murni Kurikulum Akademik
+                </div>
+                <div style={{ fontSize: '0.75rem', color: '#2563EB', marginTop: '0.35rem', fontWeight: 700 }}>
+                  Potensi After (+Sertifikat): <strong>{job.match_pct}% ({indexAfter} / 10.0)</strong>
+                </div>
+              </>
+            ) : (
+              <>
+                {job.delta > 0.1 && (
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#DCFCE7', color: '#166534', padding: '0.35rem 0.75rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', border: '1px solid #BBF7D0' }}>
+                    <TrendingUp size={14} />
+                    +{deltaPct}% Lonjakan Sertifikat
+                  </div>
+                )}
+                <div style={{ fontSize: '0.75rem', color: '#64748B', marginTop: '0.35rem' }}>
+                  Before (KHS Saja): <strong>{beforePct}% ({indexBefore} / 10.0)</strong>
+                </div>
+              </>
             )}
-            <div style={{ fontSize: '0.75rem', color: '#64748B', marginTop: '0.35rem' }}>
-              Before (KHS Saja): <strong>{beforePct}% ({indexBefore} / 10.0)</strong>
-            </div>
           </div>
         </div>
 
         {/* Quick Highlights */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.84rem', color: '#334155' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-            <CheckCircle2 size={15} color="#059669" style={{ flexShrink: 0 }} />
-            <span>
-              <strong>Kecocokan Profil Keseluruhan:</strong> Memenuhi <strong>{job.match_pct}%</strong> kualifikasi kompetensi untuk posisi <strong>{job.title}</strong>.
-            </span>
-          </div>
-
-          {job.delta > 0.1 ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              <TrendingUp size={15} color="#2563EB" style={{ flexShrink: 0 }} />
-              <span>
-                <strong>Dukungan Sertifikasi Industri:</strong> Portofolio kredensial mendongkrak kelayakan Anda sebesar <strong>+{deltaPct}% (+{job.delta.toFixed(2)} poin)</strong> ({job.impact_status}).
-              </span>
-            </div>
+          {isBeforeMode ? (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                <CheckCircle2 size={15} color="#475569" style={{ flexShrink: 0 }} />
+                <span>
+                  <strong>Kecocokan Profil Murni Akademik:</strong> Memenuhi <strong>{beforePct}%</strong> kualifikasi kompetensi berdasarkan capaian nilai transkrip KHS kurikulum untuk posisi <strong>{job.title}</strong>.
+                </span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                <Sparkles size={15} color="#2563EB" style={{ flexShrink: 0 }} />
+                <span>
+                  <strong>Peluang Lonjakan Portofolio:</strong> Penambahan 5 sertifikat industri diestimasi mendongkrak kelayakan hingga <strong>{job.match_pct}% (+{deltaPct}%)</strong>.
+                </span>
+              </div>
+            </>
           ) : (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              <BookOpen size={15} color="#2563EB" style={{ flexShrink: 0 }} />
-              <span>
-                <strong>Fondasi Kurikulum:</strong> Capaian nilai KHS pada mata kuliah inti memberikan kecocokan akademik yang kuat.
-              </span>
-            </div>
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                <CheckCircle2 size={15} color="#059669" style={{ flexShrink: 0 }} />
+                <span>
+                  <strong>Kecocokan Profil Keseluruhan:</strong> Memenuhi <strong>{job.match_pct}%</strong> kualifikasi kompetensi untuk posisi <strong>{job.title}</strong>.
+                </span>
+              </div>
+              {job.delta > 0.1 ? (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                  <TrendingUp size={15} color="#2563EB" style={{ flexShrink: 0 }} />
+                  <span>
+                    <strong>Dukungan Sertifikasi Industri:</strong> Portofolio kredensial mendongkrak kelayakan Anda sebesar <strong>+{deltaPct}% (+{job.delta.toFixed(2)} poin)</strong> ({job.impact_status}).
+                  </span>
+                </div>
+              ) : (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                  <BookOpen size={15} color="#2563EB" style={{ flexShrink: 0 }} />
+                  <span>
+                    <strong>Fondasi Kurikulum:</strong> Capaian nilai KHS pada mata kuliah inti memberikan kecocokan akademik yang kuat.
+                  </span>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

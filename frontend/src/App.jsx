@@ -474,7 +474,11 @@ export default function App() {
 
           <div style={{ display: 'flex', background: '#F1F5F9', padding: '3px', borderRadius: '12px', gap: '4px' }}>
             <button
-              onClick={() => setEvaluationMode('after')}
+              onClick={() => {
+                setEvaluationMode('after');
+                const list = studentData?.recommended_jobs_after || studentData?.recommended_jobs || [];
+                if (list.length > 0) setActiveJob(list[0]);
+              }}
               style={{
                 padding: '0.4rem 0.9rem',
                 borderRadius: '9px',
@@ -495,7 +499,11 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setEvaluationMode('before')}
+              onClick={() => {
+                setEvaluationMode('before');
+                const list = studentData?.recommended_jobs_before || studentData?.recommended_jobs || [];
+                if (list.length > 0) setActiveJob(list[0]);
+              }}
               style={{
                 padding: '0.4rem 0.9rem',
                 borderRadius: '9px',
@@ -516,7 +524,11 @@ export default function App() {
             </button>
 
             <button
-              onClick={() => setEvaluationMode('compare')}
+              onClick={() => {
+                setEvaluationMode('compare');
+                const list = studentData?.recommended_jobs_after || studentData?.recommended_jobs || [];
+                if (list.length > 0) setActiveJob(list[0]);
+              }}
               style={{
                 padding: '0.4rem 0.9rem',
                 borderRadius: '9px',
@@ -675,6 +687,7 @@ export default function App() {
           onToggleSave={handleToggleSave}
           hasApplied={activeJob && appliedJobs.includes(activeJob.job_id)}
           onApply={handleApply}
+          evaluationMode={evaluationMode}
         />
       </main>
 
