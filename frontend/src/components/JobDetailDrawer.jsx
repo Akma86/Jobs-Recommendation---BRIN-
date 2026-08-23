@@ -11,11 +11,11 @@ import {
   MessageSquare, 
   BarChart3, 
   Compass, 
-  PlayCircle,
-  Award,
-  BookOpen,
-  DollarSign,
-  Briefcase
+  Award, 
+  BookOpen, 
+  Info,
+  Layers,
+  ArrowUpRight
 } from 'lucide-react';
 
 const AVATAR_COLORS = [
@@ -35,8 +35,6 @@ export default function JobDetailDrawer({
   onApply
 }) {
   const [activeTab, setActiveTab] = useState('narrative');
-  const [selectedCourses, setSelectedCourses] = useState([]);
-  const [projectedBoost, setProjectedBoost] = useState(0);
 
   if (!job) {
     return (
@@ -59,24 +57,13 @@ export default function JobDetailDrawer({
     onApply(job.job_id);
   };
 
-  const handleToggleCourse = (course) => {
-    const exists = selectedCourses.some(c => c.course_name === course.course_name);
-    let newSelection = [];
-    if (exists) {
-      newSelection = selectedCourses.filter(c => c.course_name !== course.course_name);
-    } else {
-      newSelection = [...selectedCourses, course];
-    }
-    setSelectedCourses(newSelection);
+  const beforePct = job.match_pct_before || Math.max(15.0, Number((job.match_pct - (job.delta > 0.1 ? job.delta * 4.5 : 0)).toFixed(1)));
+  const deltaPct = job.delta_pct || Math.max(0.0, Number((job.match_pct - beforePct).toFixed(1)));
 
-    // Calculate boost
-    const boost = newSelection.reduce((acc, c) => acc + (c.score_delta || 0.5), 0);
-    const decayed = boost / (1.0 + 0.15 * Math.max(0, newSelection.length - 1));
-    setProjectedBoost(decayed);
-  };
-
-  const simulatedScore = Math.min(10.0, Number((job.score_after + projectedBoost).toFixed(2)));
-  const simulatedPct = Math.min(100.0, Number(((simulatedScore / 10.0) * 100).toFixed(1)));
+  // Separate components for Smart Explanation
+  const allComponents = job.narrative?.components || [];
+  const certComponents = allComponents.filter(c => c.type === 'Sertifikat Industri' || c.name.toLowerCase().includes('certificate') || c.name.toLowerCase().includes('associate') || c.name.toLowerCase().includes('specialization'));
+  const courseComponents = allComponents.filter(c => c.type === 'Mata Kuliah Kurikulum' || !certComponents.includes(c));
 
   return (
     <div className="job-detail-panel">
@@ -87,11 +74,11 @@ export default function JobDetailDrawer({
             {initial}
           </div>
           <div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.2 }}>
+            <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.2 }}>
               {job.title}
             </h2>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.35rem', color: '#64748B', fontSize: '0.9rem' }}>
-              <span style={{ fontWeight: 600, color: '#1E293B' }}>{job.company}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.35rem', color: '#64748B', fontSize: '0.88rem' }}>
+              <span style={{ fontWeight: 700, color: '#1E293B' }}>{job.company}</span>
               <span>•</span>
               <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                 <MapPin size={14} /> {job.location || 'Indonesia / Remote'}
@@ -128,7 +115,7 @@ export default function JobDetailDrawer({
         </div>
       </div>
 
-      {/* Jobright-style AI Match Overview & Why You Match Hero */}
+      {/* Jobright-style AI Match Overview Hero */}
       <div className="match-overview-card" style={{
         background: 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
         border: '1px solid #BFDBFE',
@@ -151,17 +138,17 @@ export default function JobDetailDrawer({
               fontWeight: 800,
               boxShadow: '0 4px 12px rgba(37,99,235,0.25)'
             }}>
-              <span style={{ fontSize: '1.15rem', lineHeight: 1 }}>{projectedBoost > 0 ? simulatedPct : job.match_pct}%</span>
+              <span style={{ fontSize: '1.15rem', lineHeight: 1 }}>{job.match_pct}%</span>
               <span style={{ fontSize: '0.55rem', opacity: 0.9, textTransform: 'uppercase', letterSpacing: '0.04em' }}>MATCH</span>
             </div>
 
             <div>
               <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                 <Sparkles size={16} color="#2563EB" />
-                Alasan Anda Cocok (Why You Match)
+                Alasan Keselarasan Profil (Why You Match)
               </div>
               <div style={{ fontSize: '0.82rem', color: '#64748B', marginTop: '0.15rem' }}>
-                Indeks Kelayakan: <strong>{job.score_after}</strong> {projectedBoost > 0 && <span style={{ color: '#059669', fontWeight: 700 }}>(Simulasi: {simulatedScore})</span>} • Peringkat Rekomendasi: <strong>#{job.rank}</strong>
+                Indeks Kelayakan: <strong>{job.score_after} / 10.0</strong> • Peringkat Rekomendasi: <strong>#{job.rank}</strong>
               </div>
             </div>
           </div>
@@ -170,16 +157,16 @@ export default function JobDetailDrawer({
             {job.delta > 0.1 && (
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#DCFCE7', color: '#166534', padding: '0.35rem 0.75rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', border: '1px solid #BBF7D0' }}>
                 <TrendingUp size={14} />
-                +{job.delta.toFixed(2)} Lonjakan Sertifikat
+                +{deltaPct}% Lonjakan Sertifikat
               </div>
             )}
             <div style={{ fontSize: '0.75rem', color: '#64748B', marginTop: '0.35rem' }}>
-              Skor Before (KHS Saja): <strong>{job.score_before}</strong>
+              Before (KHS Saja): <strong>{beforePct}% ({job.score_before})</strong>
             </div>
           </div>
         </div>
 
-        {/* Quick Bullet Highlights on Why You Match */}
+        {/* Quick Highlights */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.84rem', color: '#334155' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
             <CheckCircle2 size={15} color="#059669" style={{ flexShrink: 0 }} />
@@ -192,7 +179,7 @@ export default function JobDetailDrawer({
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
               <TrendingUp size={15} color="#2563EB" style={{ flexShrink: 0 }} />
               <span>
-                <strong>Dukungan Sertifikasi:</strong> Portofolio kredensial industri mendongkrak kelayakan Anda sebesar <strong>+{job.delta.toFixed(2)} poin</strong> ({job.impact_status}).
+                <strong>Dukungan Sertifikasi Industri:</strong> Portofolio kredensial mendongkrak kelayakan Anda sebesar <strong>+{deltaPct}% (+{job.delta.toFixed(2)} poin)</strong> ({job.impact_status}).
               </span>
             </div>
           ) : (
@@ -206,7 +193,7 @@ export default function JobDetailDrawer({
         </div>
       </div>
 
-      {/* XAI Navigation Tabs */}
+      {/* XAI Navigation Tabs (Clean 4 Tabs) */}
       <div className="xai-tabs-nav">
         <button 
           className={`xai-tab-btn ${activeTab === 'narrative' ? 'active' : ''}`}
@@ -221,7 +208,7 @@ export default function JobDetailDrawer({
           onClick={() => setActiveTab('abtest')}
         >
           <TrendingUp size={15} />
-          ⚖️ Dampak A/B (+Sertifikat)
+          ⚖️ Before & After Certificate
         </button>
 
         <button 
@@ -239,112 +226,157 @@ export default function JobDetailDrawer({
           <Compass size={15} />
           🧭 DiCE Roadmap ({job.dice_recommendations?.length || 0})
         </button>
-
-        <button 
-          className={`xai-tab-btn ${activeTab === 'whatif' ? 'active' : ''}`}
-          onClick={() => setActiveTab('whatif')}
-        >
-          <PlayCircle size={15} />
-          🎯 What-If Simulator
-        </button>
       </div>
 
       {/* TAB 1: Smart Narrative Explanation */}
       {activeTab === 'narrative' && (
         <div>
-          <div className="narrative-card">
+          {/* Main Synthesis Narrative */}
+          <div className="narrative-card" style={{ marginBottom: '1.25rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#1E40AF', fontWeight: 800, fontSize: '0.86rem', marginBottom: '0.4rem' }}>
+              <Sparkles size={16} />
+              Rangkuman Analisis Explainable AI (XAI):
+            </div>
             <p className="narrative-text">
-              {job.narrative?.narrative_text || "Profil Anda memiliki keselarasan tinggi dengan lowongan pekerjaan ini berdasarkan integrasi mata kuliah dan sertifikasi industri."}
+              {job.narrative?.narrative_text || "Profil Anda memiliki keselarasan tinggi dengan lowongan pekerjaan ini berdasarkan integrasi mata kuliah kurikulum dan sertifikasi industri."}
             </p>
           </div>
 
-          <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1E293B', marginBottom: '0.75rem' }}>
-            📌 Rincian Persentase Kecocokan per Komponen:
-          </h4>
-
-          {job.narrative?.components && job.narrative.components.length > 0 ? (
-            job.narrative.components.map((comp, cIdx) => (
-              <div key={cIdx} className="component-item">
-                <div>
-                  <div className="component-type">
-                    {comp.type === 'Sertifikat Industri' ? '📜 Sertifikasi Industri' : '📚 Mata Kuliah Kurikulum'}
+          {/* Section A: Matching Industry Certificates */}
+          {certComponents.length > 0 && (
+            <div style={{ marginBottom: '1.25rem' }}>
+              <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#1E293B', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Award size={16} color="#2563EB" />
+                📜 Sertifikasi Industri yang Relevan & Mendongkrak Skor:
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+                {certComponents.map((comp, cIdx) => (
+                  <div key={cIdx} className="component-item" style={{ borderLeft: '3px solid #2563EB' }}>
+                    <div>
+                      <div className="component-type" style={{ color: '#2563EB' }}>Sertifikat Industri Resmi</div>
+                      <div className="component-name">{comp.name}</div>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <span className="component-match-pill" style={{ background: '#EFF6FF', color: '#1E40AF', border: '1px solid #BFDBFE' }}>
+                        Kecocokan {comp.relevance_match_pct}%
+                      </span>
+                      <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '0.2rem' }}>
+                        Menyumbang {comp.contribution_share_pct}% kelayakan
+                      </div>
+                    </div>
                   </div>
-                  <div className="component-name">{comp.name}</div>
-                </div>
-                <div style={{ textAlign: 'right' }}>
-                  <span className="component-match-pill">
-                    Kecocokan {comp.relevance_match_pct}%
-                  </span>
-                  <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '0.2rem' }}>
-                    Menyumbang {comp.contribution_share_pct}% skor
-                  </div>
-                </div>
+                ))}
               </div>
-            ))
-          ) : (
-            <p style={{ color: '#94A3B8', fontSize: '0.88rem' }}>Data komponen tidak tersedia.</p>
+            </div>
+          )}
+
+          {/* Section B: Helpful Curriculum Courses */}
+          {courseComponents.length > 0 && (
+            <div style={{ marginBottom: '1rem' }}>
+              <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#1E293B', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <BookOpen size={16} color="#059669" />
+                📚 Mata Kuliah Kurikulum KHS yang Mendukung:
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
+                {courseComponents.map((comp, cIdx) => (
+                  <div key={cIdx} className="component-item" style={{ borderLeft: '3px solid #10B981' }}>
+                    <div>
+                      <div className="component-type" style={{ color: '#059669' }}>Capaian Kurikulum (CLO)</div>
+                      <div className="component-name">{comp.name}</div>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <span className="component-match-pill">
+                        Kecocokan {comp.relevance_match_pct}%
+                      </span>
+                      <div style={{ fontSize: '0.72rem', color: '#64748B', marginTop: '0.2rem' }}>
+                        Menyumbang {comp.contribution_share_pct}% kelayakan
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
         </div>
       )}
 
-      {/* TAB: A/B Test Impact */}
+      {/* TAB 2: Before & After Certificate Impact */}
       {activeTab === 'abtest' && (
         <div>
-          <p style={{ fontSize: '0.86rem', color: '#64748B', marginBottom: '1rem' }}>
-            Analisis perbandingan komparatif A/B Testing untuk mengukur seberapa signifikan sertifikasi industri meningkatkan daya saing profil Anda terhadap lowongan <strong>{job.title}</strong>:
-          </p>
+          <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '0.85rem 1rem', marginBottom: '1.25rem', fontSize: '0.85rem', color: '#475569' }}>
+            <strong style={{ color: '#0F172A' }}>⚖️ Evaluasi Komparatif Before vs After:</strong> Mengukur peningkatan daya saing dan keselarasan profil Anda terhadap lowongan <strong>{job.title}</strong> sebelum dan sesudah memperhitungkan portofolio sertifikasi industri.
+          </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '1.25rem' }}>
-            {/* Condition A */}
-            <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '1rem' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#64748B', textTransform: 'uppercase' }}>
-                🎓 Kondisi A (Before)
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.25rem' }}>
+            {/* Condition A: Before */}
+            <div style={{ background: '#F8FAFC', border: '1px solid #CBD5E1', borderRadius: '14px', padding: '1.25rem' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                🎓 Kondisi A (Before Sertifikat)
               </div>
-              <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#334155', marginTop: '0.25rem' }}>
-                {job.score_before} <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>/ 45.0</span>
+              <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#334155', marginTop: '0.35rem', fontFamily: 'var(--font-heading)' }}>
+                {beforePct}% <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#64748B' }}>Match</span>
               </div>
-              <div style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '0.25rem' }}>
-                Murni Capaian KHS Kurikulum
+              <div style={{ fontSize: '0.82rem', color: '#475569', marginTop: '0.35rem', fontWeight: 600 }}>
+                Indeks Skor: {job.score_before} / 10.0
+              </div>
+              <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.25rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.5rem' }}>
+                Murni Capaian Transkrip KHS Kurikulum
               </div>
             </div>
 
-            {/* Condition B */}
-            <div style={{ background: '#EFF6FF', border: '1px solid #BFDBFE', borderRadius: '12px', padding: '1rem' }}>
-              <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#1E40AF', textTransform: 'uppercase' }}>
-                🚀 Kondisi B (After)
+            {/* Condition B: After */}
+            <div style={{ background: '#EFF6FF', border: '1.5px solid #93C5FD', borderRadius: '14px', padding: '1.25rem' }}>
+              <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#1E40AF', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
+                🚀 Kondisi B (After + 5 Sertifikat)
               </div>
-              <div style={{ fontSize: '1.3rem', fontWeight: 800, color: '#1E40AF', marginTop: '0.25rem' }}>
-                {job.score_after} <span style={{ fontSize: '0.8rem', fontWeight: 500 }}>/ 45.0</span>
+              <div style={{ fontSize: '1.75rem', fontWeight: 900, color: '#1E40AF', marginTop: '0.35rem', fontFamily: 'var(--font-heading)' }}>
+                {job.match_pct}% <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#2563EB' }}>Match</span>
               </div>
-              <div style={{ fontSize: '0.8rem', color: '#1E40AF', marginTop: '0.25rem', fontWeight: 600 }}>
-                +{job.delta.toFixed(2)} Lonjakan Sertifikat
+              <div style={{ fontSize: '0.82rem', color: '#1E40AF', marginTop: '0.35rem', fontWeight: 700 }}>
+                Indeks Skor: {job.score_after} / 10.0
+              </div>
+              <div style={{ fontSize: '0.78rem', color: '#1E40AF', marginTop: '0.25rem', borderTop: '1px solid #BFDBFE', paddingTop: '0.5rem', fontWeight: 700 }}>
+                +{deltaPct}% Lonjakan (+{job.delta.toFixed(2)} Poin Portofolio)
               </div>
             </div>
           </div>
 
-          <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '1rem' }}>
-            <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0F172A', marginBottom: '0.5rem' }}>
-              💡 Kesimpulan Dampak Portofolio:
+          <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '14px', padding: '1.15rem' }}>
+            <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.4rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+              <Info size={16} color="#2563EB" />
+              Kesimpulan Dampak Portofolio Kredensial:
             </h4>
-            <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '0.85rem', color: '#475569', lineHeight: 1.55 }}>
               {job.delta > 1.0 ? (
-                <>Sertifikasi industri memberikan <strong>lonjakan masif (+{job.delta.toFixed(2)} poin)</strong> pada posisi ini. Kepemilikan sertifikat kredibel (Tier A/B) berhasil memvalidasi keterampilan praktis tingkat lanjut yang melengkapi capaian teori akademik di kelas.</>
+                <>Penambahan sertifikasi industri resmi (Tier A/B) memberikan <strong>lonjakan masif (+{deltaPct}% / +{job.delta.toFixed(2)} poin)</strong> pada posisi ini. Kredensial industri berhasil memvalidasi kesiapan kerja praktis yang melengkapi fondasi teori akademik di perkuliahan.</>
               ) : job.delta > 0.1 ? (
-                <>Penambahan sertifikasi industri memberikan <strong>penguatan terarah (+{job.delta.toFixed(2)} poin)</strong>, meningkatkan kepastian kompetensi pada bidang keahlian target.</>
+                <>Penambahan sertifikasi industri memberikan <strong>penguatan terarah (+{deltaPct}% / +{job.delta.toFixed(2)} poin)</strong>, mempertajam spesialisasi teknis Anda pada lowongan target ini.</>
               ) : (
-                <>Skor pada posisi ini didominasi oleh fondasi kurikulum akademik yang sudah sangat kuat (skor stabil).</>
+                <>Skor kelayakan pada lowongan ini didominasi oleh fondasi capaian mata kuliah kurikulum KHS yang sudah sangat selaras (skor stabil).</>
               )}
             </p>
           </div>
         </div>
       )}
 
-      {/* TAB 2: SHAP Feature Attribution */}
+      {/* TAB 3: SHAP Feature Attribution with Narrative */}
       {activeTab === 'shap' && (
         <div>
-          <p style={{ fontSize: '0.86rem', color: '#64748B', marginBottom: '1rem' }}>
-            SHAP (SHapley Additive exPlanations) mengukur kontribusi kuantitatif masing-masing fitur (mata kuliah kurikulum vs sertifikasi) dalam menaikkan skor kelayakan Anda.
-          </p>
+          {/* SHAP Narrative Explanation Box */}
+          <div style={{ background: '#F8FAFC', borderLeft: '4px solid #8B5CF6', borderRadius: '12px', padding: '1rem 1.15rem', marginBottom: '1.25rem' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.86rem', color: '#6D28D9', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+              <BarChart3 size={16} />
+              Interpretasi Atribusi Fitur SHAP (SHapley Additive exPlanations):
+            </div>
+            <p style={{ fontSize: '0.84rem', color: '#334155', lineHeight: 1.5, margin: 0 }}>
+              Grafik SHAP di bawah ini mengukur kontribusi kuantitatif dari setiap mata kuliah kurikulum dan sertifikasi industri dalam mendongkrak skor kelayakan Anda. 
+              Fitur dengan batang <strong>hijau (+)</strong> menunjukkan pendorong kelayakan utama, sedangkan sertifikasi resmi dengan bobot Tier A/B menyumbangkan nilai kontribusi tertinggi.
+            </p>
+          </div>
+
+          <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B', marginBottom: '0.85rem' }}>
+            📊 Bobot Kontribusi Fitur Profil Terhadap Lowongan Ini:
+          </h4>
 
           {job.shap_features && job.shap_features.length > 0 ? (
             job.shap_features.map((feat, fIdx) => {
@@ -354,8 +386,8 @@ export default function JobDetailDrawer({
               return (
                 <div key={fIdx} className="shap-row">
                   <div className="shap-label-box">
-                    <span style={{ color: '#1E293B' }}>{feat.feature}</span>
-                    <span style={{ color: isPos ? '#059669' : '#DC2626', fontWeight: 700 }}>
+                    <span style={{ color: '#1E293B', fontWeight: 600 }}>{feat.feature}</span>
+                    <span style={{ color: isPos ? '#059669' : '#DC2626', fontWeight: 800 }}>
                       {isPos ? `+${val.toFixed(3)}` : val.toFixed(3)}
                     </span>
                   </div>
@@ -377,106 +409,43 @@ export default function JobDetailDrawer({
         </div>
       )}
 
-      {/* TAB 3: DiCE Roadmap */}
+      {/* TAB 4: DiCE Roadmap with Narrative */}
       {activeTab === 'dice' && (
         <div>
-          <p style={{ fontSize: '0.86rem', color: '#64748B', marginBottom: '1rem' }}>
-            DiCE (Diverse Counterfactual Explanations) merekomendasikan kursus riil dari 1.139 katalog online (Google, AWS, Meta, IBM, DeepLearning.AI) untuk menutup celah kompetensi Anda:
-          </p>
+          {/* DiCE Narrative Explanation Box */}
+          <div style={{ background: '#F8FAFC', borderLeft: '4px solid #2563EB', borderRadius: '12px', padding: '1rem 1.15rem', marginBottom: '1.25rem' }}>
+            <div style={{ fontWeight: 800, fontSize: '0.86rem', color: '#1E40AF', display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
+              <Compass size={16} />
+              Interpretasi Rekomendasi DiCE (Diverse Counterfactual Explanations):
+            </div>
+            <p style={{ fontSize: '0.84rem', color: '#334155', lineHeight: 1.5, margin: 0 }}>
+              Sistem AI menganalisis basis data <strong>1.139 katalog kursus & sertifikasi industri resmi</strong> (Google, AWS, Meta, IBM, Cisco, DeepLearning.AI, SAP) untuk menemukan intervensi minimal paling efektif. 
+              Mengambil kursus yang direkomendasikan di bawah ini akan secara langsung <strong>menutup kesenjangan kompetensi (skill gap)</strong> dan meningkatkan skor kecocokan karir Anda.
+            </p>
+          </div>
+
+          <h4 style={{ fontSize: '0.9rem', fontWeight: 800, color: '#1E293B', marginBottom: '0.85rem' }}>
+            🧭 Rekomendasi Intervensi Kursus untuk Memaksimalkan Skor:
+          </h4>
 
           {job.dice_recommendations && job.dice_recommendations.length > 0 ? (
             job.dice_recommendations.map((dice, dIdx) => (
               <div key={dIdx} className="dice-course-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.35rem' }}>
-                  <div style={{ fontWeight: 700, fontSize: '0.95rem', color: '#0F172A' }}>
+                  <div style={{ fontWeight: 800, fontSize: '0.95rem', color: '#0F172A' }}>
                     {dice.course_name}
                   </div>
-                  <span style={{ background: '#EFF6FF', color: '#1E40AF', padding: '0.2rem 0.5rem', borderRadius: '6px', fontSize: '0.76rem', fontWeight: 700 }}>
+                  <span style={{ background: '#EFF6FF', color: '#1E40AF', padding: '0.25rem 0.6rem', borderRadius: '8px', fontSize: '0.78rem', fontWeight: 800, border: '1px solid #BFDBFE' }}>
                     +{dice.score_delta.toFixed(2)} Est. Boost
                   </span>
                 </div>
-                <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.4 }}>
+                <p style={{ fontSize: '0.84rem', color: '#475569', lineHeight: 1.45 }}>
                   {dice.detail}
                 </p>
               </div>
             ))
           ) : (
             <p style={{ color: '#94A3B8', fontSize: '0.88rem' }}>Tidak ada rekomendasi intervensi tambahan untuk lowongan ini.</p>
-          )}
-        </div>
-      )}
-
-      {/* TAB 4: What-If Simulator */}
-      {activeTab === 'whatif' && (
-        <div>
-          <div style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '1rem', marginBottom: '1rem' }}>
-            <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#1E293B', marginBottom: '0.25rem' }}>
-              🎯 Simulasi Interaktif Perubahan Profil
-            </h4>
-            <p style={{ fontSize: '0.84rem', color: '#64748B' }}>
-              Centang kursus di bawah ini untuk melihat simulasi seketika berapa lonjakan skor kelayakan Anda jika Anda menyelesaikan sertifikasi tersebut:
-            </p>
-          </div>
-
-          {job.dice_recommendations && job.dice_recommendations.length > 0 ? (
-            job.dice_recommendations.map((dice, dIdx) => {
-              const isChecked = selectedCourses.some(c => c.course_name === dice.course_name);
-              return (
-                <div 
-                  key={dIdx}
-                  onClick={() => handleToggleCourse(dice)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.85rem',
-                    padding: '0.85rem 1rem',
-                    borderRadius: '12px',
-                    border: isChecked ? '1.5px solid #2563EB' : '1px solid #E2E8F0',
-                    background: isChecked ? '#EFF6FF' : '#FFFFFF',
-                    marginBottom: '0.6rem',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease'
-                  }}
-                >
-                  <input 
-                    type="checkbox"
-                    checked={isChecked}
-                    onChange={() => {}} // Handled by div onClick
-                    style={{ width: '18px', height: '18px', cursor: 'pointer', accentColor: '#2563EB' }}
-                  />
-                  <div style={{ flex: 1 }}>
-                    <div style={{ fontWeight: 700, fontSize: '0.9rem', color: '#1E293B' }}>
-                      {dice.course_name}
-                    </div>
-                    <div style={{ fontSize: '0.78rem', color: '#64748B' }}>
-                      Potensi tambahan skor: <strong>+{dice.score_delta.toFixed(2)} poin</strong>
-                    </div>
-                  </div>
-                </div>
-              );
-            })
-          ) : (
-            <p style={{ color: '#94A3B8', fontSize: '0.88rem' }}>Pilih lowongan lain untuk mencoba simulator.</p>
-          )}
-
-          {selectedCourses.length > 0 && (
-            <div style={{ background: '#ECFDF5', border: '1px solid #A7F3D0', borderRadius: '12px', padding: '1rem', marginTop: '1rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <div>
-                <div style={{ fontWeight: 700, color: '#065F46', fontSize: '0.95rem' }}>
-                  🚀 Proyeksi Lonjakan Skor: +{projectedBoost.toFixed(2)} Poin
-                </div>
-                <div style={{ fontSize: '0.8rem', color: '#047857' }}>
-                  Skor baru: <strong>{simulatedScore} / 10.0 ({simulatedPct}% Match)</strong>
-                </div>
-              </div>
-              <button 
-                className="btn-primary" 
-                style={{ background: '#059669', fontSize: '0.82rem', padding: '0.4rem 0.8rem' }}
-                onClick={() => alert(`Target rencana belajar disimpan! Mengambil ${selectedCourses.length} kursus akan menaikkan skor Anda ke ${simulatedScore}.`)}
-              >
-                Simpan Target Belajar
-              </button>
-            </div>
           )}
         </div>
       )}
