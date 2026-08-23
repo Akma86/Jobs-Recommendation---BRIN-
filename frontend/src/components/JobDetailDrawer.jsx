@@ -60,6 +60,8 @@ export default function JobDetailDrawer({
 
   const beforePct = job.match_pct_before || Math.max(15.0, Number((job.match_pct - (job.delta > 0.1 ? job.delta * 4.5 : 0)).toFixed(1)));
   const deltaPct = job.delta_pct || Math.max(0.0, Number((job.match_pct - beforePct).toFixed(1)));
+  const indexAfter = job.index_score_after || Math.min(10.0, Math.max(1.0, Number((job.match_pct / 10.0).toFixed(1))));
+  const indexBefore = job.index_score_before || Math.min(10.0, Math.max(1.0, Number((beforePct / 10.0).toFixed(1))));
 
   // Separate components for Smart Explanation
   const allComponents = job.narrative?.components || [];
@@ -149,7 +151,7 @@ export default function JobDetailDrawer({
                 Alasan Keselarasan Profil (Why You Match)
               </div>
               <div style={{ fontSize: '0.82rem', color: '#64748B', marginTop: '0.15rem' }}>
-                Indeks Kelayakan: <strong>{job.score_after} / 10.0</strong> • Peringkat Rekomendasi: <strong>#{job.rank}</strong>
+                Indeks Kelayakan: <strong>{indexAfter} / 10.0</strong> • Peringkat Rekomendasi: <strong>#{job.rank}</strong>
               </div>
             </div>
           </div>
@@ -162,7 +164,7 @@ export default function JobDetailDrawer({
               </div>
             )}
             <div style={{ fontSize: '0.75rem', color: '#64748B', marginTop: '0.35rem' }}>
-              Before (KHS Saja): <strong>{beforePct}% ({job.score_before})</strong>
+              Before (KHS Saja): <strong>{beforePct}% ({indexBefore} / 10.0)</strong>
             </div>
           </div>
         </div>
@@ -324,7 +326,7 @@ export default function JobDetailDrawer({
                 {beforePct}% <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#64748B' }}>Match</span>
               </div>
               <div style={{ fontSize: '0.82rem', color: '#475569', marginTop: '0.35rem', fontWeight: 600 }}>
-                Indeks Skor: {job.score_before} / 10.0
+                Indeks Kelayakan: <strong>{indexBefore} / 10.0</strong> (Relevansi: {job.score_before} poin)
               </div>
               <div style={{ fontSize: '0.78rem', color: '#64748B', marginTop: '0.25rem', borderTop: '1px solid #E2E8F0', paddingTop: '0.5rem' }}>
                 Murni Capaian Transkrip KHS Kurikulum
@@ -340,7 +342,7 @@ export default function JobDetailDrawer({
                 {job.match_pct}% <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#2563EB' }}>Match</span>
               </div>
               <div style={{ fontSize: '0.82rem', color: '#1E40AF', marginTop: '0.35rem', fontWeight: 700 }}>
-                Indeks Skor: {job.score_after} / 10.0
+                Indeks Kelayakan: <strong>{indexAfter} / 10.0</strong> (Relevansi: {job.score_after} poin)
               </div>
               <div style={{ fontSize: '0.78rem', color: '#1E40AF', marginTop: '0.25rem', borderTop: '1px solid #BFDBFE', paddingTop: '0.5rem', fontWeight: 700 }}>
                 +{deltaPct}% Lonjakan (+{job.delta.toFixed(2)} Poin Portofolio)

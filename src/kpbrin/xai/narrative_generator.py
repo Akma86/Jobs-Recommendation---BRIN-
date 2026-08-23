@@ -97,8 +97,9 @@ def generate_percentage_narrative(job_title, final_score, job_contributions_dict
     # 3. Generate Natural Language Narrative (Indonesian)
     bullets = []
     
-    # Header summary
-    bullets.append(f"🎯 **Tingkat Keselarasan Profil:** `{overall_match_pct}% Match` (Skor Indeks Kelayakan: `{final_score:.2f}`).")
+    # Header summary with bounded 10.0 baseline index
+    index_score = min(10.0, max(1.0, round(overall_match_pct / 10.0, 1)))
+    bullets.append(f"🎯 **Tingkat Keselarasan Profil:** `{overall_match_pct}% Match` (Indeks Kelayakan: `{index_score} / 10.0`).")
 
     # Certs narrative
     if cert_items:
