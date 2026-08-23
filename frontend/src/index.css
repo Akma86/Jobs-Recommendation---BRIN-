@@ -916,3 +916,231 @@ h1, h2, h3, h4, h5, h6 {
 .data-table tr:hover td {
   background: #F8FAFC;
 }
+
+/* ==========================================================================
+   RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   ========================================================================== */
+
+/* Tablets & Small Laptops (<= 1024px) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0.75rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .nav-links {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+    justify-content: flex-start;
+    border-top: 1px solid var(--border-light);
+    padding-top: 0.5rem;
+  }
+
+  .hero-banner {
+    margin: 1rem 1.25rem;
+    padding: 1.75rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .hero-stats {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .candidate-bar {
+    margin: 0.5rem 1.25rem 1rem 1.25rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .search-filter-section {
+    padding: 0 1.25rem 0.75rem 1.25rem;
+  }
+
+  .main-job-board {
+    grid-template-columns: 1fr;
+    padding: 0 1.25rem 2rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .job-list-panel {
+    max-height: 480px;
+  }
+
+  .job-detail-panel {
+    position: static;
+    top: auto;
+    max-height: none;
+  }
+
+  .landing-main-grid {
+    grid-template-columns: 1fr !important;
+    padding: 2.5rem 1.5rem !important;
+    gap: 2rem !important;
+  }
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.6rem 0.85rem;
+  }
+
+  .hero-banner {
+    margin: 0.75rem 0.85rem;
+    padding: 1.25rem 1rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .hero-title {
+    font-size: 1.35rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.45rem;
+  }
+
+  .stat-box {
+    min-width: unset;
+    padding: 0.55rem 0.35rem;
+    border-radius: var(--radius-md);
+  }
+
+  .stat-value {
+    font-size: 1.15rem;
+  }
+
+  .stat-label {
+    font-size: 0.62rem;
+  }
+
+  .candidate-bar {
+    margin: 0.5rem 0.85rem 0.85rem 0.85rem;
+    padding: 1rem 0.85rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .candidate-left {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .candidate-meta {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    font-size: 0.78rem;
+  }
+
+  .search-filter-section {
+    padding: 0 0.85rem 0.6rem 0.85rem;
+  }
+
+  .main-job-board {
+    padding: 0 0.85rem 1.5rem 0.85rem;
+    gap: 1rem;
+  }
+
+  .job-detail-panel {
+    padding: 1.15rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .detail-header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .detail-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .match-overview-card {
+    padding: 0.95rem;
+  }
+
+  .modal-content {
+    padding: 1.25rem 1rem;
+    max-width: 95vw;
+    margin: 0.5rem;
+    border-radius: 16px;
+  }
+
+  .landing-header {
+    padding: 1rem 1.25rem !important;
+  }
+
+  .landing-main-grid {
+    padding: 1.5rem 1rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .landing-hero-title {
+    font-size: 1.75rem !important;
+  }
+
+  .landing-cards-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .landing-stats-row {
+    flex-wrap: wrap;
+    gap: 1.25rem !important;
+  }
+
+  .landing-login-card {
+    padding: 1.5rem 1.15rem !important;
+    border-radius: 18px !important;
+  }
+
+  .landing-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    padding: 1rem !important;
+  }
+}
+
+/* Extra Small Phones (<= 480px) */
+@media (max-width: 480px) {
+  .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .brand-tag {
+    display: none;
+  }
+
+  .chip-btn {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.76rem;
+  }
+
+  .job-card {
+    padding: 0.95rem;
+  }
+
+  .xai-tabs-nav {
+    gap: 0.25rem;
+  }
+
+  .xai-tab-btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.78rem;
+  }
+}

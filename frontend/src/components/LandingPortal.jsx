@@ -145,7 +145,7 @@ export default function LandingPortal({ onLoginSuccess }) {
       }} />
 
       {/* Top Brand Bar */}
-      <header style={{
+      <header className="landing-header" style={{
         padding: '1.25rem 3rem',
         display: 'flex',
         justifyContent: 'space-between',
@@ -200,7 +200,7 @@ export default function LandingPortal({ onLoginSuccess }) {
       </header>
 
       {/* Main Split Content */}
-      <main style={{
+      <main className="landing-main-grid" style={{
         flex: 1,
         display: 'grid',
         gridTemplateColumns: '1.15fr 0.85fr',
@@ -231,7 +231,7 @@ export default function LandingPortal({ onLoginSuccess }) {
             Next-Gen Explainable AI Career Platform
           </div>
 
-          <h1 style={{
+          <h1 className="landing-hero-title" style={{
             fontSize: '2.85rem',
             fontWeight: 900,
             lineHeight: 1.15,
@@ -244,7 +244,7 @@ export default function LandingPortal({ onLoginSuccess }) {
             Pintu Masuk Karir Cerdas Berbasis Capaian OBE & Portofolio Industri
           </h1>
 
-          <p style={{
+          <p className="landing-hero-desc" style={{
             fontSize: '1.05rem',
             color: '#CBD5E1',
             lineHeight: 1.6,
@@ -257,7 +257,7 @@ export default function LandingPortal({ onLoginSuccess }) {
           </p>
 
           {/* 3 Core Value Cards */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '2.5rem' }}>
+          <div className="landing-cards-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '2.5rem' }}>
             <div style={{
               background: 'rgba(255, 255, 255, 0.05)',
               border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -314,7 +314,7 @@ export default function LandingPortal({ onLoginSuccess }) {
           </div>
 
           {/* Platform Live Stats */}
-          <div style={{
+          <div className="landing-stats-row" style={{
             display: 'flex',
             alignItems: 'center',
             gap: '2rem',
@@ -351,7 +351,7 @@ export default function LandingPortal({ onLoginSuccess }) {
         </div>
 
         {/* Right Side: Interactive Login Portal Card */}
-        <div style={{
+        <div className="landing-login-card" style={{
           background: 'rgba(255, 255, 255, 0.96)',
           borderRadius: '24px',
           padding: '2.5rem',
@@ -721,7 +721,7 @@ export default function LandingPortal({ onLoginSuccess }) {
       </main>
 
       {/* Bottom Footer */}
-      <footer style={{
+      <footer className="landing-footer" style={{
         padding: '1.25rem 3rem',
         borderTop: '1px solid rgba(255,255,255,0.08)',
         display: 'flex',
