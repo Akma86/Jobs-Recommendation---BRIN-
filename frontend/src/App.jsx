@@ -110,11 +110,9 @@ export default function App() {
     if (user.is_demo) {
       setAccountMode('demo');
       setSelectedStudentId(user.student_id || 'siti-rahma-ml-bagus');
-      setActiveTab('recommend');
     } else {
       setAccountMode('custom');
       setSelectedStudentId(user.student_id || 'user-dummy');
-      setActiveTab('explore_all');
     }
     fetchStudents();
   };
@@ -184,7 +182,6 @@ export default function App() {
     setAccountMode('custom');
     setStudentData(customStudent);
     setSelectedStudentId(customStudent.id);
-    setActiveTab('recommend');
     if (customStudent.recommended_jobs && customStudent.recommended_jobs.length > 0) {
       setActiveJob(customStudent.recommended_jobs[0]);
     }
@@ -199,16 +196,9 @@ export default function App() {
       .then(res => res.json())
       .then(json => {
         if (json.status === 'success') {
-          const st = json.data;
-          setStudentData(st);
-          const stHasRecs = Boolean(
-            st.is_demo !== false || 
-            (st.has_custom_profile && st.recommended_jobs && st.recommended_jobs.length > 0)
-          );
-          if (!stHasRecs) {
-            setActiveTab('explore_all');
-          } else if (activeTab === 'recommend' && st.recommended_jobs && st.recommended_jobs.length > 0) {
-            setActiveJob(st.recommended_jobs[0]);
+          setStudentData(json.data);
+          if (activeTab === 'recommend' && json.data.recommended_jobs && json.data.recommended_jobs.length > 0) {
+            setActiveJob(json.data.recommended_jobs[0]);
           }
         }
       })
@@ -237,12 +227,6 @@ export default function App() {
 
   const [evaluationMode, setEvaluationMode] = useState('after'); // 'after' | 'before' | 'compare'
 
-  // Has recommendations flag
-  const hasRecommendations = Boolean(
-    studentData?.is_demo !== false || 
-    (studentData?.has_custom_profile && (studentData?.recommended_jobs || []).length > 0)
-  );
-
   // Recommended Jobs from recommendations.csv
   const currentRecommendedList = evaluationMode === 'before' 
     ? (studentData?.recommended_jobs_before || studentData?.recommended_jobs || [])
@@ -270,10 +254,8 @@ export default function App() {
     return <LandingPortal onLoginSuccess={handleAuthSuccess} />;
   }
 
-  // Displayed jobs based on active tab and recommendation status
-  const displayedJobs = (activeTab === 'recommend' && hasRecommendations) 
-    ? filteredRecommendedJobs 
-    : catalogJobs;
+  // Displayed jobs based on active tab
+  const displayedJobs = activeTab === 'recommend' ? filteredRecommendedJobs : catalogJobs;
 
   return (
     <div className="app-container">
@@ -292,7 +274,6 @@ export default function App() {
         onOpenProfileModal={() => setShowProfileModal(true)}
         onOpenUploadModal={() => setShowUploadModal(true)}
         savedCount={savedJobs.length}
-        hasRecommendations={hasRecommendations}
       />
 
       {/* Hero Banner */}
@@ -336,36 +317,34 @@ export default function App() {
             <div className="candidate-avatar" style={{
               background: accountMode === 'custom' ? 'linear-gradient(135deg, #10B981, #059669)' : '#2563EB'
             }}>
-              {studentData.name ? studentData.name.charAt(0) : 'U'}
+              {studentData.name.charAt(0)}
             </div>
             <div className="candidate-info">
               <h3>
                 {studentData.name}
                 <span style={{
                   fontSize: '0.72rem',
-                  background: accountMode === 'custom' ? (hasRecommendations ? '#D1FAE5' : '#FEF3C7') : (studentData.is_good ? '#ECFDF5' : '#FEF2F2'),
-                  color: accountMode === 'custom' ? (hasRecommendations ? '#065F46' : '#92400E') : (studentData.is_good ? '#065F46' : '#991B1B'),
-                  border: `1px solid ${accountMode === 'custom' ? (hasRecommendations ? '#6EE7B7' : '#FCD34D') : (studentData.is_good ? '#A7F3D0' : '#FECACA')}`,
+                  background: accountMode === 'custom' ? '#D1FAE5' : (studentData.is_good ? '#ECFDF5' : '#FEF2F2'),
+                  color: accountMode === 'custom' ? '#065F46' : (studentData.is_good ? '#065F46' : '#991B1B'),
+                  border: `1px solid ${accountMode === 'custom' ? '#6EE7B7' : (studentData.is_good ? '#A7F3D0' : '#FECACA')}`,
                   padding: '0.15rem 0.5rem',
                   borderRadius: '9999px',
                   fontWeight: 700
                 }}>
-                  {accountMode === 'custom' 
-                    ? (hasRecommendations ? '👤 Mode Pengguna Mandiri' : '👤 Akun Pengguna (Menunggu KHS)')
-                    : (studentData.is_good ? '🟢 Benchmark Unggul' : '🔴 Perlu Penguatan')}
+                  {accountMode === 'custom' ? '👤 Mode Pengguna Mandiri' : (studentData.is_good ? '🟢 Benchmark Unggul' : '🔴 Perlu Penguatan')}
                 </span>
               </h3>
               <div className="candidate-meta">
                 <span className="meta-pill">
-                  <GraduationCap size={14} /> Peminatan: <strong>{studentData.track || 'Umum'}</strong>
+                  <GraduationCap size={14} /> Peminatan: <strong>{studentData.track}</strong>
                 </span>
                 <span className="meta-pill">
-                  <BookOpen size={14} /> IPK: <strong>{hasRecommendations ? studentData.ipk : 'Belum Ada KHS'}</strong>
+                  <BookOpen size={14} /> IPK: <strong>{studentData.ipk}</strong>
                 </span>
                 <span className="meta-pill">
-                  <Award size={14} /> Portofolio: <strong>{studentData.num_certs || 0} Sertifikat Industri</strong>
+                  <Award size={14} /> Portofolio: <strong>{studentData.num_certs} Sertifikat Industri</strong>
                 </span>
-                {hasRecommendations && studentData.ab_test_summary && (
+                {studentData.ab_test_summary && (
                   <span className="meta-pill" style={{ background: '#EFF6FF', color: '#1E40AF', borderColor: '#BFDBFE' }}>
                     <TrendingUp size={14} /> Lonjakan Portofolio: <strong>+{studentData.ab_test_summary.max_delta} Skor</strong>
                   </span>
@@ -379,17 +358,9 @@ export default function App() {
               <button 
                 className="btn-primary"
                 onClick={() => setShowUploadModal(true)}
-                style={{ 
-                  background: hasRecommendations ? '#10B981' : 'linear-gradient(135deg, #059669, #047857)', 
-                  border: 'none', 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.4rem',
-                  boxShadow: hasRecommendations ? 'none' : '0 4px 12px rgba(5,150,105,0.3)'
-                }}
+                style={{ background: '#10B981', border: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem' }}
               >
-                {hasRecommendations ? <Edit3 size={16} /> : <Upload size={16} />}
-                {hasRecommendations ? 'Edit KHS & Sertifikat' : 'Input Profil Mandiri'}
+                <Edit3 size={16} /> Edit KHS & Sertifikat
               </button>
             ) : (
               <button 
@@ -413,122 +384,58 @@ export default function App() {
         </div>
       )}
 
-      {/* Unanalyzed User Welcome Banner */}
-      {!hasRecommendations && (
-        <div style={{
-          background: 'linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%)',
-          border: '1.5px dashed #3B82F6',
-          borderRadius: '16px',
-          padding: '1.25rem 1.5rem',
-          marginBottom: '1.25rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '1.25rem',
-          flexWrap: 'wrap'
-        }}>
-          <div style={{ flex: 1, minWidth: '280px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#1E40AF', fontWeight: 800, fontSize: '1.02rem' }}>
-              <Sparkles size={18} color="#2563EB" />
-              Selamat Datang! Menjelajahi Seluruh Katalog 4.570+ Lowongan Pekerjaan
-            </div>
-            <p style={{ color: '#334155', fontSize: '0.86rem', marginTop: '0.25rem', lineHeight: 1.45 }}>
-              Akun Anda belum memiliki data KHS dan sertifikat. Silakan klik tombol <strong>"Input Profil Mandiri"</strong> untuk memasukkan transkrip akademik Anda agar AI menghasilkan rekomendasi karir berbasis XAI yang dipersonalisasi.
-            </p>
-          </div>
-          <button
-            className="btn-primary"
-            onClick={() => setShowUploadModal(true)}
-            style={{
-              background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
-              padding: '0.65rem 1.25rem',
-              borderRadius: '12px',
-              fontSize: '0.88rem',
-              fontWeight: 800,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              boxShadow: '0 4px 14px rgba(37,99,235,0.3)',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            <Upload size={16} />
-            Input Profil Mandiri
-          </button>
-        </div>
-      )}
-
       {/* Primary Section Switcher: Rekomendasi Profil vs Eksplor Semua Lowongan */}
-      {hasRecommendations ? (
-        <div style={{
-          display: 'flex',
-          gap: '0.75rem',
-          marginBottom: '1rem',
-          borderBottom: '2px solid #E2E8F0',
-          paddingBottom: '0.5rem'
-        }}>
-          <button
-            onClick={() => setActiveTab('recommend')}
-            style={{
-              padding: '0.65rem 1.25rem',
-              borderRadius: '12px',
-              border: 'none',
-              fontSize: '0.95rem',
-              fontWeight: 800,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              background: activeTab === 'recommend' ? '#2563EB' : '#F1F5F9',
-              color: activeTab === 'recommend' ? '#FFFFFF' : '#475569',
-              boxShadow: activeTab === 'recommend' ? '0 4px 12px rgba(37,99,235,0.25)' : 'none',
-              transition: 'all 0.2s'
-            }}
-          >
-            <Sparkles size={18} />
-            🎯 Rekomendasi Karir Terpilih ({filteredRecommendedJobs.length} Top Jobs)
-          </button>
+      <div style={{
+        display: 'flex',
+        gap: '0.75rem',
+        marginBottom: '1rem',
+        borderBottom: '2px solid #E2E8F0',
+        paddingBottom: '0.5rem'
+      }}>
+        <button
+          onClick={() => setActiveTab('recommend')}
+          style={{
+            padding: '0.65rem 1.25rem',
+            borderRadius: '12px',
+            border: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            background: activeTab === 'recommend' ? '#2563EB' : '#F1F5F9',
+            color: activeTab === 'recommend' ? '#FFFFFF' : '#475569',
+            boxShadow: activeTab === 'recommend' ? '0 4px 12px rgba(37,99,235,0.25)' : 'none',
+            transition: 'all 0.2s'
+          }}
+        >
+          <Sparkles size={18} />
+          🎯 Rekomendasi Karir Terpilih ({filteredRecommendedJobs.length} Top Jobs)
+        </button>
 
-          <button
-            onClick={() => setActiveTab('explore_all')}
-            style={{
-              padding: '0.65rem 1.25rem',
-              borderRadius: '12px',
-              border: 'none',
-              fontSize: '0.95rem',
-              fontWeight: 800,
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              background: activeTab === 'explore_all' ? '#059669' : '#F1F5F9',
-              color: activeTab === 'explore_all' ? '#FFFFFF' : '#475569',
-              boxShadow: activeTab === 'explore_all' ? '0 4px 12px rgba(5,150,105,0.25)' : 'none',
-              transition: 'all 0.2s'
-            }}
-          >
-            <Briefcase size={18} />
-            🌐 Eksplor Seluruh Katalog ({catalogTotal || 4570}+ Lowongan)
-          </button>
-        </div>
-      ) : (
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '1rem',
-          borderBottom: '2px solid #E2E8F0',
-          paddingBottom: '0.6rem'
-        }}>
-          <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Briefcase size={20} color="#059669" />
-            Katalog Lengkap Lowongan Pekerjaan ({catalogTotal || 4570}+ Lowongan Riil)
-          </div>
-          <span style={{ fontSize: '0.82rem', color: '#64748B', fontWeight: 600 }}>
-            Menampilkan seluruh lowongan industri terintegrasi
-          </span>
-        </div>
-      )}
+        <button
+          onClick={() => setActiveTab('explore_all')}
+          style={{
+            padding: '0.65rem 1.25rem',
+            borderRadius: '12px',
+            border: 'none',
+            fontSize: '0.95rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            background: activeTab === 'explore_all' ? '#059669' : '#F1F5F9',
+            color: activeTab === 'explore_all' ? '#FFFFFF' : '#475569',
+            boxShadow: activeTab === 'explore_all' ? '0 4px 12px rgba(5,150,105,0.25)' : 'none',
+            transition: 'all 0.2s'
+          }}
+        >
+          <Briefcase size={18} />
+          🌐 Eksplor Seluruh Katalog ({catalogTotal || 4570}+ Lowongan)
+        </button>
+      </div>
 
       {/* Mode A/B Evaluasi Switcher (Hanya Muncul saat di Tab Rekomendasi) */}
       {activeTab === 'recommend' && (
@@ -772,8 +679,6 @@ export default function App() {
           hasApplied={activeJob && appliedJobs.includes(activeJob.job_id)}
           onApply={handleApply}
           evaluationMode={evaluationMode}
-          hasRecommendations={hasRecommendations}
-          onOpenUploadModal={() => setShowUploadModal(true)}
         />
       </main>
 

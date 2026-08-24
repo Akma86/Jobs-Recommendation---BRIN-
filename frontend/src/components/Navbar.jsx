@@ -26,8 +26,7 @@ export default function Navbar({
   onLogout,
   onOpenProfileModal,
   onOpenUploadModal,
-  savedCount,
-  hasRecommendations = true
+  savedCount
 }) {
   const currentStudent = students.find(s => s.id === selectedStudentId);
   const demoStudents = students.filter(s => s.is_demo !== false);
@@ -48,7 +47,7 @@ export default function Navbar({
   return (
     <header className="navbar">
       {/* Brand */}
-      <div className="brand-logo" onClick={() => setActiveTab(hasRecommendations ? 'recommend' : 'explore_all')}>
+      <div className="brand-logo" onClick={() => setActiveTab('recommend')}>
         <div className="logo-icon-box">
           <Briefcase size={22} />
         </div>
@@ -66,25 +65,13 @@ export default function Navbar({
 
       {/* Navigation Tabs */}
       <nav className="nav-links">
-        {hasRecommendations ? (
-          <button 
-            className={`nav-btn ${activeTab === 'recommend' ? 'active' : ''}`}
-            onClick={() => setActiveTab('recommend')}
-          >
-            <Sparkles size={16} />
-            🎯 Rekomendasi Karir
-          </button>
-        ) : (
-          <button 
-            className="nav-btn"
-            onClick={onOpenUploadModal}
-            style={{ background: '#ECFDF5', color: '#065F46', border: '1px dashed #A7F3D0' }}
-            title="Klik untuk input KHS & menghasilkan rekomendasi karir"
-          >
-            <Sparkles size={16} color="#059669" />
-            ✨ Buat Rekomendasi (Input KHS)
-          </button>
-        )}
+        <button 
+          className={`nav-btn ${activeTab === 'recommend' ? 'active' : ''}`}
+          onClick={() => setActiveTab('recommend')}
+        >
+          <Sparkles size={16} />
+          🎯 Rekomendasi Karir
+        </button>
 
         <button 
           className={`nav-btn ${activeTab === 'explore_all' ? 'active' : ''}`}
@@ -103,8 +90,61 @@ export default function Navbar({
         </button>
       </nav>
 
-      {/* Right Controls: Student Selector (for Demo) or Input CTA & Auth User */}
+      {/* Right Controls: Mode Toggle & Student Selector */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+        {/* Account Mode Switcher (Demo vs Custom User) */}
+        <div style={{
+          display: 'flex',
+          background: '#F1F5F9',
+          padding: '3px',
+          borderRadius: '12px',
+          border: '1px solid #E2E8F0'
+        }}>
+          <button
+            onClick={() => handleModeToggle('demo')}
+            style={{
+              padding: '0.35rem 0.65rem',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              borderRadius: '9px',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              background: accountMode === 'demo' ? '#FFFFFF' : 'transparent',
+              color: accountMode === 'demo' ? '#1E293B' : '#64748B',
+              boxShadow: accountMode === 'demo' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+              transition: 'all 0.15s ease'
+            }}
+          >
+            <FlaskConical size={14} color={accountMode === 'demo' ? '#2563EB' : '#64748B'} />
+            Akun Demo
+          </button>
+
+          <button
+            onClick={() => handleModeToggle('custom')}
+            style={{
+              padding: '0.35rem 0.65rem',
+              fontSize: '0.78rem',
+              fontWeight: 700,
+              borderRadius: '9px',
+              border: 'none',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              background: accountMode === 'custom' ? '#FFFFFF' : 'transparent',
+              color: accountMode === 'custom' ? '#1E293B' : '#64748B',
+              boxShadow: accountMode === 'custom' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+              transition: 'all 0.15s ease'
+            }}
+          >
+            <User size={14} color={accountMode === 'custom' ? '#10B981' : '#64748B'} />
+            Akun Pengguna
+          </button>
+        </div>
+
         {/* Dynamic Action Button / Selector based on Mode */}
         {accountMode === 'custom' ? (
           <button 

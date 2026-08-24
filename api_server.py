@@ -442,26 +442,31 @@ def startup_event():
     except Exception as e:
         print(f"Could not load online courses catalog: {e}")
 
-    # 4. Pre-seed Default Custom User Profile (Empty state waiting for user input)
-    CACHE_STUDENTS["user-dummy"] = {
-        "id": "user-dummy",
-        "name": "Ahmad Fauzi (Akun Pengguna)",
-        "folder_name": "user-dummy",
-        "track": "Machine Learning & AI",
-        "profile_type": "Akun Pengguna Mandiri",
-        "is_good": True,
-        "ipk": "0.00 / 4.00",
-        "total_sks": 0,
-        "num_certs": 0,
-        "is_demo": False,
-        "has_custom_profile": False,
-        "courses": [],
-        "certificates": [],
-        "recommended_jobs": [],
-        "recommended_jobs_after": [],
-        "recommended_jobs_before": [],
-        "grade_counts": {}
-    }
+    # 4. Pre-seed Default Custom User Profile
+    try:
+        dummy_courses = [
+            {"no": 1, "kode_mk": "CII2J4", "nama_mk": "Struktur Data dan Algoritma", "sks": 4, "semester": "Semester 3", "grade": "A"},
+            {"no": 2, "kode_mk": "CII3B3", "nama_mk": "Kecerdasan Artifisial dan Penerapannya", "sks": 3, "semester": "Semester 5", "grade": "A"},
+            {"no": 3, "kode_mk": "CII3C3", "nama_mk": "Pemodelan dan Analitika Prediktif", "sks": 3, "semester": "Semester 5", "grade": "AB"},
+            {"no": 4, "kode_mk": "CII3D3", "nama_mk": "Penambangan Data", "sks": 3, "semester": "Semester 6", "grade": "A"},
+            {"no": 5, "kode_mk": "CII4E3", "nama_mk": "Teknologi Machine Learning", "sks": 3, "semester": "Semester 6", "grade": "A"},
+            {"no": 6, "kode_mk": "CII2B3", "nama_mk": "Pemrograman Berorientasi Objek", "sks": 3, "semester": "Semester 3", "grade": "AB"},
+            {"no": 7, "kode_mk": "CII3F3", "nama_mk": "Pengembangan Aplikasi Website", "sks": 3, "semester": "Semester 4", "grade": "B"},
+        ]
+        dummy_certs = [
+            {"title": "Google Data Analytics Professional Certificate", "issuer": "Google / Google Cloud", "issue_date": "2024-05", "duration": "180 jam", "score": "95/100", "topics": "Python, SQL, Tableau, Data Cleaning", "has_assessment": True},
+            {"title": "TensorFlow Developer Certificate", "issuer": "Google / DeepLearning.AI", "issue_date": "2024-08", "duration": "90 jam", "score": "92/100", "topics": "Deep Learning, CNN, NLP, Time Series", "has_assessment": True},
+        ]
+        analyze_custom_student_data(
+            name="Ahmad Fauzi (Akun Pengguna Mandiri)",
+            track="Machine Learning & AI",
+            courses=dummy_courses,
+            certificates=dummy_certs,
+            target_career="Machine Learning Engineer",
+            custom_slug="user-dummy"
+        )
+    except Exception as e:
+        print(f"Error seeding default custom dummy: {e}")
 
     print(f">>> [FastAPI] Startup ready in {time.time() - t0:.2f}s! Cached {len(CACHE_STUDENTS)} students & {len(JOBS_LIST)} jobs.")
 
@@ -649,8 +654,6 @@ def analyze_custom_student_data(
         "track": track,
         "profile_type": "Custom User" if not is_good else "Custom (Unggul)",
         "is_good": is_good,
-        "is_demo": False,
-        "has_custom_profile": True,
         "ipk": ipk_str,
         "total_sks": f"{total_sks} SKS",
         "grade_counts": grade_counts,
@@ -660,9 +663,7 @@ def analyze_custom_student_data(
         "top_job_title": final_recommended_jobs[0]["title"] if final_recommended_jobs else "Job Applicant",
         "top_job_company": final_recommended_jobs[0]["company"] if final_recommended_jobs else "",
         "top_score": final_recommended_jobs[0]["score_after"] if final_recommended_jobs else 0.0,
-        "recommended_jobs": final_recommended_jobs,
-        "recommended_jobs_after": final_recommended_jobs,
-        "recommended_jobs_before": final_recommended_jobs
+        "recommended_jobs": final_recommended_jobs
     }
 
     # Store in in-memory cache
@@ -766,27 +767,23 @@ def register(req: RegisterRequest):
     if u in USERS_DB:
         raise HTTPException(status_code=400, detail="Username sudah terdaftar! Silakan login.")
 
-    # Create new custom student profile (waiting for user upload)
+    # Create new custom student profile
     slug_id = f"user-{u}"
-    CACHE_STUDENTS[slug_id] = {
-        "id": slug_id,
-        "name": req.name,
-        "folder_name": slug_id,
-        "track": req.track or "Machine Learning & AI",
-        "profile_type": "Akun Pengguna Mandiri",
-        "is_good": True,
-        "is_demo": False,
-        "has_custom_profile": False,
-        "ipk": "0.00 / 4.00",
-        "total_sks": 0,
-        "num_certs": 0,
-        "courses": [],
-        "certificates": [],
-        "recommended_jobs": [],
-        "recommended_jobs_after": [],
-        "recommended_jobs_before": [],
-        "grade_counts": {}
-    }
+    new_student = analyze_custom_student_data(
+        name=req.name,
+        track=req.track or "Machine Learning & AI",
+        courses=[
+            {"no": 1, "kode_mk": "CII2J4", "nama_mk": "Struktur Data dan Algoritma", "sks": 4, "semester": "Semester 3", "grade": "A"},
+            {"no": 2, "kode_mk": "CII3B3", "nama_mk": "Kecerdasan Artifisial dan Penerapannya", "sks": 3, "semester": "Semester 5", "grade": "A"},
+            {"no": 3, "kode_mk": "CII3D3", "nama_mk": "Penambangan Data", "sks": 3, "semester": "Semester 6", "grade": "A"},
+            {"no": 4, "kode_mk": "CII4E3", "nama_mk": "Teknologi Machine Learning", "sks": 3, "semester": "Semester 6", "grade": "A"},
+        ],
+        certificates=[
+            {"title": "Google Data Analytics Professional Certificate", "issuer": "Google / Google Cloud", "issue_date": "2024-05", "duration": "180 jam", "score": "95/100", "topics": "Python, SQL, Tableau", "has_assessment": True},
+        ],
+        target_career="Machine Learning Engineer",
+        custom_slug=slug_id
+    )
 
     user_obj = {
         "username": u,
@@ -809,6 +806,16 @@ def register(req: RegisterRequest):
 # API ROUTES
 # -----------------------------------------------------------------------------
 
+@app.get("/api/presets")
+def get_presets():
+    """Return standard 45 curriculum courses for upload modal presets."""
+    first_student = list(CACHE_STUDENTS.values())[0] if CACHE_STUDENTS else None
+    standard_courses = first_student.get("courses", []) if first_student else []
+    return {
+        "status": "success",
+        "standard_courses": standard_courses
+    }
+
 @app.get("/api/students")
 def get_all_students():
     """Return summary of all students (including custom user profiles) for navbar switcher."""
@@ -816,19 +823,25 @@ def get_all_students():
     demo_slugs = set(k[0] for k in STUDENT_KEYS)
     for s_id, s in CACHE_STUDENTS.items():
         is_demo = s_id in demo_slugs
+        rec_jobs = s.get("recommended_jobs_after") or s.get("recommended_jobs") or []
+        first_job = rec_jobs[0] if rec_jobs else {}
+        top_title = s.get("top_job_title") or first_job.get("title", "Job Candidate")
+        top_company = s.get("top_job_company") or first_job.get("company", "")
+        top_score = s.get("top_score") or first_job.get("score_after", 0.0)
+
         summaries.append({
-            "id": s["id"],
-            "name": s["name"],
-            "track": s["track"],
-            "profile_type": s["profile_type"],
-            "is_good": s["is_good"],
+            "id": s.get("id", s_id),
+            "name": s.get("name", s_id),
+            "track": s.get("track", "-"),
+            "profile_type": s.get("profile_type", "Student Profile"),
+            "is_good": s.get("is_good", True),
             "is_demo": is_demo,
-            "ipk": s["ipk"],
-            "total_sks": s["total_sks"],
-            "num_certs": s["num_certs"],
-            "top_job_title": s["top_job_title"],
-            "top_job_company": s["top_job_company"],
-            "top_score": s["top_score"]
+            "ipk": s.get("ipk", "3.75"),
+            "total_sks": s.get("total_sks", "138 SKS"),
+            "num_certs": s.get("num_certs", len(s.get("certificates", []))),
+            "top_job_title": top_title,
+            "top_job_company": top_company,
+            "top_score": top_score
         })
     return {"status": "success", "data": summaries}
 

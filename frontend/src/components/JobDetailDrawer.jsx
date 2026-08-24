@@ -34,16 +34,14 @@ export default function JobDetailDrawer({
   onToggleSave,
   hasApplied,
   onApply,
-  evaluationMode = 'after',
-  hasRecommendations = true,
-  onOpenUploadModal
+  evaluationMode = 'after'
 }) {
   const [activeTab, setActiveTab] = useState('narrative');
 
   if (!job) {
     return (
       <div className="job-detail-panel" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '400px', color: '#94A3B8' }}>
-        <p>Pilih salah satu lowongan di sebelah kiri untuk melihat rincian pekerjaan.</p>
+        <p>Pilih salah satu lowongan di sebelah kiri untuk melihat analisis XAI mendalam.</p>
       </div>
     );
   }
@@ -60,151 +58,6 @@ export default function JobDetailDrawer({
     });
     onApply(job.job_id);
   };
-
-  // If user has not analyzed recommendations yet, render clean Job Detail view without fake XAI
-  if (!hasRecommendations || job.match_pct === undefined) {
-    return (
-      <div className="job-detail-panel">
-        {/* Header */}
-        <div className="detail-header">
-          <div className="detail-title-box">
-            <div className="detail-logo" style={{ background: avatarBg }}>
-              {initial}
-            </div>
-            <div>
-              <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.2 }}>
-                {job.title}
-              </h2>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.35rem', color: '#64748B', fontSize: '0.88rem' }}>
-                <span style={{ fontWeight: 700, color: '#1E293B' }}>{job.company}</span>
-                <span>•</span>
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <MapPin size={14} /> {job.location || 'Indonesia / Remote'}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="detail-actions">
-            <button 
-              className="btn-outline"
-              onClick={() => onToggleSave(job.job_id)}
-            >
-              <Bookmark size={16} fill={isSaved ? "#2563EB" : "none"} color={isSaved ? "#2563EB" : "currentColor"} />
-              {isSaved ? "Tersimpan" : "Simpan"}
-            </button>
-
-            <button 
-              className="btn-primary"
-              onClick={handleApplyClick}
-              disabled={hasApplied}
-              style={{
-                background: hasApplied ? '#10B981' : 'var(--primary)',
-                cursor: hasApplied ? 'default' : 'pointer'
-              }}
-            >
-              {hasApplied ? (
-                <>
-                  <CheckCircle2 size={16} />
-                  Lamaran Terkirim
-                </>
-              ) : (
-                <>
-                  <Send size={16} />
-                  Lamar Lowongan
-                </>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Personalized AI Prediction CTA Banner */}
-        <div style={{
-          background: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)',
-          border: '1.5px solid #93C5FD',
-          borderRadius: '16px',
-          padding: '1.25rem 1.5rem',
-          marginBottom: '1.5rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '1rem',
-          flexWrap: 'wrap'
-        }}>
-          <div>
-            <div style={{ fontWeight: 800, color: '#1E40AF', fontSize: '0.98rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Sparkles size={18} color="#2563EB" />
-              Ingin Melihat Prediksi Keselarasan & Analisis XAI untuk Lowongan Ini?
-            </div>
-            <p style={{ fontSize: '0.84rem', color: '#334155', margin: '0.25rem 0 0 0', lineHeight: 1.45 }}>
-              Masukkan transkrip KHS dan sertifikat Anda untuk membuka skor kelayakan AI, kontribusi mata kuliah SHAP, dan DiCE counterfactuals.
-            </p>
-          </div>
-          {onOpenUploadModal && (
-            <button
-              className="btn-primary"
-              onClick={onOpenUploadModal}
-              style={{
-                background: '#2563EB',
-                fontSize: '0.85rem',
-                padding: '0.55rem 1.1rem',
-                borderRadius: '10px',
-                whiteSpace: 'nowrap',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem'
-              }}
-            >
-              <Sparkles size={15} /> Input Profil Mandiri
-            </button>
-          )}
-        </div>
-
-        {/* Job Details: Description & Matched Skills */}
-        <div style={{
-          background: '#FFFFFF',
-          border: '1px solid #E2E8F0',
-          borderRadius: '16px',
-          padding: '1.5rem',
-          marginBottom: '1.25rem'
-        }}>
-          <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-            <Building2 size={18} color="#2563EB" />
-            Deskripsi Pekerjaan
-          </h3>
-          <p style={{ fontSize: '0.92rem', color: '#334155', lineHeight: 1.65, whiteSpace: 'pre-line' }}>
-            {job.description || "Tidak ada deskripsi rinci untuk lowongan ini."}
-          </p>
-
-          {job.skills && (
-            <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid #F1F5F9' }}>
-              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#64748B', marginBottom: '0.5rem' }}>
-                Keterampilan & Kualifikasi yang Diperlukan:
-              </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
-                {job.skills.split(',').map((sk, idx) => (
-                  <span 
-                    key={idx}
-                    style={{
-                      background: '#F1F5F9',
-                      color: '#334155',
-                      padding: '0.3rem 0.65rem',
-                      borderRadius: '8px',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      border: '1px solid #E2E8F0'
-                    }}
-                  >
-                    {sk.trim()}
-                  </span>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    );
-  }
 
   const isBeforeMode = evaluationMode === 'before' || job.condition === 'before';
 
