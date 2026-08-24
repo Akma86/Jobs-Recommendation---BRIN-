@@ -422,7 +422,6 @@ export default function AuthModal({ isOpen, onClose, onAuthSuccess }) {
                 <option value="Machine Learning & AI">🤖 Machine Learning & AI</option>
                 <option value="Web & Full-Stack">💻 Web & Full-Stack Development</option>
                 <option value="Networking & Cloud">☁️ Networking & Cloud Infrastructure</option>
-                <option value="Sistem Informasi & Bisnis">📊 Sistem Informasi & Business Analyst</option>
                 <option value="SAP & Enterprise Systems">🏢 SAP & Enterprise Architecture</option>
               </select>
             </div>

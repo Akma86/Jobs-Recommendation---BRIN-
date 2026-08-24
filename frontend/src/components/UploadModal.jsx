@@ -20,7 +20,6 @@ const TRACK_OPTIONS = [
   { id: 'Machine Learning', label: '🤖 Machine Learning & AI' },
   { id: 'Web Development', label: '💻 Web & Fullstack Development' },
   { id: 'Networking & Cloud', label: '☁️ Cloud, DevOps & Network Security' },
-  { id: 'Sistem Informasi & Bisnis', label: '📊 Sistem Informasi & Business Analyst' },
   { id: 'SAP & Enterprise Systems', label: '🏢 SAP & Enterprise Systems' },
 ];
 
