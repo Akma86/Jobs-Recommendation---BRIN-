@@ -9,20 +9,23 @@ import {
   BookOpen, 
   Lock, 
   User, 
-  FlaskConical, 
   ArrowRight, 
   CheckCircle2, 
   Zap, 
-  BarChart3, 
+  Database,
+  Users,
+  School,
+  Cloud,
+  Terminal,
+  Cpu,
+  Building,
   Eye, 
   EyeOff,
-  AlertCircle,
-  Layers,
-  Search
+  AlertCircle
 } from 'lucide-react';
 
 export default function LandingPortal({ onLoginSuccess }) {
-  const [authMode, setAuthMode] = useState('demo'); // 'demo' | 'student' | 'register'
+  const [authMode, setAuthMode] = useState('demo'); // 'demo' | 'login' | 'register'
   const [username, setUsername] = useState('demo');
   const [password, setPassword] = useState('123');
   const [showPassword, setShowPassword] = useState(false);
@@ -43,7 +46,7 @@ export default function LandingPortal({ onLoginSuccess }) {
     if (mode === 'demo') {
       setUsername('demo');
       setPassword('123');
-    } else if (mode === 'student') {
+    } else if (mode === 'login') {
       setUsername('akmal');
       setPassword('123');
     }
@@ -70,7 +73,7 @@ export default function LandingPortal({ onLoginSuccess }) {
       }
     } catch (err) {
       console.error(err);
-      setErrorMessage('Gagal terhubung ke backend: ' + err.message);
+      setErrorMessage('Gagal terhubung ke server backend: ' + err.message);
     } finally {
       setIsLoading(false);
     }
@@ -103,7 +106,7 @@ export default function LandingPortal({ onLoginSuccess }) {
         localStorage.setItem('talentxai_auth_user', JSON.stringify(json.data));
         onLoginSuccess(json.data);
       } else {
-        setErrorMessage(json.detail || 'Terjadi kesalahan pendaftaran.');
+        setErrorMessage(json.detail || 'Terjadi kesalahan saat pendaftaran.');
       }
     } catch (err) {
       console.error(err);
@@ -116,629 +119,558 @@ export default function LandingPortal({ onLoginSuccess }) {
   return (
     <div style={{
       minHeight: '100vh',
-      background: 'radial-gradient(circle at 10% 20%, #0F172A 0%, #1E293B 40%, #0B1E48 100%)',
-      color: '#FFFFFF',
+      background: '#F7F9FB',
+      color: '#191C1E',
       fontFamily: 'var(--font-main)',
       display: 'flex',
       flexDirection: 'column',
       position: 'relative',
-      overflow: 'hidden'
+      overflowX: 'hidden'
     }}>
-      {/* Background Glow Decorations */}
-      <div style={{
-        position: 'absolute',
-        top: '-15%',
-        right: '-10%',
-        width: '600px',
-        height: '600px',
-        background: 'radial-gradient(circle, rgba(37,99,235,0.28) 0%, rgba(0,0,0,0) 70%)',
-        pointerEvents: 'none'
-      }} />
-      <div style={{
-        position: 'absolute',
-        bottom: '-15%',
-        left: '-10%',
-        width: '500px',
-        height: '500px',
-        background: 'radial-gradient(circle, rgba(16,185,129,0.2) 0%, rgba(0,0,0,0) 70%)',
-        pointerEvents: 'none'
-      }} />
-
-      {/* Top Brand Bar */}
-      <header className="landing-header" style={{
-        padding: '1.25rem 3rem',
+      {/* Top Header matching Google Stitch Screen 3 */}
+      <header style={{
+        width: '100%',
+        padding: '1.25rem 2.5rem',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-        backdropFilter: 'blur(10px)',
+        maxWidth: '1280px',
+        margin: '0 auto',
+        position: 'relative',
         zIndex: 10
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <div style={{
-            width: '42px',
-            height: '42px',
+            width: '40px',
+            height: '40px',
             borderRadius: '12px',
-            background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+            background: 'linear-gradient(135deg, #004AC6 0%, #003EA8 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             color: 'white',
             fontWeight: 900,
-            fontSize: '1.3rem',
-            boxShadow: '0 4px 14px rgba(37, 99, 235, 0.4)'
+            fontSize: '1.2rem',
+            boxShadow: '0 4px 14px rgba(0, 74, 198, 0.3)'
           }}>
-            <Briefcase size={22} />
+            <Briefcase size={20} />
           </div>
           <div>
-            <div style={{ fontSize: '1.3rem', fontWeight: 900, letterSpacing: '-0.03em', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              TalentXAI
-              <span style={{ fontSize: '0.65rem', background: 'rgba(59,130,246,0.3)', color: '#93C5FD', padding: '0.15rem 0.45rem', borderRadius: '6px', border: '1px solid rgba(147,197,253,0.3)' }}>PRO</span>
+            <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#004AC6', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+              TalentXAI PRO
             </div>
-            <div style={{ fontSize: '0.72rem', color: '#94A3B8', fontWeight: 600, letterSpacing: '0.02em' }}>
-              Badan Riset dan Inovasi Nasional (BRIN)
+            <div style={{ fontSize: '0.68rem', color: '#006C49', fontWeight: 800, letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '2px' }}>
+              Career Intelligence Platform
             </div>
           </div>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.4rem',
-            background: 'rgba(255,255,255,0.08)',
-            padding: '0.4rem 0.85rem',
-            borderRadius: '9999px',
-            fontSize: '0.8rem',
-            color: '#E2E8F0',
-            border: '1px solid rgba(255,255,255,0.12)'
-          }}>
-            <ShieldCheck size={15} color="#10B981" />
-            <span>Riset OBE & Explainable AI (XAI)</span>
-          </div>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          background: '#ECEEF0',
+          padding: '0.4rem 0.9rem',
+          borderRadius: '9999px',
+          border: '1px solid rgba(195, 198, 215, 0.4)'
+        }}>
+          <span style={{
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#006C49',
+            boxShadow: '0 0 8px rgba(0, 108, 73, 0.6)'
+          }}></span>
+          <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', fontWeight: 600, color: '#434655' }}>
+            Neural Cross-Encoder & XAI Engine Online
+          </span>
         </div>
       </header>
 
-      {/* Main Split Content */}
-      <main className="landing-main-grid" style={{
-        flex: 1,
+      {/* Main Hero & Auth Section */}
+      <main style={{
+        flexGrow: 1,
+        maxWidth: '1280px',
+        margin: '0 auto',
+        width: '100%',
+        padding: '2.5rem 2.5rem 3rem 2.5rem',
         display: 'grid',
         gridTemplateColumns: '1.15fr 0.85fr',
         gap: '3rem',
-        padding: '3.5rem 3.5rem 2.5rem 3.5rem',
-        maxWidth: '1400px',
-        margin: '0 auto',
-        width: '100%',
         alignItems: 'center',
         zIndex: 10
       }}>
-        {/* Left Side: Hero Value Proposition */}
-        <div>
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            background: 'rgba(37,99,235,0.15)',
-            border: '1px solid rgba(59,130,246,0.4)',
-            padding: '0.35rem 0.9rem',
-            borderRadius: '9999px',
-            fontSize: '0.82rem',
-            fontWeight: 700,
-            color: '#60A5FA',
-            marginBottom: '1.25rem'
-          }}>
-            <Sparkles size={15} />
-            Next-Gen Explainable AI Career Platform
-          </div>
-
-          <h1 className="landing-hero-title" style={{
-            fontSize: '2.85rem',
-            fontWeight: 900,
+        {/* Left Column: Hero Content & Bento Stat Cards */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <h1 style={{
+            fontSize: '3.2rem',
+            fontFamily: 'var(--font-heading)',
+            fontWeight: 800,
+            color: '#191C1E',
             lineHeight: 1.15,
-            letterSpacing: '-0.035em',
-            marginBottom: '1.25rem',
-            background: 'linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 60%, #93C5FD 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
+            letterSpacing: '-0.035em'
           }}>
-            Pintu Masuk Karir Cerdas Berbasis Capaian OBE & Portofolio Industri
+            Temukan Karir Ideal Berbasis <span className="gradient-text">Capaian Kurikulum</span> Akademik
           </h1>
 
-          <p className="landing-hero-desc" style={{
+          <p style={{
             fontSize: '1.05rem',
-            color: '#CBD5E1',
-            lineHeight: 1.6,
-            marginBottom: '2rem',
-            maxWidth: '620px'
+            color: '#434655',
+            lineHeight: 1.65,
+            maxWidth: '580px'
           }}>
-            Platform cerdas yang mengintegrasikan transkrip <strong>KHS multi-semester (138 SKS)</strong>, 
-            kredibilitas <strong>sertifikasi industri (Tier A/B)</strong>, serta transparansi 
-            rekomendasi berbasis <strong>Cross-Encoder Neural Matching, SHAP Attribution</strong>, dan bimbingan <strong>DiCE Counterfactuals</strong>.
+            Platform intelijen presisi yang mengintegrasikan transkrip <strong>KHS multi-semester</strong> dan portofolio <strong>sertifikasi industri</strong>, didukung penjelasan transparan via <strong>Cross-Encoder, SHAP Feature Attribution</strong>, dan bimbingan <strong>DiCE Roadmap</strong>.
           </p>
 
-          {/* 3 Core Value Cards */}
-          <div className="landing-cards-row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '2.5rem' }}>
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '16px',
-              padding: '1.1rem',
-              backdropFilter: 'blur(8px)'
-            }}>
-              <div style={{ color: '#38BDF8', marginBottom: '0.4rem' }}>
-                <Zap size={22} />
-              </div>
-              <div style={{ fontSize: '0.92rem', fontWeight: 800, marginBottom: '0.2rem' }}>
-                Neural Re-Ranking
-              </div>
-              <div style={{ fontSize: '0.78rem', color: '#94A3B8', lineHeight: 1.4 }}>
-                SBERT + Cross-Encoder mMARCO miniLMv2
-              </div>
-            </div>
-
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '16px',
-              padding: '1.1rem',
-              backdropFilter: 'blur(8px)'
-            }}>
-              <div style={{ color: '#10B981', marginBottom: '0.4rem' }}>
-                <Award size={22} />
-              </div>
-              <div style={{ fontSize: '0.92rem', fontWeight: 800, marginBottom: '0.2rem' }}>
-                Tier A/B Credibility
-              </div>
-              <div style={{ fontSize: '0.78rem', color: '#94A3B8', lineHeight: 1.4 }}>
-                Bobot resmi Google, AWS, Meta, SAP, Cisco
-              </div>
-            </div>
-
-            <div style={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '16px',
-              padding: '1.1rem',
-              backdropFilter: 'blur(8px)'
-            }}>
-              <div style={{ color: '#A78BFA', marginBottom: '0.4rem' }}>
-                <BarChart3 size={22} />
-              </div>
-              <div style={{ fontSize: '0.92rem', fontWeight: 800, marginBottom: '0.2rem' }}>
-                Explainable AI (XAI)
-              </div>
-              <div style={{ fontSize: '0.78rem', color: '#94A3B8', lineHeight: 1.4 }}>
-                Atribusi SHAP & Counterfactuals DiCE
-              </div>
-            </div>
-          </div>
-
-          {/* Platform Live Stats */}
-          <div className="landing-stats-row" style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '2rem',
-            paddingTop: '1.5rem',
-            borderTop: '1px solid rgba(255,255,255,0.1)'
-          }}>
-            <div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#38BDF8', fontFamily: 'var(--font-heading)' }}>
+          {/* 3 Bento Live Stat Cards */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginTop: '0.5rem' }}>
+            <div className="glass-panel glow-hover" style={{ padding: '1.25rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <Database size={22} color="#004AC6" style={{ marginBottom: '0.25rem' }} />
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.65rem', fontWeight: 800, color: '#191C1E', lineHeight: 1 }}>
                 4.570+
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 600 }}>
-                Lowongan Riil Unified
+              <div style={{ fontSize: '0.8rem', color: '#737686', fontWeight: 600 }}>
+                Lowongan Aktif
               </div>
             </div>
 
-            <div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#10B981', fontFamily: 'var(--font-heading)' }}>
-                8 Mahasiswa
+            <div className="glass-panel glow-hover" style={{ padding: '1.25rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <Users size={22} color="#006C49" style={{ marginBottom: '0.25rem' }} />
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.65rem', fontWeight: 800, color: '#191C1E', lineHeight: 1 }}>
+                8
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 600 }}>
-                Benchmark 4 Track EKS13
+              <div style={{ fontSize: '0.8rem', color: '#737686', fontWeight: 600 }}>
+                Mahasiswa Benchmark
               </div>
             </div>
 
-            <div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#F59E0B', fontFamily: 'var(--font-heading)' }}>
+            <div className="glass-panel glow-hover" style={{ padding: '1.25rem', borderRadius: '1rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+              <School size={22} color="#996100" style={{ marginBottom: '0.25rem' }} />
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.65rem', fontWeight: 800, color: '#191C1E', lineHeight: 1 }}>
                 1.139
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 600 }}>
-                Katalog Kursus DiCE
+              <div style={{ fontSize: '0.8rem', color: '#737686', fontWeight: 600 }}>
+                Rekomendasi Kursus
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Interactive Login Portal Card */}
-        <div className="landing-login-card" style={{
-          background: 'rgba(255, 255, 255, 0.96)',
-          borderRadius: '24px',
-          padding: '2.5rem',
-          color: '#0F172A',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(37,99,235,0.2)',
-          border: '1px solid rgba(255, 255, 255, 0.2)',
-          position: 'relative'
-        }}>
-          {/* Card Title */}
-          <div style={{ marginBottom: '1.5rem', textAlign: 'center' }}>
-            <div style={{
-              width: '52px',
-              height: '52px',
-              borderRadius: '16px',
-              background: authMode === 'demo' ? 'linear-gradient(135deg, #2563EB, #1D4ED8)' : 'linear-gradient(135deg, #10B981, #059669)',
-              color: 'white',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 0.75rem auto',
-              boxShadow: '0 8px 16px rgba(0,0,0,0.1)'
-            }}>
-              {authMode === 'demo' ? <FlaskConical size={26} /> : <User size={26} />}
-            </div>
-            <h2 style={{ fontSize: '1.55rem', fontWeight: 900, color: '#0F172A', letterSpacing: '-0.02em' }}>
-              Autentikasi Akses Platform
-            </h2>
-            <p style={{ fontSize: '0.85rem', color: '#64748B', marginTop: '0.2rem' }}>
-              Pilih mode akun untuk masuk ke dashboard TalentXAI
-            </p>
-          </div>
-
-          {/* 3-Mode Selector */}
-          <div style={{
-            display: 'flex',
-            background: '#F1F5F9',
-            padding: '4px',
-            borderRadius: '14px',
-            marginBottom: '1.5rem',
-            border: '1px solid #E2E8F0'
+        {/* Right Column: Google Stitch Auth Gateway Card */}
+        <div style={{ width: '100%', maxWidth: '460px', margin: '0 auto' }}>
+          <div className="glass-panel" style={{
+            borderRadius: '1.25rem',
+            overflow: 'hidden',
+            boxShadow: '0 12px 36px -6px rgba(0, 74, 198, 0.12)',
+            border: '1px solid rgba(195, 198, 215, 0.5)'
           }}>
-            <button
-              onClick={() => switchMode('demo')}
-              style={{
-                flex: 1,
-                padding: '0.6rem 0.5rem',
-                borderRadius: '11px',
-                border: 'none',
-                fontSize: '0.82rem',
-                fontWeight: 800,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.35rem',
-                background: authMode === 'demo' ? '#FFFFFF' : 'transparent',
-                color: authMode === 'demo' ? '#1E293B' : '#64748B',
-                boxShadow: authMode === 'demo' ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              <FlaskConical size={14} color={authMode === 'demo' ? '#2563EB' : '#64748B'} />
-              Akun Demo (10 Riset)
-            </button>
-
-            <button
-              onClick={() => switchMode('student')}
-              style={{
-                flex: 1,
-                padding: '0.6rem 0.5rem',
-                borderRadius: '11px',
-                border: 'none',
-                fontSize: '0.82rem',
-                fontWeight: 800,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.35rem',
-                background: authMode === 'student' ? '#FFFFFF' : 'transparent',
-                color: authMode === 'student' ? '#1E293B' : '#64748B',
-                boxShadow: authMode === 'student' ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              <User size={14} color={authMode === 'student' ? '#10B981' : '#64748B'} />
-              Akun Mahasiswa
-            </button>
-
-            <button
-              onClick={() => switchMode('register')}
-              style={{
-                flex: 1,
-                padding: '0.6rem 0.5rem',
-                borderRadius: '11px',
-                border: 'none',
-                fontSize: '0.82rem',
-                fontWeight: 800,
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.35rem',
-                background: authMode === 'register' ? '#FFFFFF' : 'transparent',
-                color: authMode === 'register' ? '#1E293B' : '#64748B',
-                boxShadow: authMode === 'register' ? '0 2px 8px rgba(0,0,0,0.08)' : 'none',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              <Sparkles size={14} color={authMode === 'register' ? '#8B5CF6' : '#64748B'} />
-              Daftar Baru
-            </button>
-          </div>
-
-          {/* Error Banner */}
-          {errorMessage && (
+            {/* Tab Navigation */}
             <div style={{
-              background: '#FEF2F2',
-              border: '1px solid #FECACA',
-              color: '#991B1B',
-              padding: '0.75rem 1rem',
-              borderRadius: '12px',
-              fontSize: '0.84rem',
-              marginBottom: '1.25rem',
               display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem'
+              borderBottom: '1px solid #E0E3E5',
+              background: '#F2F4F6'
             }}>
-              <AlertCircle size={16} flexShrink={0} />
-              <span>{errorMessage}</span>
-            </div>
-          )}
-
-          {/* FORM 1: LOGIN (Demo & Student) */}
-          {(authMode === 'demo' || authMode === 'student') && (
-            <form onSubmit={handleLogin}>
-              <div style={{ marginBottom: '1.1rem' }}>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.35rem' }}>
-                  Username
-                </label>
-                <div style={{ position: 'relative' }}>
-                  <input 
-                    type="text"
-                    placeholder="Masukkan username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    required
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 1rem 0.75rem 2.6rem',
-                      borderRadius: '12px',
-                      border: '1px solid #CBD5E1',
-                      fontSize: '0.92rem',
-                      outline: 'none',
-                      color: '#0F172A',
-                      background: '#FFFFFF'
-                    }}
-                  />
-                  <User size={18} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
-                </div>
-              </div>
-
-              <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: 700, color: '#334155', marginBottom: '0.35rem' }}>
-                  Password
-                </label>
-                <div style={{ position: 'relative' }}>
-                  <input 
-                    type={showPassword ? 'text' : 'password'}
-                    placeholder="Masukkan password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem 2.6rem 0.75rem 2.6rem',
-                      borderRadius: '12px',
-                      border: '1px solid #CBD5E1',
-                      fontSize: '0.92rem',
-                      outline: 'none',
-                      color: '#0F172A',
-                      background: '#FFFFFF'
-                    }}
-                  />
-                  <Lock size={18} style={{ position: 'absolute', left: '0.85rem', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    style={{ position: 'absolute', right: '0.85rem', top: '50%', transform: 'translateY(-50%)', background: 'transparent', border: 'none', cursor: 'pointer', color: '#94A3B8' }}
-                  >
-                    {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-                  </button>
-                </div>
-              </div>
-
               <button
-                type="submit"
-                disabled={isLoading}
+                onClick={() => switchMode('demo')}
                 style={{
-                  width: '100%',
-                  padding: '0.85rem',
-                  borderRadius: '14px',
+                  flex: 1,
+                  padding: '0.9rem 0.5rem',
                   border: 'none',
-                  background: authMode === 'demo' ? 'linear-gradient(135deg, #2563EB, #1D4ED8)' : 'linear-gradient(135deg, #10B981, #059669)',
-                  color: 'white',
-                  fontWeight: 800,
-                  fontSize: '1rem',
+                  borderBottom: authMode === 'demo' ? '2.5px solid #004AC6' : '2.5px solid transparent',
+                  background: authMode === 'demo' ? '#FFFFFF' : 'transparent',
+                  color: authMode === 'demo' ? '#004AC6' : '#737686',
+                  fontWeight: 700,
+                  fontSize: '0.86rem',
                   cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem',
-                  boxShadow: authMode === 'demo' ? '0 4px 14px rgba(37, 99, 235, 0.35)' : '0 4px 14px rgba(16, 185, 129, 0.35)',
-                  transition: 'transform 0.15s ease'
+                  transition: 'all 0.2s'
                 }}
               >
-                {isLoading ? 'Memverifikasi...' : (
-                  <>
-                    <span>{authMode === 'demo' ? '🚀 Masuk ke Mode Demo (10 Riset)' : '🚀 Masuk ke Akun Mahasiswa'}</span>
-                    <ArrowRight size={18} />
-                  </>
-                )}
+                🧪 Akun Demo Eksperimen
               </button>
 
-              {/* Mode Specific Footnote */}
+              <button
+                onClick={() => switchMode('login')}
+                style={{
+                  flex: 1,
+                  padding: '0.9rem 0.5rem',
+                  border: 'none',
+                  borderBottom: authMode === 'login' ? '2.5px solid #004AC6' : '2.5px solid transparent',
+                  background: authMode === 'login' ? '#FFFFFF' : 'transparent',
+                  color: authMode === 'login' ? '#004AC6' : '#737686',
+                  fontWeight: 700,
+                  fontSize: '0.86rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s'
+                }}
+              >
+                👤 Login Mahasiswa
+              </button>
+            </div>
+
+            {/* Error Message Alert */}
+            {errorMessage && (
               <div style={{
-                marginTop: '1.25rem',
-                padding: '0.85rem',
-                borderRadius: '12px',
-                background: authMode === 'demo' ? '#EFF6FF' : '#ECFDF5',
-                border: authMode === 'demo' ? '1px solid #BFDBFE' : '1px solid #A7F3D0',
-                fontSize: '0.78rem',
-                color: authMode === 'demo' ? '#1E40AF' : '#065F46',
-                lineHeight: 1.45
+                margin: '1rem 1.5rem 0 1.5rem',
+                background: '#FFDAD6',
+                color: '#BA1A1A',
+                border: '1px solid #FFB4AB',
+                padding: '0.65rem 0.85rem',
+                borderRadius: '8px',
+                fontSize: '0.84rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
               }}>
-                {authMode === 'demo' ? (
-                  <div>
-                    <strong>💡 Info Akun Demo:</strong> Kredensial bawaan <code>demo</code> / <code>123</code>. Anda dapat mengamati 10 profil mahasiswa hasil riset dengan komparasi A/B testing sebelum vs sesudah sertifikat.
-                  </div>
-                ) : (
-                  <div>
-                    <strong>💡 Info Akun Mahasiswa:</strong> Kredensial bawaan <code>akmal</code> / <code>123</code>. Anda dapat menginput daftar mata kuliah KHS dan sertifikasi industri Anda sendiri.
-                  </div>
-                )}
+                <AlertCircle size={15} style={{ flexShrink: 0 }} />
+                <span>{errorMessage}</span>
               </div>
-            </form>
-          )}
+            )}
 
-          {/* FORM 2: REGISTER */}
-          {authMode === 'register' && (
-            <form onSubmit={handleRegister}>
-              <div style={{ marginBottom: '0.85rem' }}>
-                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
-                  Nama Lengkap Mahasiswa
-                </label>
-                <input 
-                  type="text"
-                  placeholder="Contoh: Akmal Yaasir Fauzaan"
-                  value={regName}
-                  onChange={(e) => setRegName(e.target.value)}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '0.65rem 0.85rem',
-                    borderRadius: '10px',
-                    border: '1px solid #CBD5E1',
-                    fontSize: '0.9rem',
-                    outline: 'none'
-                  }}
-                />
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '0.85rem' }}>
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
-                    Username
-                  </label>
-                  <input 
-                    type="text"
-                    placeholder="e.g. akmal2026"
-                    value={regUsername}
-                    onChange={(e) => setRegUsername(e.target.value)}
-                    required
-                    style={{
-                      width: '100%',
-                      padding: '0.65rem 0.85rem',
-                      borderRadius: '10px',
-                      border: '1px solid #CBD5E1',
-                      fontSize: '0.9rem',
-                      outline: 'none'
-                    }}
-                  />
+            {/* TAB CONTENT 1: DEMO EXPERIMENT MODE */}
+            {authMode === 'demo' && (
+              <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div style={{
+                  background: '#EFF6FF',
+                  border: '1px solid #BFDBFE',
+                  borderRadius: '12px',
+                  padding: '1rem',
+                  display: 'flex',
+                  gap: '0.75rem',
+                  alignItems: 'flex-start'
+                }}>
+                  <Sparkles size={20} color="#004AC6" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <p style={{ fontSize: '0.86rem', color: '#1E40AF', lineHeight: 1.5, margin: 0 }}>
+                    Akses instan ke data <strong>8 mahasiswa benchmark</strong> (Machine Learning, Web, Cloud, SAP) untuk mengeksplorasi seluruh kapabilitas mesin Explainable AI tanpa registrasi.
+                  </p>
                 </div>
 
-                <div>
-                  <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
-                    Password
-                  </label>
-                  <input 
-                    type="password"
-                    placeholder="Buat password"
-                    value={regPassword}
-                    onChange={(e) => setRegPassword(e.target.value)}
-                    required
-                    style={{
-                      width: '100%',
-                      padding: '0.65rem 0.85rem',
-                      borderRadius: '10px',
-                      border: '1px solid #CBD5E1',
-                      fontSize: '0.9rem',
-                      outline: 'none'
-                    }}
-                  />
-                </div>
-              </div>
-
-              <div style={{ marginBottom: '1.25rem' }}>
-                <label style={{ display: 'block', fontSize: '0.84rem', fontWeight: 700, color: '#334155', marginBottom: '0.3rem' }}>
-                  Peminatan / Minat Bidang
-                </label>
-                <select
-                  value={regTrack}
-                  onChange={(e) => setRegTrack(e.target.value)}
+                <button
+                  onClick={handleLogin}
+                  disabled={isLoading}
                   style={{
                     width: '100%',
-                    padding: '0.65rem 0.85rem',
+                    padding: '0.85rem 1.25rem',
                     borderRadius: '10px',
-                    border: '1px solid #CBD5E1',
-                    fontSize: '0.9rem',
-                    outline: 'none',
-                    background: 'white'
+                    background: 'linear-gradient(135deg, #004AC6 0%, #2563EB 100%)',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.96rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    boxShadow: '0 4px 14px rgba(0, 74, 198, 0.3)',
+                    transition: 'all 0.2s',
+                    marginTop: '0.5rem'
                   }}
                 >
-                  <option value="Machine Learning & AI">🤖 Machine Learning & AI</option>
-                  <option value="Web & Full-Stack">💻 Web & Full-Stack Development</option>
-                  <option value="Networking & Cloud">☁️ Networking & Cloud Infrastructure</option>
-                  <option value="SAP & Enterprise Systems">🏢 SAP & Enterprise Architecture</option>
-                </select>
+                  {isLoading ? 'Memuat Data Demo...' : 'Eksplorasi Data Demo'}
+                  <ArrowRight size={18} />
+                </button>
               </div>
+            )}
 
-              <button
-                type="submit"
-                disabled={isLoading}
-                style={{
-                  width: '100%',
-                  padding: '0.85rem',
-                  borderRadius: '14px',
-                  border: 'none',
-                  background: 'linear-gradient(135deg, #10B981, #059669)',
-                  color: 'white',
-                  fontWeight: 800,
-                  fontSize: '1rem',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.5rem',
-                  boxShadow: '0 4px 14px rgba(16, 185, 129, 0.35)'
-                }}
-              >
-                {isLoading ? 'Mendaftarkan...' : '✨ Daftarkan Akun & Masuk Dashboard'}
-              </button>
-            </form>
-          )}
+            {/* TAB CONTENT 2: LOGIN MAHASISWA */}
+            {authMode === 'login' && (
+              <form onSubmit={handleLogin} style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.78rem', fontWeight: 700, color: '#191C1E', marginBottom: '0.35rem' }}>
+                    Username / Akun
+                  </label>
+                  <input
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Masukkan username (contoh: akmal)"
+                    style={{
+                      width: '100%',
+                      padding: '0.7rem 0.9rem',
+                      borderRadius: '10px',
+                      border: '1px solid #C3C6D7',
+                      background: '#FFFFFF',
+                      fontSize: '0.92rem',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontFamily: 'var(--font-mono)', fontSize: '0.78rem', fontWeight: 700, color: '#191C1E', marginBottom: '0.35rem' }}>
+                    Password
+                  </label>
+                  <div style={{ position: 'relative' }}>
+                    <input
+                      type={showPassword ? 'text' : 'password'}
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="••••••••"
+                      style={{
+                        width: '100%',
+                        padding: '0.7rem 2.5rem 0.7rem 0.9rem',
+                        borderRadius: '10px',
+                        border: '1px solid #C3C6D7',
+                        background: '#FFFFFF',
+                        fontSize: '0.92rem',
+                        outline: 'none',
+                        boxSizing: 'border-box'
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{
+                        position: 'absolute',
+                        right: '10px',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        background: 'transparent',
+                        border: 'none',
+                        color: '#737686',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  style={{
+                    width: '100%',
+                    padding: '0.85rem 1.25rem',
+                    borderRadius: '10px',
+                    background: '#004AC6',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.96rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    boxShadow: '0 4px 14px rgba(0, 74, 198, 0.25)',
+                    transition: 'all 0.2s',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {isLoading ? 'Memproses...' : 'Masuk Sistem'}
+                </button>
+
+                <div style={{ textAlign: 'center', fontSize: '0.82rem', color: '#737686', marginTop: '0.25rem' }}>
+                  Belum punya akun?{' '}
+                  <span 
+                    onClick={() => switchMode('register')}
+                    style={{ color: '#004AC6', fontWeight: 700, cursor: 'pointer', textDecoration: 'underline' }}
+                  >
+                    Daftar Mahasiswa Baru
+                  </span>
+                </div>
+              </form>
+            )}
+
+            {/* TAB CONTENT 3: REGISTER NEW STUDENT */}
+            {authMode === 'register' && (
+              <form onSubmit={handleRegister} style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: '#191C1E', marginBottom: '0.25rem' }}>
+                    Nama Lengkap
+                  </label>
+                  <input
+                    type="text"
+                    value={regName}
+                    onChange={(e) => setRegName(e.target.value)}
+                    placeholder="Nama Lengkap Mahasiswa"
+                    style={{
+                      width: '100%',
+                      padding: '0.6rem 0.8rem',
+                      borderRadius: '8px',
+                      border: '1px solid #C3C6D7',
+                      fontSize: '0.88rem',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: '#191C1E', marginBottom: '0.25rem' }}>
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    value={regUsername}
+                    onChange={(e) => setRegUsername(e.target.value)}
+                    placeholder="Username baru"
+                    style={{
+                      width: '100%',
+                      padding: '0.6rem 0.8rem',
+                      borderRadius: '8px',
+                      border: '1px solid #C3C6D7',
+                      fontSize: '0.88rem',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: '#191C1E', marginBottom: '0.25rem' }}>
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    value={regPassword}
+                    onChange={(e) => setRegPassword(e.target.value)}
+                    placeholder="Password"
+                    style={{
+                      width: '100%',
+                      padding: '0.6rem 0.8rem',
+                      borderRadius: '8px',
+                      border: '1px solid #C3C6D7',
+                      fontSize: '0.88rem',
+                      outline: 'none',
+                      boxSizing: 'border-box'
+                    }}
+                  />
+                </div>
+
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.78rem', fontWeight: 700, color: '#191C1E', marginBottom: '0.25rem' }}>
+                    Peminatan Karir
+                  </label>
+                  <select
+                    value={regTrack}
+                    onChange={(e) => setRegTrack(e.target.value)}
+                    style={{
+                      width: '100%',
+                      padding: '0.6rem 0.8rem',
+                      borderRadius: '8px',
+                      border: '1px solid #C3C6D7',
+                      fontSize: '0.88rem',
+                      background: '#FFFFFF',
+                      boxSizing: 'border-box'
+                    }}
+                  >
+                    <option value="Machine Learning & AI">🤖 Machine Learning & AI</option>
+                    <option value="Web & Full-Stack">💻 Web & Full-Stack Development</option>
+                    <option value="Networking & Cloud">☁️ Networking & Cloud Infrastructure</option>
+                    <option value="SAP & Enterprise Systems">🏢 SAP & Enterprise Systems</option>
+                  </select>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  style={{
+                    width: '100%',
+                    padding: '0.8rem',
+                    borderRadius: '8px',
+                    background: '#006C49',
+                    color: '#FFFFFF',
+                    border: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.92rem',
+                    cursor: 'pointer',
+                    marginTop: '0.5rem'
+                  }}
+                >
+                  {isLoading ? 'Mendaftarkan...' : 'Daftar & Masuk'}
+                </button>
+
+                <div style={{ textAlign: 'center', fontSize: '0.8rem', color: '#737686' }}>
+                  Sudah punya akun?{' '}
+                  <span 
+                    onClick={() => switchMode('login')}
+                    style={{ color: '#004AC6', fontWeight: 700, cursor: 'pointer', textDecoration: 'underline' }}
+                  >
+                    Kembali ke Login
+                  </span>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </main>
 
-      {/* Bottom Footer */}
-      <footer className="landing-footer" style={{
-        padding: '1.25rem 3rem',
-        borderTop: '1px solid rgba(255,255,255,0.08)',
+      {/* 4 Industry Track Cards matching Google Stitch Screen 3 */}
+      <section style={{
+        width: '100%',
+        background: '#ECEEF0',
+        borderTop: '1px solid rgba(195, 198, 215, 0.4)',
+        padding: '2.5rem 2.5rem',
+        marginTop: 'auto'
+      }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
+          <div style={{ marginBottom: '1.25rem' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#191C1E', fontFamily: 'var(--font-heading)' }}>
+              Jalur Peminatan Industri yang Dianalisis
+            </h2>
+            <p style={{ fontSize: '0.9rem', color: '#434655', marginTop: '0.25rem' }}>
+              Pemetaan kompetensi real-time terhadap peran teknologi teratas dengan model Cross-Encoder & XAI.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.25rem' }}>
+            <div className="glass-panel glow-hover" style={{ padding: '1.25rem', borderRadius: '1rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', background: '#FFFFFF' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(0, 74, 198, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#004AC6' }}>
+                <Cpu size={24} />
+              </div>
+              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#191C1E' }}>Machine Learning & AI</h3>
+            </div>
+
+            <div className="glass-panel glow-hover" style={{ padding: '1.25rem', borderRadius: '1rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', background: '#FFFFFF' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(0, 108, 73, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#006C49' }}>
+                <Terminal size={24} />
+              </div>
+              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#191C1E' }}>Web & Full-Stack</h3>
+            </div>
+
+            <div className="glass-panel glow-hover" style={{ padding: '1.25rem', borderRadius: '1rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', background: '#FFFFFF' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(37, 99, 235, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#2563EB' }}>
+                <Cloud size={24} />
+              </div>
+              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#191C1E' }}>Cloud & DevOps</h3>
+            </div>
+
+            <div className="glass-panel glow-hover" style={{ padding: '1.25rem', borderRadius: '1rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem', background: '#FFFFFF' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'rgba(153, 97, 0, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#996100' }}>
+                <Building size={24} />
+              </div>
+              <h3 style={{ fontSize: '0.95rem', fontWeight: 700, color: '#191C1E' }}>SAP & Enterprise</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer style={{
+        padding: '1.5rem 2.5rem',
+        borderTop: '1px solid #E0E3E5',
+        background: '#F2F4F6',
+        fontSize: '0.82rem',
+        color: '#737686',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        fontSize: '0.78rem',
-        color: '#64748B',
-        zIndex: 10
+        maxWidth: '1280px',
+        margin: '0 auto',
+        width: '100%'
       }}>
         <div>
-          © 2026 TalentXAI — Program Magang Riset Badan Riset dan Inovasi Nasional (BRIN).
+          <strong>TalentXAI PRO</strong> — Pusat Riset Sains Data dan Informasi, BRIN © 2026.
         </div>
         <div style={{ display: 'flex', gap: '1.5rem' }}>
-          <span>Outcome-Based Education (OBE)</span>
+          <span>Outcome-Based Education</span>
           <span>•</span>
-          <span>Sentence-BERT Cross-Encoder</span>
+          <span>Explainable AI (XAI)</span>
           <span>•</span>
-          <span>SHAP & DiCE Framework</span>
+          <span>SBERT Cross-Encoder</span>
         </div>
       </footer>
     </div>

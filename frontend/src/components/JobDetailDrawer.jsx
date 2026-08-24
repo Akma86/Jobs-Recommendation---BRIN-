@@ -130,76 +130,130 @@ export default function JobDetailDrawer({
         </div>
       </div>
 
-      {/* Dynamic AI Match Overview Hero (Respects Before vs After mode) */}
-      <div className="match-overview-card" style={{
+      {/* Dynamic AI Match Overview Hero (Google Stitch Screen 4 Design) */}
+      <div className="glass-panel" style={{
         background: isBeforeMode 
-          ? 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)' 
-          : 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
-        border: isBeforeMode ? '1px solid #CBD5E1' : '1px solid #BFDBFE',
-        borderRadius: '16px',
-        padding: '1.25rem',
-        marginBottom: '1.25rem'
+          ? 'linear-gradient(135deg, rgba(71, 85, 105, 0.05) 0%, rgba(241, 245, 249, 0.9) 100%)' 
+          : 'linear-gradient(135deg, rgba(0, 74, 198, 0.05) 0%, rgba(0, 108, 73, 0.05) 100%)',
+        border: isBeforeMode ? '1px solid rgba(195, 198, 215, 0.6)' : '1px solid rgba(0, 74, 198, 0.2)',
+        borderRadius: '1.25rem',
+        padding: '1.5rem',
+        marginBottom: '1.5rem',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '1.5rem',
+        boxShadow: '0 4px 20px -2px rgba(15, 23, 42, 0.04)'
       }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '0.9rem', marginBottom: '0.9rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-            <div style={{
-              width: '56px',
-              height: '56px',
-              borderRadius: '16px',
-              background: isBeforeMode 
-                ? 'linear-gradient(135deg, #475569, #334155)'
-                : ((job.match_pct || 75) >= 85 ? 'linear-gradient(135deg, #10B981, #059669)' : 'linear-gradient(135deg, #2563EB, #1D4ED8)'),
-              color: '#FFFFFF',
-              display: 'flex',
-              flexDirection: 'column',
+        <div style={{ flex: '1 1 320px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+            <span style={{
+              display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontWeight: 800,
-              boxShadow: isBeforeMode ? '0 4px 12px rgba(71,85,105,0.25)' : '0 4px 12px rgba(37,99,235,0.25)'
+              width: '28px',
+              height: '28px',
+              borderRadius: '8px',
+              background: isBeforeMode ? '#E2E8F0' : '#DBEAFE',
+              color: isBeforeMode ? '#475569' : '#004AC6'
             }}>
-              <span style={{ fontSize: '1.15rem', lineHeight: 1 }}>{currentMatchPct}%</span>
-              <span style={{ fontSize: '0.52rem', opacity: 0.9, textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                {isBeforeMode ? 'KHS SAJA' : 'MATCH'}
-              </span>
-            </div>
-
-            <div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                {isBeforeMode ? <BookOpen size={16} color="#475569" /> : <Sparkles size={16} color="#2563EB" />}
-                {isBeforeMode ? 'Kondisi A: Keselarasan Murni KHS' : 'Kondisi B: Keselarasan (+Sertifikat)'}
-              </div>
-              <div style={{ fontSize: '0.82rem', color: '#64748B', marginTop: '0.15rem' }}>
-                Indeks Kelayakan: <strong>{currentIndexScore} / 10.0</strong> • Peringkat Rekomendasi: <strong>#{job.rank}</strong>
-              </div>
-            </div>
+              {isBeforeMode ? <BookOpen size={16} /> : <Sparkles size={16} />}
+            </span>
+            <h2 style={{ fontSize: '1.2rem', fontWeight: 800, color: '#191C1E', margin: 0 }}>
+              {isBeforeMode ? 'Kondisi A: Keselarasan Murni KHS' : 'AI Match Overview'}
+            </h2>
           </div>
 
-          <div style={{ textAlign: 'right' }}>
+          <p style={{ fontSize: '0.9rem', color: '#434655', lineHeight: 1.55, marginBottom: '0.85rem' }}>
+            {isBeforeMode 
+              ? `Berdasarkan rekam jejak akademik KHS, profil Anda memiliki keselarasan dasar sebesar ${beforePct}% terhadap posisi ${job.title}.`
+              : `Berdasarkan transkrip KHS dan portofolio sertifikasi industri, Anda memenuhi ${job.match_pct}% kualifikasi teknis yang dipersyaratkan.`}
+          </p>
+
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', fontSize: '0.82rem' }}>
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              background: '#FFFFFF',
+              border: '1px solid #E0E3E5',
+              padding: '0.25rem 0.65rem',
+              borderRadius: '9999px',
+              fontWeight: 600,
+              color: '#191C1E'
+            }}>
+              <CheckCircle2 size={13} color={isBeforeMode ? "#475569" : "#006C49"} />
+              Indeks: <strong style={{ fontFamily: 'var(--font-mono)' }}>{currentIndexScore} / 10.0</strong>
+            </span>
+
+            <span style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              background: '#FFFFFF',
+              border: '1px solid #E0E3E5',
+              padding: '0.25rem 0.65rem',
+              borderRadius: '9999px',
+              fontWeight: 600,
+              color: '#191C1E'
+            }}>
+              Peringkat Rekomendasi: <strong style={{ color: '#004AC6' }}>#{job.rank}</strong>
+            </span>
+          </div>
+        </div>
+
+        {/* Right Side: Big Monospace Data Metric Score */}
+        <div style={{
+          textAlign: 'center',
+          background: '#FFFFFF',
+          padding: '1.25rem 1.75rem',
+          borderRadius: '1rem',
+          border: '1px solid rgba(195, 198, 215, 0.4)',
+          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.03)',
+          minWidth: '180px'
+        }}>
+          <div style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '3.25rem',
+            fontWeight: 800,
+            lineHeight: 1,
+            letterSpacing: '-0.04em',
+            color: isBeforeMode ? '#475569' : '#004AC6'
+          }}>
+            {currentMatchPct}<span style={{ fontSize: '1.5rem', fontWeight: 700, marginLeft: '2px' }}>%</span>
+          </div>
+
+          <div style={{
+            fontSize: '0.78rem',
+            fontWeight: 700,
+            marginTop: '0.4rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '0.3rem',
+            color: isBeforeMode ? '#475569' : '#006C49'
+          }}>
             {isBeforeMode ? (
               <>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#F1F5F9', color: '#475569', padding: '0.35rem 0.75rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', border: '1px solid #CBD5E1' }}>
-                  <BookOpen size={14} />
-                  Murni Kurikulum Akademik
-                </div>
-                <div style={{ fontSize: '0.75rem', color: '#2563EB', marginTop: '0.35rem', fontWeight: 700 }}>
-                  Potensi After (+Sertifikat): <strong>{job.match_pct}% ({indexAfter} / 10.0)</strong>
-                </div>
+                <BookOpen size={13} />
+                Murni Capaian KHS
               </>
             ) : (
               <>
-                {job.delta > 0.1 && (
-                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: '#DCFCE7', color: '#166534', padding: '0.35rem 0.75rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.82rem', border: '1px solid #BBF7D0' }}>
-                    <TrendingUp size={14} />
-                    +{deltaPct}% Lonjakan Sertifikat
-                  </div>
-                )}
-                <div style={{ fontSize: '0.75rem', color: '#64748B', marginTop: '0.35rem' }}>
-                  Before (KHS Saja): <strong>{beforePct}% ({indexBefore} / 10.0)</strong>
-                </div>
+                <TrendingUp size={13} />
+                +{deltaPct}% dari Sertifikasi
               </>
             )}
           </div>
+
+          <div style={{ fontSize: '0.72rem', color: '#737686', marginTop: '0.35rem' }}>
+            {isBeforeMode 
+              ? `Potensi After: ${job.match_pct}% (+${deltaPct}%)`
+              : `Before (KHS Saja): ${beforePct}% (${indexBefore}/10.0)`}
+          </div>
         </div>
+      </div>
 
         {/* Quick Highlights */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem', fontSize: '0.84rem', color: '#334155' }}>
@@ -244,7 +298,6 @@ export default function JobDetailDrawer({
             </>
           )}
         </div>
-      </div>
 
       {/* XAI Navigation Tabs (Clean 4 Tabs) */}
       <div className="xai-tabs-nav">
