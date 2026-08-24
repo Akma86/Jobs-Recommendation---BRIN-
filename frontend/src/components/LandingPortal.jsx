@@ -332,10 +332,10 @@ export default function LandingPortal({ onLoginSuccess }) {
 
             <div>
               <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#10B981', fontFamily: 'var(--font-heading)' }}>
-                10 Mahasiswa
+                8 Mahasiswa
               </div>
               <div style={{ fontSize: '0.75rem', color: '#94A3B8', textTransform: 'uppercase', fontWeight: 600 }}>
-                Benchmark 5 Track EKS13
+                Benchmark 4 Track EKS13
               </div>
             </div>
 

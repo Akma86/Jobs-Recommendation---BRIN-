@@ -591,14 +591,14 @@ export default function UploadModal({ onClose, onProfileAnalyzed }) {
               </div>
 
               <div 
-                onClick={() => handleLoadSample('nadia-putri-si-bagus')}
+                onClick={() => handleLoadSample('dewi-lestari-sap-bagus')}
                 style={{ background: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '12px', padding: '1rem', cursor: 'pointer', transition: 'all 0.15s ease' }}
               >
                 <div style={{ fontWeight: 700, color: '#0F172A', fontSize: '0.95rem' }}>
-                  📊 Nadia Putri — Business Analyst & SI
+                  🏢 Dewi Lestari — SAP & Enterprise Systems
                 </div>
                 <div style={{ fontSize: '0.8rem', color: '#059669', fontWeight: 600, marginTop: '0.2rem' }}>
-                  IPK 3.81 • 4 Sertifikasi (ITIL, Business Analysis, Scrum, PMP)
+                  IPK 3.82 • 4 Sertifikasi (SAP S/4HANA, SAP Analytics Cloud, ERP)
                 </div>
               </div>
             </div>

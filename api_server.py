@@ -81,15 +81,13 @@ STANDARD_COURSES = [
 ]
 
 STUDENT_KEYS = [
-    # 10 Profiles across 5 Industry Tracks
+    # 8 Benchmark Profiles across 4 Core Industry Tracks
     ("siti-rahma-ml-bagus", "Siti Rahma", "Machine Learning & AI", "Siti_Rahma_ML_Bagus", "Unggul"),
     ("rizky-maulana-ml-jelek", "Rizky Maulana", "Machine Learning & AI", "Rizky_Maulana_ML_Jelek", "Perlu Penguatan"),
     ("budi-santoso-web-bagus", "Budi Santoso", "Web & Full-Stack", "Budi_Santoso_Web_Bagus", "Unggul"),
     ("bayu-setiawan-web-jelek", "Bayu Setiawan", "Web & Full-Stack", "Bayu_Setiawan_Web_Jelek", "Perlu Penguatan"),
     ("andi-wijaya-net-bagus", "Andi Wijaya", "Networking & Cloud", "Andi_Wijaya_Net_Bagus", "Unggul"),
     ("kevin-aditya-net-jelek", "Kevin Aditya", "Networking & Cloud", "Kevin_Aditya_Net_Jelek", "Perlu Penguatan"),
-    ("nadia-putri-si-bagus", "Nadia Putri", "Sistem Informasi & Bisnis", "Nadia_Putri_SI_Bagus", "Unggul"),
-    ("farhan-hidayat-si-jelek", "Farhan Hidayat", "Sistem Informasi & Bisnis", "Farhan_Hidayat_SI_Jelek", "Perlu Penguatan"),
     ("dewi-lestari-sap-bagus", "Dewi Lestari", "SAP & Enterprise Systems", "Dewi_Lestari_SAP_Bagus", "Unggul"),
     ("ilham-saputra-sap-jelek", "Ilham Saputra", "SAP & Enterprise Systems", "Ilham_Saputra_SAP_Jelek", "Perlu Penguatan"),
 ]
