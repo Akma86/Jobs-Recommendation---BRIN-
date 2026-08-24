@@ -70,6 +70,8 @@ export default function JobDetailDrawer({
   const currentMatchPct = isBeforeMode ? beforePct : job.match_pct;
   const currentIndexScore = isBeforeMode ? indexBefore : indexAfter;
 
+  const hasXAI = Boolean(job.narrative || (job.shap_features && job.shap_features.length > 0));
+
   // Separate components for Smart Explanation
   const allComponents = job.narrative?.components || [];
   const certComponents = allComponents.filter(c => c.type === 'Sertifikat Industri' || c.name.toLowerCase().includes('certificate') || c.name.toLowerCase().includes('associate') || c.name.toLowerCase().includes('specialization'));
@@ -130,16 +132,55 @@ export default function JobDetailDrawer({
         </div>
       </div>
 
-      {/* Dynamic AI Match Overview Hero (Respects Before vs After mode) */}
-      <div className="match-overview-card" style={{
-        background: isBeforeMode 
-          ? 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)' 
-          : 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
-        border: isBeforeMode ? '1px solid #CBD5E1' : '1px solid #BFDBFE',
-        borderRadius: '16px',
-        padding: '1.25rem',
-        marginBottom: '1.25rem'
-      }}>
+      {/* If viewing general catalog job without personalized XAI profile yet */}
+      {!hasXAI && (
+        <div>
+          <div style={{
+            background: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)',
+            border: '1px solid #BFDBFE',
+            borderRadius: '16px',
+            padding: '1.25rem',
+            marginBottom: '1.25rem',
+            display: 'flex',
+            alignItems: 'flex-start',
+            gap: '0.85rem'
+          }}>
+            <Sparkles size={22} color="#2563EB" style={{ flexShrink: 0, marginTop: '2px' }} />
+            <div>
+              <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#1E40AF', marginBottom: '0.25rem' }}>
+                Katalog Lowongan Industri (Database 4.570+)
+              </div>
+              <p style={{ fontSize: '0.84rem', color: '#1E3A8A', lineHeight: 1.5, margin: 0 }}>
+                Anda sedang menjelajahi lowongan riil. Untuk memproses <strong>prediksi kecocokan AI, SHAP Feature Attribution</strong>, dan <strong>DiCE Roadmap</strong> terhadap lowongan ini, silakan isi data transkrip Anda melalui tombol <strong>'Input Profil Mandiri'</strong> di atas.
+              </p>
+            </div>
+          </div>
+
+          {/* Job Description */}
+          <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '16px', padding: '1.25rem' }}>
+            <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Briefcase size={16} color="#2563EB" />
+              Deskripsi & Kebutuhan Pekerjaan:
+            </h4>
+            <p style={{ fontSize: '0.86rem', color: '#334155', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
+              {job.description || "Deskripsi pekerjaan lengkap tersedia di portal resmi perusahaan."}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* Dynamic AI Match Overview Hero (Respects Before vs After mode) - Only shown when XAI is available */}
+      {hasXAI && (
+        <>
+          <div className="match-overview-card" style={{
+            background: isBeforeMode 
+              ? 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)' 
+              : 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
+            border: isBeforeMode ? '1px solid #CBD5E1' : '1px solid #BFDBFE',
+            borderRadius: '16px',
+            padding: '1.25rem',
+            marginBottom: '1.25rem'
+          }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '0.9rem', marginBottom: '0.9rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
             <div style={{
@@ -508,6 +549,21 @@ export default function JobDetailDrawer({
           ) : (
             <p style={{ color: '#94A3B8', fontSize: '0.88rem' }}>Tidak ada rekomendasi intervensi tambahan untuk lowongan ini.</p>
           )}
+        </div>
+      )}
+      </>
+      )}
+
+      {/* Job Description (Available for all jobs with XAI) */}
+      {hasXAI && (
+        <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid #E2E8F0' }}>
+          <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <Briefcase size={16} color="#2563EB" />
+            Deskripsi & Kebutuhan Pekerjaan:
+          </h4>
+          <p style={{ fontSize: '0.86rem', color: '#334155', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
+            {job.description || "Deskripsi pekerjaan lengkap tersedia di portal resmi perusahaan."}
+          </p>
         </div>
       )}
     </div>

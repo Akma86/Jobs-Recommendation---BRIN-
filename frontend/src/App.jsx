@@ -182,6 +182,7 @@ export default function App() {
     setAccountMode('custom');
     setStudentData(customStudent);
     setSelectedStudentId(customStudent.id);
+    setActiveTab('recommend');
     if (customStudent.recommended_jobs && customStudent.recommended_jobs.length > 0) {
       setActiveJob(customStudent.recommended_jobs[0]);
     }
@@ -196,15 +197,31 @@ export default function App() {
       .then(res => res.json())
       .then(json => {
         if (json.status === 'success') {
-          setStudentData(json.data);
-          if (activeTab === 'recommend' && json.data.recommended_jobs && json.data.recommended_jobs.length > 0) {
-            setActiveJob(json.data.recommended_jobs[0]);
+          const st = json.data;
+          setStudentData(st);
+          const hasRecs = Boolean(st.recommended_jobs && st.recommended_jobs.length > 0 && st.has_custom_input !== false);
+          if (!hasRecs) {
+            // New user without KHS input -> display all catalog jobs
+            setActiveTab('explore_all');
+          } else {
+            if (activeTab === 'recommend' && st.recommended_jobs.length > 0) {
+              setActiveJob(st.recommended_jobs[0]);
+            }
           }
         }
       })
       .catch(err => console.error('Error fetching student detail:', err))
       .finally(() => setIsLoading(false));
   }, [selectedStudentId]);
+
+  // Auto-select catalog job when switching to explore_all
+  useEffect(() => {
+    if (activeTab === 'explore_all' && catalogJobs.length > 0) {
+      if (!activeJob || !catalogJobs.some(j => j.job_id === activeJob.job_id)) {
+        setActiveJob(catalogJobs[0]);
+      }
+    }
+  }, [activeTab, catalogJobs]);
 
   // Handle Save Job
   const handleToggleSave = (jobId) => {
@@ -253,6 +270,13 @@ export default function App() {
   if (!authUser) {
     return <LandingPortal onLoginSuccess={handleAuthSuccess} />;
   }
+
+  // Check if current student has computed recommendations
+  const hasRecommendations = Boolean(
+    studentData?.recommended_jobs && 
+    studentData.recommended_jobs.length > 0 && 
+    studentData?.has_custom_input !== false
+  );
 
   // Displayed jobs based on active tab
   const displayedJobs = activeTab === 'recommend' ? filteredRecommendedJobs : catalogJobs;
@@ -315,7 +339,9 @@ export default function App() {
         }}>
           <div className="candidate-left">
             <div className="candidate-avatar" style={{
-              background: accountMode === 'custom' ? 'linear-gradient(135deg, #10B981, #059669)' : '#2563EB'
+              background: accountMode === 'custom' 
+                ? (hasRecommendations ? 'linear-gradient(135deg, #10B981, #059669)' : 'linear-gradient(135deg, #F59E0B, #D97706)') 
+                : '#2563EB'
             }}>
               {studentData.name.charAt(0)}
             </div>
@@ -324,27 +350,35 @@ export default function App() {
                 {studentData.name}
                 <span style={{
                   fontSize: '0.72rem',
-                  background: accountMode === 'custom' ? '#D1FAE5' : (studentData.is_good ? '#ECFDF5' : '#FEF2F2'),
-                  color: accountMode === 'custom' ? '#065F46' : (studentData.is_good ? '#065F46' : '#991B1B'),
-                  border: `1px solid ${accountMode === 'custom' ? '#6EE7B7' : (studentData.is_good ? '#A7F3D0' : '#FECACA')}`,
+                  background: accountMode === 'custom' 
+                    ? (hasRecommendations ? '#D1FAE5' : '#FEF3C7') 
+                    : (studentData.is_good ? '#ECFDF5' : '#FEF2F2'),
+                  color: accountMode === 'custom' 
+                    ? (hasRecommendations ? '#065F46' : '#92400E') 
+                    : (studentData.is_good ? '#065F46' : '#991B1B'),
+                  border: `1px solid ${accountMode === 'custom' 
+                    ? (hasRecommendations ? '#6EE7B7' : '#FCD34D') 
+                    : (studentData.is_good ? '#A7F3D0' : '#FECACA')}`,
                   padding: '0.15rem 0.5rem',
                   borderRadius: '9999px',
                   fontWeight: 700
                 }}>
-                  {accountMode === 'custom' ? '👤 Mode Pengguna Mandiri' : (studentData.is_good ? '🟢 Benchmark Unggul' : '🔴 Perlu Penguatan')}
+                  {accountMode === 'custom' 
+                    ? (hasRecommendations ? '👤 Mode Pengguna Mandiri' : '⚠️ Belum Ada Input KHS') 
+                    : (studentData.is_good ? '🟢 Benchmark Unggul' : '🔴 Perlu Penguatan')}
                 </span>
               </h3>
               <div className="candidate-meta">
                 <span className="meta-pill">
-                  <GraduationCap size={14} /> Peminatan: <strong>{studentData.track}</strong>
+                  <GraduationCap size={14} /> Peminatan: <strong>{studentData.track || 'Belum Ditentukan'}</strong>
                 </span>
                 <span className="meta-pill">
-                  <BookOpen size={14} /> IPK: <strong>{studentData.ipk}</strong>
+                  <BookOpen size={14} /> IPK: <strong>{hasRecommendations ? studentData.ipk : 'Belum Ada Nilai KHS'}</strong>
                 </span>
                 <span className="meta-pill">
-                  <Award size={14} /> Portofolio: <strong>{studentData.num_certs} Sertifikat Industri</strong>
+                  <Award size={14} /> Portofolio: <strong>{studentData.num_certs || 0} Sertifikat Industri</strong>
                 </span>
-                {studentData.ab_test_summary && (
+                {hasRecommendations && studentData.ab_test_summary && (
                   <span className="meta-pill" style={{ background: '#EFF6FF', color: '#1E40AF', borderColor: '#BFDBFE' }}>
                     <TrendingUp size={14} /> Lonjakan Portofolio: <strong>+{studentData.ab_test_summary.max_delta} Skor</strong>
                   </span>
@@ -354,7 +388,7 @@ export default function App() {
           </div>
 
           <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
-            {accountMode === 'custom' ? (
+            {accountMode === 'custom' && hasRecommendations ? (
               <button 
                 className="btn-primary"
                 onClick={() => setShowUploadModal(true)}
@@ -369,7 +403,7 @@ export default function App() {
                   setAccountMode('custom');
                   setShowUploadModal(true);
                 }}
-                style={{ background: '#059669', border: 'none' }}
+                style={{ background: '#059669', border: 'none', display: 'flex', alignItems: 'center', gap: '0.4rem', boxShadow: '0 4px 12px rgba(5,150,105,0.25)' }}
               >
                 <Upload size={16} /> Input Profil Mandiri
               </button>
@@ -411,7 +445,7 @@ export default function App() {
           }}
         >
           <Sparkles size={18} />
-          🎯 Rekomendasi Karir Terpilih ({filteredRecommendedJobs.length} Top Jobs)
+          🎯 Rekomendasi Karir {hasRecommendations ? `(${filteredRecommendedJobs.length} Top Jobs)` : '(Belum Ada Input)'}
         </button>
 
         <button
@@ -437,8 +471,8 @@ export default function App() {
         </button>
       </div>
 
-      {/* Mode A/B Evaluasi Switcher (Hanya Muncul saat di Tab Rekomendasi) */}
-      {activeTab === 'recommend' && (
+      {/* Mode A/B Evaluasi Switcher (Hanya Muncul saat di Tab Rekomendasi yang Memiliki Data) */}
+      {activeTab === 'recommend' && hasRecommendations && (
         <div style={{
           background: '#FFFFFF',
           borderRadius: '16px',
@@ -542,8 +576,61 @@ export default function App() {
         </div>
       )}
 
-      {/* Search & Category Filter Section */}
-      <section className="search-filter-section">
+      {/* If on recommend tab but no data has been inputted yet -> Show rich empty state card */}
+      {activeTab === 'recommend' && !hasRecommendations ? (
+        <div style={{
+          background: '#FFFFFF',
+          border: '2px dashed #CBD5E1',
+          borderRadius: '20px',
+          padding: '3.5rem 2rem',
+          textAlign: 'center',
+          maxWidth: '680px',
+          margin: '2rem auto',
+          boxShadow: '0 8px 30px rgba(0,0,0,0.03)'
+        }}>
+          <div style={{
+            width: '64px',
+            height: '64px',
+            borderRadius: '20px',
+            background: '#EFF6FF',
+            color: '#2563EB',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto 1.25rem auto'
+          }}>
+            <Sparkles size={32} />
+          </div>
+          <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.65rem' }}>
+            Belum Ada Hasil Rekomendasi Karir Personal
+          </h3>
+          <p style={{ fontSize: '0.92rem', color: '#64748B', lineHeight: 1.6, marginBottom: '1.75rem' }}>
+            Akun Anda belum memiliki data transkrip Kartu Hasil Studi (KHS) dan Sertifikasi Industri. Sistem memerlukan capaian akademik Anda untuk menghasilkan rekomendasi terpersonalisasi berbasis <strong>Sentence-BERT Cross-Encoder, SHAP Attribution</strong>, dan <strong>DiCE Roadmap</strong>.
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+            <button 
+              className="btn-primary"
+              onClick={() => {
+                setAccountMode('custom');
+                setShowUploadModal(true);
+              }}
+              style={{ background: '#10B981', border: 'none', padding: '0.75rem 1.4rem', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+            >
+              <Upload size={18} /> Input Profil Mandiri (KHS & Sertifikat)
+            </button>
+            <button 
+              className="btn-outline"
+              onClick={() => setActiveTab('explore_all')}
+              style={{ padding: '0.75rem 1.4rem', fontSize: '0.95rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+            >
+              <Briefcase size={18} /> Jelajahi Seluruh 4.570 Katalog Lowongan
+            </button>
+          </div>
+        </div>
+      ) : (
+        <>
+          {/* Search & Category Filter Section */}
+          <section className="search-filter-section">
         <div className="search-input-wrapper">
           <Search size={20} className="search-icon" />
           <input 
@@ -681,6 +768,8 @@ export default function App() {
           evaluationMode={evaluationMode}
         />
       </main>
+      </>
+      )}
 
       {/* Modals */}
       {showUploadModal && (
