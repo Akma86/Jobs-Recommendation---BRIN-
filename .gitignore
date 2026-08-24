@@ -46,3 +46,7 @@ results/archive_eksperimen/
 # Ignore private KHS Akmal
 data/KHS AKMAL/*
 !data/KHS AKMAL/.gitkeep
+
+# MCP & Stitch configs (contains API keys)
+.agents/
+stitch_export/
