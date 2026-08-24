@@ -26,7 +26,8 @@ export default function Navbar({
   onLogout,
   onOpenProfileModal,
   onOpenUploadModal,
-  savedCount
+  savedCount,
+  hasRecommendations = true
 }) {
   const currentStudent = students.find(s => s.id === selectedStudentId);
   const demoStudents = students.filter(s => s.is_demo !== false);
@@ -47,7 +48,7 @@ export default function Navbar({
   return (
     <header className="navbar">
       {/* Brand */}
-      <div className="brand-logo" onClick={() => setActiveTab('recommend')}>
+      <div className="brand-logo" onClick={() => setActiveTab(hasRecommendations ? 'recommend' : 'explore_all')}>
         <div className="logo-icon-box">
           <Briefcase size={22} />
         </div>
@@ -65,13 +66,25 @@ export default function Navbar({
 
       {/* Navigation Tabs */}
       <nav className="nav-links">
-        <button 
-          className={`nav-btn ${activeTab === 'recommend' ? 'active' : ''}`}
-          onClick={() => setActiveTab('recommend')}
-        >
-          <Sparkles size={16} />
-          🎯 Rekomendasi Karir
-        </button>
+        {hasRecommendations ? (
+          <button 
+            className={`nav-btn ${activeTab === 'recommend' ? 'active' : ''}`}
+            onClick={() => setActiveTab('recommend')}
+          >
+            <Sparkles size={16} />
+            🎯 Rekomendasi Karir
+          </button>
+        ) : (
+          <button 
+            className="nav-btn"
+            onClick={onOpenUploadModal}
+            style={{ background: '#ECFDF5', color: '#065F46', border: '1px dashed #A7F3D0' }}
+            title="Klik untuk input KHS & menghasilkan rekomendasi karir"
+          >
+            <Sparkles size={16} color="#059669" />
+            ✨ Buat Rekomendasi (Input KHS)
+          </button>
+        )}
 
         <button 
           className={`nav-btn ${activeTab === 'explore_all' ? 'active' : ''}`}

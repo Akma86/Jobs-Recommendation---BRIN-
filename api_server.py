@@ -442,32 +442,26 @@ def startup_event():
     except Exception as e:
         print(f"Could not load online courses catalog: {e}")
 
-    # 4. Pre-seed Clean Default Custom User Profile (No fake recommendations before input)
-    try:
-        CACHE_STUDENTS["user-dummy"] = {
-            "id": "user-dummy",
-            "name": "Ahmad Fauzi (Akun Pengguna)",
-            "folder_name": "user-dummy",
-            "track": "Belum Ditentukan",
-            "profile_type": "Pengguna Baru (Belum Input KHS)",
-            "is_good": True,
-            "is_demo": False,
-            "has_custom_input": False,
-            "ipk": "- / 4.00",
-            "total_sks": "0 SKS",
-            "grade_counts": {},
-            "courses": [],
-            "certificates": [],
-            "num_certs": 0,
-            "top_job_title": "-",
-            "top_job_company": "-",
-            "top_score": 0.0,
-            "recommended_jobs": [],
-            "recommended_jobs_before": [],
-            "recommended_jobs_after": []
-        }
-    except Exception as e:
-        print(f"Error seeding default custom dummy: {e}")
+    # 4. Pre-seed Default Custom User Profile (Empty state waiting for user input)
+    CACHE_STUDENTS["user-dummy"] = {
+        "id": "user-dummy",
+        "name": "Ahmad Fauzi (Akun Pengguna)",
+        "folder_name": "user-dummy",
+        "track": "Machine Learning & AI",
+        "profile_type": "Akun Pengguna Mandiri",
+        "is_good": True,
+        "ipk": "0.00 / 4.00",
+        "total_sks": 0,
+        "num_certs": 0,
+        "is_demo": False,
+        "has_custom_profile": False,
+        "courses": [],
+        "certificates": [],
+        "recommended_jobs": [],
+        "recommended_jobs_after": [],
+        "recommended_jobs_before": [],
+        "grade_counts": {}
+    }
 
     print(f">>> [FastAPI] Startup ready in {time.time() - t0:.2f}s! Cached {len(CACHE_STUDENTS)} students & {len(JOBS_LIST)} jobs.")
 
@@ -655,7 +649,8 @@ def analyze_custom_student_data(
         "track": track,
         "profile_type": "Custom User" if not is_good else "Custom (Unggul)",
         "is_good": is_good,
-        "has_custom_input": True,
+        "is_demo": False,
+        "has_custom_profile": True,
         "ipk": ipk_str,
         "total_sks": f"{total_sks} SKS",
         "grade_counts": grade_counts,
@@ -665,7 +660,9 @@ def analyze_custom_student_data(
         "top_job_title": final_recommended_jobs[0]["title"] if final_recommended_jobs else "Job Applicant",
         "top_job_company": final_recommended_jobs[0]["company"] if final_recommended_jobs else "",
         "top_score": final_recommended_jobs[0]["score_after"] if final_recommended_jobs else 0.0,
-        "recommended_jobs": final_recommended_jobs
+        "recommended_jobs": final_recommended_jobs,
+        "recommended_jobs_after": final_recommended_jobs,
+        "recommended_jobs_before": final_recommended_jobs
     }
 
     # Store in in-memory cache
@@ -769,29 +766,26 @@ def register(req: RegisterRequest):
     if u in USERS_DB:
         raise HTTPException(status_code=400, detail="Username sudah terdaftar! Silakan login.")
 
-    # Create new clean student profile without dummy recommendations
+    # Create new custom student profile (waiting for user upload)
     slug_id = f"user-{u}"
     CACHE_STUDENTS[slug_id] = {
         "id": slug_id,
         "name": req.name,
         "folder_name": slug_id,
-        "track": req.track or "Belum Ditentukan",
-        "profile_type": "Pengguna Baru (Belum Input KHS)",
+        "track": req.track or "Machine Learning & AI",
+        "profile_type": "Akun Pengguna Mandiri",
         "is_good": True,
         "is_demo": False,
-        "has_custom_input": False,
-        "ipk": "- / 4.00",
-        "total_sks": "0 SKS",
-        "grade_counts": {},
+        "has_custom_profile": False,
+        "ipk": "0.00 / 4.00",
+        "total_sks": 0,
+        "num_certs": 0,
         "courses": [],
         "certificates": [],
-        "num_certs": 0,
-        "top_job_title": "-",
-        "top_job_company": "-",
-        "top_score": 0.0,
         "recommended_jobs": [],
+        "recommended_jobs_after": [],
         "recommended_jobs_before": [],
-        "recommended_jobs_after": []
+        "grade_counts": {}
     }
 
     user_obj = {
@@ -829,7 +823,6 @@ def get_all_students():
             "profile_type": s["profile_type"],
             "is_good": s["is_good"],
             "is_demo": is_demo,
-            "has_custom_input": s.get("has_custom_input", is_demo),
             "ipk": s["ipk"],
             "total_sks": s["total_sks"],
             "num_certs": s["num_certs"],

@@ -79,22 +79,40 @@ export default function JobCard({
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexShrink: 0 }}>
               {/* Match Score Badge */}
-              <div style={{
-                background: matchBadgeBg,
-                color: matchBadgeColor,
-                border: `1px solid ${matchBadgeBorder}`,
-                padding: isCompact ? '0.15rem 0.5rem' : '0.25rem 0.65rem',
-                borderRadius: '9999px',
-                fontSize: isCompact ? '0.76rem' : '0.82rem',
-                fontWeight: 800,
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.25rem',
-                boxShadow: isHighMatch ? '0 2px 6px rgba(16,185,129,0.15)' : 'none'
-              }}>
-                <Sparkles size={isCompact ? 11 : 13} />
-                {matchPct}%
-              </div>
+              {job.match_pct !== undefined ? (
+                <div style={{
+                  background: matchBadgeBg,
+                  color: matchBadgeColor,
+                  border: `1px solid ${matchBadgeBorder}`,
+                  padding: isCompact ? '0.15rem 0.5rem' : '0.25rem 0.65rem',
+                  borderRadius: '9999px',
+                  fontSize: isCompact ? '0.76rem' : '0.82rem',
+                  fontWeight: 800,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.25rem',
+                  boxShadow: isHighMatch ? '0 2px 6px rgba(16,185,129,0.15)' : 'none'
+                }}>
+                  <Sparkles size={isCompact ? 11 : 13} />
+                  {matchPct}%
+                </div>
+              ) : (
+                <div style={{
+                  background: '#F1F5F9',
+                  color: '#475569',
+                  border: '1px solid #CBD5E1',
+                  padding: isCompact ? '0.15rem 0.45rem' : '0.2rem 0.55rem',
+                  borderRadius: '9999px',
+                  fontSize: isCompact ? '0.72rem' : '0.76rem',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.25rem'
+                }}>
+                  <Briefcase size={isCompact ? 10 : 12} />
+                  Lowongan Riil
+                </div>
+              )}
 
               <button
                 onClick={(e) => {

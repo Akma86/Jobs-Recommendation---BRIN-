@@ -34,14 +34,16 @@ export default function JobDetailDrawer({
   onToggleSave,
   hasApplied,
   onApply,
-  evaluationMode = 'after'
+  evaluationMode = 'after',
+  hasRecommendations = true,
+  onOpenUploadModal
 }) {
   const [activeTab, setActiveTab] = useState('narrative');
 
   if (!job) {
     return (
       <div className="job-detail-panel" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '400px', color: '#94A3B8' }}>
-        <p>Pilih salah satu lowongan di sebelah kiri untuk melihat analisis XAI mendalam.</p>
+        <p>Pilih salah satu lowongan di sebelah kiri untuk melihat rincian pekerjaan.</p>
       </div>
     );
   }
@@ -59,6 +61,151 @@ export default function JobDetailDrawer({
     onApply(job.job_id);
   };
 
+  // If user has not analyzed recommendations yet, render clean Job Detail view without fake XAI
+  if (!hasRecommendations || job.match_pct === undefined) {
+    return (
+      <div className="job-detail-panel">
+        {/* Header */}
+        <div className="detail-header">
+          <div className="detail-title-box">
+            <div className="detail-logo" style={{ background: avatarBg }}>
+              {initial}
+            </div>
+            <div>
+              <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.2 }}>
+                {job.title}
+              </h2>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.35rem', color: '#64748B', fontSize: '0.88rem' }}>
+                <span style={{ fontWeight: 700, color: '#1E293B' }}>{job.company}</span>
+                <span>•</span>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                  <MapPin size={14} /> {job.location || 'Indonesia / Remote'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="detail-actions">
+            <button 
+              className="btn-outline"
+              onClick={() => onToggleSave(job.job_id)}
+            >
+              <Bookmark size={16} fill={isSaved ? "#2563EB" : "none"} color={isSaved ? "#2563EB" : "currentColor"} />
+              {isSaved ? "Tersimpan" : "Simpan"}
+            </button>
+
+            <button 
+              className="btn-primary"
+              onClick={handleApplyClick}
+              disabled={hasApplied}
+              style={{
+                background: hasApplied ? '#10B981' : 'var(--primary)',
+                cursor: hasApplied ? 'default' : 'pointer'
+              }}
+            >
+              {hasApplied ? (
+                <>
+                  <CheckCircle2 size={16} />
+                  Lamaran Terkirim
+                </>
+              ) : (
+                <>
+                  <Send size={16} />
+                  Lamar Lowongan
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Personalized AI Prediction CTA Banner */}
+        <div style={{
+          background: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)',
+          border: '1.5px solid #93C5FD',
+          borderRadius: '16px',
+          padding: '1.25rem 1.5rem',
+          marginBottom: '1.5rem',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          gap: '1rem',
+          flexWrap: 'wrap'
+        }}>
+          <div>
+            <div style={{ fontWeight: 800, color: '#1E40AF', fontSize: '0.98rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Sparkles size={18} color="#2563EB" />
+              Ingin Melihat Prediksi Keselarasan & Analisis XAI untuk Lowongan Ini?
+            </div>
+            <p style={{ fontSize: '0.84rem', color: '#334155', margin: '0.25rem 0 0 0', lineHeight: 1.45 }}>
+              Masukkan transkrip KHS dan sertifikat Anda untuk membuka skor kelayakan AI, kontribusi mata kuliah SHAP, dan DiCE counterfactuals.
+            </p>
+          </div>
+          {onOpenUploadModal && (
+            <button
+              className="btn-primary"
+              onClick={onOpenUploadModal}
+              style={{
+                background: '#2563EB',
+                fontSize: '0.85rem',
+                padding: '0.55rem 1.1rem',
+                borderRadius: '10px',
+                whiteSpace: 'nowrap',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+            >
+              <Sparkles size={15} /> Input Profil Mandiri
+            </button>
+          )}
+        </div>
+
+        {/* Job Details: Description & Matched Skills */}
+        <div style={{
+          background: '#FFFFFF',
+          border: '1px solid #E2E8F0',
+          borderRadius: '16px',
+          padding: '1.5rem',
+          marginBottom: '1.25rem'
+        }}>
+          <h3 style={{ fontSize: '1.05rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+            <Building2 size={18} color="#2563EB" />
+            Deskripsi Pekerjaan
+          </h3>
+          <p style={{ fontSize: '0.92rem', color: '#334155', lineHeight: 1.65, whiteSpace: 'pre-line' }}>
+            {job.description || "Tidak ada deskripsi rinci untuk lowongan ini."}
+          </p>
+
+          {job.skills && (
+            <div style={{ marginTop: '1.25rem', paddingTop: '1rem', borderTop: '1px solid #F1F5F9' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: '#64748B', marginBottom: '0.5rem' }}>
+                Keterampilan & Kualifikasi yang Diperlukan:
+              </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.45rem' }}>
+                {job.skills.split(',').map((sk, idx) => (
+                  <span 
+                    key={idx}
+                    style={{
+                      background: '#F1F5F9',
+                      color: '#334155',
+                      padding: '0.3rem 0.65rem',
+                      borderRadius: '8px',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      border: '1px solid #E2E8F0'
+                    }}
+                  >
+                    {sk.trim()}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   const isBeforeMode = evaluationMode === 'before' || job.condition === 'before';
 
   const beforePct = job.match_pct_before || Math.max(15.0, Number((job.match_pct - (job.delta > 0.1 ? job.delta * 4.5 : 0)).toFixed(1)));
@@ -69,8 +216,6 @@ export default function JobDetailDrawer({
   // Current active metrics based on mode
   const currentMatchPct = isBeforeMode ? beforePct : job.match_pct;
   const currentIndexScore = isBeforeMode ? indexBefore : indexAfter;
-
-  const hasXAI = Boolean(job.narrative || (job.shap_features && job.shap_features.length > 0));
 
   // Separate components for Smart Explanation
   const allComponents = job.narrative?.components || [];
@@ -132,55 +277,16 @@ export default function JobDetailDrawer({
         </div>
       </div>
 
-      {/* If viewing general catalog job without personalized XAI profile yet */}
-      {!hasXAI && (
-        <div>
-          <div style={{
-            background: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)',
-            border: '1px solid #BFDBFE',
-            borderRadius: '16px',
-            padding: '1.25rem',
-            marginBottom: '1.25rem',
-            display: 'flex',
-            alignItems: 'flex-start',
-            gap: '0.85rem'
-          }}>
-            <Sparkles size={22} color="#2563EB" style={{ flexShrink: 0, marginTop: '2px' }} />
-            <div>
-              <div style={{ fontSize: '0.95rem', fontWeight: 800, color: '#1E40AF', marginBottom: '0.25rem' }}>
-                Katalog Lowongan Industri (Database 4.570+)
-              </div>
-              <p style={{ fontSize: '0.84rem', color: '#1E3A8A', lineHeight: 1.5, margin: 0 }}>
-                Anda sedang menjelajahi lowongan riil. Untuk memproses <strong>prediksi kecocokan AI, SHAP Feature Attribution</strong>, dan <strong>DiCE Roadmap</strong> terhadap lowongan ini, silakan isi data transkrip Anda melalui tombol <strong>'Input Profil Mandiri'</strong> di atas.
-              </p>
-            </div>
-          </div>
-
-          {/* Job Description */}
-          <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '16px', padding: '1.25rem' }}>
-            <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Briefcase size={16} color="#2563EB" />
-              Deskripsi & Kebutuhan Pekerjaan:
-            </h4>
-            <p style={{ fontSize: '0.86rem', color: '#334155', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
-              {job.description || "Deskripsi pekerjaan lengkap tersedia di portal resmi perusahaan."}
-            </p>
-          </div>
-        </div>
-      )}
-
-      {/* Dynamic AI Match Overview Hero (Respects Before vs After mode) - Only shown when XAI is available */}
-      {hasXAI && (
-        <>
-          <div className="match-overview-card" style={{
-            background: isBeforeMode 
-              ? 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)' 
-              : 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
-            border: isBeforeMode ? '1px solid #CBD5E1' : '1px solid #BFDBFE',
-            borderRadius: '16px',
-            padding: '1.25rem',
-            marginBottom: '1.25rem'
-          }}>
+      {/* Dynamic AI Match Overview Hero (Respects Before vs After mode) */}
+      <div className="match-overview-card" style={{
+        background: isBeforeMode 
+          ? 'linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%)' 
+          : 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
+        border: isBeforeMode ? '1px solid #CBD5E1' : '1px solid #BFDBFE',
+        borderRadius: '16px',
+        padding: '1.25rem',
+        marginBottom: '1.25rem'
+      }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid #E2E8F0', paddingBottom: '0.9rem', marginBottom: '0.9rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
             <div style={{
@@ -549,21 +655,6 @@ export default function JobDetailDrawer({
           ) : (
             <p style={{ color: '#94A3B8', fontSize: '0.88rem' }}>Tidak ada rekomendasi intervensi tambahan untuk lowongan ini.</p>
           )}
-        </div>
-      )}
-      </>
-      )}
-
-      {/* Job Description (Available for all jobs with XAI) */}
-      {hasXAI && (
-        <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid #E2E8F0' }}>
-          <h4 style={{ fontSize: '0.92rem', fontWeight: 800, color: '#0F172A', marginBottom: '0.65rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            <Briefcase size={16} color="#2563EB" />
-            Deskripsi & Kebutuhan Pekerjaan:
-          </h4>
-          <p style={{ fontSize: '0.86rem', color: '#334155', lineHeight: 1.6, whiteSpace: 'pre-line' }}>
-            {job.description || "Deskripsi pekerjaan lengkap tersedia di portal resmi perusahaan."}
-          </p>
         </div>
       )}
     </div>
