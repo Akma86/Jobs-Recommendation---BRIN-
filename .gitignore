@@ -39,6 +39,7 @@ Thumbs.db
 *.csv
 *.xlsx
 *.png
+*.zip
 
 # Archived experiment results
 results/archive_eksperimen/
